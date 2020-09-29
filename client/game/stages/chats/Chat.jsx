@@ -87,8 +87,6 @@ export default class Chat extends Component {
 
         chatProperties.isInvolved = chatProperties.playersInvolved.includes(player.get("type"));
 
-        console.log(chatProperties);
-
         if (chatProperties.isInvolved) {
             return (
                 <div>

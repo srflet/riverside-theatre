@@ -9,6 +9,7 @@ import ComStructFull from './communication-structure/ComStructFull';
 
 //Importing elements for chat
 import Chat from './chats/Chat';
+import NextStageButton from '../general-ui/NextStageButton';
 
 export default class Discussion extends Component {
     render() {
@@ -24,6 +25,8 @@ export default class Discussion extends Component {
                     <Chat round={round} game={game} player={player} chatNb={2} />
                     {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
 
+                    {/* Just for production */}
+                    <NextStageButton player={player} />
                 </div>
             )
         } else {

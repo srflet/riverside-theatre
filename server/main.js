@@ -8,9 +8,6 @@ import { TestCollection } from './db/Test';
 
 Meteor.startup(() => {
 	TestCollection.insert({ text: "hello" });
-
-	console.log(TestCollection.find().fetch());
-	console.log(process.env);
 });
 
 /*-------------------
@@ -24,11 +21,22 @@ function choice(array) {
 	return randomElement;
 }
 
-
-//Function to randomly choose an element from an array (but also removes it):
-function popChoice(array) {
-	var randomIndex = Math.floor(Math.random() * array.length);
-	return array.splice(randomIndex, 1)[0];
+//shuffle(): Fisher-Yates shuffle from https://www.frankmitchell.org/2015/01/fisher-yates/
+function shuffle(array) {
+	var i = 0, j = 0, temp = null;
+	//Start with i one less than the array size, and decrement i everytime
+	for (i = array.length - 1; i > 0; i -= 1) {
+		//Math.random() returns a random number between 0 (inclusive) and 1 (exclusive)
+		//Math.floor() function returns the largest integer less than or equal to a given number.
+		//This will return an integer that is a possible index of the array
+		j = Math.floor(Math.random() * (i + 1));
+		//Swap the last element of the array (index i) with the element at index j (randomly generated:
+		temp = array[i];
+		array[i] = array[j];
+		array[j] = temp;
+	}
+	//return the shuffled array
+	return array;
 }
 
 /*--------
@@ -66,7 +74,10 @@ Empirica.gameInit(game => {
 	const counterbalancedClues = choice(clueConterbalancingPossibilities);
 
 	//Prepare the player types
-	const playerTypes = ["A", "B", "C"];
+	let playerTypes = ["A", "B", "C"];
+
+	//Shuffle the player types
+	playerTypes = shuffle(playerTypes);
 
 	//Setting up the players
 	game.players.forEach((player, i) => {
@@ -76,7 +87,7 @@ Empirica.gameInit(game => {
 		player.set("initials", `NoInitials(${i})`);
 
 		//Randomise which player type they are:
-		player.set("type", popChoice(playerTypes));
+		player.set("type", playerTypes[i]);
 
 		//Giving individual clues to the players (NEED TO RANDOMISE!)
 		if (player.get("type") === "A") {
@@ -94,7 +105,6 @@ Empirica.gameInit(game => {
 	----------------------------------*/
 
 	//Setting up the round.
-	//Giving it the policeClues
 	const round = game.addRound({
 		data: {
 			messages: []
