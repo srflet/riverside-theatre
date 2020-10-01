@@ -14,14 +14,15 @@ import GeneralIntroduction from "./intro/GeneralIntroduction";
 import PoliceInformation from "./intro/PoliceInformation";
 import Quiz from "./intro/Quiz";
 
+//Breadcrumb (progress bar):
+import Breadcrumb from "./game/general-ui/BreadCrumb"
+
 //Game:
 import Round from "./game/Round";
 
 //Exit
 import ExitSurvey from "./exit/ExitSurvey";
 import Thanks from "./exit/Thanks";
-
-
 
 // Set the About Component you want to use for the About dialog (optional).
 Empirica.about(About);
@@ -41,6 +42,9 @@ Empirica.introSteps((game, treatment) => {
 
 // The Round component containing the game UI logic.
 Empirica.round(Round);
+
+//Getting rid of the breadcrums (the progress bar):
+Empirica.breadcrumb(Breadcrumb);
 
 // End of Game pages.
 // The last step will be the last page shown to user and will be shown to the

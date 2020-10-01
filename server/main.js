@@ -7,12 +7,19 @@ import "./callbacks.js";
 import { TestCollection } from './db/Test';
 
 Meteor.startup(() => {
-	TestCollection.insert({ text: "hello" });
+	TestCollection.insert({ text: "hello", createdAt: new Date() });
 });
 
 /*-------------------
 - Helper functions: -
 -------------------*/
+
+//Function to randomly choose an element from an array (but also removes it):
+function popChoice(array) {
+	var randomIndex = Math.floor(Math.random() * array.length);
+	return array.splice(randomIndex, 1)[0];
+}
+
 
 //Function to randomly choose an element from an array:
 function choice(array) {
@@ -44,19 +51,20 @@ function shuffle(array) {
 --------*/
 
 //Importing the clues
-import { clues1 } from "./stimuli/clues/clues1";
-import { clues2 } from "./stimuli/clues/clues2";
-import { clues3 } from "./stimuli/clues/clues3";
+import { cluesA } from "./stimuli/clues/cluesA";
+import { cluesB } from "./stimuli/clues/cluesB";
+import { cluesC } from "./stimuli/clues/cluesC";
 
-//Preparing the different possible distributions of clues
-const clueConterbalancingPossibilities = [
-	{ A: clues1, B: clues2, C: clues3 },
-	{ A: clues1, B: clues3, C: clues2 },
-	{ A: clues2, B: clues1, C: clues3 },
-	{ A: clues2, B: clues3, C: clues1 },
-	{ A: clues3, B: clues1, C: clues2 },
-	{ A: clues3, B: clues2, C: clues1 }
-];
+/*----------
+- Avatars: -
+----------*/
+
+//Importing the paths to the personalised avatar images
+import { avatarPaths } from './avatars/avatarPaths';
+
+//Prepare elements for players to randomly draw an avatar:
+const avatarShapes = ["first", "second", "third"];
+const avatarColors = ["color1", "color2", "color3"];
 
 /*-----------
 - gameInit: -
@@ -70,9 +78,6 @@ Empirica.gameInit(game => {
 	- Setting up the players: -
 	-------------------------*/
 
-	//Randomly selecting the counterbalanced distribution for this game
-	const counterbalancedClues = choice(clueConterbalancingPossibilities);
-
 	//Prepare the player types
 	let playerTypes = ["A", "B", "C"];
 
@@ -81,7 +86,12 @@ Empirica.gameInit(game => {
 
 	//Setting up the players
 	game.players.forEach((player, i) => {
-		player.set("avatar", `/avatars/jdenticon/${player._id}`);
+
+		//Getting the avatar
+		let shape = popChoice(avatarShapes);
+		let color = popChoice(avatarColors);
+		let avatar = avatarPaths[shape][color];
+		player.set("avatar", avatar);
 
 		//Prepare their initials
 		player.set("initials", `NoInitials(${i})`);
@@ -89,14 +99,16 @@ Empirica.gameInit(game => {
 		//Randomise which player type they are:
 		player.set("type", playerTypes[i]);
 
-		//Giving individual clues to the players (NEED TO RANDOMISE!)
+		//Giving individual clues to the players (No counterbalancing)
 		if (player.get("type") === "A") {
-			player.set("independent-clues", counterbalancedClues.A.clues);
+			player.set("independent-clues", cluesA);
 		} else if (player.get("type") === "B") {
-			player.set("independent-clues", counterbalancedClues.B.clues);
+			player.set("independent-clues", cluesB);
 		} else {
-			player.set("independent-clues", counterbalancedClues.C.clues);
+			player.set("independent-clues", cluesC);
 		}
+
+		player.set("whodunit", "");
 
 	});
 
@@ -131,7 +143,7 @@ Empirica.gameInit(game => {
 
 	round.addStage({
 		name: "intro_discussion",
-		displayName: "Introducing Discussion",
+		displayName: "Introducing the Discussion",
 		durationInSeconds: 999999999999
 	});
 
@@ -150,6 +162,18 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
+		durationInSeconds: 999999999999
+	});
+
+	round.addStage({
+		name: "final_quiz_question",
+		displayName: "Quiz Question",
+		durationInSeconds: 999999999999
+	});
+
+	round.addStage({
+		name: "final_quiz_answer",
+		displayName: "Quiz Answer",
 		durationInSeconds: 999999999999
 	});
 

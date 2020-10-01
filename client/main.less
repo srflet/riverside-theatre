@@ -1,57 +1,41 @@
+* {
+	font-family: Calibri, Arial, sans-serif;
+}
+
 .round {
   display: flex;
   flex-direction: column;
   height: 100%;
 
   .content {
-    flex-grow: 1;
     height: 100%;
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
   }
 
-  .player-profile {
-    display: flex;
-    flex-direction: column;
-    width: 24rem;
-    min-height: 100%;
-    align-items: center;
-    padding: 3rem 4rem;
 
-    .profile-avatar {
-      width: 8rem;
-      height: 8rem;
-      margin: 3rem 0;
+  .footer {
+    margin-top: 5rem;
+    flex-shrink: 0;
+  }
+
+  .timer {
+    text-align: center;
+
+    .seconds {
+      // Helvetica has tabular numbers (fixed width), which looks better
+      // for a timer, doesn't jump all over the place.
+      font-family: Helvetica, Arial, sans-serif;
+      color: green;
     }
-
-    .profile-score {
-      text-align: center;
-      span {
-        font-size: 3rem;
-        font-weight: bold;
-      }
-    }
-
-    .timer {
-      margin-top: 2rem;
-      text-align: center;
-
+    &.lessThan10 {
       .seconds {
-        font-size: 3rem;
-        // Helvetica has tabular numbers (fixed width), which looks better
-        // for a timer, doesn't jump all over the place.
-        font-family: Helvetica, Arial, sans-serif;
-        color: green;
+        color: orange;
       }
-      &.lessThan10 {
-        .seconds {
-          color: orange;
-        }
-      }
-      &.lessThan5 {
-        .seconds {
-          color: red;
-        }
+    }
+    &.lessThan5 {
+      .seconds {
+        color: red;
       }
     }
   }
@@ -84,26 +68,6 @@
     }
   }
 
-  .social-exposure {
-    margin: 4rem;
-
-    .alter {
-      display: flex;
-      padding-right: 3rem;
-
-      img {
-        width: 6rem;
-        height: 6rem;
-        margin-right: 3rem;
-      }
-
-      .range {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
 }
 
 button {
@@ -117,7 +81,46 @@ button {
   }
 }
 
-.instructions,
+.button-holder{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+	button {
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid #394B59;
+    background-color: #394B59;
+    color: white;
+	}
+  
+  button:hover {
+    background-color: #b1c3d0;
+    color: #394B59;
+  }
+
+  button:disabled {
+    background-color: #b1c3d0;
+    color: #394B59;
+  }
+
+}
+
+.messageSubmit {
+	width: 10%;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #394B59;
+	background-color: #394B59;
+	color: white;
+	margin: 0px;
+  
+    &:hover {
+	  background-color: #b1c3d0;
+	  color: #394B59;
+    }
+  }
+
 .quiz,
 .exit-survey {
   button {
@@ -182,5 +185,35 @@ button {
   bottom: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+
+/* Message styles */
+
+.sender-message {
+  background-color: rgba(73, 215, 211, 0.5);
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f2f6fa;
+}
+
+.receiver-message {
+  background-color: #f2f6fa;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(73, 215, 211, 0.5);
+
+}
+
+/* General style for labels */
+label {
+  display: block;
+  margin: 2rem 0 1rem;
+}
+
+/* General style for centring */
+.centred {
+  display: flex;
   justify-content: center;
 }

@@ -8,3 +8,5 @@ development.json
 dev.json
 local.json
 mongodb-launch.txt
+start.bat
+deploy.bat

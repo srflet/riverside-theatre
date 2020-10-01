@@ -12,16 +12,23 @@ export default class Message extends Component {
 
     render() {
 
+        //Getting the message:
         //For some reason React would not let me pass an object, so I pass the object in an array and I need to access it now
         const message = this.props.message[0];
+
+        //Getting the date:
+        const date = new Date(message.createdAt).toLocaleTimeString().trim();
+
+        //Get whether you are the send or not
         const player = this.props.player;
+        const isSender = player._id === message.sender;
 
         return (
-            <div style={messageContainer}>
+            <div style={messageContainer} className={isSender ? "sender-message" : "receiver-message"}>
                 <p style={headContainer}>
                     <img src={this.getSenderPlayer().get("avatar")} style={miniAvatar} />
                     &emsp;<span><strong>{this.getSenderPlayer().get("initials")}</strong></span>
-                    &emsp;<span style={dateStyle}>{message.createdAt}</span>
+                    &emsp;<span style={dateStyle}>{date}</span>
                 </p>
                 <p>
                     <span style={messageStyle}>{message.text}</span>
@@ -45,7 +52,8 @@ const miniAvatar = {
 const headContainer = {
     display: "flex",
     flexDirection: "row",
-    alignItems: "baseline"
+    alignItems: "center",
+    margin: "0px"
 };
 
 const dateStyle = {
@@ -53,11 +61,12 @@ const dateStyle = {
 };
 
 const messageContainer = {
-    padding: "2rem",
+    padding: "0.5rem",
     marginBottom: "15px",
-    backgroundColor: "rgb(73, 215, 211, 0.5)",
     borderRadius: "5px",
     overflowWrap: "break-word",
 };
 
-const messageStyle = {};
+const messageStyle = {
+    padding: "0.5rem",
+};

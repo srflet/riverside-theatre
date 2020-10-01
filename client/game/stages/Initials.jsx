@@ -47,11 +47,11 @@ export default class Initials extends Component {
 
             //If the player has clicked to set their initials and go to the next stage, render this message. Otherwise, ask for the i
             return (
-                <div className="quiz">
-                    <h1> Initials </h1>
+                <div>
+                    <h2> Initials </h2>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <label htmlFor="initials">Please insert your initials plus a random letter so to make communication with other players in the final stage easier. For example, if your name is "Jane Smith", you could write "JSD".</label>
+                            <label htmlFor="initials">Please insert your initials plus a random letter so to make communication with other players in the final stage easier (for a minimum and maximum of 3 letters). For example, if your name is "Jane Smith", you could write "JSD".</label>
                             <input
                                 type="text"
                                 dir="auto"
@@ -66,12 +66,10 @@ export default class Initials extends Component {
 
                             {/* If the initials have been submitted, show this message. Otherwise, show the button to submit the initials */}
                             {this.state.isNextStage ?
-                                <div>Thank you for submitting your initials &quot;{this.state.initials}&quot;. The other players must also submit their initials and end this stage before you all move on to the next one. </div>
+                                <div className="button-holder"><button type="submit" disabled>Submit Initials</button></div>
                                 :
-                                <input
-                                    type="submit"
-                                    value="Set initials and go to next stage"
-                                />}
+                                <div className="button-holder"><button type="submit">Submit Initials</button></div>
+                            }
 
                         </div>
                     </form>

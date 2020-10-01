@@ -14,10 +14,29 @@ export default class ComStructShape extends Component {
             return initials;
         }
 
+        const returnPlayerAvatar = (type) => {
+            let avatar = game.players.filter(player => {
+                return player.get("type") === type
+            }).map(player => {
+                return player.get("avatar")
+            })
+
+            return avatar;
+        }
+
         const structureProperties = {
-            playerA: player.get("type") === "A" ? "YOU" : returnPlayerInitials("A"),
-            playerB: player.get("type") === "B" ? "YOU" : returnPlayerInitials("B"),
-            playerC: player.get("type") === "C" ? "YOU" : returnPlayerInitials("C")
+            playerA: {
+                initials: player.get("type") === "A" ? "YOU" : returnPlayerInitials("A"),
+                avatar: returnPlayerAvatar("A"),
+            },
+            playerB: {
+                initials: player.get("type") === "B" ? "YOU" : returnPlayerInitials("B"),
+                avatar: returnPlayerAvatar("B"),
+            },
+            playerC: {
+                initials: player.get("type") === "C" ? "YOU" : returnPlayerInitials("C"),
+                avatar: returnPlayerAvatar("C"),
+            }
         };
 
         return (
@@ -25,32 +44,35 @@ export default class ComStructShape extends Component {
                 <svg width="300" height="200">
 
                     {/* Node Player A */}
-                    <circle cx="150" cy="50" r="40" stroke="grey" strokeWidth="1" fill="#d8fffe" />
-                    <text x="138" y="55" fill="black">{structureProperties.playerA}</text>
+                    <circle cx="150" cy="50" r="5" fill="black" />
+                    <text x="150" y="40" fill="black" textAnchor="middle">{structureProperties.playerA.initials}</text>
+                    <image x="135" y="0" href={structureProperties.playerA.avatar} height="30" width="30" />
 
                     {/* Node Player B */}
-                    <circle cx="50" cy="150" r="40" stroke="grey" strokeWidth="1" fill="#d8fffe" />
-                    <text x="38" y="155" fill="black">{structureProperties.playerB}</text>
+                    <circle cx="50" cy="150" r="5" fill="black" />
+                    <text x="30" y="155" fill="black" textAnchor="middle">{structureProperties.playerB.initials}</text>
+                    <image x="15" y="165" href={structureProperties.playerB.avatar} height="30" width="30" />
 
                     {/* Node Player C */}
-                    <circle cx="250" cy="150" r="40" stroke="grey" strokeWidth="1" fill="#d8fffe" />
-                    <text x="238" y="155" fill="black">{structureProperties.playerC}</text>
+                    <circle cx="250" cy="150" r="5" fill="black" />
+                    <text x="270" y="155" fill="black" textAnchor="middle">{structureProperties.playerC.initials}</text>
+                    <image x="255" y="165" href={structureProperties.playerC.avatar} height="30" width="30" />
 
                     {/* Link A and B */}
-                    <line x1="150" y1="90" x2="50" y2="110" stroke="grey" />
+                    <line x1="150" y1="50" x2="50" y2="150" stroke="black" />
 
                     {/* Link A and C */}
-                    <line x1="150" y1="90" x2="250" y2="110" stroke="grey" />
+                    <line x1="150" y1="50" x2="250" y2="150" stroke="black" />
 
                     {/* Link B and C */}
                     {game.treatment.brokerage === "nonbrok" ?
-                        <line x1="90" y1="150" x2="210" y2="150" stroke="grey" />
+                        <line x1="50" y1="150" x2="250" y2="150" stroke="black" />
                         :
                         ""}
 
                 </svg>
 
-            </div>
+            </div >
         )
     }
 }

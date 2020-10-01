@@ -18,15 +18,26 @@ export default class Discussion extends Component {
         if (stage.name == "discussion") {
             return (
                 <div>
-                    <PoliceClues />
-                    <PersonalClues player={player} />
-                    <ComStructFull game={game} player={player} />
-                    <Chat round={round} game={game} player={player} chatNb={1} />
-                    <Chat round={round} game={game} player={player} chatNb={2} />
-                    {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
+                    <div style={informationHolder}>
+                        <div style={{ marginTop: "2rem", }}>
+                            <PoliceClues />
+                        </div>
+
+                        <div style={{ marginTop: "2rem", }}>
+                            <ComStructFull game={game} player={player} />
+                        </div>
+
+                    </div>
+
+                    <div style={chatHolder}>
+                        <Chat round={round} game={game} player={player} chatNb={1} />
+                        <Chat round={round} game={game} player={player} chatNb={2} />
+                        {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
+                    </div>
+
 
                     {/* Just for production */}
-                    <NextStageButton player={player} />
+                    <NextStageButton player={player} game={game} />
                 </div>
             )
         } else {
@@ -37,10 +48,20 @@ export default class Discussion extends Component {
 
 
 //Style variables
-const chatBox = {
-    padding: "30px",
-    maxHeight: "500px",
-    overflowY: "scroll",
-    borderWidth: "thin",
-    borderStyle: "solid",
+const informationHolder = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginTop: "2rem",
+    flexWrap: "wrap",
 };
+
+const chatHolder = {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    marginTop: "2rem",
+    flexWrap: "wrap",
+};
+
+
