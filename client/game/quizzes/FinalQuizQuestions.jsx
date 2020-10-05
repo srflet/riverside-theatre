@@ -21,7 +21,7 @@ export default class FinalQuizQuestion extends Component {
     render() {
         const { player, stage, game } = this.props;
 
-        if (stage.name == "final_quiz_question") {
+        if (stage.name == "final_quiz_questions") {
             return (
                 <div>
                     <h2>Quiz - Questions</h2>

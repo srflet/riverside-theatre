@@ -130,32 +130,8 @@ Empirica.gameInit(game => {
 	});
 
 	round.addStage({
-		name: "independent_investigation",
-		displayName: "Independent Investigation",
-		durationInSeconds: 999999999999
-	});
-
-	round.addStage({
-		name: "summary_clues",
-		displayName: "Summary of Clues",
-		durationInSeconds: 999999999999
-	});
-
-	round.addStage({
-		name: "intro_discussion",
-		displayName: "Introducing the Discussion",
-		durationInSeconds: 999999999999
-	});
-
-	round.addStage({
-		name: "incentives",
-		displayName: "Incentives",
-		durationInSeconds: 999999999999
-	});
-
-	round.addStage({
-		name: "pres_com_struct",
-		displayName: "Presenting Communication Structure",
+		name: "personalised_instructions",
+		displayName: "Instructions",
 		durationInSeconds: 999999999999
 	});
 
@@ -166,14 +142,14 @@ Empirica.gameInit(game => {
 	});
 
 	round.addStage({
-		name: "final_quiz_question",
-		displayName: "Quiz Question",
+		name: "final_quiz_questions",
+		displayName: "Quiz Questions",
 		durationInSeconds: 999999999999
 	});
 
 	round.addStage({
-		name: "final_quiz_answer",
-		displayName: "Quiz Answer",
+		name: "final_quiz_answers",
+		displayName: "Quiz Answers",
 		durationInSeconds: 999999999999
 	});
 

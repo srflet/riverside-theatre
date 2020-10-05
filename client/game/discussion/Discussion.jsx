@@ -2,10 +2,10 @@ import React, { Component, Fragment } from 'react';
 
 //Importing clues
 import PoliceClues from '../../intro/PoliceClues';
-import PersonalClues from './clues/PersonalClues';
+import PersonalClues from '../clues/PersonalClues';
 
 //Importing communication structure
-import ComStructFull from './communication-structure/ComStructFull';
+import ComStructFull from '../communication-structure/ComStructFull';
 
 //Importing elements for chat
 import Chat from './chats/Chat';
