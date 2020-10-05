@@ -62,10 +62,6 @@ import { cluesC } from "./stimuli/clues/cluesC";
 //Importing the paths to the personalised avatar images
 import { avatarPaths } from './avatars/avatarPaths';
 
-//Prepare elements for players to randomly draw an avatar:
-const avatarShapes = ["first", "second", "third"];
-const avatarColors = ["color1", "color2", "color3"];
-
 /*-----------
 - gameInit: -
 -----------*/
@@ -83,6 +79,10 @@ Empirica.gameInit(game => {
 
 	//Shuffle the player types
 	playerTypes = shuffle(playerTypes);
+
+	//Prepare elements for players to randomly draw an avatar:
+	const avatarShapes = ["first", "second", "third"];
+	const avatarColors = ["color1", "color2", "color3"];
 
 	//Setting up the players
 	game.players.forEach((player, i) => {
