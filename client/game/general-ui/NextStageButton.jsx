@@ -11,10 +11,7 @@ export default class NextStageButton extends Component {
     render() {
         return (
             <div className="button-holder">
-                {this.props.player.stage.submitted
-                    ? <button onClick={this.endStage} disabled>Next Stage</button>
-                    : <button onClick={this.endStage}>Next Stage</button>
-                }
+                <button onClick={this.endStage} disabled={this.props.player.stage.submitted}>Next Stage</button>
             </div>
         )
     }

@@ -65,11 +65,7 @@ export default class Initials extends Component {
                             />
 
                             {/* If the initials have been submitted, show this message. Otherwise, show the button to submit the initials */}
-                            {this.state.isNextStage ?
-                                <div className="button-holder"><button type="submit" disabled>Submit Initials</button></div>
-                                :
-                                <div className="button-holder"><button type="submit">Submit Initials</button></div>
-                            }
+                            <div className="button-holder"><button type="submit" disabled={this.state.isNextStage}>Submit Initials</button></div>
 
                         </div>
                     </form>
