@@ -50,10 +50,15 @@ function shuffle(array) {
 - Clues: -
 --------*/
 
-//Importing the clues
+//Importing the completed clues
 import { cluesA } from "./stimuli/clues/cluesA";
 import { cluesB } from "./stimuli/clues/cluesB";
 import { cluesC } from "./stimuli/clues/cluesC";
+
+//Importing the blanked clues
+import { cluesA_blank } from "./stimuli/clues/cluesA_blank.js";
+import { cluesB_blank } from "./stimuli/clues/cluesB_blank.js";
+import { cluesC_blank } from "./stimuli/clues/cluesC_blank.js";
 
 /*----------
 - Avatars: -
@@ -119,7 +124,13 @@ Empirica.gameInit(game => {
 	//Setting up the round.
 	const round = game.addRound({
 		data: {
-			messages: []
+			messages: [],
+			cluesA: cluesA,
+			cluesB: cluesB,
+			cluesC: cluesC,
+			cluesA_blank: cluesA_blank,
+			cluesB_blank: cluesB_blank,
+			cluesC_blank: cluesC_blank
 		}
 	});
 

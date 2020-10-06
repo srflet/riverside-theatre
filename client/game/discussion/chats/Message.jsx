@@ -3,11 +3,11 @@ import React, { Component, Fragment } from 'react'
 export default class Message extends Component {
 
     getSenderPlayer = () => {
-        let currentPlayer = this.props.game.players.filter(player => {
+        let senderPlayer = this.props.game.players.filter(player => {
             return player._id === this.props.message[0].sender;
         })
 
-        return currentPlayer[0];
+        return senderPlayer[0];
     }
 
     render() {
@@ -23,11 +23,24 @@ export default class Message extends Component {
         const player = this.props.player;
         const isSender = player._id === message.sender;
 
+        //Whether this is a competition treatment
+        const isCompetition = this.props.game.treatment.competition === "comp";
+
+        //Get whether the sender is a competitor
+        const isSenderCompeting = isCompetition && (this.getSenderPlayer().get("type") === "A" || this.getSenderPlayer().get("type") === "B");
+
+        //Get whether current player is a competitor
+        const isPlayerCompeting = isCompetition && (player.get("type") === "A" || player.get("type") === "B");
+
+        //Should mention competition?
+        const isCompetitionMessage = isSenderCompeting && isPlayerCompeting && !isSender;
+
         return (
             <div style={messageContainer} className={isSender ? "sender-message" : "receiver-message"}>
                 <p style={headContainer}>
                     <img src={this.getSenderPlayer().get("avatar")} style={miniAvatar} />
-                    &emsp;<span><strong>{this.getSenderPlayer().get("initials")}</strong></span>
+                    &emsp;<span><strong>{this.getSenderPlayer().get("initials")}</strong></span> &emsp;
+                    {isCompetitionMessage ? <span style={competitionStyle}>(You are competiting with this player)</span> : ""}
                     &emsp;<span style={dateStyle}>{date}</span>
                 </p>
                 <p>
@@ -58,6 +71,10 @@ const headContainer = {
 
 const dateStyle = {
     color: "grey",
+};
+
+const competitionStyle = {
+    color: "#ff2c2c",
 };
 
 const messageContainer = {

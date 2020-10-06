@@ -1,17 +1,17 @@
 export const avatarPaths = {
     first: {
-        color1: "/img/avatars/horse_green.png",
-        color2: "/img/avatars/horse_orange.png",
-        color3: "/img/avatars/horse_purple.png"
+        color1: "/img/avatars/shape1_color1.png",
+        color2: "/img/avatars/shape1_color2.png",
+        color3: "/img/avatars/shape1_color3.png"
     },
     second: {
-        color1: "/img/avatars/pawn_green.png",
-        color2: "/img/avatars/pawn_orange.png",
-        color3: "/img/avatars/pawn_purple.png"
+        color1: "/img/avatars/shape2_color1.png",
+        color2: "/img/avatars/shape2_color2.png",
+        color3: "/img/avatars/shape2_color3.png"
     },
     third: {
-        color1: "/img/avatars/tower_green.png",
-        color2: "/img/avatars/tower_orange.png",
-        color3: "/img/avatars/tower_purple.png"
+        color1: "/img/avatars/shape3_color1.png",
+        color2: "/img/avatars/shape3_color2.png",
+        color3: "/img/avatars/shape3_color3.png"
     }
 };

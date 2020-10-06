@@ -9,7 +9,7 @@ import PresComStruct from '../pages/PresComStruct';
 
 export default class Page extends Component {
     render() {
-        const { currentPage, player, game } = this.props;
+        const { currentPage, round, player, game } = this.props;
 
         if (currentPage === 0) {
             return (
@@ -29,7 +29,7 @@ export default class Page extends Component {
             )
         } else if (currentPage === 4) {
             return (
-                <PresComStruct player={player} game={game} />
+                <PresComStruct round={round} player={player} game={game} />
             )
         }
     }

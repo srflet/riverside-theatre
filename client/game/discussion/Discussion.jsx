@@ -24,7 +24,7 @@ export default class Discussion extends Component {
                         </div>
 
                         <div style={{ marginTop: "2rem", }}>
-                            <ComStructFull game={game} player={player} />
+                            <ComStructFull round={round} game={game} player={player} />
                         </div>
 
                     </div>

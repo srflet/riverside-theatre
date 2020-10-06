@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+//Importing elements to populate the shape
+import ComStructCompetitionDetails from './ComStructCompetitionDetails';
+
 export default class ComStructShape extends Component {
     render() {
         const { game, player } = this.props;
@@ -44,8 +47,8 @@ export default class ComStructShape extends Component {
                 <svg width="300" height="200">
 
                     {/* Node Player A */}
-                    <circle cx="150" cy="50" r="5" fill="black" />
-                    <text x="150" y="40" fill="black" textAnchor="middle">{structureProperties.playerA.initials}</text>
+                    <circle cx="150" cy="55" r="5" fill="black" />
+                    <text x="150" y="45" fill="black" textAnchor="middle">{structureProperties.playerA.initials}</text>
                     <image x="135" y="0" href={structureProperties.playerA.avatar} height="30" width="30" />
 
                     {/* Node Player B */}
@@ -59,10 +62,15 @@ export default class ComStructShape extends Component {
                     <image x="255" y="165" href={structureProperties.playerC.avatar} height="30" width="30" />
 
                     {/* Link A and B */}
-                    <line x1="150" y1="50" x2="50" y2="150" stroke="black" />
+                    <line x1="150" y1="55" x2="50" y2="150" stroke="black" />
+
+                    {/* Competition between A and B */}
+                    {game.treatment.competition === "comp" && (player.get("type") === "A" || player.get("type") === "B")
+                        ? <ComStructCompetitionDetails />
+                        : ""}
 
                     {/* Link A and C */}
-                    <line x1="150" y1="50" x2="250" y2="150" stroke="black" />
+                    <line x1="150" y1="55" x2="250" y2="150" stroke="black" />
 
                     {/* Link B and C */}
                     {game.treatment.brokerage === "nonbrok" ?

@@ -22,7 +22,7 @@ export default class Round extends React.Component {
 
 					<div className="stages">
 						<Initials player={player} stage={stage} game={game} />
-						<PersonalisedInstructions player={player} stage={stage} game={game} />
+						<PersonalisedInstructions round={round} player={player} stage={stage} game={game} />
 						<Discussion round={round} game={game} player={player} stage={stage} />
 						<FinalQuizQuestions game={game} player={player} stage={stage} />
 						<FinalQuizAnswers game={game} player={player} stage={stage} />

@@ -21,14 +21,14 @@ export default class PersonalisedInstructions extends Component {
     }
 
     render() {
-        const { player, stage, game } = this.props;
+        const { round, player, stage, game } = this.props;
         const currentPage = this.state.page;
 
         if (stage.name == "personalised_instructions") {
             return (
                 <div>
                     <Heading />
-                    <Page currentPage={currentPage} player={player} game={game} />
+                    <Page currentPage={currentPage} round={round} player={player} game={game} />
                     <NavigationButtons currentPage={currentPage} previousPage={this.previousPage} nextPage={this.nextPage} />
                 </div>
             )

@@ -1,8 +1,8 @@
 export const cluesC = {
     clues: [
-        { id: "firstC", text: "This is the first clue of set C" },
-        { id: "secondC", text: "This is the second clue of set C" },
-        { id: "thirdC", text: "This is the third clue of set C" },
-        { id: "fourthC", text: "This is the fourth clue of set C (might be shared with another participant)" },
+        { id: "firstC", text: "The guilty person is a man." },
+        { id: "secondC", text: "His father is indirectly responsible for the accident." },
+        { id: "thirdC", text: "The guilty person was driving at 110 km/h." },
+        { id: "fourthC", text: "The guilty person is less than 30 years old (this clue is shared by another participant)." },
     ]
 };

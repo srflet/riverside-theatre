@@ -2,13 +2,41 @@ import React, { Component, Fragment } from 'react';
 import Message from './Message';
 
 export default class Chat extends Component {
-    state = {
-        text: ""
+    constructor() {
+        super();
+        this.state = {
+            text: "",
+            nbOfMessages: 0
+        };
+
+        this.heightRef = React.createRef();
     }
+
+    componentDidMount() {
+        this.scrollToBottom();
+
+    }
+
+    componentDidUpdate() {
+        if (this.state.nbOfMessages !== this.getNbMessage()) {
+            this.scrollToBottom();
+        }
+    }
+
+    scrollToBottom = () => {
+        this.heightRef.current.scrollTop = this.heightRef.current.scrollHeight;
+        this.setState({ nbOfMessages: this.getNbMessage() });
+    };
+
+    getNbMessage = () => {
+        return this.props.round.get("messages").filter(message => {
+            return message.chat === this.props.chatNb;
+        }).length;
+    };
 
     changeText = (e) => {
         this.setState({ text: e.currentTarget.value });
-    }
+    };
 
     getNewMessageID = () => {
         //Get highest message id
@@ -109,44 +137,39 @@ export default class Chat extends Component {
             avatarPath = chatProperties.avatars[chatProperties.playersInvolved[1]];
         }
 
-        if (chatProperties.isInvolved) {
-            return (
-                <div style={{ marginTop: "2rem", }}>
-                    <p style={chatHeader}>Chat with
+        return (
+            <div style={chatProperties.isInvolved ? { marginTop: "2rem", } : { display: "none" }}>
+                <p style={chatHeader}>Chat with
                         {" " +
-                            chatProperties.initials[chatProperties.playersInvolved[0]]}{chatProperties.initials[chatProperties.playersInvolved[1]]
-                                + " "
-                        }
-                        <img src={avatarPath} style={miniAvatar} />
-                    </p>
-                    <div style={chatBox}>
-                        {round.get("messages").filter(message => {
-                            return message.chat === chatNb;
-                        }).map((message) => (
-                            <Message key={message.id} message={[message]} player={player} game={game} />
-                        ))}
-                    </div>
-                    <div style={inputHolder}>
-                        <form onSubmit={this.submitMessage}>
-                            <input
-                                style={messageInput}
-                                type="text"
-                                name="text"
-                                placeholder="Type your message..."
-                                onChange={this.changeText}
-                                value={this.state.text}
-                                autoComplete="off"
-                            />
-                            <input type="submit" value="Send" className="messageSubmit" />
-                        </form>
-                    </div>
+                        chatProperties.initials[chatProperties.playersInvolved[0]]}{chatProperties.initials[chatProperties.playersInvolved[1]]
+                            + " "
+                    }
+                    <img src={avatarPath} style={miniAvatar} />
+                </p>
+                <div style={chatBox} ref={this.heightRef}>
+                    {round.get("messages").filter(message => {
+                        return message.chat === chatNb;
+                    }).map((message) => (
+                        <Message key={message.id} message={[message]} player={player} game={game} />
+                    ))}
                 </div>
-            )
-        } else {
-            return (
-                <Fragment></Fragment>
-            )
-        }
+                <div style={inputHolder}>
+                    <form onSubmit={this.submitMessage}>
+                        <input
+                            style={messageInput}
+                            type="text"
+                            name="text"
+                            placeholder="Type your message..."
+                            onChange={this.changeText}
+                            value={this.state.text}
+                            autoComplete="off"
+                        />
+                        <input type="submit" value="Send" className="messageSubmit" />
+                    </form>
+                </div>
+            </div>
+        )
+
     }
 }
 
@@ -185,6 +208,6 @@ const inputHolder = {
 const messageInput = {
     width: "90%",
     margin: "0px",
-    borderRadius: "0.5rem",
+    height: "30px",
 };
 
