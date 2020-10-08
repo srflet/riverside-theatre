@@ -9,13 +9,16 @@ export default class IndependentInvestigation extends Component {
             <div>
                 <h3> Independent Investigation </h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
-                    </p>
-                <p>Do not worry, this information will be presented again!</p>
-                <PersonalClues player={player} />
+                    In addition to clues from the police’s investigation, which is shared by the three PIs (including you), you conducted your own investigations that produced the following clues.
+                </p>
                 <p>
-                    In vitae sollicitudin arcu. Etiam a tincidunt ante, eget porttitor lectus. Sed vulputate ligula sem, vitae semper lorem rhoncus euismod. Nam non egestas dui, vitae pulvinar neque. Praesent varius vulputate nisl, faucibus pretium erat auctor vel.
-                    </p>
+                    <strong><u>Note that the other two PIs did their own investigations and have different sets of clues.</u></strong>
+                </p>
+                <p>
+                    <strong><u>Only ONE piece of the clues you have below is available to another PI. In other words, in the 4 clues below, 3 of them is unique to you, and the remaining one is also known by another participant.</u></strong>
+                </p>
+                <p>Please read through them carefully, but there is no need to write them down – they will be available later.</p>
+                <PersonalClues player={player} />
             </div>
         )
 

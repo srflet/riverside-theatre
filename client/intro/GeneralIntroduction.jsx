@@ -9,13 +9,16 @@ export default class GeneralIntroduction extends Component {
         return (
             <Centered>
                 <div className="instructions">
-                    <h2>General Introduction</h2>
+                    <h2>General Instructions</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
+                        Today, we invite you to participate in a game in which you will play as a <strong>Private Investigator</strong> hired to identify the perpetrator of a car collision (think of it as a “murder mystery” puzzle). You will be given clues that will help you solve the puzzle.
          			 </p>
                     <p>
-                        In vitae sollicitudin arcu. Etiam a tincidunt ante, eget porttitor lectus. Sed vulputate ligula sem, vitae semper lorem rhoncus euismod. Nam non egestas dui, vitae pulvinar neque. Praesent varius vulputate nisl, faucibus pretium erat auctor vel. Pellentesque tempus ligula et lectus sollicitudin semper. Nam sit amet velit velit. Curabitur luctus tincidunt accumsan. Donec ut est in nunc bibendum laoreet. Quisque faucibus turpis ac aliquam viverra. Cras ac justo ullamcorper diam rutrum elementum. Nulla in consectetur ipsum. Morbi placerat, nibh quis convallis ornare, tortor justo finibus leo, hendrerit mattis arcu ante vitae turpis. Vestibulum ac semper magna. Vestibulum ultrices, eros quis rhoncus tincidunt, mi lorem gravida neque, a sollicitudin nibh nunc in tellus.
-          			</p>
+                        Importantly, using this online chatroom platform, <strong><u>you are connected to two other participants who also are trying to solve the same problem, but with different set of clues. After the initial instructions, you can choose to chat with them to exchange information.</u></strong>
+                    </p>
+                    <p>
+                        Your compensation is comprised of two parts: <strong><u>1) a $3.00 base pay for your participation and a 2) a $1.00 bonus based on your performance.</u></strong> More details about the bonus will be explained shortly.
+                    </p>
                 </div>
 
                 {/* Empirica introduction buttons */}

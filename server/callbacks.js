@@ -15,17 +15,37 @@ Empirica.onStageStart((game, round, stage) => { });
 
 // onStageEnd is triggered after each stage.
 // It receives the same options as onRoundEnd, and the stage that just ended.
-Empirica.onStageEnd((game, round, stage) => { });
+Empirica.onStageEnd((game, round, stage) => {
+  if (stage.name == "discussion")
+    game.players.forEach(player => {
+      let playerType = player.get("type");
+
+      let messagesAB = round.get("messages").filter(message => message.chat === 1)
+      let messagesAC = round.get("messages").filter(message => message.chat === 2)
+      let messagesBC = round.get("messages").filter(message => message.chat === 3)
+
+      if (playerType === "A") {
+        player.set("chatAB", messagesAB)
+        player.set("chatAC", messagesAC)
+      }
+
+      if (playerType === "B") {
+        player.set("chatAB", messagesAB)
+        player.set("chatBC", messagesBC)
+      }
+
+      if (playerType === "C") {
+        player.set("chatBC", messagesBC)
+        player.set("chatAC", messagesAC)
+      }
+    });
+});
+
+// const setChatMessages = () =>
 
 // onRoundEnd is triggered after each round.
 // It receives the same options as onGameEnd, and the round that just ended.
-Empirica.onRoundEnd((game, round) => {
-  // game.players.forEach(player => {
-  //   const value = player.round.get("value") || 0;
-  //   const prevScore = player.get("score") || 0;
-  //   player.set("score", prevScore + value);
-  // });
-});
+Empirica.onRoundEnd((game, round) => { });
 
 // onGameEnd is triggered when the game ends.
 // It receives the same options as onGameStart.

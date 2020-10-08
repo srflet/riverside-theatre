@@ -11,13 +11,13 @@ export default class SummaryClues extends Component {
             <div>
                 <h3>Summary of the Clues</h3>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
-                    </p>
+                    You have been presented with all the clues. Below is a presentation of all the clues available to you. <br />
+                    These clues will be presented again during the discussion phase, but please make sure you are familiar with them now.
+                </p>
+                <h4>Police notes (shared by all three PIs)</h4>
                 <PoliceClues />
+                <h4>Your own investigation (mostly unique to you)</h4>
                 <PersonalClues player={player} />
-                <p>
-                    In vitae sollicitudin arcu. Etiam a tincidunt ante, eget porttitor lectus. Sed vulputate ligula sem, vitae semper lorem rhoncus euismod. Nam non egestas dui, vitae pulvinar neque. Praesent varius vulputate nisl, faucibus pretium erat auctor vel.
-                    </p>
             </div>
         )
     }

@@ -15,7 +15,7 @@ export default class FinalQuizQuestion extends Component {
     }
 
     handleChange = e => {
-        this.setState({ [e.currentTarget.name]: e.currentTarget.value.trim().toLowerCase() });
+        this.setState({ [e.currentTarget.name]: e.currentTarget.value.toLowerCase() });
     }
 
     render() {

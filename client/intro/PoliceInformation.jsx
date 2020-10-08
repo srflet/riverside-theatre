@@ -12,12 +12,21 @@ export default class PoliceInformation extends Component {
                 <div className="instructions">
                     <h2>Police Information</h2>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
+                        <strong><u>Please note that there is NO false information below and the other two participants also have this information.</u></strong> Please read through them carefully, but there is no need to write them down – they will be available later.
                     </p>
-                    <PoliceClues />
-                    <p>
-                        In vitae sollicitudin arcu. Etiam a tincidunt ante, eget porttitor lectus. Sed vulputate ligula sem, vitae semper lorem rhoncus euismod. Nam non egestas dui, vitae pulvinar neque. Praesent varius vulputate nisl, faucibus pretium erat auctor vel.
-                    </p>
+
+                    <div><PoliceClues /></div>
+
+                    <div>
+                        In the next steps, you will:
+                    </div>
+                    <ol>
+                        <li>answer some comprehension questions</li>
+                        <li>provide initials that can be used as your screen name in the discussion phase of this study</li>
+                        <li>read further clues and instructions about the task</li>
+                        <li>chat with the two other private investigators during the discussion phase</li>
+                        <li>answer some survey questions</li>
+                    </ol>
                 </div>
 
                 {/* Empirica introduction buttons */}

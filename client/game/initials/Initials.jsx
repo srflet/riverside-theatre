@@ -29,9 +29,9 @@ export default class Initials extends Component {
         e.preventDefault();
 
         //Check that this is 3 letters without numbers in them...
-        if (this.state.initials.length !== 3 || this.hasNumber(this.state.initials)) {
+        if (this.state.initials.length !== 3) {
             //...If not, alert the user that this is wrong and they need to try again
-            alert("Incorrect: Please only include letters (no numbers) and include three letters (no more, no less). Please try again.");
+            alert("Incorrect: Please only and include three characters (no more, no less). Please try again.");
         } else {
             //...If correct, set the players initials and end this stage for them
             this.props.player.set("initials", this.state.initials);
@@ -51,13 +51,16 @@ export default class Initials extends Component {
                     <h2> Initials </h2>
                     <form onSubmit={this.handleSubmit}>
                         <div>
-                            <label htmlFor="initials">Please insert your initials plus a random letter so to make communication with other players in the final stage easier (for a minimum and maximum of 3 letters). For example, if your name is "Jane Smith", you could write "JSD".</label>
+                            <p>
+                                Note: from now on you are completing these phases simultaneously with the other two players. Be mindful of the timer.
+                            </p>
+                            <label htmlFor="initials">Please enter two letters and one number as your screen name for the discussion in order to make communication with other players in the final stage easier (for a minimum and maximum of 3 characters). For example, if your name is "Jane Smith", you could write "JS7".</label>
                             <input
                                 type="text"
                                 dir="auto"
                                 id="initials"
                                 name="initials"
-                                placeholder="e.g. JSD"
+                                placeholder="type screen name..."
                                 value={this.state.initials}
                                 onChange={this.handleChange}
                                 autoComplete="off"

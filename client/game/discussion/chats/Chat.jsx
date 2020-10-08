@@ -62,6 +62,7 @@ export default class Chat extends Component {
         let newMessage = {
             text: this.state.text,
             sender: this.props.player._id,
+            senderType: this.props.player.get("type"),
             chat: this.props.chatNb,
             createdAt: new Date(),
             id: this.getNewMessageID()

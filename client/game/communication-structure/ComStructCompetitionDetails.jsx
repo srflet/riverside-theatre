@@ -4,8 +4,8 @@ export default class ComStructCompetitionDetails extends Component {
     render() {
         return (
             <Fragment>
-                <line x1="140" y1="55" x2="50" y2="140" stroke="red" />
-                <text x="50" y="80" fill="red" textAnchor="middle">Competition</text>
+                <polyline points="145,55 140,55 50,140 50,145" style={{ fill: "none", stroke: "red" }} />
+                <text x="60" y="85" fill="red" textAnchor="middle">Competition</text>
             </Fragment>
         )
     }

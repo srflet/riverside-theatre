@@ -92,6 +92,13 @@ Empirica.gameInit(game => {
 	//Setting up the players
 	game.players.forEach((player, i) => {
 
+		//Record player id
+		player.set("_id", player._id);
+
+		//Getting condition information
+		player.set("competition", game.treatment.competition)
+		player.set("brokerage", game.treatment.brokerage)
+
 		//Getting the avatar
 		let shape = popChoice(avatarShapes);
 		let color = popChoice(avatarColors);
@@ -113,6 +120,12 @@ Empirica.gameInit(game => {
 			player.set("independent-clues", cluesC);
 		}
 
+		//Set chat messages
+		player.set("chatAB", null)
+		player.set("chatAC", null)
+		player.set("chatBC", null)
+
+		//Set measures
 		player.set("whodunit", "");
 
 	});

@@ -28,7 +28,7 @@ export default class Quiz extends React.Component {
 				<div className="quiz">
 					<h2> Quiz </h2>
 					<p>
-						In vitae sollicitudin arcu. Etiam a tincidunt ante, eget porttitor lectus. Sed vulputate ligula sem, vitae semper lorem rhoncus euismod. Nam non egestas dui, vitae pulvinar neque. Praesent varius vulputate nisl, faucibus pretium erat auctor vel.
+						Please carefully answer the following comprehension questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
          			 </p>
 					<form onSubmit={this.handleSubmit}>
 						<p>

@@ -8,6 +8,7 @@ import { render } from "react-dom";
 //Introduction:
 import Consent from "./intro/Consent";
 import GeneralIntroduction from "./intro/GeneralIntroduction";
+import Background from "./intro/Background";
 import PoliceInformation from "./intro/PoliceInformation";
 import Quiz from "./intro/Quiz";
 
@@ -29,6 +30,7 @@ Empirica.consent(Consent);
 // different instruction steps depending on the assigned treatment.
 Empirica.introSteps((game, treatment) => {
 	const steps = [GeneralIntroduction];
+	steps.push(Background)
 	steps.push(PoliceInformation);
 	steps.push(Quiz);
 	return steps;
