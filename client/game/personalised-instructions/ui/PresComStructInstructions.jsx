@@ -14,15 +14,15 @@ export default class PresComStructInstructions extends Component {
             return initials;
         }
 
-        const returnPlayerAvatar = (type) => {
-            let avatar = game.players.filter(player => {
-                return player.get("type") === type
-            }).map(player => {
-                return player.get("avatar")
-            })
+        // const returnPlayerAvatar = (type) => {
+        //     let avatar = game.players.filter(player => {
+        //         return player.get("type") === type
+        //     }).map(player => {
+        //         return player.get("avatar")
+        //     })
 
-            return avatar;
-        }
+        //     return avatar;
+        // }
 
         if (game.treatment.brokerage === "brok") {
 
@@ -42,10 +42,9 @@ export default class PresComStructInstructions extends Component {
                     <div>
                         <p>
                             <strong><u>
-                                Mr. Lee has asked that the discussion to be coordinated by one of the three PIs and he happened to choose you.
+                                Mr. Lee has asked that the discussion to be coordinated by one of the three PIs and he happened to choose {returnPlayerInitials("A") + " "}.
                         </u></strong>
-                            You will see that you have one dialogue boxes on your screen during the discussion, will allow you to communicate with {returnPlayerInitials("A") + " "}
-                            <img src={returnPlayerAvatar("A")} style={miniAvatar} />.
+                            You will see that you have one dialogue boxes on your screen during the discussion, will allow you to communicate with {returnPlayerInitials("A") + " "}.
                     </p>
                     </div>
                 )

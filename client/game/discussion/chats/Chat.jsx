@@ -6,7 +6,9 @@ export default class Chat extends Component {
         super();
         this.state = {
             text: "",
-            nbOfMessages: 0
+            nbOfMessages: 0,
+            newMessages: false,
+            justSentMessage: false,
         };
 
         this.heightRef = React.createRef();
@@ -19,6 +21,12 @@ export default class Chat extends Component {
 
     componentDidUpdate() {
         if (this.state.nbOfMessages !== this.getNbMessage()) {
+
+            if (!this.state.justSentMessage) {
+                this.setState({ newMessages: true });
+            }
+            this.setState({ justSentMessage: false });
+
             this.scrollToBottom();
         }
     }
@@ -76,6 +84,12 @@ export default class Chat extends Component {
 
         this.setState({ text: "" });
 
+        this.setState({ justSentMessage: true });
+
+    }
+
+    sawMessages = () => {
+        this.setState({ newMessages: false });
     }
 
     render() {
@@ -140,12 +154,16 @@ export default class Chat extends Component {
 
         return (
             <div style={chatProperties.isInvolved ? { marginTop: "2rem", } : { display: "none" }}>
-                <p style={chatHeader}>Chat with
+                <p style={chatHeaderHolder}>
+                    <span style={chatHeaderInfo}>
+                        Chat with
                         {" " +
-                        chatProperties.initials[chatProperties.playersInvolved[0]]}{chatProperties.initials[chatProperties.playersInvolved[1]]
-                            + " "
-                    }
-                    <img src={avatarPath} style={miniAvatar} />
+                            chatProperties.initials[chatProperties.playersInvolved[0]]}{chatProperties.initials[chatProperties.playersInvolved[1]]
+                                + " "
+                        }
+                        <img src={avatarPath} style={miniAvatar} />
+                    </span>
+                    {this.state.newMessages ? <span style={chatHeaderNotification}><strong> New Messages! </strong></span> : ""}
                 </p>
                 <div style={chatBox} ref={this.heightRef}>
                     {round.get("messages").filter(message => {
@@ -164,6 +182,7 @@ export default class Chat extends Component {
                             onChange={this.changeText}
                             value={this.state.text}
                             autoComplete="off"
+                            onClick={this.sawMessages}
                         />
                         <input type="submit" value="Send" className="messageSubmit" />
                     </form>
@@ -192,15 +211,28 @@ const miniAvatar = {
     margin: "0px"
 };
 
-const chatHeader = {
+const chatHeaderHolder = {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "1rem",
+    margin: "0px",
+    backgroundColor: "#394B59",
+}
+
+const chatHeaderInfo = {
     display: "flex",
     flexDirection: "row",
     alignItems: "flex-end",
-    backgroundColor: "#394B59",
     color: "white",
-    padding: "1rem",
-    margin: "0px",
 };
+
+const chatHeaderNotification = {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "flex-end",
+    color: "red",
+};
+
 
 const inputHolder = {
     width: "500px"

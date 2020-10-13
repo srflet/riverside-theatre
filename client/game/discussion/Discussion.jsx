@@ -19,7 +19,7 @@ export default class Discussion extends Component {
             return (
                 <div>
                     <div style={informationHolder}>
-                        <div style={{ marginTop: "2rem", maxWidth: "350px" }}>
+                        <div style={{ marginTop: "2rem", maxWidth: "325px" }}>
                             <h3 className="centred">Police Clues</h3>
                             <PoliceClues />
                         </div>
