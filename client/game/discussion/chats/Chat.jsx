@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Message from './Message';
+import { TimeSync } from "meteor/mizzao:timesync";
 
 export default class Chat extends Component {
     constructor() {
@@ -14,9 +15,10 @@ export default class Chat extends Component {
         this.heightRef = React.createRef();
     }
 
+    notificationSound = new Audio("sounds/notification.mp3")
+
     componentDidMount() {
         this.scrollToBottom();
-
     }
 
     componentDidUpdate() {
@@ -24,6 +26,11 @@ export default class Chat extends Component {
 
             if (!this.state.justSentMessage) {
                 this.setState({ newMessages: true });
+
+                if (this.getIsInvolved()) {
+                    this.notificationSound.play();
+                }
+
             }
             this.setState({ justSentMessage: false });
 
@@ -72,7 +79,7 @@ export default class Chat extends Component {
             sender: this.props.player._id,
             senderType: this.props.player.get("type"),
             chat: this.props.chatNb,
-            createdAt: new Date(),
+            createdAt: new Date(TimeSync.serverTime(null, 1000)),
             id: this.getNewMessageID()
         };
 
@@ -90,6 +97,22 @@ export default class Chat extends Component {
 
     sawMessages = () => {
         this.setState({ newMessages: false });
+    }
+
+    getIsInvolved = () => {
+
+        let chatNb = this.props.chatNb;
+        let players;
+        if (chatNb === 1) {
+            players = ["A", "B"];
+        } else if (chatNb === 2) {
+            players = ["A", "C"];
+        } else {
+            //if chatNb === 3
+            players = ["B", "C"];
+        }
+
+        return players.includes(this.props.player.get("type"));
     }
 
     render() {

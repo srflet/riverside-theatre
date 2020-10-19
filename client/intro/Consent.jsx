@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Centered, ConsentButton } from "meteor/empirica:core";
 
 export default class Consent extends React.Component {

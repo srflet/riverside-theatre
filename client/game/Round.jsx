@@ -6,8 +6,8 @@ import Footer from "./general-ui/footer/Footer.jsx";
 //Importing Stages
 import Initials from "./initials/Initials";
 import Discussion from "./discussion/Discussion.jsx";
-import FinalQuizQuestions from "./quizzes/FinalQuizQuestions.jsx";
-import FinalQuizAnswers from "./quizzes/FinalQuizAnswers.jsx";
+import FinalQuizQuestions from "../surveys/FinalQuizQuestions.jsx";
+import FinalQuizAnswers from "../surveys/FinalQuizAnswers.jsx";
 import PersonalisedInstructions from "./personalised-instructions/PersonalisedInstructions.jsx";
 
 //Creating the round component
