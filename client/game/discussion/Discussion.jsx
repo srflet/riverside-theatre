@@ -8,7 +8,6 @@ import ComStructFull from '../communication-structure/ComStructFull';
 
 //Importing elements for chat
 import Chat from './chats/Chat';
-import NextStageButton from '../general-ui/NextStageButton';
 import WhodunitQuestion from '../../surveys/whodunit/WhodunitQuestion';
 
 export default class Discussion extends Component {

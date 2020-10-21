@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PersonalClues from '../../clues/PersonalClues';
+import InvestigationImg from '../../general-ui/decoration-img/InvestigationImg';
 
 export default class IndependentInvestigation extends Component {
     render() {
@@ -8,6 +9,10 @@ export default class IndependentInvestigation extends Component {
         return (
             <div>
                 <h3> Independent Investigation </h3>
+
+                <InvestigationImg />
+                <br />
+
                 <p>
                     In addition to clues from the police’s investigation, which is shared by the three PIs (including you), you conducted your own investigations that produced the following clues.
                 </p>

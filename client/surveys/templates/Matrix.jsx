@@ -25,7 +25,7 @@ export default class Matrix extends Component {
         let answers = player.get(playerVariable);
 
         return (
-            <div>
+            <div className="matrice">
                 <form onSubmit={this.handleSubmit}>
                     <table>
                         <thead>

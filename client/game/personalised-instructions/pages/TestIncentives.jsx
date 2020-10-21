@@ -24,7 +24,7 @@ export default class TestIncentives extends Component {
         return (
             <div>
                 <div className="quiz">
-                    <h3> Quiz </h3>
+                    <h3> Quiz About the Incentives</h3>
                     <p>
                         Please carefully answer the following comprehension questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
                   </p>

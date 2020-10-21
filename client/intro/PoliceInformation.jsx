@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Centered } from "meteor/empirica:core";
 import PoliceClues from "./PoliceClues"
+import PoliceImg from '../game/general-ui/decoration-img/PoliceImg';
 
 export default class PoliceInformation extends Component {
     render() {
@@ -11,6 +12,10 @@ export default class PoliceInformation extends Component {
             <Centered>
                 <div className="instructions">
                     <h2>Police Information</h2>
+
+                    <PoliceImg />
+                    <br />
+
                     <p>
                         <strong><u>Please note that there is NO false information below and the other two participants also have this information.</u></strong> Please read through them carefully, but there is no need to write them down – they will be available later.
                     </p>
