@@ -5,7 +5,7 @@ import PersonalClues from '../../clues/PersonalClues';
 export default class SummaryClues extends Component {
 
     render() {
-        const { player } = this.props;
+        const { player, round, game } = this.props;
 
         return (
             <div>
@@ -17,7 +17,7 @@ export default class SummaryClues extends Component {
                 <h4>Police notes (shared by all three PIs)</h4>
                 <PoliceClues />
                 <h4>Your own investigation (mostly unique to you)</h4>
-                <PersonalClues player={player} />
+                <PersonalClues player={player} round={round} game={game} />
             </div>
         )
     }

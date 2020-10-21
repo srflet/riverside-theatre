@@ -4,7 +4,7 @@ import InvestigationImg from '../../general-ui/decoration-img/InvestigationImg';
 
 export default class IndependentInvestigation extends Component {
     render() {
-        const { player } = this.props;
+        const { player, round, game } = this.props;
 
         return (
             <div>
@@ -23,7 +23,7 @@ export default class IndependentInvestigation extends Component {
                     <strong><u>Only ONE piece of the clues you have below is available to another PI. In other words, in the 4 clues below, 3 of them is unique to you, and the remaining one is also known by another participant.</u></strong>
                 </p>
                 <p>Please read through them carefully, but there is no need to write them down – they will be available later.</p>
-                <PersonalClues player={player} />
+                <PersonalClues player={player} round={round} game={game} />
             </div>
         )
 

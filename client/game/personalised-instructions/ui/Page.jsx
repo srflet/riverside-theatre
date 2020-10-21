@@ -16,11 +16,11 @@ export default class Page extends Component {
 
         if (currentPage === 0) {
             return (
-                <IndependentInvestigation player={player} />
+                <IndependentInvestigation player={player} round={round} game={game} />
             )
         } else if (currentPage === 1) {
             return (
-                <SummaryClues player={player} />
+                <SummaryClues player={player} round={round} game={game} />
             )
         } else if (currentPage === 2) {
             return (

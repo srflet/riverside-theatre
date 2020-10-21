@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import NextStageButton from '../../game/general-ui/NextStageButton';
+import NextStageButton from '../../game/general-ui/buttons/NextStageButton';
 import Matrix from '../templates/Matrix';
 
 export default class WhodunitAnswer extends Component {

@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { getClues } from '../general-ui/helper-functions/getClues';
 
 export default class ComStructPopulateClues extends Component {
     render() {
-        const { round, player, position } = this.props;
-        const cluesIndicator = "clues" + position;
-        const cluesBlankIndicator = cluesIndicator + "_blank";
-        const clues = player.get("type") === position ? round.get(cluesIndicator) : round.get(cluesBlankIndicator);
+        const { game, round, player, position } = this.props;
+        const clues = getClues(game, round, player, position);
 
         return (
-            <ul>
-                {clues.clues.map(clue => <li key={clue.id}>{clue.text}</li>)}
-            </ul>
+            <div>
+                <ul>
+                    {clues.map(clue => <li key={clue.id}>{clue.text}</li>)}
+                </ul>
+            </div>
         )
     }
 }

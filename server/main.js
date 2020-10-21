@@ -1,14 +1,6 @@
 import Empirica from "meteor/empirica:core";
-import { Meteor } from 'meteor/meteor';
 import "./bots.js";
 import "./callbacks.js";
-
-//Some tests with Meteor's ability to related to collections
-import { TestCollection } from './db/Test';
-
-Meteor.startup(() => {
-	TestCollection.insert({ text: "hello", createdAt: new Date() });
-});
 
 /*-------------------
 - Helper functions: -
@@ -51,14 +43,15 @@ function shuffle(array) {
 --------*/
 
 //Importing the completed clues
-import { cluesA } from "./stimuli/clues/cluesA";
-import { cluesB } from "./stimuli/clues/cluesB";
-import { cluesC } from "./stimuli/clues/cluesC";
+import { clues_full } from "./stimuli/clues/clues_full";
 
 //Importing the blanked clues
-import { cluesA_blank } from "./stimuli/clues/cluesA_blank.js";
-import { cluesB_blank } from "./stimuli/clues/cluesB_blank.js";
-import { cluesC_blank } from "./stimuli/clues/cluesC_blank.js";
+import { clues_blank } from "./stimuli/clues/clues_blank.js";
+
+//Set starting clues for the different positions
+const startingCluesA = [0, 1, 2, 8];
+const startingCluesB = [3, 4, 5, 0];
+const startingCluesC = [6, 7, 8, 3];
 
 /*----------
 - Avatars: -
@@ -72,8 +65,6 @@ import { avatarPaths } from './avatars/avatarPaths';
 -----------*/
 
 Empirica.gameInit(game => {
-
-	TestCollection.insert({ text: "hello" });
 
 	/*-------------------------
 	- Setting up the players: -
@@ -113,11 +104,11 @@ Empirica.gameInit(game => {
 
 		//Giving individual clues to the players (No counterbalancing)
 		if (player.get("type") === "A") {
-			player.set("independent-clues", cluesA);
+			player.set("independent-clues", startingCluesA);
 		} else if (player.get("type") === "B") {
-			player.set("independent-clues", cluesB);
+			player.set("independent-clues", startingCluesB);
 		} else {
-			player.set("independent-clues", cluesC);
+			player.set("independent-clues", startingCluesC);
 		}
 
 		//Set chat messages
@@ -139,12 +130,11 @@ Empirica.gameInit(game => {
 	const round = game.addRound({
 		data: {
 			messages: [],
-			cluesA: cluesA,
-			cluesB: cluesB,
-			cluesC: cluesC,
-			cluesA_blank: cluesA_blank,
-			cluesB_blank: cluesB_blank,
-			cluesC_blank: cluesC_blank
+			clues_full: clues_full,
+			clues_blank: clues_blank,
+			startingCluesA: startingCluesA,
+			startingCluesB: startingCluesB,
+			startingCluesC: startingCluesC,
 		}
 	});
 

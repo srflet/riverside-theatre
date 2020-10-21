@@ -9,7 +9,7 @@ export default class ComStructFull extends Component {
         return (
             <div>
                 <div className="communicationClues">
-                    <ComStructPopulateClues round={round} player={player} position={"A"} />
+                    <ComStructPopulateClues game={game} round={round} player={player} position={"A"} />
                 </div>
 
                 <div className="centred">
@@ -18,10 +18,10 @@ export default class ComStructFull extends Component {
 
                 <div className="communicationClues">
                     <div>
-                        <ComStructPopulateClues round={round} player={player} position={"B"} />
+                        <ComStructPopulateClues game={game} round={round} player={player} position={"B"} />
                     </div>
                     <div>
-                        <ComStructPopulateClues round={round} player={player} position={"C"} />
+                        <ComStructPopulateClues game={game} round={round} player={player} position={"C"} />
                     </div>
                 </div>
             </div>
