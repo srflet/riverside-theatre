@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from 'react';
-import NextStageButton from '../game/general-ui/NextStageButton';
-import Matrix from './templates/Matrix';
+import NextStageButton from '../../game/general-ui/NextStageButton';
+import Matrix from '../templates/Matrix';
 
-export default class FinalQuizAnswers extends Component {
+export default class WhodunitAnswer extends Component {
     render() {
         const { player, stage, game } = this.props;
 
-        if (stage.name == "final_quiz_answers") {
+        if (stage.name == "whodunit_answers") {
             return (
                 <div>
                     <h2>Quiz - Answers</h2>

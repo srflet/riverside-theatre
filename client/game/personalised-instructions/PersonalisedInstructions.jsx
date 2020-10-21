@@ -23,13 +23,14 @@ export default class PersonalisedInstructions extends Component {
     render() {
         const { round, player, stage, game } = this.props;
         const currentPage = this.state.page;
+        const noNav = currentPage === 2 || currentPage === 5 || currentPage === 7;
 
         if (stage.name == "personalised_instructions") {
             return (
                 <div>
                     <Heading />
-                    <Page currentPage={currentPage} round={round} player={player} game={game} />
-                    <NavigationButtons currentPage={currentPage} previousPage={this.previousPage} nextPage={this.nextPage} />
+                    <Page currentPage={currentPage} round={round} player={player} game={game} previousPage={this.previousPage} nextPage={this.nextPage} />
+                    {noNav ? "" : <NavigationButtons currentPage={currentPage} previousPage={this.previousPage} nextPage={this.nextPage} />}
                 </div>
             )
         } else {

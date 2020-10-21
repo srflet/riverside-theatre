@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import NextStageButton from '../../general-ui/NextStageButton';
 import ComStructFull from '../../communication-structure/ComStructFull';
 import PresComStructInstructions from '../ui/PresComStructInstructions';
 
@@ -30,8 +29,6 @@ export default class PresComStruct extends Component {
                 <div className="centred">
                     <ComStructFull round={round} game={game} player={player} />
                 </div>
-
-                <NextStageButton player={player} game={game} />
             </div>
         )
     }

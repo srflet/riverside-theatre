@@ -7,6 +7,14 @@ export default class Initials extends Component {
         isNextStage: false
     };
 
+    notificationSound = new Audio("sounds/notification.mp3")
+
+    componentDidMount() {
+        if (this.props.stage.name === "initials") {
+            this.notificationSound.play();
+        }
+    }
+
     //Method that ends the stage
     endStage = () => {
         this.props.player.stage.submit();
@@ -43,7 +51,7 @@ export default class Initials extends Component {
     //Rendering
     render() {
         //Only render the Initials if this is the right stage
-        if (this.props.stage.name == "initials") {
+        if (this.props.stage.name === "initials") {
 
             //If the player has clicked to set their initials and go to the next stage, render this message. Otherwise, ask for the i
             return (

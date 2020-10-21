@@ -126,6 +126,7 @@ Empirica.gameInit(game => {
 		player.set("chatBC", null)
 
 		//Set measures
+		player.set("initialWhodunit", "");
 		player.set("whodunit", "");
 
 	});
@@ -166,14 +167,14 @@ Empirica.gameInit(game => {
 	});
 
 	round.addStage({
-		name: "final_quiz_questions",
-		displayName: "Quiz Questions",
+		name: "whodunit_questions",
+		displayName: "Whodunit Question",
 		durationInSeconds: 999999999999
 	});
 
 	round.addStage({
-		name: "final_quiz_answers",
-		displayName: "Quiz Answers",
+		name: "whodunit_answers",
+		displayName: "Whodunit Answer",
 		durationInSeconds: 999999999999
 	});
 

@@ -10,7 +10,7 @@ export default class NavigationButtons extends Component {
                     Previous
                 </button>
                 &emsp;
-                <button type="button" onClick={nextPage} disabled={currentPage === 4}>
+                <button type="button" onClick={nextPage} disabled={currentPage === 7}>
                     Next
                 </button>
             </p>

@@ -30,7 +30,7 @@ export default class Matrix extends Component {
                     <table>
                         <thead>
                             <tr>
-                                <th>Question</th>
+                                <th>Questions</th>
                                 {responseScale.map((response, index) => <th key={index}>{response}</th>)}
                             </tr>
                         </thead>
