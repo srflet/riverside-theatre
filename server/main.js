@@ -49,9 +49,9 @@ import { clues_full } from "./stimuli/clues/clues_full";
 import { clues_blank } from "./stimuli/clues/clues_blank.js";
 
 //Set starting clues for the different positions
-const startingCluesA = [0, 1, 2, 8];
-const startingCluesB = [3, 4, 5, 0];
-const startingCluesC = [6, 7, 8, 3];
+const startingCluesA = [0, 1, 2];
+const startingCluesB = [3, 4, 5];
+const startingCluesC = [6, 7, 8];
 
 /*----------
 - Avatars: -
@@ -64,6 +64,10 @@ import { avatarPaths } from './avatars/avatarPaths';
 - gameInit: -
 -----------*/
 
+//Setting a variable for whether this is development/testing or not
+const isTest = true
+
+//Running the gameInit
 Empirica.gameInit(game => {
 
 	/*-------------------------
@@ -151,31 +155,31 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "initials",
 		displayName: "Initials",
-		durationInSeconds: 999999999999
+		durationInSeconds: isTest ? 999999999999 : 120,
 	});
 
 	round.addStage({
 		name: "personalised_instructions",
 		displayName: "Instructions",
-		durationInSeconds: 999999999999
+		durationInSeconds: isTest ? 999999999999 : 600,
 	});
 
 	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
-		durationInSeconds: 999999999999
+		durationInSeconds: isTest ? 999999999999 : 300,
 	});
 
 	round.addStage({
 		name: "whodunit_questions",
 		displayName: "Whodunit Question",
-		durationInSeconds: 999999999999
+		durationInSeconds: isTest ? 999999999999 : 60,
 	});
 
 	round.addStage({
 		name: "whodunit_answers",
 		displayName: "Whodunit Answer",
-		durationInSeconds: 999999999999
+		durationInSeconds: isTest ? 999999999999 : 60,
 	});
 
 });

@@ -27,17 +27,17 @@ export const getClues = (game, round, player, position) => {
                 //Get the full clue
                 currentClue = clue;
 
-                //See if any of the other players has it
-                let otherPlayersHaveIt = false;
-                otherPlayers.forEach(otherPlayer => {
-                    if (otherPlayer.get("independent-clues").includes(index)) {
-                        otherPlayersHaveIt = true;
-                    }
-                });
-                //Add text to the clue:
-                if (otherPlayersHaveIt && player.get("type") === position) {
-                    currentClue.text = currentClue.text + " (this clue is shared by another participant)";
-                }
+                // //See if any of the other players has it
+                // let otherPlayersHaveIt = false;
+                // otherPlayers.forEach(otherPlayer => {
+                //     if (otherPlayer.get("independent-clues").includes(index)) {
+                //         otherPlayersHaveIt = true;
+                //     }
+                // });
+                // //Add text to the clue:
+                // if (otherPlayersHaveIt && player.get("type") === position) {
+                //     currentClue.text = currentClue.text + " (this clue is shared by another participant)";
+                // }
             } else {
                 //...or if this current player does not have this clue
                 //get the blank clue
