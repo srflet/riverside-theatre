@@ -75,9 +75,10 @@ export default class Initials extends Component {
                                 required
                             />
 
-                            {/* If the initials have been submitted, show this message. Otherwise, show the button to submit the initials */}
                             <div className="button-holder"><button type="submit" disabled={this.state.isNextStage}>Submit Initials</button></div>
 
+                            <br />
+                            <p style={{ textAlign: "center" }}>NOTE: The next stage will only start once every player has submitted their initial. You can see whether players have submitted their initials by looking at the "Player Status" below.</p>
                         </div>
                     </form>
                 </div>

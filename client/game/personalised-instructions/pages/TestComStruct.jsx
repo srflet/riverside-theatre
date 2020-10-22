@@ -66,6 +66,9 @@ export default class TestComStruct extends Component {
                             Submit answers and finish this stage
                         </button>
                     </p>
+
+                    <br />
+                    <p style={{ textAlign: "center" }}>NOTE: The next stage will only start once every player has submitted their answers and read all of the instructions. You can see whether players have finished reading the instructions by looking at the "Player Status" below. In the meantime you can continue browsing the instructions</p>
                 </div>
             </div>
         )

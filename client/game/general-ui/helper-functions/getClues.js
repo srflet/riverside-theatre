@@ -1,12 +1,19 @@
+import { deepCopy } from './deepCopy';
+
 export const getClues = (game, round, player, position) => {
 
     let otherPlayers = game.players.filter(otherPlayer => {
         return otherPlayer.get("type") !== player.get("type")
     });
     let playerClues = player.get("independent-clues");
-    let clues_full = round.get("clues_full").clues;
-    let clues_blank = round.get("clues_blank").clues;
-    let clueIds = round.get("startingClues" + position);
+    let clues_full = deepCopy(round.get("clues_full").clues);
+    let clues_blank = deepCopy(round.get("clues_blank").clues);
+    let clueIds;
+    if (position === "all") {
+        clueIds = clues_full.map((clue, index) => index);
+    } else {
+        clueIds = round.get("startingClues" + position);
+    }
 
     let clues = [];
 

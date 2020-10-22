@@ -111,10 +111,20 @@ Empirica.gameInit(game => {
 			player.set("independent-clues", startingCluesC);
 		}
 
+		//Set cluesCheck
+		let cluesChecked = {};
+		clues_full.clues.forEach(clue => {
+			cluesChecked[clue.id] = false;
+		});
+		player.get("independent-clues").forEach(clue => {
+			cluesChecked[clue] = true;
+		});
+		player.set("cluesChecked", cluesChecked);
+
 		//Set chat messages
-		player.set("chatAB", null)
-		player.set("chatAC", null)
-		player.set("chatBC", null)
+		player.set("chatAB", null);
+		player.set("chatAC", null);
+		player.set("chatBC", null);
 
 		//Set measures
 		player.set("initialWhodunit", "");

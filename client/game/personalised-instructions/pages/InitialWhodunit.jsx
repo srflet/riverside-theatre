@@ -30,9 +30,15 @@ export default class InitialWhodunit extends Component {
                 </p>
 
                 <WhodunitQuestion handleChange={this.handleWhodunitChange} />
+
                 <div className="button-holder">
                     <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>
                 </div>
+
+                <br />
+                <p style={{ textAlign: "center" }}>
+                    You need to provide your answer before you can go on to the next page. Careful, once you provided your answer you cannot change it!
+                </p>
 
                 <p className="button-holder">
                     <button type="button" onClick={previousPage}>
