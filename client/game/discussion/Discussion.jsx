@@ -42,8 +42,6 @@ export default class Discussion extends Component {
             isInformationOpen: false,
             isPoliceOpen: false,
             isComStructOpen: false,
-            isAnswerOpen: false,
-
         });
     }
 
@@ -96,20 +94,12 @@ export default class Discussion extends Component {
                                 isInformationOpen: !this.state.isPoliceOpen,
                                 isPoliceOpen: !this.state.isPoliceOpen,
                                 isComStructOpen: false,
-                                isAnswerOpen: false,
                             })}>Police Clues {this.state.isPoliceOpen ? " <" : ">"}</button>
                             <button onClick={() => this.setState({
                                 isInformationOpen: !this.state.isComStructOpen,
                                 isComStructOpen: !this.state.isComStructOpen,
                                 isPoliceOpen: false,
-                                isAnswerOpen: false,
                             })}>Communication Structure and Clues {this.state.isComStructOpen ? " <" : ">"}</button>
-                            <button onClick={() => this.setState({
-                                isInformationOpen: !this.state.isAnswerOpen,
-                                isAnswerOpen: !this.state.isAnswerOpen,
-                                isPoliceOpen: false,
-                                isComStructOpen: false,
-                            })}>Give my answer in early {this.state.isAnswerOpen ? " <" : ">"}</button>
                         </div>
                     </div>
                 </div>

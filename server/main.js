@@ -169,17 +169,4 @@ Empirica.gameInit(game => {
 		displayName: "Discussion",
 		durationInSeconds: isTest ? 999999999999 : 300,
 	});
-
-	round.addStage({
-		name: "whodunit_questions",
-		displayName: "Whodunit Question",
-		durationInSeconds: isTest ? 999999999999 : 60,
-	});
-
-	round.addStage({
-		name: "whodunit_answers",
-		displayName: "Whodunit Answer",
-		durationInSeconds: isTest ? 999999999999 : 60,
-	});
-
 });
