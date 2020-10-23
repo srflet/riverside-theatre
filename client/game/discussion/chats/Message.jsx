@@ -40,7 +40,7 @@ export default class Message extends Component {
                 <p style={headContainer}>
                     <img src={this.getSenderPlayer().get("avatar")} style={miniAvatar} />
                     &emsp;<span><strong>{this.getSenderPlayer().get("initials")}</strong></span> &emsp;
-                    {isCompetitionMessage ? <span style={competitionStyle}>(You are competiting with this player)</span> : ""}
+                    {isCompetitionMessage ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
                     &emsp;<span style={dateStyle}>{date}</span>
                 </p>
                 <p>
@@ -71,10 +71,6 @@ const headContainer = {
 
 const dateStyle = {
     color: "grey",
-};
-
-const competitionStyle = {
-    color: "#ff2c2c",
 };
 
 const messageContainer = {

@@ -14,7 +14,7 @@ export default class Quiz extends React.Component {
 		event.preventDefault();
 
 		if (this.state.sum !== "4" || this.state.horse !== "white") {
-			alert("Incorrect! Read the instructions, and please try again.");
+			alert("Incorrect: You need to answer the quiz correctly before you can continue. Please try again.");
 		} else {
 			this.props.onNext();
 		}

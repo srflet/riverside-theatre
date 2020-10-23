@@ -29,16 +29,20 @@ export default class InitialWhodunit extends Component {
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
                 </p>
 
-                <WhodunitQuestion handleChange={this.handleWhodunitChange} />
-
-                <div className="button-holder">
-                    <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>
-                </div>
-
-                <br />
-                <p style={{ textAlign: "center" }}>
-                    You need to provide your answer before you can go on to the next page. Careful, once you provided your answer you cannot change it!
-                </p>
+                {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
+                {player.get("initialWhodunit") !== ""
+                    ? <div><p>Thank you for providing your initial answer: {player.get("initialWhodunit")}. </p></div>
+                    : <div>
+                        <WhodunitQuestion handleChange={this.handleWhodunitChange} />
+                        <div className="button-holder">
+                            <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>
+                        </div>
+                        <br />
+                        <p style={{ textAlign: "center" }}>
+                            You need to provide your answer before you can go on to the next page. Careful, once you have provided your answer you cannot change it!
+                        </p>
+                    </div>
+                }
 
                 <p className="button-holder">
                     <button type="button" onClick={previousPage}>

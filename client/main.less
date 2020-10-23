@@ -159,7 +159,6 @@ button {
 
 /* My button styling */
 
-
 .button-holder{
   display: flex;
   justify-content: center;
@@ -184,6 +183,34 @@ button {
   }
 
 }
+
+/* General style for labels */
+label {
+  display: block;
+  margin: 2rem 0 1rem;
+}
+
+/* General style for centring */
+.centred {
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling the clues in the communication structure */
+.communicationClues {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* Image styling */
+.img-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Styling presentation of information for the discussion */
 
 /* Chat styling */
 
@@ -220,33 +247,7 @@ button {
 
 }
 
-/* General style for labels */
-label {
-  display: block;
-  margin: 2rem 0 1rem;
-}
-
-/* General style for centring */
-.centred {
-  display: flex;
-  justify-content: center;
-}
-
-/* Styling the clues in the communication structure */
-.communicationClues {
-  display: flex;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-/* Image styling */
-.img-center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Styling presentation of information for the discussion */
+/* Tab buttons */
 .side-button-holder{
   display: flex;
   flex-direction: column;
@@ -279,6 +280,8 @@ label {
 
 }
 
+/* information tab */
+
 .discussion-information {
   position: absolute;
   left: 0;
@@ -293,6 +296,8 @@ label {
   padding-left: 2rem;
 }
 
+/* clues check table */
+
 .clueCheck {
   display: flex;
   justify-content: center;
@@ -301,6 +306,7 @@ label {
   table {
     border-collapse: collapse;
     border: 1px solid #394B59;
+    width: 25%;
   }
 
   thead {
@@ -309,6 +315,10 @@ label {
 
   td, th {
     padding: 5px;
+  }
+
+  th {
+    text-align: center;
   }
 
   .clueCheck-clue {
@@ -320,22 +330,33 @@ label {
     padding: 5px 10px;
   }
 
+  .clueCheck-subtitle {
+    text-align: center;
+    font-weight: bold;
+  }
+
   tr:hover {
     background-color: #eaf0f5;
   }
 
-  input[type=checkbox]
-{
-  /* 1.5 size Checkboxes */
-  -ms-transform: scale(1.5); /* IE */
-  -moz-transform: scale(1.5); /* FF */
-  -webkit-transform: scale(1.5); /* Safari and Chrome */
-  -o-transform: scale(1.5); /* Opera */
-  transform: scale(1.5);
-  padding: 10px;
-}
+  input[type=checkbox] {
+    /* 1.5 size Checkboxes */
+    -ms-transform: scale(1.5); /* IE */
+    -moz-transform: scale(1.5); /* FF */
+    -webkit-transform: scale(1.5); /* Safari and Chrome */
+    -o-transform: scale(1.5); /* Opera */
+    transform: scale(1.5);
+    padding: 10px;
+  }
 
 }
+
+/* Other */
+.competitionStyle {
+  color: #ff2c2c;
+}
+
+/* General survey styling */
 
 /* Whodunnit style */
 .whodunit-question {

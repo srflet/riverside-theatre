@@ -29,13 +29,13 @@ export default class Incentives extends Component {
                                 <p>Now, You should know that your compensation for this study is made of two parts.</p>
                                 <p>First, upon completion, you will be compensated for $3.00 dollars.</p>
                                 <p>
-                                    Second, your firm is competing with {returnPlayerInitials("B") + " "}'s firm on another large contract (whose name will be marked in RED in the discussion phase). Your boss informed you that if you outperform {returnPlayerInitials("B") + " "} in this case, your firm will win that contract.
+                                    Second, your firm is competing with {returnPlayerInitials("B")}'s firm on another large contract (whose name will be marked in RED in the discussion phase). Your boss informed you that if you outperform {returnPlayerInitials("B")} in this case, your firm will win that contract.
                                 </p>
                                 <p>
-                                    To reflect this situation, if <strong>you outperform {returnPlayerInitials("B") + " "}, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
+                                    To reflect this situation, if <strong>you outperform {returnPlayerInitials("B")}, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
                                 </p>
                                 <p>
-                                    Game tip: <strong>The more information you collect, the greater the chances that you will outperform {returnPlayerInitials("B") + " "}.</strong> This means that you need to collect more pieces of unique information
+                                    Game tip: <strong>The more information you collect, the greater the chances that you will outperform {returnPlayerInitials("B")}.</strong> This means that you need to collect more pieces of unique information
                                 </p>
                             </div>
                             <div style={{ marginLeft: "2rem" }}>
@@ -53,13 +53,13 @@ export default class Incentives extends Component {
                                 <p>Now, You should know that your compensation for this study is made of two parts.</p>
                                 <p>First, upon completion, you will be compensated for $3.00 dollars.</p>
                                 <p>
-                                    Second, your firm is competing with {returnPlayerInitials("A") + " "}'s firm on another large contract (whose name will be marked in RED in the discussion phase). Your boss informed you that if you outperform {returnPlayerInitials("A") + " "} in this case, your firm will win that contract.
+                                    Second, your firm is competing with {returnPlayerInitials("A")}'s firm on another large contract (whose name will be marked in RED in the discussion phase). Your boss informed you that if you outperform {returnPlayerInitials("A")} in this case, your firm will win that contract.
                                 </p>
                                 <p>
-                                    To reflect this situation, if <strong>you outperform {returnPlayerInitials("A") + " "}, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
+                                    To reflect this situation, if <strong>you outperform {returnPlayerInitials("A")}, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
                                 </p>
                                 <p>
-                                    Game tip: <strong>The more information you collect, the greater the chances that you will outperform {returnPlayerInitials("A") + " "}.</strong> This means that you need to collect more pieces of unique information
+                                    Game tip: <strong>The more information you collect, the greater the chances that you will outperform {returnPlayerInitials("A")}.</strong> This means that you need to collect more pieces of unique information
                                 </p>
                             </div>
                             <div style={{ marginLeft: "2rem" }}>

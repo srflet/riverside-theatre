@@ -59,16 +59,16 @@ export default class Discussion extends Component {
                             <p style={{ margin: "5px" }}>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
                             </p>
+                            <br />
+                            <CluesCheck round={round} game={game} player={player} />
+
                         </div>
                         <div style={chatHolder}>
                             <Chat round={round} game={game} player={player} chatNb={1} />
                             <Chat round={round} game={game} player={player} chatNb={2} />
                             {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
                         </div>
-                        <br />
-                        <CluesCheck round={round} game={game} player={player} />
                     </div>
-
 
                     <div>
                         <div className="discussion-information" style={{ display: this.state.isPoliceOpen ? "inline" : "none" }}>

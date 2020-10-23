@@ -1,63 +1,122 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { returnPlayerInitials } from '../../general-ui/helper-functions/returnPlayerInitials';
 
 export default class TestIncentives extends Component {
-    state = { sum: "", horse: "" };
-
-    handleChange = event => {
-        const el = event.currentTarget;
-        this.setState({ [el.name]: el.value.trim().toLowerCase() });
+    state = {
+        incentives1: "",
+        incentives2: ""
     };
 
-    handleSubmit = event => {
-        event.preventDefault();
+    handleChange = e => {
+        const element = e.currentTarget;
+        this.setState({ [element.name]: element.value });
+    };
 
-        if (this.state.sum !== "4" || this.state.horse !== "white") {
-            alert("Incorrect! Read the instructions, and please try again.");
-        } else {
+    handleSubmit = e => {
+        e.preventDefault();
+
+        let incentives1Condition =
+            (this.state.incentives1 === "correct answer for player A and competition" && this.props.player.get("type") === "A" && this.props.game.treatment.competition === "comp") ||
+            (this.state.incentives1 === "correct answer for player B and competition" && this.props.player.get("type") === "B" && this.props.game.treatment.competition === "comp") ||
+            (this.state.incentives1 === "correct answer for no competition or player C" && (this.props.player.get("type") === "C" || this.props.game.treatment.competition === "noncomp"));
+
+        let incentives2Condition =
+            (this.state.incentives2 === "correct answer for competition and players A or B" && this.props.player.get("type") !== "C" && this.props.game.treatment.competition === "comp") ||
+            (this.state.incentives2 === "correct answer for no competition or player C" && (this.props.player.get("type") === "C" || this.props.game.treatment.competition === "noncomp"));
+
+        if (incentives1Condition && incentives2Condition) {
             this.props.nextPage();
+        } else {
+            alert("Incorrect: You need to answer the quiz correctly before you can continue. Please try again.");
         }
     };
 
     render() {
-        const { previousPage, nextPage } = this.props;
-        const { sum, horse } = this.state;
+        const { player, game, previousPage, nextPage } = this.props;
+        const { incentives1, incentives2 } = this.state;
+
+        const player1 =
+            player.get("type") === "A" ?
+                returnPlayerInitials(game, "B") :
+                (player.get("type") === "C" ? returnPlayerInitials(game, "A") : returnPlayerInitials(game, "C"));
+        const player2 =
+            player.get("type") === "B" ?
+                returnPlayerInitials(game, "A") :
+                (player.get("type") === "C" ? returnPlayerInitials(game, "B") : returnPlayerInitials(game, "C"));
+
         return (
             <div>
                 <div className="quiz">
                     <h3> Quiz About the Incentives</h3>
                     <p>
                         Please carefully answer the following comprehension questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
-                  </p>
-                    <p>
-                        <label htmlFor="sum">What is 2+2?</label>
-                        <input
-                            type="text"
-                            dir="auto"
-                            id="sum"
-                            name="sum"
-                            placeholder="e.g. 3"
-                            value={sum}
-                            onChange={this.handleChange}
-                            autoComplete="off"
-                            required
-                        />
                     </p>
-                    <p>
-                        <label htmlFor="horse">
-                            What color was Napoleon's white horse?
-                          </label>
+                    <div>
+                        <p>In this game, I am in direct competition with:</p>
                         <input
-                            type="text"
-                            dir="auto"
-                            id="horse"
-                            name="horse"
-                            placeholder="e.g. brown"
-                            value={horse}
+                            type="radio"
+                            name="incentives1"
+                            value="correct answer for player A and competition"
+                            checked={incentives1 === "correct answer for player A and competition"}
                             onChange={this.handleChange}
-                            autoComplete="off"
-                            required
                         />
-                    </p>
+                        <span>Player {player1}</span>
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="incentives1"
+                            value="correct answer for player B and competition"
+                            checked={incentives1 === "correct answer for player B and competition"}
+                            onChange={this.handleChange}
+                        />
+                        <span>Player {player2}</span>
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="incentives1"
+                            value="incorrect answer"
+                            checked={incentives1 === "incorrect answer"}
+                            onChange={this.handleChange}
+                        />
+                        <span>Both player {player1} and player {player2}</span>
+                        <br />
+
+                        <input
+                            type="radio"
+                            name="incentives1"
+                            value="correct answer for no competition or player C"
+                            checked={incentives1 === "correct answer for no competition or player C"}
+                            onChange={this.handleChange}
+                        />
+                        <span>No one: there is no competition</span>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <p>Please select the statement that best describes your bonus structure:</p>
+                        <input
+                            type="radio"
+                            name="incentives2"
+                            value="correct answer for competition and players A or B"
+                            checked={incentives2 === "correct answer for competition and players A or B"}
+                            onChange={this.handleChange}
+                        />
+                        <span>If I score more points than my competitor, I will have a chance at winning a $10 Amazon gift card.</span>
+                        <br />
+                        <input
+                            type="radio"
+                            name="incentives2"
+                            value="correct answer for no competition or player C"
+                            checked={incentives2 === "correct answer for no competition or player C"}
+                            onChange={this.handleChange}
+                        />
+                        <span>If I correctly solve who is responsible for the death of Mr. Lee’s daughter, I will have a chance at winning $10 Amazon gift card.</span>
+                        <br />
+                    </div>
+
 
                     <p className="button-holder">
                         <button type="button" onClick={previousPage}>

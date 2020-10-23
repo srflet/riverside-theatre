@@ -20,6 +20,17 @@ export default class WhodunitQuestion extends Component {
                 <input
                     type="radio"
                     name="whodunit"
+                    value="Mr. X's son"
+                    onChange={e => {
+                        this.props.handleChange(e)
+                    }}
+                />
+                <span> Mr. X's son</span>
+                <br />
+
+                <input
+                    type="radio"
+                    name="whodunit"
                     value="Mrs. Y"
                     onChange={e => {
                         this.props.handleChange(e)
@@ -37,17 +48,6 @@ export default class WhodunitQuestion extends Component {
                     }}
                 />
                 <span> Mr. Z</span>
-                <br />
-
-                <input
-                    type="radio"
-                    name="whodunit"
-                    value="Mr. Z's son"
-                    onChange={e => {
-                        this.props.handleChange(e)
-                    }}
-                />
-                <span> Mr. Z's son</span>
             </div>
         )
     }

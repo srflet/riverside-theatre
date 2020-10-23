@@ -36,15 +36,15 @@ export default class Page extends Component {
             )
         } else if (currentPage === 5) {
             return (
-                <TestIncentives player={player} previousPage={previousPage} nextPage={nextPage} />
+                <TestIncentives player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 6) {
             return (
-                <PresComStruct round={round} player={player} game={game} />
+                <PresComStruct player={player} round={round} game={game} />
             )
         } else if (currentPage === 7) {
             return (
-                <TestComStruct player={player} previousPage={previousPage} nextPage={nextPage} />
+                <TestComStruct player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         }
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ComStructFull from '../../communication-structure/ComStructFull';
+import ComStructShape from '../../communication-structure/ComStructShape';
 import PresComStructInstructions from '../ui/PresComStructInstructions';
 
 export default class PresComStruct extends Component {
@@ -27,7 +27,7 @@ export default class PresComStruct extends Component {
                     After discussion, you will be asked to give us your final verdict.
                 </p>
                 <div className="centred">
-                    <ComStructFull round={round} game={game} player={player} />
+                    <ComStructShape game={game} player={player} />
                 </div>
             </div>
         )
