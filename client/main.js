@@ -5,12 +5,15 @@ import { render } from "react-dom";
 - Importing React components: -
 ------------------------------*/
 
+//Consent
+import Consent from "./intro/consent/Consent";
+
 //About
 import About from "./game/general-ui/About"
 
 //Introduction:
-import Consent from "./intro/Consent";
 import GeneralIntroduction from "./intro/GeneralIntroduction";
+import Initials from "./intro/Initials";
 import Background from "./intro/Background";
 import PoliceInformation from "./intro/PoliceInformation";
 import Quiz from "./intro/Quiz";
@@ -25,7 +28,6 @@ import Round from "./game/Round";
 import NumberClues from "./surveys/post-game-surveys/NumberClues";
 import Thanks from "./exit/Thanks";
 
-
 // Set the Consent Component you want to present players (optional).
 Empirica.consent(Consent);
 
@@ -37,7 +39,8 @@ Empirica.about(About);
 // different instruction steps depending on the assigned treatment.
 Empirica.introSteps((game, treatment) => {
 	const steps = [GeneralIntroduction];
-	steps.push(Background)
+	steps.push(Initials);
+	steps.push(Background);
 	steps.push(PoliceInformation);
 	steps.push(Quiz);
 	return steps;

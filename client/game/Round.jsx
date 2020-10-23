@@ -4,7 +4,6 @@ import React from "react";
 import Footer from "./general-ui/footer/Footer.jsx";
 
 //Importing Stages
-import Initials from "./initials/Initials";
 import PersonalisedInstructions from "./personalised-instructions/PersonalisedInstructions.jsx";
 import Discussion from "./discussion/Discussion.jsx";
 
@@ -19,7 +18,6 @@ export default class Round extends React.Component {
 				<div className="content">
 
 					<div className="stages">
-						<Initials player={player} stage={stage} game={game} />
 						<PersonalisedInstructions round={round} player={player} stage={stage} game={game} />
 						<Discussion round={round} game={game} player={player} stage={stage} />
 					</div>

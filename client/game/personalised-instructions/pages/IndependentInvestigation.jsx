@@ -12,6 +12,9 @@ export default class IndependentInvestigation extends Component {
 
                 <InvestigationImg />
                 <br />
+                <p>
+                    Note: from now on you are completing these phases simultaneously with the other two players. Be mindful of the timer.
+                </p>
 
                 <p>
                     In addition to clues from the police’s investigation, which is shared by the three PIs (including you), you conducted your own investigations that produced the following clues.

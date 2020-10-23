@@ -8,6 +8,14 @@ import Heading from './ui/Heading';
 export default class PersonalisedInstructions extends Component {
     state = { page: 0 }
 
+    notificationSound = new Audio("sounds/notification.mp3")
+
+    componentDidMount() {
+        if (this.props.stage.name === "personalised_instructions") {
+            this.notificationSound.play();
+        }
+    }
+
     nextPage = () => {
         let page = this.state.page;
         page++;

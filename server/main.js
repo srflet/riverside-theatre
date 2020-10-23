@@ -100,9 +100,6 @@ Empirica.gameInit(game => {
 		let avatar = avatarPaths[shape][color];
 		player.set("avatar", avatar);
 
-		//Prepare their initials
-		player.set("initials", `NoInitials(${i})`);
-
 		//Randomise which player type they are:
 		player.set("type", playerTypes[i]);
 
@@ -150,12 +147,6 @@ Empirica.gameInit(game => {
 			startingCluesB: startingCluesB,
 			startingCluesC: startingCluesC,
 		}
-	});
-
-	round.addStage({
-		name: "initials",
-		displayName: "Initials",
-		durationInSeconds: isTest ? 999999999999 : 120,
 	});
 
 	round.addStage({
