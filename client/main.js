@@ -25,8 +25,9 @@ import Breadcrumb from "./game/general-ui/BreadCrumb"
 import Round from "./game/Round";
 
 //Exit
-import NumberClues from "./surveys/post-game-surveys/NumberClues";
-import Thanks from "./exit/Thanks";
+import PostSurvey from './exit/post-survey/PostSurvey';
+import Thanks from "./exit/debrief/Thanks";
+import Sorry from './exit/debrief/Sorry';
 
 // Set the Consent Component you want to present players (optional).
 Empirica.consent(Consent);
@@ -58,7 +59,9 @@ Empirica.breadcrumb(Breadcrumb);
 // If you don't return anything, or do not define this function, a default
 // exit screen will be shown.
 Empirica.exitSteps((game, player) => {
-	return [NumberClues, Thanks];
+	return player.exitStatus === "finished"
+		? [PostSurvey, Thanks]
+		: [Sorry];
 });
 
 // Start the app render tree.

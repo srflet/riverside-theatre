@@ -8,7 +8,6 @@ import ComStructFull from '../communication-structure/ComStructFull';
 
 //Importing elements for chat
 import Chat from './chats/Chat';
-import WhodunitQuestion from '../../surveys/whodunit/WhodunitQuestion';
 
 //Importing clues checkboxes
 import CluesCheck from './clues-check/CluesCheck';
@@ -77,14 +76,6 @@ export default class Discussion extends Component {
                         <div className="discussion-information" style={{ display: this.state.isComStructOpen ? "inline" : "none" }}>
                             <h3 className="centred">Structure and independent investigations</h3>
                             <ComStructFull round={round} game={game} player={player} />
-                        </div>
-
-                        <div className="discussion-information" style={{ display: this.state.isAnswerOpen ? "inline" : "none" }}>
-                            <h3 className="centred">Give my answer in early</h3>
-                            <WhodunitQuestion handleChange={this.handleWhodunitChange} />
-                            <div className="button-holder">
-                                <button onClick={this.handleWhodunitSubmit} disabled={player.get("whodunit") !== ""}>Give my answer</button>
-                            </div>
                         </div>
 
                         <div className="side-button-holder" style={{

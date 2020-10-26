@@ -33,7 +33,7 @@ export default class InitialWhodunit extends Component {
                 {player.get("initialWhodunit") !== ""
                     ? <div><p>Thank you for providing your initial answer: {player.get("initialWhodunit")}. </p></div>
                     : <div>
-                        <WhodunitQuestion handleChange={this.handleWhodunitChange} />
+                        <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
                         <div className="button-holder">
                             <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>
                         </div>

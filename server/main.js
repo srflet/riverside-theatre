@@ -112,6 +112,14 @@ Empirica.gameInit(game => {
 			player.set("independent-clues", startingCluesC);
 		}
 
+		//Set whodunit order
+		let whodunitOrder = ["Mr. X", "Mr. X's son", "Mrs. Y", "Mr. Z"];
+		whodunitOrder = shuffle(whodunitOrder);
+		player.set("whodunit-order", whodunitOrder);
+
+		//Set initial whodunit
+		player.set("initialWhodunit", "");
+
 		//Set cluesCheck
 		let cluesChecked = {};
 		clues_full.clues.forEach(clue => {
@@ -127,9 +135,43 @@ Empirica.gameInit(game => {
 		player.set("chatAC", null);
 		player.set("chatBC", null);
 
-		//Set measures
-		player.set("initialWhodunit", "");
-		player.set("whodunit", "");
+		//Set post-surveys list
+		player.set("post-surveys-list",
+			[
+				"NumberClues",
+				"ManipCheckBrok1",
+				"ManipCheckBrok2",
+				"ManipCheckComp",
+				"SuspicionDistrust",
+				"MotivationToShare",
+				"PreventInfo",
+				"EaseInfoExchange",
+				"MotivationBrok",
+				"FinalWhodunit",
+				"Demographics"
+			]
+		);
+
+		//Use list to intialise each answer
+		player.get("post-surveys-list").forEach(surveyName => {
+			if (
+				surveyName === "NumberClues" ||
+				surveyName === "ManipCheckBrok1" ||
+				surveyName === "PreventInfo" ||
+				surveyName === "FinalWhodunit"
+			) {
+				player.set(surveyName, "")
+			} else if (surveyName === "Demographics") {
+				player.set(surveyName, {
+					gender: "",
+					ethnicity: "",
+					age: 0,
+					work: ""
+				})
+			} else {
+				player.set(surveyName, {})
+			}
+		});
 
 	});
 

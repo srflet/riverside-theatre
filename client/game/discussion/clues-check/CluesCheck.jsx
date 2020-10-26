@@ -19,152 +19,90 @@ export default class CluesCheck extends Component {
         const cluesC = getClues(game, round, player, "C");
         const cluesChecked = player.get("cluesChecked");
 
-        return false ?
-            (
-                <div className="clueCheck">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colSpan="2">Check clues that you have discovered</th>
+        return (
+            <div className="clueCheck">
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan="2">
+                                {player.get("type") === "A" ?
+                                    "Your clues" :
+                                    <div style={headerStyle}>{"Clues from player " + returnPlayerInitials(game, "A") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "A")} /></div>}
+                                {player.get("type") === "B" && game.treatment.competition === "comp" ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cluesA.map(clue => {
+                            return <tr key={clue.id}>
+                                <td className="clueCheck-clue">{clue.text}</td>
+                                <td className="clueCheck-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name={clue.id}
+                                        checked={cluesChecked[clue.id]}
+                                        onChange={e => this.handleChange(e)}
+                                    />
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr className="clueCheck-subtitle" >
-                                <td colSpan="2">{player.get("type") === "A" ? "Your clues" : "Clues from player " + returnPlayerInitials(game, "A")}</td>
+                        })}
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan="2">
+                                {player.get("type") === "B" ?
+                                    "Your clues" :
+                                    <div style={headerStyle}>{"Clues from player " + returnPlayerInitials(game, "B") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "B")} /></div>}
+                                {player.get("type") === "A" && game.treatment.competition === "comp" ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cluesB.map(clue => {
+                            return <tr key={clue.id}>
+                                <td className="clueCheck-clue">{clue.text}</td>
+                                <td className="clueCheck-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name={clue.id}
+                                        checked={cluesChecked[clue.id]}
+                                        onChange={e => this.handleChange(e)}
+                                    />
+                                </td>
                             </tr>
-                            {cluesA.map(clue => {
-                                return <tr key={clue.id}>
-                                    <td className="clueCheck-clue">{clue.text}</td>
-                                    <td className="clueCheck-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            name={clue.id}
-                                            checked={cluesChecked[clue.id]}
-                                            onChange={e => this.handleChange(e)}
-                                        />
-                                    </td>
-                                </tr>
-                            })}
-                            <tr className="clueCheck-subtitle" >
-                                <td colSpan="2">{player.get("type") === "B" ? "Your clues" : "Clues from player " + returnPlayerInitials(game, "B")}</td>
+                        })}
+                    </tbody>
+                </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colSpan="2">
+                                {player.get("type") === "C" ?
+                                    "Your clues" :
+                                    <div style={headerStyle}>{"Clues from player " + returnPlayerInitials(game, "C") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "C")} /></div>}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cluesC.map(clue => {
+                            return <tr key={clue.id}>
+                                <td className="clueCheck-clue">{clue.text}</td>
+                                <td className="clueCheck-checkbox">
+                                    <input
+                                        type="checkbox"
+                                        name={clue.id}
+                                        checked={cluesChecked[clue.id]}
+                                        onChange={e => this.handleChange(e)}
+                                    />
+                                </td>
                             </tr>
-                            {cluesB.map(clue => {
-                                return <tr key={clue.id}>
-                                    <td className="clueCheck-clue">{clue.text}</td>
-                                    <td className="clueCheck-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            name={clue.id}
-                                            checked={cluesChecked[clue.id]}
-                                            onChange={e => this.handleChange(e)}
-                                        />
-                                    </td>
-                                </tr>
-                            })}
-                            <tr className="clueCheck-subtitle" >
-                                <td colSpan="2">{player.get("type") === "C" ? "Your clues" : "Clues from player " + returnPlayerInitials(game, "C")}</td>
-                            </tr>
-                            {cluesC.map(clue => {
-                                return <tr key={clue.id}>
-                                    <td className="clueCheck-clue">{clue.text}</td>
-                                    <td className="clueCheck-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            name={clue.id}
-                                            checked={cluesChecked[clue.id]}
-                                            onChange={e => this.handleChange(e)}
-                                        />
-                                    </td>
-                                </tr>
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-            ) :
-            (
-                <div className="clueCheck">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colSpan="2">
-                                    {player.get("type") === "A" ?
-                                        "Your clues" :
-                                        <div style={headerStyle}>{"Clues from player " + returnPlayerInitials(game, "A") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "A")} /></div>}
-                                    {player.get("type") === "B" && game.treatment.competition === "comp" ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cluesA.map(clue => {
-                                return <tr key={clue.id}>
-                                    <td className="clueCheck-clue">{clue.text}</td>
-                                    <td className="clueCheck-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            name={clue.id}
-                                            checked={cluesChecked[clue.id]}
-                                            onChange={e => this.handleChange(e)}
-                                        />
-                                    </td>
-                                </tr>
-                            })}
-                        </tbody>
-                    </table>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colSpan="2">
-                                    {player.get("type") === "B" ?
-                                        "Your clues" :
-                                        <div style={headerStyle}>{"Clues from player " + returnPlayerInitials(game, "B") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "B")} /></div>}
-                                    {player.get("type") === "A" && game.treatment.competition === "comp" ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cluesB.map(clue => {
-                                return <tr key={clue.id}>
-                                    <td className="clueCheck-clue">{clue.text}</td>
-                                    <td className="clueCheck-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            name={clue.id}
-                                            checked={cluesChecked[clue.id]}
-                                            onChange={e => this.handleChange(e)}
-                                        />
-                                    </td>
-                                </tr>
-                            })}
-                        </tbody>
-                    </table>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th colSpan="2">
-                                    {player.get("type") === "C" ?
-                                        "Your clues" :
-                                        <div style={headerStyle}>{"Clues from player " + returnPlayerInitials(game, "C") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "C")} /></div>}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {cluesC.map(clue => {
-                                return <tr key={clue.id}>
-                                    <td className="clueCheck-clue">{clue.text}</td>
-                                    <td className="clueCheck-checkbox">
-                                        <input
-                                            type="checkbox"
-                                            name={clue.id}
-                                            checked={cluesChecked[clue.id]}
-                                            onChange={e => this.handleChange(e)}
-                                        />
-                                    </td>
-                                </tr>
-                            })}
-                        </tbody>
-                    </table>
-                </div>
-            )
+                        })}
+                    </tbody>
+                </table>
+            </div>
+        )
     }
 }
 

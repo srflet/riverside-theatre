@@ -4,9 +4,9 @@ export default class Thanks extends React.Component {
   static stepName = "Thanks";
   render() {
     return (
-      <div className="finished">
+      <div className="centered">
         <div>
-          <h4>Finished!</h4>
+          <h2>Finished!</h2>
           <p>Thank you for participating!</p>
         </div>
       </div>

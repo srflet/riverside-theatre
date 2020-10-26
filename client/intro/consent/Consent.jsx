@@ -18,7 +18,7 @@ export default class Consent extends React.Component {
           				</p>
 
 						<p>
-							This study cannot run on mobile nor on browsers other than Chrome. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome</strong>.
+							This study cannot run on mobile/tablets nor on browsers other than Chrome. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome</strong>.
          			 	</p>
 
 						<br />
@@ -31,7 +31,7 @@ export default class Consent extends React.Component {
 					<div>
 						<h2> Consent Form </h2>
 						<p>
-							This study cannot run on mobile nor on browsers other than Chrome. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome</strong>.
+							This study cannot run on mobile/tablets nor on browsers other than Chrome. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome</strong>.
          			 	</p>
 					</div>
 				</Centered>
