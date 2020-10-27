@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ComStructShape from '../../communication-structure/ComStructShape';
-import PresComStructInstructions from '../ui/PresComStructInstructions';
+import PresComStructInstructions from './subpage-elements/PresComStructInstructions';
 
 export default class PresComStruct extends Component {
     render() {
@@ -11,20 +11,10 @@ export default class PresComStruct extends Component {
                 <h3>Communication Structure</h3>
                 <PresComStructInstructions game={game} player={player} />
                 <p>
-                    <strong><u>
-                        Below is a graphic aid to help you visualize the communication channels.
-                    </u></strong>
+                    Game tip: Look at your position on this diagram, and think about how you might use your position to gain information. <strong><u>For example, try not to just ask for clues, but also consider “trading” clues with others.</u></strong>
                 </p>
                 <p>
-                    <strong><u>
-                        To help you with discussion, the graph also shows what the other two participants know. No need to write this down, we will present it on the side on the next page.
-                    </u></strong>
-                </p>
-                <p>
-                    Click 'Next Stage' to enter the discussion room. You will have 10 minutes to exchange information however you like.
-                </p>
-                <p>
-                    After discussion, you will be asked to give us your final verdict.
+                    On the next page, to facilitate discussion we will give you a hint of what unique clues the other two players have (e.g., “Player B knows the gender of the guilty person”).
                 </p>
                 <div className="centred">
                     <ComStructShape game={game} player={player} />

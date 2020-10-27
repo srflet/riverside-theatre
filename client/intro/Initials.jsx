@@ -20,7 +20,7 @@ export default class Initials extends Component {
         //Check that this is 3 letters without numbers in them...
         if (this.state.initials.length !== 3) {
             //...If not, alert the user that this is wrong and they need to try again
-            alert("Incorrect: Please only and include three characters (no more, no less). Please try again.");
+            alert("Please only and include three characters (no more, no less)");
         } else {
             //...If correct, set the players initials and end this stage for them
             this.props.player.set("initials", this.state.initials);
@@ -39,18 +39,27 @@ export default class Initials extends Component {
         return (
             <Centered>
                 <div className="instructions">
-                    <h2> Initials </h2>
+                    <h2> Screen Name </h2>
 
                     {initials === "" ?
                         <form onSubmit={this.handleSubmit}>
                             <div>
-                                <label htmlFor="initials">Please enter two letters and one number as your screen name for the discussion in order to make communication with other players in the final stage easier (for a minimum and maximum of 3 characters). For example, if your name is "Jane Smith", you could write "JS7".</label>
+                                <p>
+                                    Before we proceed, please enter a screen name for yourself.
+                                </p>
+                                <p>
+                                    Please enter your initials (first and last name) and the last digit of your UID, we will use this as your screen name later to connect you with the other two playesr in the chatroom.
+                                </p>
+                                <p>
+                                    For instance, if your name is Jane Doe and the last digit of your UID is 5, please enter "JD5" as your screen name.
+                                </p>
+
                                 <input
                                     type="text"
                                     dir="auto"
                                     id="initials"
                                     name="initials"
-                                    placeholder="type screen name..."
+                                    placeholder="Enter your screen name..."
                                     value={this.state.initials}
                                     onChange={this.handleChange}
                                     autoComplete="off"
@@ -60,13 +69,13 @@ export default class Initials extends Component {
                                 <div className="button-holder">
                                     <button type="submit">
                                         Submit Initials
-                            </button>
+                                    </button>
                                 </div>
                             </div>
                         </form> :
                         <div>
                             <p>
-                                Thank you for submitting you initials: {player.get("initials")}.
+                                Thank you for submitting you screen name: {player.get("initials")}.
                             </p>
                             <p className="button-holder">
                                 <button type="button" onClick={onPrev} disabled={!hasPrev}>

@@ -26,16 +26,20 @@ export default class Incentives extends Component {
                         <h3>Incentives</h3>
                         <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
                             <div>
-                                <p>Now, You should know that your compensation for this study is made of two parts.</p>
-                                <p>First, upon completion, you will be compensated for $3.00 dollars.</p>
                                 <p>
-                                    Second, your firm is competing with {returnPlayerInitials("B")}'s firm on another large contract (whose name will be marked in RED in the discussion phase). Your boss informed you that if you outperform {returnPlayerInitials("B")} in this case, your firm will win that contract.
+                                    Now, you should know that your firm is <strong><u>currently competing with {returnPlayerInitials("B")}'s (will be visibly marked RED later in the discussion) firm on another large contract with a different client.</u></strong> Your boss informed you that if you outperform {returnPlayerInitials("B")} in this case, your firm has a high chance of winning that contract.
                                 </p>
                                 <p>
-                                    To reflect this situation, if <strong>you outperform {returnPlayerInitials("B")}, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
+                                    The third player in today's game ({returnPlayerInitials("C")}) operates in a different market and so is not in any competition with you.
                                 </p>
                                 <p>
-                                    Game tip: <strong>The more information you collect, the greater the chances that you will outperform {returnPlayerInitials("B")}.</strong> This means that you need to collect more pieces of unique information
+                                    In order to win the new contract, your boss has told you that in the following discussion between the three players, <strong><u>you need to OUTPERFORM {returnPlayerInitials("B")} BY COLLECTING MORE CLUES THAN {returnPlayerInitials("B")}.</u></strong> In other words, you will need to <u>try and get as many clues as possible as possible</u> from the other two players, and at the same time, <u>ensuring that {returnPlayerInitials("B")} does not collect more clues than you</u>.
+                                </p>
+                                <p>
+                                    To reflect this competition, at the end of the game, <strong><u>For every clue you collect more than {returnPlayerInitials("B")}, you will be awarded 5 points.</u></strong> For instance, if you collect 3 more pieces of information than {returnPlayerInitials("B")}, you will be awarded 15 points.
+                                </p>
+                                <p>
+                                    <strong><u>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card.</u></strong>
                                 </p>
                             </div>
                             <div style={{ marginLeft: "2rem" }}>
@@ -50,16 +54,20 @@ export default class Incentives extends Component {
                         <h3>Incentives</h3>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                             <div>
-                                <p>Now, You should know that your compensation for this study is made of two parts.</p>
-                                <p>First, upon completion, you will be compensated for $3.00 dollars.</p>
                                 <p>
-                                    Second, your firm is competing with {returnPlayerInitials("A")}'s firm on another large contract (whose name will be marked in RED in the discussion phase). Your boss informed you that if you outperform {returnPlayerInitials("A")} in this case, your firm will win that contract.
+                                    Now, you should know that your firm is <strong><u>currently competing with {returnPlayerInitials("A")}'s (will be visibly marked RED later in the discussion) firm on another large contract with a different client.</u></strong> Your boss informed you that if you outperform {returnPlayerInitials("A")} in this case, your firm has a high chance of winning that contract.
                                 </p>
                                 <p>
-                                    To reflect this situation, if <strong>you outperform {returnPlayerInitials("A")}, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
+                                    The third player in today's game ({returnPlayerInitials("C")}) operates in a different market and so is not in any competition with you.
                                 </p>
                                 <p>
-                                    Game tip: <strong>The more information you collect, the greater the chances that you will outperform {returnPlayerInitials("A")}.</strong> This means that you need to collect more pieces of unique information
+                                    In order to win the new contract, your boss has told you that in the following discussion between the three players, <strong><u>you need to OUTPERFORM {returnPlayerInitials("A")} BY COLLECTING MORE CLUES THAN {returnPlayerInitials("A")}.</u></strong> In other words, you will need to <u>try and get as many clues as possible as possible</u> from the other two players, and at the same time, <u>ensuring that {returnPlayerInitials("A")} does not collect more clues than you</u>.
+                                </p>
+                                <p>
+                                    To reflect this competition, at the end of the game, <strong><u>For every clue you collect more than {returnPlayerInitials("A")}, you will be awarded 5 points.</u></strong> For instance, if you collect 3 more pieces of information than {returnPlayerInitials("A")}, you will be awarded 15 points.
+                                </p>
+                                <p>
+                                    <strong><u>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card.</u></strong>
                                 </p>
                             </div>
                             <div style={{ marginLeft: "2rem" }}>
@@ -77,17 +85,18 @@ export default class Incentives extends Component {
                     <h3>Incentives</h3>
                     <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}>
                         <div>
-                            <p>Now, You should know that your compensation for this study is made of two parts.</p>
-                            <p>First, upon completion, you will be compensated for $3.00 dollars.</p>
                             <p>
-                                Second, your firm is a relatively new firm that is working hard to establish a good reputation in the business. Your boss informed you that if you do well this high-profile case with Mr. Lee by correctly identifying the guilty person, it will be a big boost to the firm's reputation.
+                                Now, you should know that <strong><u>your firm is a relatively new firm that is working hard to establish a good reputation in the business.</u></strong> Your boss informed you that if you do well this high-profile case with Mr. Lee, it will be a big boost to the firm’s reputation.
                             </p>
                             <p>
-                                To reflect this situation, if <strong>you correctly identify the guilty person, you will additionally receive a $1.00 dollar, equivalent to a 33% bonus on top of the base pay.</strong>
+                                In order to correctly identify the guilty person, your boss told you that in the following discussion between the three players, <strong><u>you need to COLLECT AS MANY CLUES FROM OTHERS AS POSSIBLE.</u></strong> Only by maximizing the number of unique clues you collect from others, you will have the best chance of solving this game.
                             </p>
                             <p>
-                                Game tip: <strong>The more information you collect, the greater the chances that you will be successful.</strong> This means that you need to collect more pieces of unique information.
-                             </p>
+                                To reflect this situation, at the end of the game, <strong><u>For every unique clue you collect from others, you will be awarded 2 points.</u></strong> For instance, if you collect a total of 3 pieces of unique clues from the other two players, you will be awarded 6 points.
+                            </p>
+                            <p>
+                                <strong><u>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card.</u></strong>
+                            </p>
                         </div>
                         <div style={{ marginLeft: "2rem" }}>
                             <BonusImg />

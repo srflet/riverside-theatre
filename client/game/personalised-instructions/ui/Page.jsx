@@ -9,6 +9,7 @@ import PresComStruct from '../pages/PresComStruct';
 import InitialWhodunit from '../pages/InitialWhodunit';
 import TestIncentives from '../pages/TestIncentives';
 import TestComStruct from '../pages/TestComStruct';
+import ClueHints from '../pages/ClueHints';
 
 export default class Page extends Component {
     render() {
@@ -40,11 +41,16 @@ export default class Page extends Component {
             )
         } else if (currentPage === 6) {
             return (
-                <PresComStruct player={player} round={round} game={game} />
+                <PresComStruct player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 7) {
             return (
                 <TestComStruct player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
+            )
+        } else if (currentPage === 8) {
+            return (
+                <ClueHints player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} />
+
             )
         }
     }

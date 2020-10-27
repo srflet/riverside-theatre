@@ -42,8 +42,8 @@ Empirica.introSteps((game, treatment) => {
 	const steps = [GeneralIntroduction];
 	steps.push(Initials);
 	steps.push(Background);
-	steps.push(PoliceInformation);
 	steps.push(Quiz);
+	steps.push(PoliceInformation);
 	return steps;
 });
 

@@ -10,15 +10,21 @@ export default class GeneralIntroduction extends Component {
             <Centered>
                 <div className="instructions">
                     <h2>General Instructions</h2>
-                    <p>
-                        Today, we invite you to participate in a game in which you will play as a <strong>Private Investigator</strong> hired to identify the perpetrator of a car collision (think of it as a “murder mystery” puzzle). You will be given clues that will help you solve the puzzle.
-         			 </p>
-                    <p>
-                        Importantly, using this online chatroom platform, <strong><u>you are connected to two other participants who also are trying to solve the same problem, but with different set of clues. After the initial instructions, you can choose to chat with them to exchange information.</u></strong>
-                    </p>
-                    <p>
-                        Your compensation is comprised of two parts: <strong><u>1) a $3.00 base pay for your participation and a 2) a $1.00 bonus based on your performance.</u></strong> More details about the bonus will be explained shortly.
-                    </p>
+
+                    <ul>
+                        <li>
+                            Today, we invite you to participate in a game in which you will play as a <strong>Private Investigator</strong> hired to identify the perpetrator of a car collision (think of it as a “murder mystery” puzzle). You will be given clues that will help you solve the puzzle.
+         			    </li>
+                        <li>
+                            Importantly, using this online chatroom platform, <strong><u>you are connected to two other participants who also are trying to solve the same problem, but with different set of clues. After the initial instructions, you can choose to chat with them to exchange information.</u></strong>
+                        </li>
+                        <li>
+                            For completion, you will receive course credit. <strong><u>Additionally, if your score is among the top 25 of all players, you will receive a $10 Amazon Gift Card.</u></strong> More details about this bonus will be explained shortly.
+                        </li>
+                        <li>
+                            If you are ready to proceed, please click next.
+                        </li>
+                    </ul>
                 </div>
 
                 {/* Empirica introduction buttons */}

@@ -67,6 +67,7 @@ export default class Demographics extends Component {
                     name="ethnicity"
                     value={answers.ethnicity}
                     onChange={e => this.handleChangeEthnicity(e)}
+                    autoComplete="off"
                 />
                 <br />
                 <br />

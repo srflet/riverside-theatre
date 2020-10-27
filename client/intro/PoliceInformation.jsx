@@ -17,21 +17,11 @@ export default class PoliceInformation extends Component {
                     <br />
 
                     <p>
-                        <strong><u>Please note that there is NO false information below and the other two participants also have this information.</u></strong> Please read through them carefully, but there is no need to write them down – they will be available later.
+                        <strong><u>Please note that the other two participants also have this information.</u></strong> Please read through them carefully, but there is no need to write them down – they will be available later.
                     </p>
 
                     <div><PoliceClues /></div>
 
-                    <div>
-                        In the next steps, you will:
-                    </div>
-                    <ol>
-                        <li>answer some comprehension questions</li>
-                        <li>provide initials that can be used as your screen name in the discussion phase of this study</li>
-                        <li>read further clues and instructions about the task</li>
-                        <li>chat with the two other private investigators during the discussion phase</li>
-                        <li>answer some survey questions</li>
-                    </ol>
                 </div>
 
                 {/* Empirica introduction buttons */}
@@ -40,7 +30,7 @@ export default class PoliceInformation extends Component {
                         Previous
                     </button>
                     &emsp;
-                    <button type="button" onClick={onNext} disabled={!hasNext}>
+                    <button type="button" onClick={onNext}>
                         Next
                     </button>
                 </p>

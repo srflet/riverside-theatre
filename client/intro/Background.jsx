@@ -20,7 +20,7 @@ export default class Background extends Component {
                         He has hired you and two other private investigators from two other PI agencies to crack the case.
                     </p>
                     <p>
-                        <strong>IMPORTANTLY: <u>The clues available to you are from two sources 1) notes from the police investigation, which will be shared by all three PIs 2) clues from your own independent investigations.</u></strong>
+                        <strong>IMPORTANTLY: <u>The clues available to you are from two sources 1) notes from the police investigation, which will be shared by all three PIs 2) clues from your own independent investigations that are mostly UNIQUE to you.</u></strong>
                     </p>
                     <p>
                         On the next page, we will first show you the notes from the police's investigation.

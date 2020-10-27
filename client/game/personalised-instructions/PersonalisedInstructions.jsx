@@ -31,7 +31,7 @@ export default class PersonalisedInstructions extends Component {
     render() {
         const { round, player, stage, game } = this.props;
         const currentPage = this.state.page;
-        const noNav = currentPage === 2 || currentPage === 5 || currentPage === 7;
+        const noNav = currentPage === 2 || currentPage === 5 || currentPage === 7 || currentPage === 8;
 
         if (stage.name == "personalised_instructions") {
             return (

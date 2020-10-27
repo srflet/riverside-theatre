@@ -23,16 +23,13 @@ export default class InitialWhodunit extends Component {
 
         return (
             <div>
-                <h2>Initial Whodunit</h2>
-
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
-                </p>
+                <h2>First Verdict</h2>
 
                 {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
                 {player.get("initialWhodunit") !== ""
-                    ? <div><p>Thank you for providing your initial answer: {player.get("initialWhodunit")}. </p></div>
+                    ? <div><p>Thank you for providing your first verdict: {player.get("initialWhodunit")}. </p></div>
                     : <div>
+                        <p>Given the information above, which of the people described above do you think was responsible for the collision and caused the death of Mr. Lee’s daughter?</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
                         <div className="button-holder">
                             <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>

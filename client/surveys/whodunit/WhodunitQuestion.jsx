@@ -6,7 +6,6 @@ export default class WhodunitQuestion extends Component {
     render() {
         return (
             <div className="whodunit-question">
-                <p>Whodunit?</p>
                 {this.props.player.get("whodunit-order").map((value, index) => <WhodunitInput key={index} handleChange={this.props.handleChange} value={value} />)}
             </div>
         )

@@ -32,7 +32,7 @@ export default class FinalWhodunit extends Component {
 
                 {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
                 {answers !== ""
-                    ? <div><p>Thank you for providing your initial answer: {answers}. </p></div>
+                    ? <div><p>Thank you for providing your final verdict: {answers}. </p></div>
                     : <div>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
                         <div className="button-holder">

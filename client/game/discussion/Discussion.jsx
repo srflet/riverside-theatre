@@ -53,9 +53,29 @@ export default class Discussion extends Component {
                     <div onClick={this.clickOutsideInformation}>
                         <div>
                             <br />
-                            <p style={{ margin: "5px" }}>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec imperdiet molestie ante ut placerat. Curabitur nec velit arcu. Proin sagittis porta ligula sit amet feugiat. Nunc molestie pharetra orci, a tristique tortor. Sed sodales risus at sapien ultricies scelerisque. Fusce id ornare diam, eu efficitur ipsum. Vivamus eleifend maximus lectus eget semper. Aenean vel velit non mauris rutrum suscipit a sollicitudin metus. Fusce pharetra ac purus ac interdum. In posuere mattis ultrices. Mauris sed laoreet ipsum.
-                            </p>
+                            <div style={{ margin: "5px" }}>
+                                <p>
+                                    In this space, <strong><u>you will have 7-10 mins</u></strong> to chat with the other two players x and y to get as many cues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
+                                </p>
+                                <p>
+                                    On the left hand side, you can see two tabs. You can click on the “Police Clues” tab to revisit the clues all three players share. You can click on the “Communication Structure” to revisit the diagram that describes who can talk to whom.
+                                </p>
+                                <p>
+                                    To help you get started, <strong><u>we have created these “check boxes” about the unique clues everyone has.</u></strong> When you collect and unique clue from another player, you can check off that clue.
+                                </p>
+                                <br />
+                                <p>
+                                    <span className="game-tip">
+                                        Game tip #1: These check boxes could help you get started. <strong><u>Look at what type of unique clues other players have and try to ask specific questions.</u></strong> You will need at least 4 unique clues from these 2 players to have a chance to find the guilty person.
+                                    </span>
+                                </p>
+                                <br />
+                                <p>
+                                    <span className="game-tip">
+                                        Game tip #2: Look at the communication diagram again, and <strong><u>think about how you may take advantage of your position and “bargain” with other players to get unique clues.</u></strong>
+                                    </span>
+                                </p>
+                            </div>
                             <br />
                             <CluesCheck round={round} game={game} player={player} />
 
@@ -74,7 +94,7 @@ export default class Discussion extends Component {
                         </div>
 
                         <div className="discussion-information" style={{ display: this.state.isComStructOpen ? "inline" : "none" }}>
-                            <h3 className="centred">Structure and independent investigations</h3>
+                            <h3 className="centred">Communication Structure</h3>
                             <ComStructFull round={round} game={game} player={player} />
                         </div>
 

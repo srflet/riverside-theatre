@@ -7,21 +7,15 @@ export default class IntroDiscussion extends Component {
             <div>
                 <h3>Introducting the Discussion</h3>
                 <p>
-                    Mr. Lee has called a meeting of all three Investigators he hired. After realizing that each PI has their unique information, he informed the PIs that he is not interested in individual answers that are based on possibly incomplete information, rather he said that <strong><u>each of you NEED more information to correctly identify the suspect.</u></strong>
+                    You have reported your verdict to Mr. Lee and he mentioned to you that <strong><u>the other two players, while they share the police clues, also have unique clues you don’t have.</u></strong> This made the your firm realizes that, in order to solve the case, it might be ncessary for the three players to discuss the case together.
                 </p>
                 <p>
-                    Now, Mr. Lee has asked the three of you to discuss your opinions and form your final verdict.
+                    The firms you guys work for have arranged for the three players to chat in the next phase of the game
                 </p>
-                <div>A recap of what is know:</div>
-                <ol>
-                    <li>the other two PIs also have police’s notes </li>
-                    <li>they also conducted their own investigation that produced some unique clues that are not available to you </li>
-                    <li>
-                        <strong><u>
-                            the information you currently have is likely INCOMPLETE, and to identify the correct suspect, you will need some information from the other two participants.
-                        </u></strong>
-                    </li>
-                </ol>
+                <p>
+                    <strong><u>Game tip:</u></strong> the clues you currently have are likely INCOMPLETE, and to identify the correct suspect, you will need some information from the other two players.
+                </p>
+
             </div>
         )
 

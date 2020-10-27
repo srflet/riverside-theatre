@@ -3,17 +3,17 @@ import React from "react";
 import { Centered } from "meteor/empirica:core";
 
 export default class Quiz extends React.Component {
-	state = { sum: "", horse: "" };
+	state = { answer: "" };
 
-	handleChange = event => {
-		const el = event.currentTarget;
-		this.setState({ [el.name]: el.value.trim().toLowerCase() });
+	handleChange = e => {
+		const radio = e.currentTarget;
+		this.setState({ answer: radio.value });
 	};
 
 	handleSubmit = event => {
 		event.preventDefault();
 
-		if (this.state.sum !== "4" || this.state.horse !== "white") {
+		if (this.state.answer !== "right") {
 			alert("Incorrect: You need to answer the quiz correctly before you can continue. Please try again.");
 		} else {
 			this.props.onNext();
@@ -22,45 +22,51 @@ export default class Quiz extends React.Component {
 
 	render() {
 		const { hasPrev, hasNext, onNext, onPrev } = this.props;
-		const { sum, horse } = this.state;
+		const { answer } = this.state;
+
 		return (
 			<Centered>
 				<div className="quiz">
-					<h2> Quiz </h2>
+					<h2> Comprehension Quiz </h2>
 					<p>
-						Please carefully answer the following comprehension questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
-         			 </p>
+						Please carefully answer the following comprehension question. You need to answer the question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
+         			</p>
+					<p>
+						What type of clues will be available to you?
+					</p>
 					<form onSubmit={this.handleSubmit}>
-						<p>
-							<label htmlFor="sum">What is 2+2?</label>
-							<input
-								type="text"
-								dir="auto"
-								id="sum"
-								name="sum"
-								placeholder="e.g. 3"
-								value={sum}
-								onChange={this.handleChange}
-								autoComplete="off"
-								required
-							/>
-						</p>
-						<p>
-							<label htmlFor="horse">
-								What color was Napoleon's white horse?
-             				 </label>
-							<input
-								type="text"
-								dir="auto"
-								id="horse"
-								name="horse"
-								placeholder="e.g. brown"
-								value={horse}
-								onChange={this.handleChange}
-								autoComplete="off"
-								required
-							/>
-						</p>
+						<input
+							type="radio"
+							name="comprehensionCheck1"
+							value="wrong1"
+							onChange={this.handleChange}
+							checked={answer === "wrong1"}
+							required
+						/>
+						<span>Clues from the police investigation that are shared by all three players</span>
+						<br />
+
+						<input
+							type="radio"
+							name="comprehensionCheck1"
+							value="wrong2"
+							onChange={this.handleChange}
+							checked={answer === "wrong2"}
+							required
+						/>
+						<span>Clues from your own independent investigations that are largely unique to yourself</span>
+						<br />
+
+						<input
+							type="radio"
+							name="comprehensionCheck1"
+							value="right"
+							onChange={this.handleChange}
+							checked={answer === "right"}
+							required
+						/>
+						<span>Both</span>
+						<br />
 
 						<p className="button-holder">
 							<button type="button" onClick={onPrev} disabled={!hasPrev}>
