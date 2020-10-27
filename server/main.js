@@ -65,7 +65,7 @@ import { avatarPaths } from './avatars/avatarPaths';
 -----------*/
 
 //Setting a variable for whether this is development/testing or not
-const isTest = true
+const isTest = true;
 
 //Running the gameInit
 Empirica.gameInit(game => {
@@ -157,7 +157,6 @@ Empirica.gameInit(game => {
 			if (
 				surveyName === "NumberClues" ||
 				surveyName === "ManipCheckBrok1" ||
-				surveyName === "PreventInfo" ||
 				surveyName === "FinalWhodunit"
 			) {
 				player.set(surveyName, "")
