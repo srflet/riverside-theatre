@@ -8,7 +8,7 @@ export default class IndependentInvestigation extends Component {
 
         return (
             <div>
-                <h3> Independent Investigation </h3>
+                <h3>Your Independent Investigation </h3>
 
                 <InvestigationImg />
                 <br />
@@ -21,6 +21,7 @@ export default class IndependentInvestigation extends Component {
                 </p>
                 <p>Please read through them carefully, but there is no need to write them down – they will be available later.</p>
                 <PersonalClues player={player} round={round} game={game} />
+                <br />
             </div>
         )
 

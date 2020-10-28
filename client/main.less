@@ -1,20 +1,25 @@
 * {
   font-family: Calibri, Arial, sans-serif;
-  font-size: 12pt;
-}
-
-h2 {
   font-size: 16pt;
 }
 
+h2 {
+  font-size: 20pt;
+}
+
 h3 {
-  font-size: 14pt;
+  font-size: 18pt;
+}
+
+li {
+  margin-bottom: 5px;
 }
 
 .round {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding: 10px;
 
   .content {
     height: 100%;
@@ -36,6 +41,7 @@ h3 {
       // for a timer, doesn't jump all over the place.
       font-family: Helvetica, Arial, sans-serif;
       color: green;
+      margin: 0;
     }
     &.lessThan10 {
       .seconds {
@@ -173,8 +179,8 @@ button {
 	}
   
   button:hover {
-    background-color: #b1c3d0;
-    color: #394B59;
+    background-color: #5f839e;
+    color: white;
   }
 
   button:disabled {
@@ -223,10 +229,11 @@ label {
 	color: white;
 	margin: 0px;
   
-    &:hover {
-	  background-color: #b1c3d0;
-	  color: #394B59;
-    }
+  &:hover {
+    background-color: #5f839e;
+    color: white;
+  }
+
   }
 
 
@@ -269,8 +276,8 @@ label {
 	}
   
   button:hover {
-    background-color: #b1c3d0;
-    color: #394B59;
+    background-color: #5f839e;
+    color: white;
   }
 
   button:disabled {
@@ -351,13 +358,6 @@ label {
 
 }
 
-/* Game tip */
-.game-tip {
-  background-color: #b1c3d0;
-  padding: 10px;
-  border-radius: 2px;
-}
-
 /* Other */
 .competitionStyle {
   color: #ff2c2c;
@@ -394,4 +394,17 @@ label {
   tr:hover {
     background-color: #eaf0f5;
   }
+}
+
+/* select */
+select {
+  width: 300px;
+}
+
+/* Game tip */
+
+.game-tip {
+  background-color: #97c6e9;
+  padding: 20px;
+  border-radius: 7px;
 }

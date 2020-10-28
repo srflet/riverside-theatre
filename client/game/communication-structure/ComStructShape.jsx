@@ -53,13 +53,13 @@ export default class ComStructShape extends Component {
 
                     {/* Node Player B */}
                     <circle cx="50" cy="150" r="5" fill="black" />
-                    <text x="30" y="155" fill="black" textAnchor="middle">{structureProperties.playerB.initials}</text>
-                    <image x="15" y="165" href={structureProperties.playerB.avatar} height="30" width="30" />
+                    <text x="20" y="155" fill="black" textAnchor="middle">{structureProperties.playerB.initials}</text>
+                    <image x="5" y="165" href={structureProperties.playerB.avatar} height="30" width="30" />
 
                     {/* Node Player C */}
                     <circle cx="250" cy="150" r="5" fill="black" />
-                    <text x="270" y="155" fill="black" textAnchor="middle">{structureProperties.playerC.initials}</text>
-                    <image x="255" y="165" href={structureProperties.playerC.avatar} height="30" width="30" />
+                    <text x="280" y="155" fill="black" textAnchor="middle">{structureProperties.playerC.initials}</text>
+                    <image x="265" y="165" href={structureProperties.playerC.avatar} height="30" width="30" />
 
                     {/* Link A and B */}
                     <line x1="150" y1="55" x2="50" y2="150" stroke="black" />

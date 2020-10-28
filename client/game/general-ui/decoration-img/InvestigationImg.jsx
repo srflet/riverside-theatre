@@ -4,7 +4,7 @@ export default class InvestigationImg extends Component {
     render() {
         return (
             <div>
-                <img src="img/decoration/pexels-markus-winkler-4761317.jpg" alt="" width="399px" height="266px" className="img-center" />
+                <img src="img/decoration/francesca-tirico-9G9vxsMzi18-unsplash.jpg" alt="" width="50%" className="img-center" />
             </div>
         )
     }

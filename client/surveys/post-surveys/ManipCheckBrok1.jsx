@@ -16,7 +16,7 @@ export default class ManipCheckBrok1 extends Component {
 
         return (
             <div>
-                <p>Please select the communication diagram that best describe your experience:</p>
+                <span>Please select the communication diagram that best describes your experience: </span>
                 <select name="communication structure" onChange={e => this.handleChange(e)} value={answers}>
                     <option value="">Select your answer</option>
                     <option value="1">A</option>
@@ -28,8 +28,8 @@ export default class ManipCheckBrok1 extends Component {
                 <br />
 
                 <div style={alignBrokerGraphs}>
-                    <div>
-                        <p>A. Everyone can talk to everyone</p>
+                    <div style={margins}>
+                        <p><strong>A.</strong> Everyone can talk to everyone</p>
                         <div className="centred">
                             <svg width="150" height="150">
                                 {/* Node Player A */}
@@ -49,8 +49,8 @@ export default class ManipCheckBrok1 extends Component {
                         </div>
                     </div>
 
-                    <div>
-                        <p>B. Not everyone can talk to everyone else and I am the bridge that connects the two players</p>
+                    <div style={margins}>
+                        <p><strong>B.</strong> Not everyone can talk to everyone else and I am the bridge that connects the two players</p>
                         <div className="centred">
                             <svg width="150" height="150">
                                 {/* Node Player A */}
@@ -69,8 +69,8 @@ export default class ManipCheckBrok1 extends Component {
                         </div>
                     </div>
 
-                    <div>
-                        <p>C. Not everyone can talk to everyone else, and I could only talk directly with one player</p>
+                    <div style={margins}>
+                        <p><strong>C.</strong> Not everyone can talk to everyone else, and I could only talk directly with one player</p>
                         <div className="centred">
                             <svg width="150" height="150">
                                 {/* Node Player A */}
@@ -107,4 +107,8 @@ export default class ManipCheckBrok1 extends Component {
 const alignBrokerGraphs = {
     display: "flex",
     justifyContent: "space-around"
+}
+
+const margins = {
+    margin: "10px",
 }

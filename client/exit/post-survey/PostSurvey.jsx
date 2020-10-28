@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Centered } from "meteor/empirica:core";
 
 //Importing UI
 import PostHeader from './ui/PostHeader';
@@ -28,10 +29,10 @@ export default class PostSurvey extends Component {
         const currentPage = this.state.page;
 
         return (
-            <div>
+            <Centered>
                 <PostHeader />
                 <PostPages currentPage={currentPage} player={player} game={game} previousPage={this.previousPage} nextPage={this.nextPage} onSubmit={onSubmit} />
-            </div>
+            </Centered>
         )
     }
 }

@@ -14,7 +14,7 @@ export default class Quiz extends React.Component {
 		event.preventDefault();
 
 		if (this.state.answer !== "right") {
-			alert("Incorrect: You need to answer the quiz correctly before you can continue. Please try again.");
+			alert("Incorrect: The correct answer is that tou will have clues from the police investigation that are shared by all three players AND clues from your own independent investigations that are unique to yourself. Please answer again.");
 		} else {
 			this.props.onNext();
 		}
@@ -27,9 +27,9 @@ export default class Quiz extends React.Component {
 		return (
 			<Centered>
 				<div className="quiz">
-					<h2> Comprehension Quiz </h2>
+					<h2> Just to check your understanding... </h2>
 					<p>
-						Please carefully answer the following comprehension question. You need to answer the question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
+						You need to answer this question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
          			</p>
 					<p>
 						What type of clues will be available to you?
@@ -54,7 +54,7 @@ export default class Quiz extends React.Component {
 							checked={answer === "wrong2"}
 							required
 						/>
-						<span>Clues from your own independent investigations that are largely unique to yourself</span>
+						<span>Clues from your own independent investigations that are unique to yourself</span>
 						<br />
 
 						<input

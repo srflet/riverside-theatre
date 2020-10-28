@@ -1,10 +1,10 @@
 import React from "react";
 import { Centered, ConsentButton } from "meteor/empirica:core";
-import { isMobile, isChrome } from 'react-device-detect';
+import { isMobile, isChrome, isSafari } from 'react-device-detect';
 
 export default class Consent extends React.Component {
 	render() {
-		return !isMobile && isChrome ?
+		return !isMobile && (isChrome || isSafari) ?
 			(
 				<Centered>
 					<div>
@@ -18,7 +18,7 @@ export default class Consent extends React.Component {
           				</p>
 
 						<p>
-							This study cannot run on mobile/tablets nor on browsers other than Chrome. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome</strong>.
+							This study cannot run on mobile/tablets nor on browsers other than Chrome or Safari. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome or Safari</strong>.
          			 	</p>
 
 						<br />
@@ -31,7 +31,7 @@ export default class Consent extends React.Component {
 					<div>
 						<h2> Consent Form </h2>
 						<p>
-							This study cannot run on mobile/tablets nor on browsers other than Chrome. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome</strong>.
+							This study cannot run on mobile/tablets nor on browsers other than Chrome or Safari. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome or Safari</strong>.
          			 	</p>
 					</div>
 				</Centered>

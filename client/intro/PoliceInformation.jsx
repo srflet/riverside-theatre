@@ -31,7 +31,7 @@ export default class PoliceInformation extends Component {
                     </button>
                     &emsp;
                     <button type="button" onClick={onNext}>
-                        Next
+                        Continue to the part of the study where you play with two other participants
                     </button>
                 </p>
             </Centered>

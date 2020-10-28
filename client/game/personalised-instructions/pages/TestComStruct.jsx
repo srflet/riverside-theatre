@@ -32,9 +32,9 @@ export default class TestComStruct extends Component {
         return (
             <div>
                 <div className="quiz">
-                    <h3> Quiz About the Communication Structure</h3>
+                    <h3> Recap about the Communication Structure</h3>
                     <p>
-                        Please carefully answer the following comprehension question. You need to answer the question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
+                        Please recall the information you have just read and answer the following question. You need to answer the question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
                     </p>
                     <div>
                         <p>Please select the statement that best describes your communication structure (who you can talk to):</p>
@@ -75,7 +75,7 @@ export default class TestComStruct extends Component {
                         </button>
                         &emsp;
                         <button type="button" onClick={this.handleSubmit}>
-                            Submit answer
+                            Submit Answer
                         </button>
                     </p>
                 </div>

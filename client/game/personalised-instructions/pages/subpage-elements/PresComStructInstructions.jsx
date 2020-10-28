@@ -22,7 +22,7 @@ export default class PresComStructInstructions extends Component {
                 return (
                     <div>
                         <p>
-                            <strong><u>The firms decided on a discussion coordinator and they happened to choose you.</u></strong>
+                            <strong><u>The firms have decided on a discussion coordinator and they happened to choose you.</u></strong>
                         </p>
                         <p>
                             Below is a graphic aid to help you visualize the communication structure.
@@ -36,7 +36,7 @@ export default class PresComStructInstructions extends Component {
                 return (
                     <div>
                         <p>
-                            <strong><u>The firms decided on a discussion coordinator and they happened to choose {returnPlayerInitials("A")}.</u></strong>
+                            <strong><u>The firms have decided on a discussion coordinator and they happened to choose {returnPlayerInitials("A")}.</u></strong>
                         </p>
                         <p>
                             Below is a graphic aid to help you visualize the communication structure.

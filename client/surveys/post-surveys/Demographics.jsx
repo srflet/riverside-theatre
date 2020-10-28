@@ -62,13 +62,14 @@ export default class Demographics extends Component {
                 <br />
 
                 <p>Please indicate your ethnicity</p>
-                <input
-                    type="text"
-                    name="ethnicity"
-                    value={answers.ethnicity}
-                    onChange={e => this.handleChangeEthnicity(e)}
-                    autoComplete="off"
-                />
+                <select name="ethnicity" value={answers.ethnicity} onChange={e => this.handleChangeEthnicity(e)}>
+                    <option value="">Select your answer</option>
+                    <option value="White">White</option>
+                    <option value="Hispanic or Latino">Hispanic or Latino</option>
+                    <option value="Black or African American">Black or African American</option>
+                    <option value="Asian/Pacific Islander">Asian/Pacific Islander</option>
+                    <option value="Other">Other</option>
+                </select>
                 <br />
                 <br />
 
@@ -92,6 +93,7 @@ export default class Demographics extends Component {
                     <option value="one to three years">One to three years</option>
                     <option value="three years and above">Three years and above</option>
                 </select>
+                <br />
                 <br />
 
                 <p className="button-holder">

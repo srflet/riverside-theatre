@@ -8,6 +8,6 @@ export const clues_blank = {
         { id: 5, text: "The guilty person claims that approaching the intersection, he/she did not _______ (reason related to why the collision occurred)." },
         { id: 6, text: "The guilty person is a _____ (gender of the guilty person)." },
         { id: 7, text: "His or her ______  (a family member) is indirectly responsible for the accident." },
-        { id: 8, text: "he guilty person’s vehicle was travelling at the speed of ____ mph." },
+        { id: 8, text: "The guilty person’s vehicle was travelling at the speed of ____ mph." },
     ]
 };

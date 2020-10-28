@@ -3,6 +3,10 @@ import ComStructShape from '../../communication-structure/ComStructShape';
 import PresComStructInstructions from './subpage-elements/PresComStructInstructions';
 
 export default class PresComStruct extends Component {
+    componentDidMount() {
+        this.props.scrollToTop();
+    }
+
     render() {
         const { round, game, player } = this.props;
 

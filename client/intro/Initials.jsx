@@ -18,9 +18,9 @@ export default class Initials extends Component {
         e.preventDefault();
 
         //Check that this is 3 letters without numbers in them...
-        if (this.state.initials.length !== 3) {
+        if (this.state.initials.length !== 4) {
             //...If not, alert the user that this is wrong and they need to try again
-            alert("Please only and include three characters (no more, no less)");
+            alert("Please only and include four characters (no more, no less)");
         } else {
             //...If correct, set the players initials and end this stage for them
             this.props.player.set("initials", this.state.initials);
@@ -48,27 +48,25 @@ export default class Initials extends Component {
                                     Before we proceed, please enter a screen name for yourself.
                                 </p>
                                 <p>
-                                    Please enter your initials (first and last name) and the last digit of your UID, we will use this as your screen name later to connect you with the other two playesr in the chatroom.
+                                    Please enter your initials (first and last name) and the last two digits of your UID, we will use this as your screen name later to connect you with the other two playesr in the chatroom.
                                 </p>
                                 <p>
-                                    For instance, if your name is Jane Doe and the last digit of your UID is 5, please enter "JD5" as your screen name.
+                                    For instance, if your name is Jane Doe and the last digit of your UID is 75, please enter "JD75" as your screen name.
                                 </p>
 
                                 <input
                                     type="text"
-                                    dir="auto"
-                                    id="initials"
-                                    name="initials"
                                     placeholder="Enter your screen name..."
                                     value={this.state.initials}
                                     onChange={this.handleChange}
                                     autoComplete="off"
                                     required
+                                    style={{ width: "300px" }}
                                 />
 
                                 <div className="button-holder">
                                     <button type="submit">
-                                        Submit Initials
+                                        Submit Screen Name
                                     </button>
                                 </div>
                             </div>
@@ -77,6 +75,16 @@ export default class Initials extends Component {
                             <p>
                                 Thank you for submitting you screen name: {player.get("initials")}.
                             </p>
+                            <p>
+                                For the rest of this study you will be refered to according to your screen name. The other players will see your screen name and you will be able to see theirs in key parts of the study.
+                            </p>
+
+                            <div className="game-tip">
+                                <span>
+                                    Please make sure that you have <strong>sound activated</strong> on your computer as we will use light bell sounds to signal when certain phases of the study start and when you receive messages in the discussion phase of the study.
+                                </span>
+                            </div>
+
                             <p className="button-holder">
                                 <button type="button" onClick={onPrev} disabled={!hasPrev}>
                                     Previous

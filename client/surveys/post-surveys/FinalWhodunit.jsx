@@ -28,12 +28,11 @@ export default class FinalWhodunit extends Component {
 
         return (
             <div>
-                <p>Please indicate your final verdict as to who you think was responsible for the collision and caused the death of Mr. Lee’s daughter:</p>
-
                 {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
                 {answers !== ""
                     ? <div><p>Thank you for providing your final verdict: {answers}. </p></div>
                     : <div>
+                        <p>Please indicate your final verdict as to who you think was responsible for the collision and caused the death of Mr. Lee’s daughter:</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
                         <div className="button-holder">
                             <button onClick={this.handleWhodunitSubmit} disabled={answers !== ""}>Give my answer</button>

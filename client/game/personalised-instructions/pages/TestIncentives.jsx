@@ -47,9 +47,9 @@ export default class TestIncentives extends Component {
         return (
             <div>
                 <div className="quiz">
-                    <h3> Quiz About the Incentives</h3>
+                    <h3>Recap about the Incentives</h3>
                     <p>
-                        Please carefully answer the following comprehension questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
+                        Please recall the information you have just read and answer the following questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
                     </p>
                     <div>
                         <p>In this game, I am in direct competition with:</p>
@@ -80,7 +80,7 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "incorrect answer"}
                             onChange={this.handleChange}
                         />
-                        <span>Both player {player1} and player {player2}</span>
+                        <span>Both</span>
                         <br />
 
                         <input
@@ -124,7 +124,7 @@ export default class TestIncentives extends Component {
                         </button>
                         &emsp;
                         <button type="button" onClick={this.handleSubmit}>
-                            Next
+                            Submit Answers
                         </button>
                     </p>
                 </div>

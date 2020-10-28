@@ -135,6 +135,10 @@ Empirica.gameInit(game => {
 		player.set("chatAC", null);
 		player.set("chatBC", null);
 
+		//Set early submission:
+		player.set("isEarlySubmission", false);
+		player.set("earlySubmissionTime", 0);
+
 		//Set post-surveys list
 		player.set("post-surveys-list",
 			[
@@ -187,6 +191,9 @@ Empirica.gameInit(game => {
 			startingCluesA: startingCluesA,
 			startingCluesB: startingCluesB,
 			startingCluesC: startingCluesC,
+			discussionTime: "8",
+			earlySubTimeText: "5",
+			earlySubTimeNum: 300,
 		}
 	});
 
@@ -199,6 +206,6 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
-		durationInSeconds: isTest ? 999999999999 : 300,
+		durationInSeconds: isTest ? 999999999999 : 480,
 	});
 });

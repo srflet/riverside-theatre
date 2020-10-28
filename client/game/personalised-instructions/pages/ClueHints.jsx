@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import ComStructFull from '../../communication-structure/ComStructFull';
 
 export default class ClueHints extends Component {
+    componentDidMount() {
+        this.props.scrollToTop();
+    }
+
     render() {
-        const { round, game, player, previousPage, nextPage } = this.props;
+        const { round, game, player } = this.props;
 
         return (
             <div>
@@ -22,19 +26,6 @@ export default class ClueHints extends Component {
                 <div className="centred">
                     <ComStructFull round={round} game={game} player={player} />
                 </div>
-
-                <p className="button-holder">
-                    <button type="button" onClick={previousPage}>
-                        Previous
-                    </button>
-                    &emsp;
-                    <button type="button" onClick={() => player.stage.submit()} disabled={this.props.player.stage.submitted}>
-                        {this.props.player.stage.submitted ? "You are ready!" : "Set ready for the discussion"}
-                    </button>
-                </p>
-
-                <br />
-                <p style={{ textAlign: "center" }}>NOTE: The next stage will only start once every player has submitted their answers and read all of the instructions. You can see whether players have finished reading the instructions by looking at the "Player Status" below. In the meantime you can continue browsing the instructions.</p>
             </div>
         )
     }

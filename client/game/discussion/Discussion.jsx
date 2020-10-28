@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
 
+//Importing discussion instructions
+import DiscussionInstructions from '../personalised-instructions/pages/subpage-elements/DiscussionInstructions';
 //Importing clues
 import PoliceClues from '../../intro/PoliceClues';
-
 //Importing communication structure
 import ComStructFull from '../communication-structure/ComStructFull';
 
@@ -11,14 +12,16 @@ import Chat from './chats/Chat';
 
 //Importing clues checkboxes
 import CluesCheck from './clues-check/CluesCheck';
+import EarlySubmission from './early-submission/EarlySubmission';
 
 export default class Discussion extends Component {
     state = {
         whodunit: "",
         isInformationOpen: false,
+        isInstructionsOpen: false,
         isPoliceOpen: false,
         isComStructOpen: false,
-        isAnswerOpen: false,
+        isEarlySubmissionOpen: false
     }
 
     handleWhodunitChange = e => {
@@ -39,8 +42,10 @@ export default class Discussion extends Component {
     clickOutsideInformation = () => {
         this.setState({
             isInformationOpen: false,
+            isInstructionsOpen: false,
             isPoliceOpen: false,
             isComStructOpen: false,
+            isEarlySubmissionOpen: false
         });
     }
 
@@ -51,35 +56,9 @@ export default class Discussion extends Component {
             return (
                 <div>
                     <div onClick={this.clickOutsideInformation}>
-                        <div>
-                            <br />
-                            <div style={{ margin: "5px" }}>
-                                <p>
-                                    In this space, <strong><u>you will have 7-10 mins</u></strong> to chat with the other two players x and y to get as many cues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
-                                </p>
-                                <p>
-                                    On the left hand side, you can see two tabs. You can click on the “Police Clues” tab to revisit the clues all three players share. You can click on the “Communication Structure” to revisit the diagram that describes who can talk to whom.
-                                </p>
-                                <p>
-                                    To help you get started, <strong><u>we have created these “check boxes” about the unique clues everyone has.</u></strong> When you collect and unique clue from another player, you can check off that clue.
-                                </p>
-                                <br />
-                                <p>
-                                    <span className="game-tip">
-                                        Game tip #1: These check boxes could help you get started. <strong><u>Look at what type of unique clues other players have and try to ask specific questions.</u></strong> You will need at least 4 unique clues from these 2 players to have a chance to find the guilty person.
-                                    </span>
-                                </p>
-                                <br />
-                                <p>
-                                    <span className="game-tip">
-                                        Game tip #2: Look at the communication diagram again, and <strong><u>think about how you may take advantage of your position and “bargain” with other players to get unique clues.</u></strong>
-                                    </span>
-                                </p>
-                            </div>
-                            <br />
-                            <CluesCheck round={round} game={game} player={player} />
 
-                        </div>
+                        <CluesCheck round={round} game={game} player={player} />
+
                         <div style={chatHolder}>
                             <Chat round={round} game={game} player={player} chatNb={1} />
                             <Chat round={round} game={game} player={player} chatNb={2} />
@@ -88,32 +67,63 @@ export default class Discussion extends Component {
                     </div>
 
                     <div>
+                        <div className="discussion-information" style={{ display: this.state.isInstructionsOpen ? "inline" : "none" }}>
+                            <h3 className="centred">Instructions Reminder</h3>
+                            <DiscussionInstructions player={player} round={round} game={game} />
+                        </div>
+
                         <div className="discussion-information" style={{ display: this.state.isPoliceOpen ? "inline" : "none" }}>
                             <h3 className="centred">Police Clues</h3>
                             <PoliceClues />
                         </div>
 
                         <div className="discussion-information" style={{ display: this.state.isComStructOpen ? "inline" : "none" }}>
-                            <h3 className="centred">Communication Structure</h3>
+                            <h3 className="centred">Communication Structure and Clues</h3>
                             <ComStructFull round={round} game={game} player={player} />
+                        </div>
+
+                        <div className="discussion-information" style={{ display: this.state.isEarlySubmissionOpen ? "inline" : "none" }}>
+                            <h3 className="centred">Early Submission</h3>
+                            <EarlySubmission stage={stage} player={player} round={round} />
                         </div>
 
                         <div className="side-button-holder" style={{
                             left: this.state.isInformationOpen ? "80%" : "0px"
                         }}>
                             <button onClick={() => this.setState({
+                                isInformationOpen: !this.state.isInstructionsOpen,
+                                isInstructionsOpen: !this.state.isInstructionsOpen,
+                                isPoliceOpen: false,
+                                isComStructOpen: false,
+                                isEarlySubmissionOpen: false,
+                            })}>Instructions Reminder {this.state.isInstructionsOpen ? " <" : ">"}</button>
+
+                            <button onClick={() => this.setState({
                                 isInformationOpen: !this.state.isPoliceOpen,
                                 isPoliceOpen: !this.state.isPoliceOpen,
+                                isInstructionsOpen: false,
                                 isComStructOpen: false,
+                                isEarlySubmissionOpen: false,
                             })}>Police Clues {this.state.isPoliceOpen ? " <" : ">"}</button>
+
                             <button onClick={() => this.setState({
                                 isInformationOpen: !this.state.isComStructOpen,
                                 isComStructOpen: !this.state.isComStructOpen,
+                                isInstructionsOpen: false,
                                 isPoliceOpen: false,
+                                isEarlySubmissionOpen: false,
                             })}>Communication Structure and Clues {this.state.isComStructOpen ? " <" : ">"}</button>
+
+                            <button onClick={() => this.setState({
+                                isInformationOpen: !this.state.isEarlySubmissionOpen,
+                                isEarlySubmissionOpen: !this.state.isEarlySubmissionOpen,
+                                isInstructionsOpen: false,
+                                isPoliceOpen: false,
+                                isComStructOpen: false,
+                            })}>Early Submission {this.state.isEarlySubmissionOpen ? " <" : ">"}</button>
                         </div>
                     </div>
-                </div>
+                </div >
             )
         } else {
             return (<Fragment></Fragment>)

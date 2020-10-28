@@ -10,10 +10,7 @@ export default class PlayerProfile extends React.Component {
         <span><strong>Your Profile</strong></span>
         <div style={playerInformation}>
           <img src={player.get("avatar")} style={mediumImage} />
-          {player.get("initials").length > 3
-            ? <span></span>
-            : <span>{player.get("initials")}</span>
-          }
+          {player.get("initials")}
         </div>
 
       </div>
