@@ -186,7 +186,7 @@ export default class Chat extends Component {
                         }
                         <img src={avatarPath} style={miniAvatar} />
                     </span>
-                    {this.state.newMessages ? <span style={chatHeaderNotification}><strong> New Messages! </strong></span> : ""}
+                    {this.state.newMessages ? <span className="header-notification">New Messages!</span> : ""}
                 </p>
                 <div style={chatBox} ref={this.heightRef}>
                     {round.get("messages").filter(message => {
@@ -237,7 +237,7 @@ const miniAvatar = {
 const chatHeaderHolder = {
     display: "flex",
     justifyContent: "space-between",
-    padding: "1rem",
+    padding: "2rem",
     margin: "0px",
     backgroundColor: "#394B59",
 }
@@ -245,25 +245,17 @@ const chatHeaderHolder = {
 const chatHeaderInfo = {
     display: "flex",
     flexDirection: "row",
-    alignItems: "flex-end",
+    alignItems: "center",
     color: "white",
 };
-
-const chatHeaderNotification = {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "flex-end",
-    color: "red",
-};
-
 
 const inputHolder = {
     width: "500px"
 };
 
 const messageInput = {
-    width: "90%",
+    width: "85%",
     margin: "0px",
-    height: "30px",
+    height: "50px",
 };
 

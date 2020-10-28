@@ -44,7 +44,7 @@ export default class ComStructShape extends Component {
 
         return (
             <div>
-                <svg width="300" height="200">
+                <svg width="350" height="225">
 
                     {/* Node Player A */}
                     <circle cx="150" cy="55" r="5" fill="black" />

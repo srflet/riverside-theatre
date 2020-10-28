@@ -24,21 +24,6 @@ export default class Discussion extends Component {
         isEarlySubmissionOpen: false
     }
 
-    handleWhodunitChange = e => {
-        this.setState({ whodunit: e.currentTarget.value });
-    }
-
-    handleWhodunitSubmit = e => {
-        e.preventDefault();
-
-        if (this.state.whodunit === "") {
-            alert("You need to select an answer");
-        } else {
-            this.props.player.set("whodunit", this.state.whodunit);
-            this.props.player.stage.submit();
-        }
-    }
-
     clickOutsideInformation = () => {
         this.setState({
             isInformationOpen: false,
@@ -55,6 +40,7 @@ export default class Discussion extends Component {
         if (stage.name == "discussion") {
             return (
                 <div>
+                    <br />
                     <div onClick={this.clickOutsideInformation}>
 
                         <CluesCheck round={round} game={game} player={player} />

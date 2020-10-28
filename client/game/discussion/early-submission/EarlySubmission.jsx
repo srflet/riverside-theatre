@@ -4,8 +4,8 @@ import React, { Fragment } from "react";
 class timer extends React.Component {
 
     handleEarlySubmission = () => {
-        this.props.player.set("isEarlySubmission", false);
-        this.props.player.set("earlySubmissionTime", 0);
+        this.props.player.set("isEarlySubmission", true);
+        this.props.player.set("earlySubmissionTime", this.props.remainingSeconds);
         this.props.player.stage.submit();
     }
 

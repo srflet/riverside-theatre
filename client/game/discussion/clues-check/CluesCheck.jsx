@@ -117,6 +117,6 @@ const miniAvatar = {
 const headerStyle = {
     display: "flex",
     flexDirection: "row",
-    alignItems: "flex-end",
+    alignItems: "center",
     justifyContent: "center"
 }

@@ -30,13 +30,13 @@ export default class DiscussionInstructions extends Component {
                 <br />
                 <div className="game-tip">
                     <span>
-                        Game tip #1: These check boxes could help you get started. <strong><u>Look at what type of unique clues other players have and try to ask specific questions.</u></strong> You will need at least 4 unique clues from these 2 players to have a chance to find the guilty person.
-                                    </span>
+                        <strong><u>Game tip #1:</u></strong> These check boxes could help you get started. <strong>Look at what type of unique clues other players have and try to ask specific questions.</strong> You will need at least 4 unique clues from these 2 players to have a chance to find the guilty person.
+                    </span>
                 </div>
                 <br />
                 <div className="game-tip">
                     <span>
-                        Game tip #2: Look at the communication diagram again, and <strong><u>think about how you may take advantage of your position and “bargain” with other players to get unique clues.</u></strong>
+                        <strong><u>Game tip #2:</u></strong> Look at the communication diagram again, and <strong>think about how you may take advantage of your position and “bargain” with other players to get unique clues.</strong>
                     </span>
                 </div>
             </div>
