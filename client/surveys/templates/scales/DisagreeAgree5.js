@@ -1,7 +1,7 @@
 export const DisagreeAgree5 = [
     "Strongly Disagree",
-    "Somehow Disagree",
+    "Somewhat Disagree",
     "Neither Disagree or Agree",
-    "Somehow Agree",
+    "Somewhat Agree",
     "Strongly Agree"
 ];
