@@ -37,49 +37,62 @@ export default class Message extends Component {
 
         return (
             <div style={messageContainer} className={isSender ? "sender-message" : "receiver-message"}>
-                <p style={headContainer}>
-                    <img src={this.getSenderPlayer().get("avatar")} style={miniAvatar} />
-                    &emsp;<span><strong>{this.getSenderPlayer().get("initials")}</strong></span> &emsp;
-                    {isCompetitionMessage ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
-                    &emsp;<span style={dateStyle}>{date}</span>
+                <div style={headContainer}>
+                    <div style={playerInfoHolder}>
+                        <img src={this.getSenderPlayer().get("avatar")} style={miniAvatar} />
+                        <div style={initialsStyle}>{this.getSenderPlayer().get("initials")}</div>
+                    </div>
+                    <div style={dateStyle}>{date}</div>
+                </div>
+                <p style={messageStyle}>
+                    {message.text}
                 </p>
-                <p>
-                    <span style={messageStyle}>{message.text}</span>
-                </p>
-
             </div >
-
-
-
         )
     }
 }
 
 //Style variables
+const messageContainer = {
+    padding: "10px 15px",
+    marginBottom: "15px",
+    borderRadius: "5px",
+};
+
+const headContainer = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    margin: "0px",
+    borderBottom: "0.1px solid #9aa8b6"
+};
+
 const miniAvatar = {
     width: "2rem",
     height: "2rem",
     margin: "1rem 0"
 };
 
-const headContainer = {
+const playerInfoHolder = {
     display: "flex",
-    flexDirection: "row",
     alignItems: "center",
-    margin: "0px"
-};
+    margin: "0px",
+}
+
+const initialsStyle = {
+    fontSize: "14pt",
+    fontWeight: "bold",
+    margin: "0px",
+}
 
 const dateStyle = {
     color: "grey",
-};
-
-const messageContainer = {
-    padding: "0.5rem",
-    marginBottom: "15px",
-    borderRadius: "5px",
-    overflowWrap: "break-word",
+    fontSize: "14pt",
+    margin: "0px",
+    marginLeft: "2px"
 };
 
 const messageStyle = {
-    padding: "0.5rem",
+    overflowWrap: "break-word",
+    marginTop: "5px",
 };

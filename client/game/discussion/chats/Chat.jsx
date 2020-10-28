@@ -185,8 +185,19 @@ export default class Chat extends Component {
                                 + " "
                         }
                         <img src={avatarPath} style={miniAvatar} />
+                        &emsp;
+                        {
+                            game.treatment.competition === "comp" && chatNb === 1
+                                ? <span className="header-competition"> Competitor</span>
+                                : ""
+                        }
                     </span>
-                    {this.state.newMessages ? <span className="header-notification">New Messages!</span> : ""}
+
+                    {
+                        this.state.newMessages
+                            ? <span className="header-notification">New Messages!</span>
+                            : ""
+                    }
                 </p>
                 <div style={chatBox} ref={this.heightRef}>
                     {round.get("messages").filter(message => {
@@ -220,11 +231,10 @@ export default class Chat extends Component {
 //Style variables
 const chatBox = {
     padding: "30px",
-    minHeight: "300px",
-    maxHeight: "300px",
+    height: "400px",
     width: "500px",
     overflowY: "scroll",
-    borderWidth: "thin",
+    borderWidth: "1.5px",
     borderStyle: "solid",
 };
 
@@ -240,11 +250,11 @@ const chatHeaderHolder = {
     padding: "2rem",
     margin: "0px",
     backgroundColor: "#394B59",
+    height: "80px",
 }
 
 const chatHeaderInfo = {
     display: "flex",
-    flexDirection: "row",
     alignItems: "center",
     color: "white",
 };

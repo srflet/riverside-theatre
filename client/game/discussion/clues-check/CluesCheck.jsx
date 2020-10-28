@@ -20,87 +20,107 @@ export default class CluesCheck extends Component {
         const cluesChecked = player.get("cluesChecked");
 
         return (
-            <div className="clueCheck">
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan="2">
-                                {player.get("type") === "A" ?
-                                    "Your clues" :
-                                    <div style={headerStyle}>{"Unique clues from player " + returnPlayerInitials(game, "A") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "A")} /></div>}
-                                {player.get("type") === "B" && game.treatment.competition === "comp" ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cluesA.map(clue => {
-                            return <tr key={clue.id}>
-                                <td className="clueCheck-clue">{clue.text}</td>
-                                <td className="clueCheck-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        name={clue.id}
-                                        checked={cluesChecked[clue.id]}
-                                        onChange={e => this.handleChange(e)}
-                                    />
-                                </td>
-                            </tr>
-                        })}
-                    </tbody>
-                </table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan="2">
-                                {player.get("type") === "B" ?
-                                    "Your clues" :
-                                    <div style={headerStyle}>{"Unique clues from player " + returnPlayerInitials(game, "B") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "B")} /></div>}
-                                {player.get("type") === "A" && game.treatment.competition === "comp" ? <span className="competitionStyle">(You are competiting with this player)</span> : ""}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cluesB.map(clue => {
-                            return <tr key={clue.id}>
-                                <td className="clueCheck-clue">{clue.text}</td>
-                                <td className="clueCheck-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        name={clue.id}
-                                        checked={cluesChecked[clue.id]}
-                                        onChange={e => this.handleChange(e)}
-                                    />
-                                </td>
-                            </tr>
-                        })}
-                    </tbody>
-                </table>
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan="2">
-                                {player.get("type") === "C" ?
-                                    "Your clues" :
-                                    <div style={headerStyle}>{"Unique clues from player " + returnPlayerInitials(game, "C") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "C")} /></div>}
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cluesC.map(clue => {
-                            return <tr key={clue.id}>
-                                <td className="clueCheck-clue">{clue.text}</td>
-                                <td className="clueCheck-checkbox">
-                                    <input
-                                        type="checkbox"
-                                        name={clue.id}
-                                        checked={cluesChecked[clue.id]}
-                                        onChange={e => this.handleChange(e)}
-                                    />
-                                </td>
-                            </tr>
-                        })}
-                    </tbody>
-                </table>
+            <div>
+                <div className="clueCheck-headers">
+                    <div className="clueCheck-header" style={{ borderRight: "none" }} >
+                        {
+                            player.get("type") === "A"
+                                ? <div className="clueCheck-header-style">Your clues</div>
+                                : <div className="clueCheck-header-style">
+                                    {"Unique clues from player " + returnPlayerInitials(game, "A") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "A")} />
+                                </div>
+                        }
+                        {
+                            player.get("type") === "B" && game.treatment.competition === "comp"
+                                ? <span className="clueCheck-competition">Competitor</span>
+                                : ""
+                        }
+                    </div>
+                    <div className="clueCheck-header" style={{ borderRight: "none" }} >
+                        {
+                            player.get("type") === "B"
+                                ? <div className="clueCheck-header-style">Your clues</div>
+                                : <div className="clueCheck-header-style">
+                                    {"Unique clues from player " + returnPlayerInitials(game, "B") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "B")} />
+                                </div>
+                        }
+                        {
+                            player.get("type") === "A" && game.treatment.competition === "comp"
+                                ? <span className="clueCheck-competition">Competitor</span>
+                                : ""
+                        }
+                    </div>
+                    <div className="clueCheck-header">
+                        {
+                            player.get("type") === "C"
+                                ? <div className="clueCheck-header-style">Your clues</div>
+                                : <div className="clueCheck-header-style">
+                                    {"Unique clues from player " + returnPlayerInitials(game, "C") + " "}<img style={miniAvatar} src={returnPlayerAvatar(game, "C")} />
+                                </div>
+                        }
+                    </div>
+                </div>
+                <div className="clueCheck-tables">
+                    <div className="clueCheck-table-holder" style={{ borderRight: "none" }}>
+                        <table>
+                            <tbody>
+                                {cluesA.map(clue => {
+                                    return <tr key={clue.id}>
+                                        <td className="clueCheck-clue">{clue.text}</td>
+                                        <td className="clueCheck-checkbox">
+                                            <input
+                                                type="checkbox"
+                                                name={clue.id}
+                                                checked={cluesChecked[clue.id]}
+                                                onChange={e => this.handleChange(e)}
+                                            />
+                                        </td>
+                                    </tr>
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="clueCheck-table-holder" style={{ borderRight: "none" }}>
+                        <table>
+                            <tbody>
+                                {cluesB.map(clue => {
+                                    return <tr key={clue.id}>
+                                        <td className="clueCheck-clue">{clue.text}</td>
+                                        <td className="clueCheck-checkbox">
+                                            <input
+                                                type="checkbox"
+                                                name={clue.id}
+                                                checked={cluesChecked[clue.id]}
+                                                onChange={e => this.handleChange(e)}
+                                            />
+                                        </td>
+                                    </tr>
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="clueCheck-table-holder">
+                        <table>
+                            <tbody>
+                                {cluesC.map(clue => {
+                                    return <tr key={clue.id}>
+                                        <td className="clueCheck-clue">{clue.text}</td>
+                                        <td className="clueCheck-checkbox">
+                                            <input
+                                                type="checkbox"
+                                                name={clue.id}
+                                                checked={cluesChecked[clue.id]}
+                                                onChange={e => this.handleChange(e)}
+                                            />
+                                        </td>
+                                    </tr>
+                                })}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -113,10 +133,3 @@ const miniAvatar = {
     height: "2rem",
     margin: "0px",
 };
-
-const headerStyle = {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center"
-}

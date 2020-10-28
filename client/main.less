@@ -223,6 +223,7 @@ label {
   width: 15%;
   height: 50px;
   padding: 0.3rem 0.6rem;
+  border-radius: 0;
   border: 1px solid #394B59;
 	background-color: #394B59;
 	color: white;
@@ -233,7 +234,7 @@ label {
     color: white;
   }
 
-  }
+}
 
 /* Message styles */
 .sender-message {
@@ -253,86 +254,130 @@ label {
 /* Header of Chat design */
 .header-notification {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  font-size: 10pt;
+  font-size: 12pt;
   color: white;
   background-color: red;
   border-radius: 5px;
-  padding: 3px;
+  padding: 7px;
   
 }
 
-/* Tab buttons */
-.side-button-holder{
+.header-competition {
   display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 25%;
+  align-items: center;
+  font-size: 12pt;
+  color: red;
+  background-color: white;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 7px;
 
-	button {
-    width: 120px;
+}
+
+/* Tabs */
+.tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #394B59;
+  color: white;
+  font-size: 12pt;
+
+  padding: 0.8rem 1.2rem;
+  border: 1px solid white;
+  margin: 0;
+
+  width: 100%;
+
+  &:hover{
+    background-color: #5f839e;
+    cursor: pointer;
+  }
+}
+
+.v {
+  font-size: 12pt;
+}
+
+.header-tab-holder{
+  display: flex;
+  border: 1.5px solid #394B59;
+}
+
+/* tab content */
+.tab-content {
+  border: 1.5px solid #394B59;
+  border-top: none;
+  padding: 15px;
+}
+
+/* clues check headers */
+.clueCheck-headers{
+  display: flex;
+  margin: 0;
+
+  .clueCheck-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    width: 33.34%;
+    padding: 10px;
     margin: 0;
-    font-size: small;
-    padding: 0.8rem 1.2rem;
-    border-radius: 0;
-    border-top: 1px solid white;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    border-left: none;
+
+    text-align: center;
+    font-size: 14pt;
+
     background-color: #394B59;
     color: white;
-	}
-  
-  button:hover {
-    background-color: #5f839e;
-    color: white;
+
+    border: 1.5px solid black;
   }
 
-  button:disabled {
-    background-color: #b1c3d0;
-    color: #394B59;
+  .clueCheck-header-style {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14pt;
   }
 
-}
-
-/* information tab */
-.discussion-information {
-  position: absolute;
-  left: 0;
-  top: 25%;
-  z-index: 1;
-  background-color: #fcfdfd;
-  border: 1px solid #394B59;
-  width: 80%;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-  padding-right: 4rem;
-  padding-left: 2rem;
+  .clueCheck-competition {
+    display: flex;
+    align-items: center;
+    font-size: 12pt;
+    color: red;
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 7px;
+    margin-top: 4px;
+  }
 }
 
 /* clues check table */
-.clueCheck {
+.clueCheck-tables {
   display: flex;
   justify-content: center;
-  font-size: 10pt;
 
-  table {
-    border-collapse: collapse;
-    border: 1px solid #394B59;
-    width: 33%;
+  td {
+    font-size: 14pt;
+    padding: 10px;
+    border: none;
   }
 
-  thead {
-    border: 1px solid #394B59;
-  }
+  .clueCheck-table-holder {
+    border: 1.5px solid #394B59;
+    border-top: none;
+    width: 33.34%;
+    margin: 0;
 
-  td, th {
-    padding: 5px;
-  }
-
-  th {
-    text-align: center;
+    table {
+      border-collapse: collapse;
+      margin: 0;
+    }
   }
 
   .clueCheck-clue {
@@ -341,12 +386,6 @@ label {
 
   .clueCheck-checkbox {
     text-align: center;
-    padding: 5px 10px;
-  }
-
-  .clueCheck-subtitle {
-    text-align: center;
-    font-weight: bold;
   }
 
   tr:hover {
