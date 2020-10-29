@@ -7,7 +7,7 @@ export default class PersonalClues extends Component {
         const clues = getClues(game, round, player, player.get("type"));
 
         return (
-            <div>
+            <div className="game-clues">
                 <ol>
                     {clues.map(clue => <li key={clue.id}>{clue.text}</li>)}
                 </ol>

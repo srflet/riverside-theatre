@@ -23,7 +23,7 @@ export default class InitialWhodunit extends Component {
 
         return (
             <div>
-                <h3>First Verdict</h3>
+                <h3>Initial Verdict</h3>
 
                 {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
                 {player.get("initialWhodunit") !== ""

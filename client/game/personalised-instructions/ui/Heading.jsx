@@ -39,12 +39,11 @@ export default class Heading extends Component {
                                 There is useful information at the top of this page: <br />
                                 - A player profile. Each player is represented by an avatar (randomly selected) and their provided screen name.
                                 - A player status. When a player has finished a phase their cross will turn into a tick. Only when every player has a tick will you all move on to the next phase. <br />
-                                - A timer. <strong>You will have 12 minutes to read these instructions</strong>
+                                - A timer. <strong>You will have 15 minutes to read these instructions</strong>
                             </span>
                         </div>
                     </div>
                     : ""}
-                <h2>Instructions</h2>
             </div>
         )
     }
