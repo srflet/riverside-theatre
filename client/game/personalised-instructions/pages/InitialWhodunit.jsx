@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import WhodunitQuestion from '../../../surveys/whodunit/WhodunitQuestion';
+import PoliceClues from '../../../intro/PoliceClues';
+import PersonalClues from '../../clues/PersonalClues';
 
 export default class InitialWhodunit extends Component {
     state = { whodunit: "" }
@@ -19,7 +21,7 @@ export default class InitialWhodunit extends Component {
     }
 
     render() {
-        const { player, previousPage, nextPage } = this.props;
+        const { player, previousPage, nextPage, round, game } = this.props;
 
         return (
             <div>
@@ -29,6 +31,11 @@ export default class InitialWhodunit extends Component {
                 {player.get("initialWhodunit") !== ""
                     ? <div><p>Thank you for providing your initial verdict, {player.get("initialWhodunit")}, to Mr. Lee. </p></div>
                     : <div>
+                        <h4>Reminder: Police notes</h4>
+                        <PoliceClues />
+                        <h4>Reminder: Your own investigation</h4>
+                        <PersonalClues player={player} round={round} game={game} />
+                        <h4>Giving your verdict</h4>
                         <p>Given the information above, Mr. Lee has asked you to provide your initial verdict as to which of the people described above you think was responsible for the collision and caused the death of his daughter?</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
                         <div className="button-holder">

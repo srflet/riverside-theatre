@@ -16,6 +16,10 @@ class timer extends React.Component {
       classes.push("lessThan10");
     }
 
+    if (remainingSeconds === 120) {
+      alert("ONLY TWO MINUTES LEFT!")
+    }
+
     return (
       <div className={classes.join(" ")}>
         <p><strong>Timer</strong></p>

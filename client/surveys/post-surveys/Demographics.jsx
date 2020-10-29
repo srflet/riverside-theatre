@@ -36,7 +36,7 @@ export default class Demographics extends Component {
             demographics.gender !== "" &&
             demographics.ethnicity !== "" &&
             demographics.age > 17 &&
-            demographics.work !== ""
+            demographics.work < 75
         ) {
             isDisabled = false;
         }
@@ -87,12 +87,16 @@ export default class Demographics extends Component {
                 <br />
 
                 <p>Please indicate your number of years of working experience</p>
-                <select name="work" onChange={e => this.handleChangeWork(e)} value={answers.work}>
-                    <option value="">Select your answer</option>
-                    <option value="less than one year">Less than one year</option>
-                    <option value="one to three years">One to three years</option>
-                    <option value="three years and above">Three years and above</option>
-                </select>
+                <p style={{ color: "grey" }}>If you have been working less than 6 months round down to 0, if you have been working more than 6 months round up to 1</p>
+                <input
+                    type="number"
+                    name="work"
+                    min="0"
+                    max="75"
+                    size="20"
+                    value={answers.work}
+                    onChange={e => this.handleChangeAge(e)}
+                />
                 <br />
                 <br />
 

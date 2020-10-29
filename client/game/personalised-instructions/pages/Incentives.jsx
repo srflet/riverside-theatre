@@ -17,10 +17,6 @@ export default class Incentives extends Component {
                     <div>
                         <IncentivesHeader />
                         <div>
-                            <div className="game-tip" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                You are competing with player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImage} />
-                            </div>
-                            <br />
                             <p>
                                 Now, you should know that your firm is <strong><u>currently competing with {returnPlayerInitials(game, "B")}'s (will be visibly marked RED later in the discussion) firm on another large contract with a different client.</u></strong> Your boss informed you that if you outperform {returnPlayerInitials(game, "B")} in this case, your firm has a high chance of winning that contract.
                             </p>
@@ -36,6 +32,13 @@ export default class Incentives extends Component {
                             <p>
                                 <strong><u>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card.</u></strong>
                             </p>
+                            <br />
+                            <div className="game-tip" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <div>
+                                    <strong>SUMMARY:</strong> You are competing to collect more information than player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImage} />
+                                </div>
+                            </div>
+                            <br />
                         </div>
                     </div>
 
@@ -45,10 +48,6 @@ export default class Incentives extends Component {
                     <div>
                         <IncentivesHeader />
                         <div>
-                            <div className="game-tip" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                                You are competing with player {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImage} />
-                            </div>
-                            <br />
                             <p>
                                 Now, you should know that your firm is <strong><u>currently competing with {returnPlayerInitials(game, "A")}'s (will be visibly marked RED later in the discussion) firm on another large contract with a different client.</u></strong> Your boss informed you that if you outperform {returnPlayerInitials(game, "A")} in this case, your firm has a high chance of winning that contract.
                             </p>
@@ -64,6 +63,13 @@ export default class Incentives extends Component {
                             <p>
                                 <strong><u>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card.</u></strong>
                             </p>
+                            <br />
+                            <div className="game-tip" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                                <div>
+                                    <strong>SUMMARY:</strong>{" "}You are competing with player {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImage} />
+                                </div>
+                            </div>
+                            <br />
                         </div>
                     </div >
                 )
@@ -75,10 +81,6 @@ export default class Incentives extends Component {
                 <div>
                     <IncentivesHeader />
                     <div>
-                        <div className="game-tip" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-                            You are trying to collect as many unique clues from the other players as possible
-                        </div>
-                        <br />
                         <p>
                             Now, you should know that <strong><u>your firm is a relatively new firm that is working hard to establish a good reputation in the business.</u></strong> Your boss has informed you that if you do well on this high-profile case with Mr. Lee, it will be a big boost to the firm’s reputation.
                         </p>
@@ -91,6 +93,13 @@ export default class Incentives extends Component {
                         <p>
                             <strong><u>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card.</u></strong>
                         </p>
+                        <br />
+                        <div className="game-tip" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <div>
+                                <strong>SUMMARY: </strong>You are trying to collect as many unique clues from the other players as possible
+                            </div>
+                        </div>
+                        <br />
                     </div>
                 </div>
             )

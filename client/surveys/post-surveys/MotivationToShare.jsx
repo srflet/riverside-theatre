@@ -14,7 +14,7 @@ export default class MotivationToShare extends Component {
             "I did not want to give out my clues “easily” to certain players",
             "To maximize my chance at the bonus, I did not want to share my unique clues with others “for free”",
             "Unless I was able to get new clues from others, I did not want to share my unique clues with them because it would be a disadvantage to me",
-            "Please select ‘Moderately Disagree’",
+            "Please select Somewhat Disagree’",
             "Giving my unique clues to the other players without getting new clues back would be a mistake",
         ];
         const responseScale = DisagreeAgree5;

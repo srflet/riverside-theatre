@@ -17,7 +17,7 @@ export default class DiscussionInstructions extends Component {
         return (
             <div>
                 <p>
-                    During the discussion, <strong><u>you will have {round.get("discussionTime")} minutes</u></strong> to chat with the other two players, {player1} and {player2}, to get as many cues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
+                    During the discussion, <strong><u>you will have {round.get("discussionTime")} minutes</u></strong> to chat with the other two players, {player1} and {player2}, to get as many clues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
                 </p>
                 <h4>Tabs for more information</h4>
                 <div>
@@ -32,7 +32,7 @@ export default class DiscussionInstructions extends Component {
                         You can click on the “Police Clues” tab to revisit the clues all three players share.
                     </li>
                     <li>
-                        You can click on the “Communication Structure” to revisit the diagram that describes who can talk to whom.
+                        You can click on the “Communication Structure” tab to revisit the diagram that describes who can talk to whom.
                     </li>
                     <li>
                         You can click on the “Early submission” tab to provide an early submission after {round.get("earlySubTimeText")} minutes have passed and you do no want to discuss for the full {round.get("discussionTime")} minutes.
@@ -40,7 +40,7 @@ export default class DiscussionInstructions extends Component {
                 </ul>
                 <h4>Checkboxes to track collected clues</h4>
                 <p>
-                    Then, you will see a table with check boxes. <strong>There are check boxes for each unique clue everyone has.</strong> Your clues will be in plain text, whilst the clues of the other players will be as 'hints' (with blanks in the text). <strong>This allows you to keep track of which unique clues you collect from the other plaers. When you collect a unique clue from another player, you should check off that clue.</strong>
+                    Then, you will see a table with check boxes. <strong>There are check boxes for each unique clue everyone has.</strong> Your clues will be in plain text, whilst the clues of the other players will be as 'hints' (with blanks in the text). <strong>This allows you to keep track of which unique clues you collect from the other players. When you collect a unique clue from another player, you should check off that clue.</strong>
                 </p>
                 <h4>Chats</h4>
                 <p>

@@ -28,7 +28,7 @@ export default class PresComStructInstructions extends Component {
                             Below is a graphic aid to help you visualize the communication structure.
                         </p>
                         <p>
-                            AS this graphic illustrates, <strong><u>you are the “bridge” that connects the other two players {returnPlayerInitials("B")} and {returnPlayerInitials("C")}. Only you can communicate directly with them, and they CANNOT communicate with each other without going through you.</u></strong>
+                            As this graphic aid illustrates, <strong><u>you are the “bridge” that connects the other two players {returnPlayerInitials("B")} and {returnPlayerInitials("C")}. Only you can communicate directly with them, and they CANNOT communicate with each other without going through you.</u></strong>
                         </p>
                     </div>
                 )
@@ -42,7 +42,7 @@ export default class PresComStructInstructions extends Component {
                             Below is a graphic aid to help you visualize the communication structure.
                         </p>
                         <p>
-                            AS this graphic illustrates, <strong><u>{returnPlayerInitials("A")} is the “bridge” that connects you to the other player {returnPlayerInitials(otherPlayerThanA)}. You can directly communicate with {returnPlayerInitials("A")} but NOT with {returnPlayerInitials(otherPlayerThanA)}. In other words, if you want to communicate with {returnPlayerInitials(otherPlayerThanA)}, you will have to do so indirectly via {returnPlayerInitials("A")}</u></strong>
+                            As this graphic aid illustrates, <strong><u>{returnPlayerInitials("A")} is the “bridge” that connects you to the other player {returnPlayerInitials(otherPlayerThanA)}. You can directly communicate with {returnPlayerInitials("A")} but NOT with {returnPlayerInitials(otherPlayerThanA)}. In other words, if you want to communicate with {returnPlayerInitials(otherPlayerThanA)}, you will have to do so indirectly via {returnPlayerInitials("A")}</u></strong>
                         </p>
                     </div>
                 )
@@ -58,7 +58,7 @@ export default class PresComStructInstructions extends Component {
                         Below is a graphic aid to help you visualize the communication structure.
                     </p>
                     <p>
-                        AS this graphic illustrates, <strong><u>{returnPlayerInitials(otherPlayerThanA)} and {player.get("type") === "A" ? returnPlayerInitials("C") : returnPlayerInitials("A")} are the other two players. You can directly talk with either of them in the upcoming discussion page. Similarly, they can also talk with eac other freely.</u></strong>
+                        As this graphic aid illustrates, <strong><u>{returnPlayerInitials(otherPlayerThanA)} and {player.get("type") === "A" ? returnPlayerInitials("C") : returnPlayerInitials("A")} are the other two players. You can directly talk with either of them in the upcoming discussion page. Similarly, they can also talk with eac other freely.</u></strong>
                     </p>
                 </div>
             )

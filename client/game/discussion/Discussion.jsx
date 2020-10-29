@@ -13,7 +13,7 @@ import CluesCheck from './clues-check/CluesCheck';
 export default class Discussion extends Component {
     state = {
         tabsStatus: {
-            instructions: false,
+            instructions: true,
             police: false,
             comStruct: false,
             earlySub: false

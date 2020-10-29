@@ -13,7 +13,7 @@ export default class PreventInfo extends Component {
         const questions = [
             "I tried to prevent specific other players from being able to get more clues",
             "I deliberately tried to make sure specific parties could not get information from others",
-            "I tried to prevent one party from sharing clues with the other, third party",
+            "I tried to prevent one party from sharing clues with the other party",
         ];
         const responseScale = DisagreeAgree5;
 

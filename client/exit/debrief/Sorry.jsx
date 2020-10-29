@@ -5,6 +5,7 @@ export default class Sorry extends Component {
     render() {
         return (
             <div className="centered">
+                <br />
                 <p>
                     We are very sorry, there seems to be a problem. Either you have already participated in this study, or there was a problem with the study from our side. If you have any questions please contact the researchers. You can click "About" in the upper right to find their contact information.
                 </p>

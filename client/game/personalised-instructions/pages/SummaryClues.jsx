@@ -18,7 +18,7 @@ export default class SummaryClues extends Component {
                 <p>
                     These clues will be presented again during the discussion phase, but please make sure you are familiar with them now.
                 </p>
-                <h4>Police notes (shared by all three PIs)</h4>
+                <h4>Police notes (shared by all three players)</h4>
                 <PoliceClues />
                 <h4>Your own investigation (unique to you)</h4>
                 <PersonalClues player={player} round={round} game={game} />

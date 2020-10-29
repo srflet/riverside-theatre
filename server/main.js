@@ -169,7 +169,7 @@ Empirica.gameInit(game => {
 					gender: "",
 					ethnicity: "",
 					age: 0,
-					work: ""
+					work: 99
 				})
 			} else {
 				player.set(surveyName, {})

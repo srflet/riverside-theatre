@@ -44,21 +44,21 @@ export default class ComStructShape extends Component {
 
         return (
             <div>
-                <svg width="350" height="225">
+                <svg width="300" height="200">
 
                     {/* Node Player A */}
                     <circle cx="150" cy="55" r="5" fill="black" />
-                    <text x="150" y="45" fill="black" textAnchor="middle">{structureProperties.playerA.initials}</text>
+                    <text x="150" y="45" fill="black" textAnchor="middle" style={{ fontSize: "12pt" }}>{structureProperties.playerA.initials}</text>
                     <image x="135" y="0" href={structureProperties.playerA.avatar} height="30" width="30" />
 
                     {/* Node Player B */}
                     <circle cx="50" cy="150" r="5" fill="black" />
-                    <text x="20" y="155" fill="black" textAnchor="middle">{structureProperties.playerB.initials}</text>
-                    <image x="5" y="165" href={structureProperties.playerB.avatar} height="30" width="30" />
+                    <text x="20" y="155" fill="black" textAnchor="middle" style={{ fontSize: "12pt" }}>{structureProperties.playerB.initials}</text>
+                    <image x="10" y="165" href={structureProperties.playerB.avatar} height="30" width="30" />
 
                     {/* Node Player C */}
                     <circle cx="250" cy="150" r="5" fill="black" />
-                    <text x="280" y="155" fill="black" textAnchor="middle">{structureProperties.playerC.initials}</text>
+                    <text x="280" y="155" fill="black" textAnchor="middle" style={{ fontSize: "12pt" }}>{structureProperties.playerC.initials}</text>
                     <image x="270" y="165" href={structureProperties.playerC.avatar} height="30" width="30" />
 
                     {/* Link A and B */}

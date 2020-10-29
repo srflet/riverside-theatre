@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { returnPlayerInitials } from '../../general-ui/helper-functions/returnPlayerInitials';
+import { returnPlayerAvatar } from '../../general-ui/helper-functions/returnPlayerAvatar';
 
 export default class TestIncentives extends Component {
     state = {
@@ -27,7 +28,7 @@ export default class TestIncentives extends Component {
         if (incentives1Condition && incentives2Condition) {
             this.props.nextPage();
         } else {
-            alert("Incorrect: You need to answer the quiz correctly before you can continue. Please try again.");
+            alert("Incorrect: You need to answer the recap questions correctly before you can continue. Please try again.");
         }
     };
 
@@ -44,6 +45,16 @@ export default class TestIncentives extends Component {
                 returnPlayerInitials(game, "A") :
                 (player.get("type") === "C" ? returnPlayerInitials(game, "B") : returnPlayerInitials(game, "C"));
 
+
+        const player1Avatar =
+            player.get("type") === "A" ?
+                returnPlayerAvatar(game, "B") :
+                (player.get("type") === "C" ? returnPlayerAvatar(game, "A") : returnPlayerAvatar(game, "C"));
+        const player2Avatar =
+            player.get("type") === "B" ?
+                returnPlayerAvatar(game, "A") :
+                (player.get("type") === "C" ? returnPlayerAvatar(game, "B") : returnPlayerAvatar(game, "C"));
+
         return (
             <div>
                 <div className="quiz">
@@ -54,6 +65,7 @@ export default class TestIncentives extends Component {
                     <br />
                     <div>
                         <p>In this game, I am in direct competition with:</p>
+                        <br />
                         <input
                             type="radio"
                             name="incentives1"
@@ -61,8 +73,10 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "correct answer for player A and competition"}
                             onChange={this.handleChange}
                         />
-                        <span>Player {player1}</span>
+                        <span>Player {player1} <img src={player1Avatar} style={mediumImage} /></span>
+
                         <br />
+
 
                         <input
                             type="radio"
@@ -71,7 +85,7 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "correct answer for player B and competition"}
                             onChange={this.handleChange}
                         />
-                        <span>Player {player2}</span>
+                        <span>Player {player2} <img src={player2Avatar} style={mediumImage} /></span>
                         <br />
 
                         <input
@@ -129,7 +143,15 @@ export default class TestIncentives extends Component {
                         </button>
                     </p>
                 </div>
-            </div>
+            </div >
         )
     }
 }
+
+//Style variables
+const mediumImage = {
+    width: "2.5rem",
+    height: "2.5rem",
+    margin: "0",
+    verticalAlign: "bottom"
+};

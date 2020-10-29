@@ -21,7 +21,7 @@ export default class TestComStruct extends Component {
         if (comStruct1Condition) {
             this.props.nextPage();
         } else {
-            alert("Incorrect: You need to answer the quiz correctly before you can continue. Please try again.");
+            alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
         }
     };
 

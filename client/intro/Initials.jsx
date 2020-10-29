@@ -9,7 +9,10 @@ export default class Initials extends Component {
 
     //Updating the state of the initials when text input changes
     handleChange = e => {
-        this.setState({ initials: e.currentTarget.value.trim().toUpperCase() });
+        if (e.currentTarget.value.trim().toUpperCase().length <= 4) {
+            this.setState({ initials: e.currentTarget.value.trim().toUpperCase() });
+        }
+
     };
 
     //When the user submits their initials...
@@ -20,7 +23,7 @@ export default class Initials extends Component {
         //Check that this is 3 letters without numbers in them...
         if (this.state.initials.length !== 4) {
             //...If not, alert the user that this is wrong and they need to try again
-            alert("Please only and include four characters (no more, no less)");
+            alert("Error: Your screen name should be four characters (two initials and the last two digits of your UID)");
         } else {
             //...If correct, set the players initials and end this stage for them
             this.props.player.set("initials", this.state.initials);
@@ -48,10 +51,10 @@ export default class Initials extends Component {
                                     Before we proceed, please enter a screen name for yourself.
                                 </p>
                                 <p>
-                                    Please enter your initials (first and last name) and the last two digits of your UID, we will use this as your screen name later to connect you with the other two playesr in the chatroom.
+                                    <strong><u>Please enter your initials (first and last name) and the last two digits of your UID,</u></strong> we will use this as your screen name later to connect you with the other two playesr in the chatroom.
                                 </p>
                                 <p>
-                                    For instance, if your name is Jane Doe and the last digit of your UID is 75, please enter "JD75" as your screen name.
+                                    For instance, if your name is Jane Doe and the last two digits of your UID are 75, please enter "JD75" as your screen name.
                                 </p>
 
                                 <input
@@ -76,7 +79,7 @@ export default class Initials extends Component {
                                 Thank you for submitting you screen name: {player.get("initials")}.
                             </p>
                             <p>
-                                For the rest of this study you will be refered to according to your screen name. The other players will see your screen name and you will be able to see theirs in key parts of the study.
+                                For the rest of this study you will be refered to as {player.get("initials")}. The other players will see your screen name and you will be able to see theirs in key parts of the study.
                             </p>
 
                             <div className="game-instructions">

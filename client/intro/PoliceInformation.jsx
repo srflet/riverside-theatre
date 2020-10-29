@@ -17,7 +17,7 @@ export default class PoliceInformation extends Component {
                     <br />
 
                     <p>
-                        <strong><u>Please note that the other two participants also have this information.</u></strong> Please read through them carefully, but there is no need to write them down – they will be available later.
+                        <strong><u>Please note that the other two players also have this information.</u></strong> Please read through them carefully, but there is no need to write them down – they will be available later.
                     </p>
 
                     <div><PoliceClues /></div>
@@ -31,7 +31,7 @@ export default class PoliceInformation extends Component {
                     </button>
                     &emsp;
                     <button type="button" onClick={onNext}>
-                        Continue to the part of the study where you play with two other participants
+                        Click to go to the next phase where we connect you with the two other players
                     </button>
                 </p>
             </Centered>

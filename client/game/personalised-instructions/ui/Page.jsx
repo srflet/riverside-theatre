@@ -26,7 +26,7 @@ export default class Page extends Component {
             )
         } else if (currentPage === 2) {
             return (
-                <InitialWhodunit player={player} previousPage={previousPage} nextPage={nextPage} />
+                <InitialWhodunit player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 3) {
             return (
