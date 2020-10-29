@@ -42,7 +42,7 @@ export default class PersonalisedInstructions extends Component {
         if (stage.name == "personalised_instructions") {
             return (
                 <div>
-                    <Heading currentPage={currentPage} />
+                    <Heading currentPage={currentPage} player={player} game={game} />
 
                     <Page currentPage={currentPage} round={round} player={player} game={game} previousPage={this.previousPage} nextPage={this.nextPage} scrollToTop={this.scrollToTop} />
 

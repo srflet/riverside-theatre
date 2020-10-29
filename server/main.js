@@ -131,9 +131,9 @@ Empirica.gameInit(game => {
 		player.set("cluesChecked", cluesChecked);
 
 		//Set chat messages
-		player.set("chatAB", null);
-		player.set("chatAC", null);
-		player.set("chatBC", null);
+		player.set("chatAB", []);
+		player.set("chatAC", []);
+		player.set("chatBC", []);
 
 		//Set early submission:
 		player.set("isEarlySubmission", false);
@@ -191,7 +191,7 @@ Empirica.gameInit(game => {
 			startingCluesA: startingCluesA,
 			startingCluesB: startingCluesB,
 			startingCluesC: startingCluesC,
-			discussionTime: "8",
+			discussionTime: "10",
 			earlySubTimeText: "5",
 			earlySubTimeNum: 300,
 		}
@@ -200,12 +200,12 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "personalised_instructions",
 		displayName: "Instructions",
-		durationInSeconds: isTest ? 999999999999 : 600,
+		durationInSeconds: isTest ? 999999999999 : 720,
 	});
 
 	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
-		durationInSeconds: isTest ? 999999999999 : 480,
+		durationInSeconds: isTest ? 999999999999 : 600,
 	});
 });

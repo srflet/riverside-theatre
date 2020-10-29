@@ -36,6 +36,7 @@ export default class TestComStruct extends Component {
                     <p>
                         Please recall the information you have just read and answer the following question. You need to answer the question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
                     </p>
+                    <br />
                     <div>
                         <p>Please select the statement that best describes your communication structure (who you can talk to):</p>
                         <input

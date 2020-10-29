@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { Centered } from "meteor/empirica:core";
 import IntroMurderMystery from '../game/general-ui/decoration-img/IntroMurderMystery';
+import { deviceDetect } from 'react-device-detect';
 
 export default class GeneralIntroduction extends Component {
     render() {
         //Empirica based properties for introductions
-        const { hasPrev, hasNext, onNext, onPrev, game } = this.props;
+        const { hasPrev, hasNext, onNext, onPrev, game, player } = this.props;
+
+        if (typeof player.get("deviceInfo") === "undefined") {
+            player.set("deviceInfo", deviceDetect());
+        }
 
         return (
             <Centered>

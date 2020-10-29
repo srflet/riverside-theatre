@@ -51,6 +51,7 @@ export default class TestIncentives extends Component {
                     <p>
                         Please recall the information you have just read and answer the following questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
                     </p>
+                    <br />
                     <div>
                         <p>In this game, I am in direct competition with:</p>
                         <input

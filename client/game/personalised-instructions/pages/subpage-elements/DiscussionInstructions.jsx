@@ -17,16 +17,44 @@ export default class DiscussionInstructions extends Component {
         return (
             <div>
                 <p>
-                    In this space, <strong><u>you will have {round.get("discussionTime")} minutes</u></strong> to chat with the other two players {player1} and {player2} to get as many cues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
+                    During the discussion, <strong><u>you will have {round.get("discussionTime")} minutes</u></strong> to chat with the other two players, {player1} and {player2}, to get as many cues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
                 </p>
-                <br />
+                <h4>Tabs for more information</h4>
+                <div>
+                    At the top of the page, you will see tabs that you can click on to get more information. You can click on the same tab again to close the information.
+                </div>
+                <img src="img/discussion-instructions/tabs-instructions.png" alt="" width="100%" className="img-center" />
+                <ul style={{ marginTop: "0" }}>
+                    <li>
+                        You can click on the “Instructions Reminder” tab to revisit these instructions.
+                    </li>
+                    <li>
+                        You can click on the “Police Clues” tab to revisit the clues all three players share.
+                    </li>
+                    <li>
+                        You can click on the “Communication Structure” to revisit the diagram that describes who can talk to whom.
+                    </li>
+                    <li>
+                        You can click on the “Early submission” tab to provide an early submission after {round.get("earlySubTimeText")} minutes have passed and you do no want to discuss for the full {round.get("discussionTime")} minutes.
+                    </li>
+                </ul>
+                <h4>Checkboxes to track collected clues</h4>
                 <p>
-                    On the left hand side, you will see tabs. You can click on the “Instructions Reminder” tab to revisit these instructions. You can click on the “Police Clues” tab to revisit the clues all three players share. You can click on the “Communication Structure” to revisit the diagram that describes who can talk to whom. You can click on the “Early submission” tab to provide an early submission after {round.get("earlySubTimeText")} minutes have passed and you do no want to discuss for the full {round.get("discussionTime")} minutes.
+                    Then, you will see a table with check boxes. <strong>There are check boxes for each unique clue everyone has.</strong> Your clues will be in plain text, whilst the clues of the other players will be as 'hints' (with blanks in the text). <strong>This allows you to keep track of which unique clues you collect from the other plaers. When you collect a unique clue from another player, you should check off that clue.</strong>
                 </p>
-                <br />
+                <h4>Chats</h4>
                 <p>
-                    To help you get started, <strong><u>we have created these “check boxes” about the unique clues everyone has.</u></strong> When you collect and unique clue from another player, you should check off that clue.
+                    Here are a few instructions on how to use the chats in this discussion phase:
                 </p>
+                <img
+                    src={`img/discussion-instructions/chat-instructions-${game.treatment.competition === "comp" && player.get("type") !== "C"
+                        ? "comp"
+                        : "noncomp"
+                        }.png`}
+                    alt=""
+                    width="100%"
+                    className="img-center"
+                />
                 <br />
                 <div className="game-tip">
                     <span>

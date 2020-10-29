@@ -35,9 +35,11 @@ export default class InitialWhodunit extends Component {
                             <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>
                         </div>
                         <br />
-                        <p style={{ textAlign: "center" }}>
-                            You need to provide your answer before you can go on to the next page. Careful, once you have provided your answer you cannot change it!
-                        </p>
+                        <div className="game-instructions">
+                            <div>
+                                <strong>Note:</strong> You need to provide your answer before you can go on to the next page. Careful, once you have provided your answer you cannot change it!
+                            </div>
+                        </div>
                     </div>
                 }
 

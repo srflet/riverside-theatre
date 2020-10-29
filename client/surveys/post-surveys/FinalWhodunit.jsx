@@ -38,9 +38,9 @@ export default class FinalWhodunit extends Component {
                             <button onClick={this.handleWhodunitSubmit} disabled={answers !== ""}>Give my answer</button>
                         </div>
                         <br />
-                        <p style={{ textAlign: "center" }}>
+                        <div className="game-instructions">
                             You need to provide your answer before you can go on to the next page. Careful, once you have provided your answer you cannot change it!
-                        </p>
+                        </div>
                     </div>
                 }
 

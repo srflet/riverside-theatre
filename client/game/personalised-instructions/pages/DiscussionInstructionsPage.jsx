@@ -22,7 +22,7 @@ export default class DiscussionInstructionsPage extends Component {
                 </p>
 
                 <br />
-                <p style={{ textAlign: "center" }}>NOTE: The next stage will only start once every player has submitted their answers and read all of the instructions. You can see whether players have finished reading the instructions by looking at the "Player Status" below. In the meantime you can continue browsing the instructions.</p>
+                <div className="game-instructions"><div><strong>Note:</strong> The next stage will only start once every player has submitted their answers and read all of the instructions. You can see whether players have finished reading the instructions by looking at the "Player Status" below. In the meantime you can continue browsing the instructions.</div></div>
             </div>
         )
     }
