@@ -15,7 +15,17 @@ export default class Quiz extends React.Component {
 
 		if (this.state.answer !== "right") {
 			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are available to all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
+			let understanding1 = this.props.player.get("understanding1");
+			if (typeof understanding1 === "undefined") {
+				this.props.player.set("understanding1", 1);
+			} else {
+				this.props.player.set("understanding1", understanding1 + 1);
+			}
 		} else {
+			let understanding1 = this.props.player.get("understanding1");
+			if (typeof understanding1 === "undefined") {
+				this.props.player.set("understanding1", 0);
+			}
 			this.props.onNext();
 		}
 	};
@@ -28,9 +38,6 @@ export default class Quiz extends React.Component {
 			<Centered>
 				<div className="quiz">
 					<h2> Just to check your understanding... </h2>
-					<p>
-						You need to answer this question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
-         			</p>
 					<p>
 						What type of clues will be available to you?
 					</p>

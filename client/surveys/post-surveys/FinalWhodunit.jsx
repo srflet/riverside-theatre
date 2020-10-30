@@ -29,7 +29,8 @@ export default class FinalWhodunit extends Component {
 
         return (
             <div>
-                <h3>Final Verdict</h3>
+                <h3 style={{ marginTop: "0" }}>Final Verdict</h3>
+                <p>Below is all the information you have, including the police clues and all the unique clues you have collected.</p>
                 <PoliceClues />
                 <br />
                 <CluesCheck player={player} game={game} round={game.rounds[0]} />

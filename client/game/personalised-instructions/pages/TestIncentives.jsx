@@ -26,9 +26,19 @@ export default class TestIncentives extends Component {
             (this.state.incentives2 === "correct answer for no competition or player C" && (this.props.player.get("type") === "C" || this.props.game.treatment.competition === "noncomp"));
 
         if (incentives1Condition && incentives2Condition) {
+            let understanding2 = this.props.player.get("understanding2");
+            if (typeof understanding2 === "undefined") {
+                this.props.player.set("understanding2", 0);
+            }
             this.props.nextPage();
         } else {
             alert("Incorrect: You need to answer the recap questions correctly before you can continue. Please try again.");
+            let understanding2 = this.props.player.get("understanding2");
+            if (typeof understanding2 === "undefined") {
+                this.props.player.set("understanding2", 1);
+            } else if (understanding2 !== 0) {
+                this.props.player.set("understanding2", understanding2 + 1);
+            }
         }
     };
 
@@ -60,12 +70,11 @@ export default class TestIncentives extends Component {
                 <div className="quiz">
                     <h3>Recap about the Incentives</h3>
                     <p>
-                        Please recall the information you have just read and answer the following questions. You need to answer each question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
+                        Please recall the information you have just read and answer the following questions. You can navigate back to reread the instructions if you need.
                     </p>
                     <br />
                     <div>
                         <p>In this game, I am in direct competition with:</p>
-                        <br />
                         <input
                             type="radio"
                             name="incentives1"
@@ -76,7 +85,6 @@ export default class TestIncentives extends Component {
                         <span>Player {player1} <img src={player1Avatar} style={mediumImage} /></span>
 
                         <br />
-
 
                         <input
                             type="radio"

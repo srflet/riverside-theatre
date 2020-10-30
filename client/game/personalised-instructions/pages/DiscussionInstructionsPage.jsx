@@ -31,7 +31,7 @@ export default class DiscussionInstructionsPage extends Component {
                 <br />
                 <div className="game-instructions">
                     <div>
-                        <strong>Note:</strong> The next stage will only start once every player has finished reading the instructions and has clicked the ‘{buttonText}’. You can see whether players have clicked the button by looking at the "Player Status" below, the cross next to their avatar (i.e., their chess piece) will have changed to a tick.
+                        <strong>Note:</strong> The next stage will only start once all players have finished reading the instructions and have clicked the ‘{buttonText}’ button. You can see whether players have clicked the button by looking at the "Player Status" below: the cross next to their avatar (i.e., their chess piece) will have changed to a checkmark.
                     </div>
                 </div>
 

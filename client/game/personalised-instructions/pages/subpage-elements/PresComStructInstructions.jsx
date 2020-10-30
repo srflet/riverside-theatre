@@ -4,7 +4,7 @@ import { returnPlayerAvatar } from '../../../general-ui/helper-functions/returnP
 
 export default class PresComStructInstructions extends Component {
     render() {
-        const { game, player } = this.props;
+        const { game, player, isDiscussion } = this.props;
 
         const player1Initials =
             player.get("type") === "A" ?
@@ -31,13 +31,17 @@ export default class PresComStructInstructions extends Component {
                 return (
                     <div>
                         <p>
-                            <strong><u>The firms have decided on a discussion coordinator and they happened to choose you.</u></strong>
+                            The firms have decided on a discussion coordinator and they happened to choose you.
                         </p>
-                        <p>
-                            Below is a graphic aid to help you visualize the communication structure.
+                        {
+                            isDiscussion
+                                ? ""
+                                : <p>
+                                    Below is a graphic aid to help you visualize the communication structure.
                         </p>
+                        }
                         <p>
-                            As this graphic aid illustrates, <strong><u>you are the “bridge” that connects the other two players {returnPlayerInitials(game, "B")} and {returnPlayerInitials(game, "C")}. Only you can communicate directly with them, and they CANNOT communicate with each other without going through you.</u></strong>
+                            As this graphic aid illustrates, you are the “bridge” that connects the other two players {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> and {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. Only you can communicate directly with them, and they CANNOT communicate with each other without going through you.
                         </p>
                     </div>
                 )
@@ -46,13 +50,17 @@ export default class PresComStructInstructions extends Component {
                     return (
                         <div>
                             <p>
-                                <strong><u>The firms have decided on a discussion coordinator and they happened to choose {returnPlayerInitials(game, "A")}.</u></strong>
+                                The firms have decided on a discussion coordinator and they happened to choose {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />.
                             </p>
+                            {
+                                isDiscussion
+                                    ? ""
+                                    : <p>
+                                        Below is a graphic aid to help you visualize the communication structure.
+                        </p>
+                            }
                             <p>
-                                Below is a graphic aid to help you visualize the communication structure.
-                            </p>
-                            <p>
-                                As this graphic aid illustrates, <strong><u>{returnPlayerInitials(game, "A")} is the “bridge” that connects you to the other player {returnPlayerInitials(game, "C")}. You can directly communicate with {returnPlayerInitials(game, "A")} but NOT with {returnPlayerInitials(game, "C")}. In other words, if you want to communicate with {returnPlayerInitials(game, "C")}, you will have to do so indirectly via {returnPlayerInitials(game, "A")}</u></strong>
+                                As this graphic aid illustrates, {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> is the “bridge” that connects you to the other player {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. You can directly communicate with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> but NOT with {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. In other words, if you want to communicate with {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />, you will have to do so indirectly via {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />
                             </p>
                         </div>
                     )
@@ -60,13 +68,17 @@ export default class PresComStructInstructions extends Component {
                     return (
                         <div>
                             <p>
-                                <strong><u>The firms have decided on a discussion coordinator and they happened to choose {returnPlayerInitials(game, "A")}.</u></strong>
+                                The firms have decided on a discussion coordinator and they happened to choose {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />.
                             </p>
+                            {
+                                isDiscussion
+                                    ? ""
+                                    : <p>
+                                        Below is a graphic aid to help you visualize the communication structure.
+                        </p>
+                            }
                             <p>
-                                Below is a graphic aid to help you visualize the communication structure.
-                            </p>
-                            <p>
-                                As this graphic aid illustrates, <strong><u>{returnPlayerInitials(game, "A")} is the “bridge” that connects you to the other player {returnPlayerInitials(game, "B")}. You can directly communicate with {returnPlayerInitials(game, "A")} but NOT with {returnPlayerInitials(game, "B")}. In other words, if you want to communicate with {returnPlayerInitials(game, "B")}, you will have to do so indirectly via {returnPlayerInitials(game, "A")}</u></strong>
+                                As this graphic aid illustrates, {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> is the “bridge” that connects you to the other player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />. You can directly communicate with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> but NOT with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />. In other words, if you want to communicate with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />, you will have to do so indirectly via {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />.
                             </p>
                         </div>
                     )
@@ -90,3 +102,10 @@ export default class PresComStructInstructions extends Component {
         }
     }
 }
+
+//Style variables
+const mediumImageBold = {
+    width: "2.5rem",
+    height: "2.5rem",
+    verticalAlign: "top"
+};

@@ -48,7 +48,7 @@ export default class Content extends Component {
             return (
                 <div className="tab-content">
                     <h3 className="centred">Communication Structure</h3>
-                    <PresComStructText game={game} player={player} />
+                    <PresComStructText game={game} player={player} isDiscussion={true} />
                 </div>
             )
         } else if (trueStatus[0] === "earlySub") {

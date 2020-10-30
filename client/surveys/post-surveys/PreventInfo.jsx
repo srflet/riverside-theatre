@@ -22,7 +22,7 @@ export default class PreventInfo extends Component {
 
         return (
             <div>
-                <p>Based on the incentive structure in the game...</p>
+                <p><strong>Based on the incentive structure in the game...</strong></p>
 
                 <br />
 

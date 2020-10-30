@@ -7,7 +7,9 @@ export default class NumberClues extends Component {
     }
 
     handleChange = e => {
-        this.props.player.set(this.state.name, e.currentTarget.value)
+        let answers = this.props.player.get(this.state.name);
+        answers[e.currentTarget.name] = e.currentTarget.value;
+        this.props.player.set(this.state.name, answers);
     }
 
     render() {
@@ -17,9 +19,25 @@ export default class NumberClues extends Component {
 
         return (
             <div>
-                <p>How many pieces of unique clues did you manage to acquire from the other two players?</p>
-                <select name="number of clues" onChange={e => this.handleChange(e)} value={answers}>
+                <p>How many unique clues did you manage to acquire from the other two players?</p>
+                <select name="got" onChange={e => this.handleChange(e)} value={answers.got}>
                     <option value="">Select your answer</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                </select>
+
+                <br />
+                <br />
+
+                <p>How many of these clues did you use in making your final verdict?</p>
+                <select name="used" onChange={e => this.handleChange(e)} value={answers.used}>
+                    <option value="">Select your answer</option>
+                    <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -35,7 +53,7 @@ export default class NumberClues extends Component {
                         Previous
                     </button>
                     &emsp;
-                    <button type="button" onClick={nextPage} disabled={answers === ""}>
+                    <button type="button" onClick={nextPage} disabled={answers.got === "" || answers.used === ""}>
                         Next
                     </button>
                 </p>

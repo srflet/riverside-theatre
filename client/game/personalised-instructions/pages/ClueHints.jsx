@@ -20,7 +20,7 @@ export default class ClueHints extends Component {
                 </p>
 
                 <p>
-                    As previously explained, in order to earn the most points and have a chance of winning an Amazon voucher, you need to collect these unique personal clues from the other players.
+                    Reminder: In order to have the best shot at sholving the game you need to collect as many clues as possible from the other players.
                 </p>
 
                 <br />

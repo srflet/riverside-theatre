@@ -13,7 +13,8 @@ export default class PresComStruct extends Component {
         return (
             <div>
                 <h3>Communication Structure</h3>
-                <PresComStructText game={game} player={player} />
+                <PresComStructText game={game} player={player} isDiscussion={false} />
+                <br />
             </div>
         )
     }

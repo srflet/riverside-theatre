@@ -33,21 +33,15 @@ export default class Heading extends Component {
                     <Timer stage={stage} />
                     <div>
                         <p><strong>Page:</strong></p>
-                        <p>{currentPage + 1} / 9</p>
+                        <p style={{ textAlign: "center" }}>{currentPage + 1} / 9</p>
                     </div>
                 </div>
                 { currentPage === 0
                     ? <div>
                         <br />
                         <div className="game-instructions">
-                            You have been connected with player {player1Initials} <img src={player1Avatar} style={mediumImage} />  and player {player2Initials} <img src={player2Avatar} style={mediumImage} />
-                        </div>
-                        <br />
-                        <div className="game-tip">
-                            <div>
-                                <div>
-                                    <strong><u>Note:</u></strong> From now on you are playing simultaneously with two other players. You have <strong>15 minutes</strong> to read the instructions. At then end of the instructions you and the other players will move on to a discussion phase.
-                                </div>
+                            <div style={{ textAlign: "center" }}>
+                                You will have the next <strong>15 minutes</strong> to read clues and make your own verdict before entering a discussion with player {player1Initials} <img src={player1Avatar} style={mediumImage} />  and player {player2Initials} <img src={player2Avatar} style={mediumImage} />
                             </div>
                         </div>
                     </div>
@@ -61,5 +55,5 @@ export default class Heading extends Component {
 const mediumImage = {
     width: "2.5rem",
     height: "2.5rem",
-    margin: "0"
+    verticalAlign: "bottom"
 };

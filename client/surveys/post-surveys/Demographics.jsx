@@ -43,7 +43,7 @@ export default class Demographics extends Component {
             demographics.gender !== "" &&
             demographics.ethnicity !== "" &&
             demographics.age > 17 &&
-            demographics.work < 75
+            demographics.work < 76
         ) {
             isDisabled = false;
         }
@@ -107,7 +107,7 @@ export default class Demographics extends Component {
                 <br />
                 <br />
 
-                <p>If you have any comments please write them here</p>
+                <p>If you have any additional comments about the game, please write them here:</p>
                 <textarea name="comment"
                     autoComplete="off"
                     value={answers.comment}
@@ -122,7 +122,7 @@ export default class Demographics extends Component {
                     </button>
                     &emsp;
                     <button type="button" onClick={onSubmit} disabled={this.getAllDemographics()}>
-                        Finish this experiment and see who is the guilty person
+                        Finish this experiment and see who the guilty person is
                     </button>
                 </p>
                 <PostBottonTip />

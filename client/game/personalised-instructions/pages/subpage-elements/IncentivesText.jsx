@@ -16,22 +16,27 @@ export default class IncentivesText extends Component {
                     <div>
                         <div className="incentives">
                             <p>
-                                Now, you should know that your firm is currently competing with {returnPlayerInitials(game, "B")}'s firm on another large contract with a different client.
+                                Now, you should know that your firm is currently competing with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />'s firm on another large contract with a different client.
                             </p>
                             <p>
-                                Your boss informed you that if you outperform {returnPlayerInitials(game, "B")} in this game, your firm has a high chance of winning that contract.
+                                Your boss informed you that if you outperform {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> in this game, your firm has a high chance of winning that contract.
                             </p>
                             <p>
-                                In order to outperform {returnPlayerInitials(game, "B")} in this game, your boss has told you that <strong> you need to collect more clues than {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /></strong> in the upcoming discussion among the three players.
+                                In order to outperform {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> in this game, your boss has told you that <strong> you need to collect more clues than {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /></strong> in the upcoming discussion among the three players.
                             </p>
-                            <p>
-                                If you correctly identify the guilty person, you will earn 10 points.
+                            <div className="game-instructions">
+                                <p>
+                                    If you correctly identify the guilty person, you will earn 10 points.
                             </p>
-                            <p>
-                                In addition, <strong>for every clue you collect more than {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />, you will be awarded 5 points.</strong> For instance, if you collect 4 whereas {returnPlayerInitials(game, "B")} collects only 1 clue, you will be awarded 15 points.
+                            </div>
+                            <br />
+                            <div className="game-instructions">
+                                <p>
+                                    In addition, <strong>for every clue you collect more than {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />, you will be awarded 5 points.</strong> For instance, if you collect 4 clues whereas {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> collects only 1 clue, you will be awarded 15 points.
                             </p>
+                            </div>
                             <p>
-                                The third player in today's game ({returnPlayerInitials(game, "C")}) operates in a different market and so is not in any competition with you.
+                                The third player in today's game ({returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />) operates in a different market and so is not in any competition with you.
                             </p>
                             <p>
                                 At the end of the study, if your final score places you in the top 25 of the game, you will receive a $10 Amazon Gift Card.
@@ -44,22 +49,27 @@ export default class IncentivesText extends Component {
                     <div>
                         <div className="incentives">
                             <p>
-                                Now, you should know that your firm is currently competing with {returnPlayerInitials(game, "A")}'s firm on another large contract with a different client.
+                                Now, you should know that your firm is currently competing with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />'s firm on another large contract with a different client.
                         </p>
                             <p>
-                                Your boss informed you that if you outperform {returnPlayerInitials(game, "A")} in this game, your firm has a high chance of winning that contract.
+                                Your boss informed you that if you outperform {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> in this game, your firm has a high chance of winning that contract.
                         </p>
                             <p>
-                                In order to outperform {returnPlayerInitials(game, "A")} in this game, your boss has told you that <strong> you need to collect more clues than {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /></strong> in the upcoming discussion among the three players.
+                                In order to outperform {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> in this game, your boss has told you that <strong> you need to collect more clues than {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /></strong> in the upcoming discussion among the three players.
                         </p>
-                            <p>
-                                If you correctly identify the guilty person, you will earn 10 points.
+                            <div className="game-instructions">
+                                <p>
+                                    If you correctly identify the guilty person, you will earn 10 points.
                         </p>
-                            <p>
-                                In addition, <strong>for every clue you collect more than {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />, you will be awarded 5 points.</strong> For instance, if you collect 4 whereas {returnPlayerInitials(game, "A")} collects only 1 clue, you will be awarded 15 points.
+                            </div>
+                            <br />
+                            <div className="game-instructions">
+                                <p>
+                                    In addition, <strong>for every clue you collect more than {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />, you will be awarded 5 points.</strong> For instance, if you collect 4 clues whereas {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> collects only 1 clue, you will be awarded 15 points.
                         </p>
+                            </div>
                             <p>
-                                The third player in today's game ({returnPlayerInitials(game, "C")}) operates in a different market and so is not in any competition with you.
+                                The third player in today's game ({returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />) operates in a different market and so is not in any competition with you.
                         </p>
                             <p>
                                 At the end of the study, if your final score places you in the top 25 of the game, you will receive a $10 Amazon Gift Card.
@@ -86,15 +96,18 @@ export default class IncentivesText extends Component {
                         <p>
                             Only by maximizing the number of unique clues you collect from others, you will have the best chance of solving this game.
                         </p>
-                        <p>
-                            If you correctly identify the guilty person, you will earn 10 points.
+                        <div className="game-instructions">
+                            <p>
+                                If you correctly identify the guilty person, you will earn 10 points.
                         </p>
-                        <p>
-                            In addition, for every unique clue you collect from others, you will be awarded 2 points. For instance, if you collect a total of 3 unique clues from the other two players, you will be awarded 6 points.
+                        </div>
+                        <br />
+                        <div className="game-instructions">
+                            <p>
+                                In addition, for every unique clue you collect from others, you will be awarded 2 points. For instance, if you collect a total of 3 unique clues from the other two players, you will be awarded 6 points.
                         </p>
-                        <p>
-                            At the end of the study, if your final score places you in the top 25 of the game, you will receive a $10 Amazon Gift Card.
-                        </p>
+                        </div>
+                        <br />
                     </div>
                 </div>
             )

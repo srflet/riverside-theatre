@@ -96,7 +96,7 @@ export default class CluesCheck extends Component {
                                                     autoComplete="off"
                                                     style={{ width: "80px", margin: "0 5px" }}
                                                 />
-                                                 (percentage of blood alcohol content, 0.08% is the legal limit).
+                                                % (percentage of blood alcohol content, 0.08% is the legal limit).
                                             </td>
                                         </tr>
                                         <tr>

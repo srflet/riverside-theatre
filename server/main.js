@@ -159,11 +159,15 @@ Empirica.gameInit(game => {
 		//Use list to intialise each answer
 		player.get("post-surveys-list").forEach(surveyName => {
 			if (
-				surveyName === "NumberClues" ||
 				surveyName === "ManipCheckBrok1" ||
 				surveyName === "FinalWhodunit"
 			) {
 				player.set(surveyName, "")
+			} else if (surveyName === "NumberClues") {
+				player.set(surveyName, {
+					got: "",
+					used: "",
+				})
 			} else if (surveyName === "Demographics") {
 				player.set(surveyName, {
 					gender: "",

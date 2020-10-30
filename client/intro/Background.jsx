@@ -27,8 +27,8 @@ export default class Background extends Component {
                         <strong>IMPORTANTLY:The clues available to you are from two sources:</strong>
                     </p>
                     <ol>
-                        <li><strong>notes from the police investigation, which will be available to all three players</strong></li>
-                        <li><strong>clues from your own independent investigation that are UNIQUE to you</strong></li>
+                        <li><strong>Notes from the police investigation, which will be available to all three players</strong></li>
+                        <li><strong>Clues from your own independent investigation that are UNIQUE to you</strong></li>
                     </ol>
 
                     <br />

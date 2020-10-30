@@ -5,8 +5,8 @@ export default class PostHeader extends Component {
         return (
             <div>
                 <h2 className="centered">Post Game Questionnaires</h2>
-                <p>Please answer a few questions about your experience and provide your FINAL VERDICT.</p>
-                <p>We will tell you who is the guilty person after these questions.</p>
+                <p>Please provide your final verdict and answer a few questions.</p>
+                <p>After completing the questions, we will tell you who the guilty person is.</p>
                 <br />
             </div>
         )

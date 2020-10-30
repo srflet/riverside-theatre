@@ -14,6 +14,7 @@ import Chat from './chats/Chat';
 import CluesCheck from './clues-check/CluesCheck';
 import CluesCheckGameTip from './clues-check/CluesCheckGameTip';
 import CluesCheckGameInstructions from './clues-check/CluesCheckGameInstructions';
+import PresComStructTip from '../personalised-instructions/pages/subpage-elements/PresComStructTip';
 
 export default class Discussion extends Component {
     state = {
@@ -80,6 +81,8 @@ export default class Discussion extends Component {
                             <Chat round={round} game={game} player={player} chatNb={2} />
                             {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
                         </div>
+                        <br />
+                        <PresComStructTip />
                     </div>
                 </div >
             )

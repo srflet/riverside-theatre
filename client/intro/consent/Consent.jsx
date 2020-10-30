@@ -8,7 +8,7 @@ export default class Consent extends React.Component {
 			(
 				<Centered>
 					<div>
-						<p>CONSENT TO PARTICIPATE</p>
+						<h2 style={{ textAlign: "center" }}>Consent to Participate</h2>
 						<h3>Project Title</h3>
 						<p>
 							Understanding decision making
@@ -21,7 +21,7 @@ export default class Consent extends React.Component {
 
 						<h3>Procedures</h3>
 						<p>
-							The procedures will take less than 30 minutes, in which you will be asked to play as a private detective solving a case, along with two other private detectives who are also played by students in the behavioral lab. You will read about a “murder mystery”, then discuss with the other two players, and indicate your final verdict. Upon completion, you will receive 2% of your course credit and the top 20 players will earn a $10 Amazon Gift Card.
+							The procedures will take less than 30 minutes, in which you will be asked to play as a private detective solving a case, along with two other private detectives who are also played by students in the behavioral lab. You will read about a “murder mystery”, then discuss with the other two players, and indicate your final verdict. Upon completion, you will receive 2% of your course credit.
           				</p>
 
 						<h3>Potential Risks and Discomforts</h3>
@@ -109,7 +109,7 @@ export default class Consent extends React.Component {
 			(
 				<Centered>
 					<div>
-						<p>CONSENT TO PARTICIPATE</p>
+						<h2 style={{ textAlign: "center" }}>Consent to Participate</h2>
 						<h3>Technical Note</h3>
 						<p>
 							This study cannot run on mobile/tablets nor on browsers other than Chrome or Safari. Please make sure you are using a <strong>computer</strong> and that you are using <strong>Chrome or Safari</strong>.

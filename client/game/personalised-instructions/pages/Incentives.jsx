@@ -10,7 +10,6 @@ export default class Incentives extends Component {
             <div>
                 <h3>Incentives</h3>
                 <IncentivesText player={player} game={game} />
-                <br />
                 <CompetitionTip player={player} game={game} />
                 <br />
             </div>

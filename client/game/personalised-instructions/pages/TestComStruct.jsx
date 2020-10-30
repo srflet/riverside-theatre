@@ -19,9 +19,19 @@ export default class TestComStruct extends Component {
             (this.state.comStruct1 === "correct answer for player A if there is brok" && this.props.player.get("type") === "A" && this.props.game.treatment.brokerage === "brok");
 
         if (comStruct1Condition) {
+            let understanding3 = this.props.player.get("understanding3");
+            if (typeof understanding3 === "undefined") {
+                this.props.player.set("understanding3", 0);
+            }
             this.props.nextPage();
         } else {
             alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
+            let understanding3 = this.props.player.get("understanding3");
+            if (typeof understanding3 === "undefined") {
+                this.props.player.set("understanding3", 1);
+            } else if (understanding3 !== 0) {
+                this.props.player.set("understanding3", understanding3 + 1);
+            }
         }
     };
 
@@ -34,7 +44,7 @@ export default class TestComStruct extends Component {
                 <div className="quiz">
                     <h3> Recap about the Communication Structure</h3>
                     <p>
-                        Please recall the information you have just read and answer the following question. You need to answer the question correctly before you can continue on to the next phase of the study. You can navigate back to reread the instructions if you need.
+                        Please recall the information you have just read and answer the following question. You can navigate back to reread the instructions if you need.
                     </p>
                     <br />
                     <div>
