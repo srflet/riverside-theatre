@@ -18,10 +18,6 @@ export default class Round extends React.Component {
 			<Centered>
 				<div className="round">
 					<div className="content">
-						<div className="footer">
-							<Footer game={game} player={player} stage={stage} />
-						</div>
-
 						<div className="stages">
 							<PersonalisedInstructions round={round} player={player} stage={stage} game={game} />
 							<Discussion round={round} game={game} player={player} stage={stage} />

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PoliceClues from '../../../../intro/PoliceClues';
-import ComStructFull from '../../../communication-structure/ComStructFull';
 import DiscussionInstructions from '../../../personalised-instructions/pages/subpage-elements/DiscussionInstructions';
+import PresComStructText from '../../../personalised-instructions/pages/subpage-elements/PresComStructText';
 import EarlySubmission from './early-submission/EarlySubmission';
 
 export default class Content extends Component {
@@ -47,8 +47,8 @@ export default class Content extends Component {
         } else if (trueStatus[0] === "comStruct") {
             return (
                 <div className="tab-content">
-                    <h3 className="centred">Communication Structure and Clues</h3>
-                    <ComStructFull round={round} game={game} player={player} />
+                    <h3 className="centred">Communication Structure</h3>
+                    <PresComStructText game={game} player={player} />
                 </div>
             )
         } else if (trueStatus[0] === "earlySub") {

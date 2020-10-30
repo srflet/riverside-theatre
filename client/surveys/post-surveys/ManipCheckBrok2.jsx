@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Matrix from '../templates/Matrix';
 import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class ManipCheckBrok2 extends Component {
     state = {
@@ -12,10 +13,10 @@ export default class ManipCheckBrok2 extends Component {
 
         const questions = [
             "Everyone was able to talk to the other two players freely",
-            "We could only talk to one another through an intermediary",
-            "There was one person who acted as the “broker” in connecting the other two players",
-            "I was able to only talk to one player, who was the intermediary that indirectly connects me with another player",
-            "I was the intermediary that connected the other two players"
+            "Not everyone was able to talk to everyone else directly",
+            "There was one person who acted as the “bridge” in connecting the other two players",
+            "I was only able to talk to one player, who was the “bridge” that indirectly connected me with another player",
+            "I was the “bridge” that connected the other two players"
         ];
         const responseScale = DisagreeAgree5;
 
@@ -42,6 +43,7 @@ export default class ManipCheckBrok2 extends Component {
                         Next
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { returnPlayerInitials } from '../../general-ui/helper-functions/returnPlayerInitials';
 import { returnPlayerAvatar } from '../../general-ui/helper-functions/returnPlayerAvatar';
+import Timer from '../../general-ui/footer/footer-elements/Timer';
+import PlayerProfile from '../../general-ui/footer/footer-elements/PlayerProfile';
 
 export default class Heading extends Component {
     render() {
-        const { currentPage, player, game } = this.props;
+        const { currentPage, player, game, stage } = this.props;
 
         const player1Initials =
             player.get("type") === "A" ?
@@ -26,7 +28,14 @@ export default class Heading extends Component {
 
         return (
             <div>
-
+                <div style={{ display: "flex", justifyContent: "space-between", marginTop: "5px" }}>
+                    <PlayerProfile player={player} />
+                    <Timer stage={stage} />
+                    <div>
+                        <p><strong>Page:</strong></p>
+                        <p>{currentPage + 1} / 9</p>
+                    </div>
+                </div>
                 { currentPage === 0
                     ? <div>
                         <br />
@@ -37,11 +46,7 @@ export default class Heading extends Component {
                         <div className="game-tip">
                             <div>
                                 <div>
-                                    <strong><u>Note:</u></strong> From now on you playing simultaneously with two other players. <br />
-                                There is useful information at the top of this page: <br />
-                                - A timer. <strong>You will have 15 minutes to read these instructions</strong><br />
-                                - A player profile. Each player is represented by an avatar (i.e. a chess piece) and their provided screen name. You can see your profile in the top left.<br />
-                                - A player status. When a player has finished a phase their cross will turn into a tick. Only when every player has a tick will you all move on to the next phase.
+                                    <strong><u>Note:</u></strong> From now on you are playing simultaneously with two other players. You have <strong>15 minutes</strong> to read the instructions. At then end of the instructions you and the other players will move on to a discussion phase.
                                 </div>
                             </div>
                         </div>

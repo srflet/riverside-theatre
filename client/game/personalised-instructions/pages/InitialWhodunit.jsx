@@ -25,17 +25,31 @@ export default class InitialWhodunit extends Component {
 
         return (
             <div>
-                <h3>Initial Verdict</h3>
+                <h3>Summary of clues and initials verdict</h3>
+                <p>
+                    You have been presented with all the clues. Below is a presentation of all the clues available to you.
+                </p>
+                <p>
+                    These clues will be presented again during the discussion phase, but please make sure you are familiar with them now.
+                </p>
 
+                <h4>Police notes (shared by all three players)</h4>
+                <PoliceClues />
+
+                <h4>Your own investigation (unique to you)</h4>
+                <PersonalClues player={player} round={round} game={game} />
+
+                <h4>Giving your verdict</h4>
+                <div className="game-instructions">
+                    <div>
+                        <strong><u>Note:</u></strong> This is only your <strong>initial verdict.</strong> After the discussion phase you will provide your <strong>final verdict</strong> which might be different.
+                    </div>
+                </div>
+                <br />
                 {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
                 {player.get("initialWhodunit") !== ""
-                    ? <div><p>Thank you for providing your initial verdict, {player.get("initialWhodunit")}, to Mr. Lee. </p></div>
+                    ? <div><p><strong>Thank you for providing your initial verdict, {player.get("initialWhodunit")}, to Mr. Lee.</strong></p></div>
                     : <div>
-                        <h4>Reminder: Police notes</h4>
-                        <PoliceClues />
-                        <h4>Reminder: Your own investigation</h4>
-                        <PersonalClues player={player} round={round} game={game} />
-                        <h4>Giving your verdict</h4>
                         <p>Given the information above, Mr. Lee has asked you to provide your initial verdict as to which of the people described above you think was responsible for the collision and caused the death of his daughter?</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
                         <div className="button-holder">
@@ -44,7 +58,7 @@ export default class InitialWhodunit extends Component {
                         <br />
                         <div className="game-instructions">
                             <div>
-                                <strong>Note:</strong> You need to provide your answer before you can go on to the next page. Careful, once you have provided your answer you cannot change it!
+                                <strong>Note:</strong> You need to provide your initial verdict before you can go on to the next page. Careful, once you have provided your initial verdict you cannot change it.
                             </div>
                         </div>
                     </div>

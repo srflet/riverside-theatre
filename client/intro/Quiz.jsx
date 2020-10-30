@@ -14,7 +14,7 @@ export default class Quiz extends React.Component {
 		event.preventDefault();
 
 		if (this.state.answer !== "right") {
-			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are shared by all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
+			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are available to all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
 		} else {
 			this.props.onNext();
 		}
@@ -43,7 +43,7 @@ export default class Quiz extends React.Component {
 							checked={answer === "wrong1"}
 							required
 						/>
-						<span>Clues from the police investigation that are shared by all three players</span>
+						<span>Clues from the police investigation that are available to all three players</span>
 						<br />
 
 						<input

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class ManipCheckBrok1 extends Component {
     state = {
@@ -98,6 +99,7 @@ export default class ManipCheckBrok1 extends Component {
                         Next
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

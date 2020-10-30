@@ -19,45 +19,45 @@ export default class PostPages extends Component {
 
         if (currentPage === 0) {
             return (
-                <NumberClues player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <FinalWhodunit game={game} player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 1) {
             return (
-                <ManipCheckBrok1 player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <NumberClues player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 2) {
             return (
-                <ManipCheckBrok2 player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <ManipCheckBrok1 player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 3) {
             return (
-                <ManipCheckComp player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <ManipCheckBrok2 player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 4) {
             return (
-                <SuspicionDistrust player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <ManipCheckComp player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 5) {
             return (
+                <SuspicionDistrust player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+            )
+        } else if (currentPage === 6) {
+            return (
                 <MotivationToShare player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
-            )
-        } else if (currentPage === 6) {
-            return (
-                <PreventInfo player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
-            )
-        } else if (currentPage === 6) {
-            return (
-                <EaseInfoExchange player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 7) {
             return (
-                <MotivationBrok player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <PreventInfo player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 8) {
             return (
-                <FinalWhodunit player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <EaseInfoExchange player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 9) {
+            return (
+                <MotivationBrok player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+            )
+        } else if (currentPage === 10) {
             return (
                 <Demographics player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} onSubmit={onSubmit} />
             )

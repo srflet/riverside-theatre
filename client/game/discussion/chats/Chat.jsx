@@ -176,7 +176,7 @@ export default class Chat extends Component {
         }
 
         return (
-            <div style={chatProperties.isInvolved ? { marginTop: "2rem", } : { display: "none" }}>
+            <div style={chatProperties.isInvolved ? { margin: "2.5px", width: "495px" } : { display: "none" }}>
                 <p style={chatHeaderHolder}>
                     <span style={chatHeaderInfo}>
                         Chat with
@@ -232,7 +232,7 @@ export default class Chat extends Component {
 const chatBox = {
     padding: "30px",
     height: "400px",
-    width: "500px",
+    width: "100%",
     overflowY: "scroll",
     borderWidth: "1.5px",
     borderStyle: "solid",
@@ -251,6 +251,7 @@ const chatHeaderHolder = {
     margin: "0px",
     backgroundColor: "#394B59",
     height: "80px",
+    width: "100%",
 }
 
 const chatHeaderInfo = {
@@ -260,7 +261,7 @@ const chatHeaderInfo = {
 };
 
 const inputHolder = {
-    width: "500px"
+    width: "100%x"
 };
 
 const messageInput = {

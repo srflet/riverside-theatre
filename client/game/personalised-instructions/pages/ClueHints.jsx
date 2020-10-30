@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import ComStructFull from '../../communication-structure/ComStructFull';
+import CluesCheck from '../../discussion/clues-check/CluesCheck';
+import CluesCheckGameInstructions from '../../discussion/clues-check/CluesCheckGameInstructions';
+import CluesCheckGameTip from '../../discussion/clues-check/CluesCheckGameTip';
 
 export default class ClueHints extends Component {
     componentDidMount() {
@@ -11,21 +13,28 @@ export default class ClueHints extends Component {
 
         return (
             <div>
-                <h3>Hints about Clues</h3>
+                <h3>Hints and keeping track of Clues</h3>
 
                 <p>
-                    Below we show you, in addition to the communication structure, what unique clues you have and <strong><u>what unique clues the other two players have.</u></strong>
-                </p>
-                <p>
-                    For instance, we show you that the other player may know the gender of the guilty person. We provide this information such that you can ask specific questions to each player.
-                </p>
-                <p>
-                    You do not have to write this down because we will show you them again on the next page when you enter the discussion phase.
+                    During the discussion, you will see a table with a reminder of your unique personal clues, and hints about the unique personal clues of the other players.
                 </p>
 
-                <div className="centred">
-                    <ComStructFull round={round} game={game} player={player} />
-                </div>
+                <p>
+                    As previously explained, in order to earn the most points and have a chance of winning an Amazon voucher, you need to collect these unique personal clues from the other players.
+                </p>
+
+                <br />
+
+                <CluesCheckGameInstructions />
+
+                <br />
+
+                <CluesCheck round={round} game={game} player={player} />
+
+                <br />
+
+                <CluesCheckGameTip />
+
             </div>
         )
     }

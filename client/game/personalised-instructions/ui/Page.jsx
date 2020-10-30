@@ -14,7 +14,7 @@ import DiscussionInstructionsPage from '../pages/DiscussionInstructionsPage';
 
 export default class Page extends Component {
     render() {
-        const { currentPage, round, player, game, previousPage, nextPage, scrollToTop } = this.props;
+        const { currentPage, round, player, game, previousPage, nextPage, scrollToTop, stage } = this.props;
 
         if (currentPage === 0) {
             return (
@@ -22,41 +22,35 @@ export default class Page extends Component {
             )
         } else if (currentPage === 1) {
             return (
-                <SummaryClues player={player} round={round} game={game} />
+                <InitialWhodunit player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 2) {
             return (
-                <InitialWhodunit player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} />
+                <IntroDiscussion scrollToTop={scrollToTop} />
             )
         } else if (currentPage === 3) {
             return (
-                <IntroDiscussion scrollToTop={scrollToTop} />
+                <Incentives player={player} game={game} />
             )
         } else if (currentPage === 4) {
             return (
-                <Incentives player={player} game={game} />
+                <TestIncentives player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 5) {
             return (
-                <TestIncentives player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
+                <PresComStruct player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} scrollToTop={scrollToTop} />
             )
         } else if (currentPage === 6) {
             return (
-                <PresComStruct player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} scrollToTop={scrollToTop} />
+                <TestComStruct player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
             )
         } else if (currentPage === 7) {
             return (
-                <TestComStruct player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
+                <ClueHints player={player} round={round} game={game} scrollToTop={scrollToTop} />
             )
         } else if (currentPage === 8) {
             return (
-                <ClueHints player={player} round={round} game={game} scrollToTop={scrollToTop} />
-
-            )
-        } else if (currentPage === 9) {
-            return (
-                <DiscussionInstructionsPage player={player} round={round} game={game} previousPage={previousPage} />
-
+                <DiscussionInstructionsPage player={player} round={round} game={game} previousPage={previousPage} stage={stage} />
             )
         }
     }

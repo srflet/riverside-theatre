@@ -123,10 +123,10 @@ Empirica.gameInit(game => {
 		//Set cluesCheck
 		let cluesChecked = {};
 		clues_full.clues.forEach(clue => {
-			cluesChecked[clue.id] = false;
+			cluesChecked[clue.id] = "";
 		});
 		player.get("independent-clues").forEach(clue => {
-			cluesChecked[clue] = true;
+			cluesChecked[clue] = "__HAS_CLUE__";
 		});
 		player.set("cluesChecked", cluesChecked);
 
@@ -169,7 +169,8 @@ Empirica.gameInit(game => {
 					gender: "",
 					ethnicity: "",
 					age: 0,
-					work: 99
+					work: 99,
+					comment: ""
 				})
 			} else {
 				player.set(surveyName, {})
@@ -191,7 +192,7 @@ Empirica.gameInit(game => {
 			startingCluesA: startingCluesA,
 			startingCluesB: startingCluesB,
 			startingCluesC: startingCluesC,
-			discussionTime: "15",
+			discussionTime: "10",
 			earlySubTimeText: "5",
 			earlySubTimeNum: 300,
 		}
@@ -206,6 +207,6 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
-		durationInSeconds: isTest ? 999999999999 : 900,
+		durationInSeconds: isTest ? 999999999999 : 600,
 	});
 });

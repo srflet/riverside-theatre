@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Matrix from '../templates/Matrix';
 import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class SuspicionDistrust extends Component {
     state = {
@@ -17,7 +18,7 @@ export default class SuspicionDistrust extends Component {
             "It is not in some player’s best interests to send me accurate information",
             "None of the players had any incentive to not share information with me",
             "None of the players would have been motivated to deliberately share wrong information with me",
-            "None of the players would have the incentive to refuse any information i asked for"
+            "None of the players would have the incentive to refuse any information I asked for"
         ];
         const responseScale = DisagreeAgree5;
 
@@ -25,6 +26,9 @@ export default class SuspicionDistrust extends Component {
 
         return (
             <div>
+                <p>Based on the incentive structure in the game...</p>
+
+                <br />
 
                 <Matrix
                     player={player}
@@ -44,6 +48,7 @@ export default class SuspicionDistrust extends Component {
                         Next
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

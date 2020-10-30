@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import WhodunitQuestion from '../whodunit/WhodunitQuestion';
+import PoliceClues from '../../intro/PoliceClues';
+import CluesCheck from '../../game/discussion/clues-check/CluesCheck';
 
 export default class FinalWhodunit extends Component {
     state = {
@@ -22,15 +24,19 @@ export default class FinalWhodunit extends Component {
     }
 
     render() {
-        const { player, currentPage, previousPage, nextPage } = this.props;
-
+        const { game, player, currentPage, previousPage, nextPage } = this.props;
         const answers = player.get(this.state.name);
 
         return (
             <div>
-                {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
+                <h3>Final Verdict</h3>
+                <PoliceClues />
+                <br />
+                <CluesCheck player={player} game={game} round={game.rounds[0]} />
+                <br />
+                {/*If the player has already given their answer, show thank you message. Otherwise, show the whodunnit quiz */}
                 {answers !== ""
-                    ? <div><p>Thank you for providing your final verdict: {answers}. </p></div>
+                    ? <div><p><strong>Thank you for providing your final verdict: {answers}.</strong></p></div>
                     : <div>
                         <p>Please indicate your final verdict as to who you think was responsible for the collision and caused the death of Mr. Lee’s daughter:</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />

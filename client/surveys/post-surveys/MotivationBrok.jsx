@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Matrix from '../templates/Matrix';
 import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class MotivationBrok extends Component {
     state = {
@@ -14,7 +15,7 @@ export default class MotivationBrok extends Component {
             "I was motivated to “make deals” with others so that I could acquire new clues",
             "I only shared clues with others when I could get valuable clues back from them",
             "I wanted to take advantage of my position among the three players to maximize how many clues I could gather",
-            "I tried to “broker” deals with the other 2 parties so that I could benefit from transferring information between them",
+            "I tried to “broker” deals with the other 2 parties so that I could benefit from trading information between them",
             "I tried “playing one player off the other” so that I could get additional clues"
         ];
         const responseScale = DisagreeAgree5;
@@ -42,6 +43,7 @@ export default class MotivationBrok extends Component {
                         Next
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

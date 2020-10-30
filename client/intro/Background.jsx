@@ -14,7 +14,7 @@ export default class Background extends Component {
                     <DoNotCross />
                     <br />
                     <p>
-                        <strong>Please imagine you are a Private Investigator</strong> or a PI (e.g. Sherlock Holmes if you will) of a new private investigation firm in New York City. Your firm has been hired by a local businessman Mr. Lee to <strong>identify the perpetrator of a terrible automobile collision</strong> that resulted in the death of his only daughter. You represent your firm in handling Mr. Lee's case.
+                        Please imagine you are a Private Investigator or a PI (e.g. Sherlock Holmes if you will) of a new private investigation firm in New York City. Your firm has been hired by a local businessman Mr. Lee to identify the perpetrator of a terrible automobile collision that resulted in the death of his only daughter. You represent your firm in handling Mr. Lee's case.
          			 </p>
                     <p>
                         The police department has spent 8 weeks on the case but was unable to draw conclusions. But Mr. Lee has good reasons to believe it was not just an accident and has made it clear that he will spare no expense in identifying the person who is responsible for his daughter’s death.
@@ -22,9 +22,16 @@ export default class Background extends Component {
                     <p>
                         He has hired you and two other private investigators from two other PI agencies to crack the case.
                     </p>
+                    <br />
                     <p>
-                        <strong>IMPORTANTLY: <u>The clues available to you are from two sources 1) notes from the police investigation, which will be shared by all three players 2) clues from your own independent investigation that are UNIQUE to you.</u></strong>
+                        <strong>IMPORTANTLY:The clues available to you are from two sources:</strong>
                     </p>
+                    <ol>
+                        <li><strong>notes from the police investigation, which will be available to all three players</strong></li>
+                        <li><strong>clues from your own independent investigation that are UNIQUE to you</strong></li>
+                    </ol>
+
+                    <br />
                     <p>
                         On the next page, we will first show you the notes from the police's investigation.
                     </p>

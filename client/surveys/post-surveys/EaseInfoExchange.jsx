@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Matrix from '../templates/Matrix';
 import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class EaseInfoExchange extends Component {
     state = {
@@ -40,6 +41,7 @@ export default class EaseInfoExchange extends Component {
                         Next
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

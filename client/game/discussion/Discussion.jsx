@@ -1,5 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
+//Footer
+import Footer from '../general-ui/footer/Footer';
+
 //Tabs
 import Content from './tabs/content/Content';
 import Header from './tabs/header/Header';
@@ -7,8 +10,10 @@ import Header from './tabs/header/Header';
 //Importing elements for chat
 import Chat from './chats/Chat';
 
-//Importing clues checkboxes
+//Importing clues tracker
 import CluesCheck from './clues-check/CluesCheck';
+import CluesCheckGameTip from './clues-check/CluesCheckGameTip';
+import CluesCheckGameInstructions from './clues-check/CluesCheckGameInstructions';
 
 export default class Discussion extends Component {
     state = {
@@ -52,6 +57,9 @@ export default class Discussion extends Component {
         if (stage.name == "discussion") {
             return (
                 <div>
+                    <div className="footer">
+                        <Footer game={game} player={player} stage={stage} />
+                    </div>
                     <br />
                     <div>
                         <Header tabsStatus={this.state.tabsStatus} updateStatus={this.updateStatus} />
@@ -59,7 +67,13 @@ export default class Discussion extends Component {
                     </div>
                     <br />
                     <div>
+                        <CluesCheckGameInstructions />
+                        <br />
+
                         <CluesCheck round={round} game={game} player={player} />
+                        <br />
+
+                        <CluesCheckGameTip />
 
                         <div style={chatHolder}>
                             <Chat round={round} game={game} player={player} chatNb={1} />
@@ -88,7 +102,7 @@ const informationHolder = {
 const chatHolder = {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     marginTop: "2rem",
     flexWrap: "wrap",
 };

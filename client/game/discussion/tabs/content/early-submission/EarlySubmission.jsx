@@ -15,7 +15,7 @@ class timer extends React.Component {
         if (remainingSeconds > round.get("earlySubTimeNum")) {
             return (
                 <div>
-                    <p>You can only provide an early submission after {round.get("earlySubTimeText")} minutes have passed.</p>
+                    <p>You can only provide an early submission once {round.get("earlySubTimeText")} minutes are left.</p>
                 </div>
             )
         } else {
@@ -41,7 +41,7 @@ class timer extends React.Component {
 
                     <p className="button-holder">
                         <button type="button" onClick={this.handleEarlySubmission}>
-                            Early Submission
+                            {player.set("isEarlySubmission") ? "You have provided early submission!" : "Provide early submission"}
                         </button>
                     </p>
                 </div>

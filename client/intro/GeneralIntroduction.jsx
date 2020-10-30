@@ -27,9 +27,6 @@ export default class GeneralIntroduction extends Component {
                             Importantly, using this online chatroom platform, <strong><u>you are connected to two other participants who also are trying to solve the same problem, but with different sets of clues. After the initial instructions, you can choose to chat with them to exchange information.</u></strong>
                         </li>
                         <li>
-                            For completion, you will receive course credit. <strong><u>Additionally, if your score is among the top 25 of all players, you will receive a $10 Amazon Gift Card.</u></strong> More details about this bonus will be explained shortly.
-                        </li>
-                        <li>
                             If you are ready to proceed, please click next.
                         </li>
                     </ul>

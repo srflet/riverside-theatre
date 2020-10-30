@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Matrix from '../templates/Matrix';
 import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class PreventInfo extends Component {
     state = {
@@ -12,8 +13,8 @@ export default class PreventInfo extends Component {
 
         const questions = [
             "I tried to prevent specific other players from being able to get more clues",
-            "I deliberately tried to make sure specific parties could not get information from others",
-            "I tried to prevent one party from sharing clues with the other party",
+            "I deliberately tried to make sure specific players could not get information from others",
+            "I tried to prevent one player from sharing clues with the other player",
         ];
         const responseScale = DisagreeAgree5;
 
@@ -21,6 +22,9 @@ export default class PreventInfo extends Component {
 
         return (
             <div>
+                <p>Based on the incentive structure in the game...</p>
+
+                <br />
 
                 <Matrix
                     player={player}
@@ -40,6 +44,7 @@ export default class PreventInfo extends Component {
                         Next
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

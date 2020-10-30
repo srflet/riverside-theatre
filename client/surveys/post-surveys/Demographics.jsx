@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
 
 export default class Demographics extends Component {
     state = {
@@ -26,6 +27,12 @@ export default class Demographics extends Component {
     handleChangeWork = e => {
         let demographics = this.props.player.get(this.state.name);
         demographics.work = e.currentTarget.value;
+        this.props.player.set(this.state.name, demographics);
+    }
+
+    handleChangeComment = e => {
+        let demographics = this.props.player.get(this.state.name);
+        demographics.comment = e.currentTarget.value;
         this.props.player.set(this.state.name, demographics);
     }
 
@@ -95,8 +102,17 @@ export default class Demographics extends Component {
                     max="75"
                     size="20"
                     value={answers.work}
-                    onChange={e => this.handleChangeAge(e)}
+                    onChange={e => this.handleChangeWork(e)}
                 />
+                <br />
+                <br />
+
+                <p>If you have any comments please write them here</p>
+                <textarea name="comment"
+                    autoComplete="off"
+                    value={answers.comment}
+                    onChange={e => this.handleChangeComment(e)}
+                    style={{ width: "500px", height: "200px" }}></textarea>
                 <br />
                 <br />
 
@@ -106,9 +122,10 @@ export default class Demographics extends Component {
                     </button>
                     &emsp;
                     <button type="button" onClick={onSubmit} disabled={this.getAllDemographics()}>
-                        Finish this experiment
+                        Finish this experiment and see who is the guilty person
                     </button>
                 </p>
+                <PostBottonTip />
             </div>
         )
     }

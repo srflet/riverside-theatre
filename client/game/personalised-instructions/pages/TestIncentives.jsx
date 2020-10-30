@@ -153,5 +153,5 @@ const mediumImage = {
     width: "2.5rem",
     height: "2.5rem",
     margin: "0",
-    verticalAlign: "bottom"
+    verticalAlign: "top"
 };

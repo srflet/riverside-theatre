@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
 import DiscussionInstructions from './subpage-elements/DiscussionInstructions';
+import Footer from '../../general-ui/footer/Footer';
 
 export default class DiscussionInstructionsPage extends Component {
     render() {
-        const { player, round, game, previousPage } = this.props;
+        const { player, round, game, previousPage, stage } = this.props;
+
+        const buttonText = "Click to set ready for the discussion";
 
         return (
             <div>
                 <h3>Instructions about the Discussion</h3>
 
+                <p><strong>In the next phase, you will be discussion with the other two players</strong></p>
+
                 <DiscussionInstructions player={player} game={game} round={round} />
+
+                <br />
 
                 <p className="button-holder">
                     <button type="button" onClick={previousPage}>
@@ -17,12 +24,20 @@ export default class DiscussionInstructionsPage extends Component {
                     </button>
                     &emsp;
                     <button type="button" onClick={() => player.stage.submit()} disabled={this.props.player.stage.submitted}>
-                        {this.props.player.stage.submitted ? "You are ready!" : "Set ready for the discussion"}
+                        {this.props.player.stage.submitted ? "You are ready!" : buttonText}
                     </button>
                 </p>
 
                 <br />
-                <div className="game-instructions"><div><strong>Note:</strong> The next stage will only start once every player has submitted their answers and read all of the instructions. You can see whether players have finished reading the instructions by looking at the "Player Status" below. In the meantime you can continue browsing the instructions.</div></div>
+                <div className="game-instructions">
+                    <div>
+                        <strong>Note:</strong> The next stage will only start once every player has finished reading the instructions and has clicked the ‘{buttonText}’. You can see whether players have clicked the button by looking at the "Player Status" below, the cross next to their avatar (i.e., their chess piece) will have changed to a tick.
+                    </div>
+                </div>
+
+                <div className="footer">
+                    <Footer game={game} player={player} stage={stage} />
+                </div>
             </div>
         )
     }
