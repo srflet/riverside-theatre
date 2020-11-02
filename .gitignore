@@ -11,3 +11,4 @@ mongodb-launch.txt
 start.bat
 deploy.bat
 test.R
+deploySettings.json
