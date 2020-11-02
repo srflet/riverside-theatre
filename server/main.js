@@ -65,7 +65,7 @@ import { avatarPaths } from './avatars/avatarPaths';
 -----------*/
 
 //Setting a variable for whether this is development/testing or not
-const isTest = true;
+const isTest = false;
 
 //Running the gameInit
 Empirica.gameInit(game => {
@@ -173,7 +173,7 @@ Empirica.gameInit(game => {
 					gender: "",
 					ethnicity: "",
 					age: 0,
-					work: 99,
+					work: 0,
 					comment: ""
 				})
 			} else {
@@ -205,7 +205,7 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "personalised_instructions",
 		displayName: "Instructions",
-		durationInSeconds: isTest ? 999999999999 : 900,
+		durationInSeconds: isTest ? 999999999999 : 720,
 	});
 
 	round.addStage({

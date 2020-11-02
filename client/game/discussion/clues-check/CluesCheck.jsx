@@ -8,7 +8,7 @@ export default class CluesCheck extends Component {
     handleChange = e => {
         let text = e.currentTarget;
         let cluesChecked = this.props.player.get("cluesChecked");
-        cluesChecked[text.name] = text.value.toLowerCase().trim();
+        cluesChecked[text.name] = text.value;
         this.props.player.set("cluesChecked", cluesChecked);
     }
 

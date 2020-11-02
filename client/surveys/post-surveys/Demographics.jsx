@@ -42,8 +42,7 @@ export default class Demographics extends Component {
         if (
             demographics.gender !== "" &&
             demographics.ethnicity !== "" &&
-            demographics.age > 17 &&
-            demographics.work < 76
+            demographics.age > 17
         ) {
             isDisabled = false;
         }
@@ -99,7 +98,7 @@ export default class Demographics extends Component {
                     type="number"
                     name="work"
                     min="0"
-                    max="75"
+                    max="99"
                     size="20"
                     value={answers.work}
                     onChange={e => this.handleChangeWork(e)}

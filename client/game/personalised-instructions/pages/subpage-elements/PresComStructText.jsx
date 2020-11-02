@@ -10,20 +10,16 @@ export default class PresComStructText extends Component {
         return (
             <div>
                 <PresComStructInstructions game={game} player={player} isDiscussion={isDiscussion} />
+                <br />
+                <PresComStructTip />
+                <br />
                 {
                     isDiscussion
                         ? ""
                         : <p>
-                            On the next page, to facilitate discussion we will give you a hint of what unique clues the other two players have (e.g., “Player B knows the gender of the guilty person”).
+                            On the next page, to facilitate discussion, we will give you a hint of what unique clues the other two players have (e.g., “Player B knows the gender of the guilty person”).
                 </p>
                 }
-
-                <br />
-                <div className="centred">
-                    <ComStructShape game={game} player={player} />
-                </div>
-                <br />
-                <PresComStructTip />
             </div>
         )
     }

@@ -41,7 +41,7 @@ export default class Heading extends Component {
                         <br />
                         <div className="game-instructions">
                             <div style={{ textAlign: "center" }}>
-                                You will have the next <strong>15 minutes</strong> to read clues and make your own verdict before entering a discussion with player {player1Initials} <img src={player1Avatar} style={mediumImage} />  and player {player2Initials} <img src={player2Avatar} style={mediumImage} />
+                                You will have <strong>12 minutes</strong> to read clues, make your own verdict, and read about discussion rules before entering a discussion with player {player1Initials} <img src={player1Avatar} style={mediumImage} />  and player {player2Initials} <img src={player2Avatar} style={mediumImage} />
                             </div>
                         </div>
                     </div>

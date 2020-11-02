@@ -19,7 +19,7 @@ import PresComStructTip from '../personalised-instructions/pages/subpage-element
 export default class Discussion extends Component {
     state = {
         tabsStatus: {
-            instructions: true,
+            instructions: false,
             police: false,
             comStruct: false,
             earlySub: false
@@ -62,6 +62,9 @@ export default class Discussion extends Component {
                         <Footer game={game} player={player} stage={stage} />
                     </div>
                     <br />
+                    <p>
+                        On this page you will find tabs to revisit important game information, and at the bottom of the page, you will find chat boexes to send messages to the other players (according to the communication structure shown to you).
+                    </p>
                     <div>
                         <Header tabsStatus={this.state.tabsStatus} updateStatus={this.updateStatus} />
                         <Content tabsStatus={this.state.tabsStatus} player={player} round={round} game={game} stage={stage} />
@@ -75,14 +78,15 @@ export default class Discussion extends Component {
                         <br />
 
                         <CluesCheckGameTip />
+                        <br />
+                        <PresComStructTip />
 
                         <div style={chatHolder}>
                             <Chat round={round} game={game} player={player} chatNb={1} />
                             <Chat round={round} game={game} player={player} chatNb={2} />
                             {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
                         </div>
-                        <br />
-                        <PresComStructTip />
+
                     </div>
                 </div >
             )

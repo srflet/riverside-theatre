@@ -18,26 +18,13 @@ Empirica.onStageStart((game, round, stage) => { });
 Empirica.onStageEnd((game, round, stage) => {
   if (stage.name == "discussion")
     game.players.forEach(player => {
-      let playerType = player.get("type");
-
       let messagesAB = round.get("messages").filter(message => message.chat === 1)
       let messagesAC = round.get("messages").filter(message => message.chat === 2)
       let messagesBC = round.get("messages").filter(message => message.chat === 3)
 
-      if (playerType === "A") {
-        player.set("chatAB", messagesAB)
-        player.set("chatAC", messagesAC)
-      }
-
-      if (playerType === "B") {
-        player.set("chatAB", messagesAB)
-        player.set("chatBC", messagesBC)
-      }
-
-      if (playerType === "C") {
-        player.set("chatBC", messagesBC)
-        player.set("chatAC", messagesAC)
-      }
+      player.set("chatAB", messagesAB)
+      player.set("chatAC", messagesAC)
+      player.set("chatBC", messagesBC)
     });
 });
 

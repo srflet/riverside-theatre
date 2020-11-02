@@ -16,7 +16,7 @@ export default class Consent extends React.Component {
 
 						<h3>Purpose of the Study</h3>
 						<p>
-							This research is being conducted by Dr.Thomas Taiyi Yan and Dr. Vijaya Ventakaramani, at the University of Maryland, College Park. We are inviting you to participate in this study because you are at least 18 years old and an undergraduate enrolled in a business class at the University of Maryland. The purpose of this research project is to better understand decision making.
+							This research is being conducted by Dr. Thomas Taiyi Yan and Dr. Vijaya Ventakaramani, at the University of Maryland, College Park. We are inviting you to participate in this study because you are at least 18 years old and an undergraduate enrolled in a business class at the University of Maryland. The purpose of this research project is to better understand decision making.
           				</p>
 
 						<h3>Procedures</h3>

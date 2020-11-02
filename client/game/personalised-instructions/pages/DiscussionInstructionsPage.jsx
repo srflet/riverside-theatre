@@ -12,7 +12,7 @@ export default class DiscussionInstructionsPage extends Component {
             <div>
                 <h3>Instructions about the Discussion</h3>
 
-                <p><strong>In the next phase, you will be discussion with the other two players</strong></p>
+                <p><strong>In the next phase, you will be discussing with the other two players</strong></p>
 
                 <DiscussionInstructions player={player} game={game} round={round} />
 

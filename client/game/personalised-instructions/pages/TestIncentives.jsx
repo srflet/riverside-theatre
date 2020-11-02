@@ -4,8 +4,7 @@ import { returnPlayerAvatar } from '../../general-ui/helper-functions/returnPlay
 
 export default class TestIncentives extends Component {
     state = {
-        incentives1: "",
-        incentives2: ""
+        incentives1: ""
     };
 
     handleChange = e => {
@@ -21,18 +20,14 @@ export default class TestIncentives extends Component {
             (this.state.incentives1 === "correct answer for player B and competition" && this.props.player.get("type") === "B" && this.props.game.treatment.competition === "comp") ||
             (this.state.incentives1 === "correct answer for no competition or player C" && (this.props.player.get("type") === "C" || this.props.game.treatment.competition === "noncomp"));
 
-        let incentives2Condition =
-            (this.state.incentives2 === "correct answer for competition and players A or B" && this.props.player.get("type") !== "C" && this.props.game.treatment.competition === "comp") ||
-            (this.state.incentives2 === "correct answer for no competition or player C" && (this.props.player.get("type") === "C" || this.props.game.treatment.competition === "noncomp"));
-
-        if (incentives1Condition && incentives2Condition) {
+        if (incentives1Condition) {
             let understanding2 = this.props.player.get("understanding2");
             if (typeof understanding2 === "undefined") {
                 this.props.player.set("understanding2", 0);
             }
             this.props.nextPage();
         } else {
-            alert("Incorrect: You need to answer the recap questions correctly before you can continue. Please try again.");
+            alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
             let understanding2 = this.props.player.get("understanding2");
             if (typeof understanding2 === "undefined") {
                 this.props.player.set("understanding2", 1);
@@ -44,7 +39,7 @@ export default class TestIncentives extends Component {
 
     render() {
         const { player, game, previousPage, nextPage } = this.props;
-        const { incentives1, incentives2 } = this.state;
+        const { incentives1 } = this.state;
 
         const player1 =
             player.get("type") === "A" ?
@@ -70,7 +65,7 @@ export default class TestIncentives extends Component {
                 <div className="quiz">
                     <h3>Recap about the Incentives</h3>
                     <p>
-                        Please recall the information you have just read and answer the following questions. You can navigate back to reread the instructions if you need.
+                        Please recall the information you have just read and answer the following question. You can navigate back to reread the instructions if you need.
                     </p>
                     <br />
                     <div>
@@ -115,31 +110,6 @@ export default class TestIncentives extends Component {
                         />
                         <span>No one: there is no competition</span>
                     </div>
-
-                    <br />
-
-                    <div>
-                        <p>Please select the statement that best describes your bonus structure:</p>
-                        <input
-                            type="radio"
-                            name="incentives2"
-                            value="correct answer for competition and players A or B"
-                            checked={incentives2 === "correct answer for competition and players A or B"}
-                            onChange={this.handleChange}
-                        />
-                        <span>If I score more points than my competitor, I will have a chance at winning a $10 Amazon gift card.</span>
-                        <br />
-                        <input
-                            type="radio"
-                            name="incentives2"
-                            value="correct answer for no competition or player C"
-                            checked={incentives2 === "correct answer for no competition or player C"}
-                            onChange={this.handleChange}
-                        />
-                        <span>If I correctly solve who is responsible for the death of Mr. Lee’s daughter, I will have a chance at winning $10 Amazon gift card.</span>
-                        <br />
-                    </div>
-
 
                     <p className="button-holder">
                         <button type="button" onClick={previousPage}>
