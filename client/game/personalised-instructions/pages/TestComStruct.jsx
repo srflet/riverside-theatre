@@ -76,7 +76,7 @@ export default class TestComStruct extends Component {
                             checked={comStruct1 === "correct answer for player A if there is brok"}
                             onChange={this.handleChange}
                         />
-                        <span>The other two players can only talk through me as an intermediary</span>
+                        <span>The other two players can only talk through me as a "bridge"</span>
                         <br />
                     </div>
 

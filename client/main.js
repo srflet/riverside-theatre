@@ -5,11 +5,14 @@ import { render } from "react-dom";
 - Importing React components: -
 ------------------------------*/
 
+//About
+import About from "./game/general-ui/About"
+
 //Consent
 import Consent from "./intro/consent/Consent";
 
-//About
-import About from "./game/general-ui/About"
+//PlayerId
+import PlayerId from "./intro/playerId/PlayerId";
 
 //Introduction:
 import GeneralIntroduction from "./intro/GeneralIntroduction";
@@ -29,11 +32,14 @@ import PostSurvey from './exit/post-survey/PostSurvey';
 import Thanks from "./exit/debrief/Thanks";
 import Sorry from './exit/debrief/Sorry';
 
+// Set the About Component you want to use for the About dialog (optional).
+Empirica.about(About);
+
 // Set the Consent Component you want to present players (optional).
 Empirica.consent(Consent);
 
-// Set the About Component you want to use for the About dialog (optional).
-Empirica.about(About);
+// Set the component for getting the player id
+Empirica.newPlayer(PlayerId);
 
 // Introduction pages to show before they play the game (optional).
 // At this point they have been assigned a treatment. You can return

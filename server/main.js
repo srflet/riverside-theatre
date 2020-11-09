@@ -196,7 +196,7 @@ Empirica.gameInit(game => {
 			startingCluesA: startingCluesA,
 			startingCluesB: startingCluesB,
 			startingCluesC: startingCluesC,
-			discussionTime: "10",
+			discussionTime: "12",
 			earlySubTimeText: "5",
 			earlySubTimeNum: 300,
 		}
@@ -205,12 +205,12 @@ Empirica.gameInit(game => {
 	round.addStage({
 		name: "personalised_instructions",
 		displayName: "Instructions",
-		durationInSeconds: isTest ? 999999999999 : 720,
+		durationInSeconds: isTest ? 999999999999 : 900,
 	});
 
 	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
-		durationInSeconds: isTest ? 999999999999 : 600,
+		durationInSeconds: isTest ? 999999999999 : 720,
 	});
 });

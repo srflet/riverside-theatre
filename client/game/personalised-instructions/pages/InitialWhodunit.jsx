@@ -39,7 +39,10 @@ export default class InitialWhodunit extends Component {
                 <h4>Giving your verdict</h4>
                 {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
                 {player.get("initialWhodunit") !== ""
-                    ? <div><p><strong>Thank you for providing your initial verdict, {player.get("initialWhodunit")}, to Mr. Lee.</strong></p></div>
+                    ? <div>
+                        <p><strong>Thank you for providing your initial verdict, {player.get("initialWhodunit")}, to Mr. Lee.</strong></p>
+                        <p>Please click 'Next' to continue.</p>
+                    </div>
                     : <div>
                         <p>Given the information above, Mr. Lee has asked you to provide your initial verdict as to which of the people described above you think was responsible for the collision and caused the death of his daughter?</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />

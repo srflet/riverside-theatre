@@ -26,7 +26,7 @@ export default class Content extends Component {
                         textAlign: "center",
                         fontSize: "12pt",
                     }}>
-                        Click a tab to see more information
+                        Click a tab to revisit important game information
                     </p>
                 </div>
             )

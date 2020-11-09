@@ -25,6 +25,14 @@ export default class ClueHints extends Component {
 
                 <br />
 
+                <div className="game-instructions">
+                    <p>
+                        Please see below for a preview of this table that will appear later on in the discussion. There is no need to work on it now. This is simply for demonstration.
+                    </p>
+                </div>
+
+                <br />
+
                 <CluesCheckGameInstructions />
 
                 <br />

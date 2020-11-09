@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { returnPlayerInitials } from '../../../general-ui/helper-functions/returnPlayerInitials';
 import { returnPlayerAvatar } from '../../../general-ui/helper-functions/returnPlayerAvatar';
 import ComStructShape from '../../../communication-structure/ComStructShape';
-import { Centered } from "meteor/empirica:core";
 
 export default class PresComStructInstructions extends Component {
     render() {
@@ -45,8 +44,12 @@ export default class PresComStructInstructions extends Component {
                         <div className="game-instructions">
                             <div>
                                 <p>
-                                    As this graphic aid illustrates, you are the “bridge” that connects the other two players {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> and {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. Only you can communicate directly with them, and they CANNOT communicate with each other without going through you.
+                                    As this graphic aid illustrates, you are the “bridge” that connects the other two players {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> and {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />.
                                 </p>
+                                <p>
+                                    Only you can communicate directly with them, and they CANNOT communicate with each other without going through you.
+                                </p>
+                                <br />
                                 <div style={{ display: "flex", justifyContent: "center" }}>
                                     <ComStructShape game={game} player={player} />
                                 </div>
@@ -72,8 +75,12 @@ export default class PresComStructInstructions extends Component {
                             <div className="game-instructions">
                                 <div>
                                     <p>
-                                        As this graphic aid illustrates, {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> is the “bridge” that connects you to the other player {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. You can directly communicate with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> but NOT with {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. In other words, if you want to communicate with {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />, you will have to do so indirectly via {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />
+                                        As this graphic aid illustrates, {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> is the “bridge” that connects you to the other player {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />.
                                     </p>
+                                    <p>
+                                        You can directly communicate with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> but NOT with {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />. In other words, if you want to communicate with {returnPlayerInitials(game, "C")} <img src={returnPlayerAvatar(game, "C")} style={mediumImageBold} />, you will have to do so indirectly via {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />
+                                    </p>
+                                    <br />
                                     <div style={{ display: "flex", justifyContent: "center" }}>
                                         <ComStructShape game={game} player={player} />
                                     </div>
@@ -98,8 +105,12 @@ export default class PresComStructInstructions extends Component {
                             <div className="game-instructions">
                                 <div>
                                     <p>
-                                        As this graphic aid illustrates, {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> is the “bridge” that connects you to the other player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />. You can directly communicate with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> but NOT with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />. In other words, if you want to communicate with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />, you will have to do so indirectly via {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />.
+                                        As this graphic aid illustrates, {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> is the “bridge” that connects you to the other player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />.
                                     </p>
+                                    <p>
+                                        You can directly communicate with {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> but NOT with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />. In other words, if you want to communicate with {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />, you will have to do so indirectly via {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />.
+                                    </p>
+                                    <br />
                                     <div style={{ display: "flex", justifyContent: "center" }}>
                                         <ComStructShape game={game} player={player} />
                                     </div>
@@ -124,6 +135,7 @@ export default class PresComStructInstructions extends Component {
                             <p>
                                 As this graphic aid illustrates, <strong><u>{player1Initials} and {player2Initials} are the other two players. You can directly talk with either of them in the upcoming discussion page. Similarly, they can also talk with each other freely.</u></strong>
                             </p>
+                            <br />
                             <div style={{ display: "flex", justifyContent: "center" }}>
                                 <ComStructShape game={game} player={player} />
                             </div>

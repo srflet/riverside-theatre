@@ -63,7 +63,7 @@ export default class Discussion extends Component {
                     </div>
                     <br />
                     <p>
-                        On this page you will find tabs to revisit important game information, and at the bottom of the page, you will find chat boexes to send messages to the other players (according to the communication structure shown to you).
+                        On this page you will find tabs to revisit important game information, and at the bottom of the page, you will find chat boxes to send messages to the other players (according to the communication structure shown to you).
                     </p>
                     <div>
                         <Header tabsStatus={this.state.tabsStatus} updateStatus={this.updateStatus} />

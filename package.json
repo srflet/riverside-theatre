@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.10.2",
+    "@blueprintjs/core": "^3.35.0",
+    "@blueprintjs/icons": "^3.22.0",
     "bcrypt": "^4.0.1",
     "meteor-node-stubs": "0.4.1",
     "minimist": ">=0.2.1",

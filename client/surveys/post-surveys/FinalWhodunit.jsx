@@ -37,7 +37,10 @@ export default class FinalWhodunit extends Component {
                 <br />
                 {/*If the player has already given their answer, show thank you message. Otherwise, show the whodunnit quiz */}
                 {answers !== ""
-                    ? <div><p><strong>Thank you for providing your final verdict: {answers}.</strong></p></div>
+                    ? <div>
+                        <p><strong>Thank you for providing your final verdict: {answers}.</strong></p>
+                        <p>Please click 'Next' to continue.</p>
+                    </div>
                     : <div>
                         <p>Please indicate your final verdict as to who you think was responsible for the collision and caused the death of Mr. Lee’s daughter:</p>
                         <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
