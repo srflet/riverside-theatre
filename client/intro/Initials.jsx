@@ -23,7 +23,7 @@ export default class Initials extends Component {
         //Check that this is 3 letters without numbers in them...
         if (this.state.initials.length !== 4) {
             //...If not, alert the user that this is wrong and they need to try again
-            alert("Error: Your screen name should be four characters (two initials and the last two digits of your UID)");
+            alert("Error: Your screen name should be four characters (two initials and the last two digits of your student number)");
         } else {
             //...If correct, set the players initials and end this stage for them
             this.props.player.set("initials", this.state.initials);
@@ -51,10 +51,10 @@ export default class Initials extends Component {
                                     Before we proceed, please enter a screen name for yourself.
                                 </p>
                                 <p>
-                                    <strong><u>Please enter your initials (first and last name) and the last two digits of your UID,</u></strong> we will use this as your screen name later to connect you with the other two playesr in the chatroom.
+                                    <strong><u>Please enter your initials (first and last name) and the last two digits of your student number,</u></strong> we will use this as your screen name later to connect you with the other two playesr in the chatroom.
                                 </p>
                                 <p>
-                                    For instance, if your name is Jane Doe and the last two digits of your UID are 75, please enter "JD75" as your screen name.
+                                    For instance, if your name is Jane Doe and the last two digits of your student number are 75, please enter "JD75" as your screen name.
                                 </p>
 
                                 <input

@@ -20,7 +20,7 @@ export default class PlayerId extends Component {
                         <h1>Identification</h1>
 
                         <p>
-                            Please enter your UID:
+                            Please enter your student ID:
                         </p>
 
                         <input
@@ -30,7 +30,7 @@ export default class PlayerId extends Component {
                             id="id"
                             value={id}
                             onChange={this.handleUpdate}
-                            placeholder="Enter your UID"
+                            placeholder="e.g., 20130028"
                             required
                             autoComplete="off"
                         />
