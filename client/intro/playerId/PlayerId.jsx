@@ -9,14 +9,21 @@ export default class PlayerId extends Component {
         this.setState({ [name]: value });
     };
 
-    render() {
+    handleSubmit = event => {
+        event.preventDefault();
+
         const { handleNewPlayer } = this.props;
+        const { id } = this.state;
+        handleNewPlayer(id);
+    };
+
+    render() {
         const { id } = this.state;
 
         return (
             <Centered>
                 <div className="new-player">
-                    <form onSubmit={e => handleNewPlayer(e, id)}>
+                    <form onSubmit={this.handleSubmit}>
                         <h1>Identification</h1>
 
                         <p>
