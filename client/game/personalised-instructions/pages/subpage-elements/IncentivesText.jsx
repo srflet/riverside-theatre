@@ -33,7 +33,7 @@ export default class IncentivesText extends Component {
                                         In addition, <strong>for every clue you collect more than {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} />, you will be awarded 5 points.</strong> For instance, if you collect 4 clues whereas {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImageBold} /> collects only 1 clue, you will be awarded 15 points.
                                     </p>
                                     <p>
-                                        At the end of the study, if your final score places you in the Top 25 of the game, you will receive a $10 Amazon Gift Card, if you place in the Top 10, you will win $20 Amazon Gift Card
+                                        At the end of T1, if your final score places you in the Top 25 of the game, you will receive a £10 Amazon Gift Card, if you place in the Top 10, you will win £20 Amazon Gift Card
                                     </p>
                                 </div>
 
@@ -66,7 +66,7 @@ export default class IncentivesText extends Component {
                                         In addition, <strong>for every clue you collect more than {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} />, you will be awarded 5 points.</strong> For instance, if you collect 4 clues whereas {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImageBold} /> collects only 1 clue, you will be awarded 15 points.
                                     </p>
                                     <p>
-                                        At the end of the study, if your final score places you in the Top 25 of the game, you will receive a $10 Amazon Gift Card, if you place in the Top 10, you will win $20 Amazon Gift Card
+                                        At the end of T1, if your final score places you in the Top 25 of the game, you will receive a £10 Amazon Gift Card, if you place in the Top 10, you will win £20 Amazon Gift Card
                                     </p>
                                 </div>
                             </div>

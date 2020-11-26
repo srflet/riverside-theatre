@@ -71,9 +71,9 @@ export default class Demographics extends Component {
                 <select name="ethnicity" value={answers.ethnicity} onChange={e => this.handleChangeEthnicity(e)}>
                     <option value="">Select your answer</option>
                     <option value="White">White</option>
-                    <option value="Hispanic or Latino">Hispanic or Latino</option>
-                    <option value="Black or African American">Black or African American</option>
-                    <option value="Asian/Pacific Islander">Asian/Pacific Islander</option>
+                    <option value="Hispanic or Latino">Mixed / Multiple ethnic groups</option>
+                    <option value="Black or African American">Asian / Asian British</option>
+                    <option value="Asian/Pacific Islander">Black / African / Caribbean / Black British</option>
                     <option value="Other">Other</option>
                 </select>
                 <br />

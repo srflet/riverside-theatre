@@ -51,7 +51,7 @@ export default class Initials extends Component {
                                     Before we proceed, please enter a screen name for yourself.
                                 </p>
                                 <p>
-                                    <strong><u>Please enter your initials (first and last name) and the last two digits of your student number,</u></strong> we will use this as your screen name later to connect you with the other two playesr in the chatroom.
+                                    <strong><u>Please enter your initials (first and last name) and the last two digits of your student number,</u></strong> we will use this as your screen name later to connect you with the other two players in the chatroom.
                                 </p>
                                 <p>
                                     For instance, if your name is Jane Doe and the last two digits of your student number are 75, please enter "JD75" as your screen name.

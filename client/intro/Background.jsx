@@ -14,7 +14,7 @@ export default class Background extends Component {
                     <DoNotCross />
                     <br />
                     <p>
-                        Please imagine you are a Private Investigator or a PI (e.g. Sherlock Holmes if you will) of a new private investigation firm in New York City. Your firm has been hired by a local businessman Mr. Lee to identify the perpetrator of a terrible automobile collision that resulted in the death of his only daughter. You represent your firm in handling Mr. Lee's case.
+                        Please imagine you are a Private Investigator or a PI (e.g. Sherlock Holmes if you will) of a new private investigation firm in London. Your firm has been hired by a local businessman Mr. Lee to identify the perpetrator of a terrible automobile collision that resulted in the death of his only daughter. You represent your firm in handling Mr. Lee's case.
          			 </p>
                     <p>
                         The police department has spent 8 weeks on the case but was unable to draw conclusions. But Mr. Lee has good reasons to believe it was not just an accident and has made it clear that he will spare no expense in identifying the person who is responsible for his daughter’s death.

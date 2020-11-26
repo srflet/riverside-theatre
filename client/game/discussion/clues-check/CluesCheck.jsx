@@ -87,7 +87,7 @@ export default class CluesCheck extends Component {
                                         </tr>
                                         <tr>
                                             <td className="clueCheck-clue">
-                                                During police inspection, the guilty person was discovered to have a
+                                                During police inspection, the guilty person was discovered to have
                                                 <input
                                                     type="text"
                                                     name="1"
@@ -96,7 +96,7 @@ export default class CluesCheck extends Component {
                                                     autoComplete="off"
                                                     style={{ width: "80px", margin: "0 5px" }}
                                                 />
-                                                % (percentage of blood alcohol content, 0.08% is the legal limit).
+                                               mg of alcohol per 100ml of blood (80mg of alcohol per 100ml of blood is the legal limit).
                                             </td>
                                         </tr>
                                         <tr>
