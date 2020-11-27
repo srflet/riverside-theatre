@@ -15,14 +15,8 @@ export default class Thanks extends React.Component {
 					</div>
 					<br />
 					<p>
-						Thank you for participating in this game today. Please return to your seminar Zoom meeting.
-          			</p>
-					<p>
 						At the end of the term, we will examine the scoreboard for all the participants and we will email the winners. Top 25 will win £10 Amazon Gift Card, and Top 10 wins £20 Amazon Gift Card.
 					</p>
-					<p>
-						Thank you for participating in this research today.  I hope this experience gives you some insight in how knowledge is developed through the research process. I also hope you learned from the experience. Your participation today helped us add to the productive research community at our university.
-          			</p>
 					<p>
 						Best of luck to you.
           			</p>
