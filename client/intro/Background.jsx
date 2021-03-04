@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Centered } from "meteor/empirica:core";
-import DoNotCross from '../game/general-ui/decoration-img/DoNotCross';
+import DoNotCross from '../general/images/DoNotCross';
 
 export default class Background extends Component {
     render() {
@@ -24,15 +24,12 @@ export default class Background extends Component {
                     </p>
                     <br />
                     <p>
-                        <strong>IMPORTANTLY - The clues available to you are from two sources:</strong>
+                        <strong>IMPORTANTLY - The clues that will be available to you are from two sources:</strong>
                     </p>
                     <ol>
                         <li><strong>Notes from the police investigation, which will be available to all three players</strong></li>
                         <li><strong>Clues from your own independent investigation that are UNIQUE to you</strong></li>
                     </ol>
-                    <p>
-                        On the next page, we will first show you the notes from the police's investigation.
-                    </p>
                 </div>
 
                 {/* Empirica introduction buttons */}

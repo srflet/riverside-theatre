@@ -1,12 +1,11 @@
 import React from "react";
 
 //Importing UI
-import Footer from "./general-ui/footer/Footer.jsx";
 import { Centered } from "meteor/empirica:core";
 
 //Importing Stages
-import PersonalisedInstructions from "./personalised-instructions/PersonalisedInstructions.jsx";
-import Discussion from "./discussion/Discussion.jsx";
+import PersonalisedInstructions from "./personalised-instructions/PersonalisedInstructions";
+import Discussion from "./discussion/Discussion";
 
 //Creating the round component
 export default class Round extends React.Component {

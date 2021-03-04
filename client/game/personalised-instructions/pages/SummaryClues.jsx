@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import PoliceClues from '../../../intro/PoliceClues';
-import PersonalClues from '../../clues/PersonalClues';
-import SummaryInvestigation from '../../general-ui/decoration-img/SummaryInvestigation';
+import PoliceClues from '../../../general/clues/PoliceClues';
+import PersonalClues from '../../../general/clues/PersonalClues';
+import SummaryInvestigation from '../../../general/images/SummaryInvestigation';
 
 export default class SummaryClues extends Component {
     render() {

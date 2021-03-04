@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import Matrix from '../templates/Matrix';
-import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import MatrixQ from '../../../general/question-formats/MatrixQ';
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
+import PostBottonTip from '../ui/PostButtonTip';
 
-export default class ManipCheckBrok2 extends Component {
+export default class PreventInfo extends Component {
     state = {
-        name: "ManipCheckBrok2"
+        name: "PreventInfo"
     }
 
     render() {
         const { player, currentPage, previousPage, nextPage } = this.props;
 
         const questions = [
-            "Everyone was able to talk to the other two players freely",
-            "Not everyone was able to talk to everyone else directly",
-            "There was one person who acted as the “bridge” in connecting the other two players",
-            "I was only able to talk to one player, who was the “bridge” that indirectly connected me with another player",
-            "I was the “bridge” that connected the other two players"
+            "I tried to prevent specific other players from being able to get more clues",
+            "I deliberately tried to make sure specific players could not get information from others",
+            "I tried to prevent one player from sharing clues with the other player",
         ];
         const responseScale = DisagreeAgree5;
 
@@ -24,8 +22,11 @@ export default class ManipCheckBrok2 extends Component {
 
         return (
             <div>
+                <p><strong>Based on the incentive structure in the game...</strong></p>
 
-                <Matrix
+                <br />
+
+                <MatrixQ
                     player={player}
                     playerVariable={this.state.name}
                     questions={questions}
@@ -48,3 +49,4 @@ export default class ManipCheckBrok2 extends Component {
         )
     }
 }
+

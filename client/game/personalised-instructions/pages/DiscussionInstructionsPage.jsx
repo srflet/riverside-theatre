@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DiscussionInstructions from './subpage-elements/DiscussionInstructions';
-import Footer from '../../general-ui/footer/Footer';
+import Footer from '../../../general/footer/Footer';
 
 export default class DiscussionInstructionsPage extends Component {
     render() {

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
-import Matrix from '../templates/Matrix';
-import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import MatrixQ from '../../../general/question-formats/MatrixQ';
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
+import PostBottonTip from '../ui/PostButtonTip';
 
-export default class EaseInfoExchange extends Component {
+export default class ManipCheckComp extends Component {
     state = {
-        name: "EaseInfoExchange"
+        name: "ManipCheckComp"
     }
 
     render() {
         const { player, currentPage, previousPage, nextPage } = this.props;
 
         const questions = [
-            "It was difficult to get unique clues from other players",
-            "If I did not give others my unique clues, it was impossible to get anything from them",
-            "Getting new clues from others was only possible when I promised I would share my clues with them as well",
+            "My chance at winning an Amazon gift card hinged on whether I performed better than a specific other player in the game",
+            "I was in direct competition with another player in the game",
+            "I had to outperform a specific other player to be able to get more points",
+            "There was no competition at all among players",
         ];
         const responseScale = DisagreeAgree5;
 
@@ -23,7 +24,7 @@ export default class EaseInfoExchange extends Component {
         return (
             <div>
 
-                <Matrix
+                <MatrixQ
                     player={player}
                     playerVariable={this.state.name}
                     questions={questions}

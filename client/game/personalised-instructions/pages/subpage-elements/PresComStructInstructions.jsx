@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { returnPlayerInitials } from '../../../general-ui/helper-functions/returnPlayerInitials';
-import { returnPlayerAvatar } from '../../../general-ui/helper-functions/returnPlayerAvatar';
-import ComStructShape from '../../../communication-structure/ComStructShape';
+import { returnPlayerInitials } from '../../../../general/helper-functions/returnPlayerInitials';
+import { returnPlayerAvatar } from '../../../../general/helper-functions/returnPlayerAvatar';
+import ComStructShape from '../../../../general/communication-structure/ComStructShape';
 
 export default class PresComStructInstructions extends Component {
     render() {

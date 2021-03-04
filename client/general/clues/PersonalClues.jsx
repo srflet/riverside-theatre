@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getClues } from '../general-ui/helper-functions/getClues';
+import { getClues } from '../helper-functions/getClues';
 
 export default class PersonalClues extends Component {
     render() {

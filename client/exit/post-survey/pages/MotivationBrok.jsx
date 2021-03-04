@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
-import Matrix from '../templates/Matrix';
-import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import MatrixQ from '../../../general/question-formats/MatrixQ';
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
+import PostBottonTip from '../ui/PostButtonTip';
 
-export default class PreventInfo extends Component {
+export default class MotivationBrok extends Component {
     state = {
-        name: "PreventInfo"
+        name: "MotivationBrok"
     }
 
     render() {
         const { player, currentPage, previousPage, nextPage } = this.props;
 
         const questions = [
-            "I tried to prevent specific other players from being able to get more clues",
-            "I deliberately tried to make sure specific players could not get information from others",
-            "I tried to prevent one player from sharing clues with the other player",
+            "I was motivated to “make deals” with others so that I could acquire new clues",
+            "I only shared clues with others when I could get valuable clues back from them",
+            "I wanted to take advantage of my position among the three players to maximize how many clues I could gather",
+            "I tried to “broker” deals with the other 2 parties so that I could benefit from trading information between them",
+            "I tried “playing one player off the other” so that I could get additional clues"
         ];
         const responseScale = DisagreeAgree5;
 
@@ -22,11 +24,8 @@ export default class PreventInfo extends Component {
 
         return (
             <div>
-                <p><strong>Based on the incentive structure in the game...</strong></p>
 
-                <br />
-
-                <Matrix
+                <MatrixQ
                     player={player}
                     playerVariable={this.state.name}
                     questions={questions}
@@ -49,4 +48,3 @@ export default class PreventInfo extends Component {
         )
     }
 }
-

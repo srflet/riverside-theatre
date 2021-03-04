@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Matrix from '../templates/Matrix';
-import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import MatrixQ from '../../../general/question-formats/MatrixQ';
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
+import PostBottonTip from '../ui/PostButtonTip';
 
 export default class SuspicionDistrust extends Component {
     state = {
@@ -30,7 +30,7 @@ export default class SuspicionDistrust extends Component {
 
                 <br />
 
-                <Matrix
+                <MatrixQ
                     player={player}
                     playerVariable={this.state.name}
                     questions={questions}

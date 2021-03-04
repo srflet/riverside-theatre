@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { returnPlayerInitials } from '../../../general-ui/helper-functions/returnPlayerInitials';
-import { returnPlayerAvatar } from '../../../general-ui/helper-functions/returnPlayerAvatar';
+import { returnPlayerInitials } from '../../../../general/helper-functions/returnPlayerInitials';
+import { returnPlayerAvatar } from '../../../../general/helper-functions/returnPlayerAvatar';
 import CompetitionTip from './CompetitionTip';
 
 export default class DiscussionInstructions extends Component {

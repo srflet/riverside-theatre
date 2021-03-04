@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import { getClues } from '../../general-ui/helper-functions/getClues';
-import { returnPlayerInitials } from '../../general-ui/helper-functions/returnPlayerInitials';
-import { returnPlayerAvatar } from '../../general-ui/helper-functions/returnPlayerAvatar';
+import { getClues } from '../../../general/helper-functions/getClues';
+import { returnPlayerInitials } from '../../../general/helper-functions/returnPlayerInitials';
+import { returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerAvatar';
 
 export default class CluesCheck extends Component {
 

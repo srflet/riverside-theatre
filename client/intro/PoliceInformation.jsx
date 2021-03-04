@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Centered } from "meteor/empirica:core";
-import PoliceClues from "./PoliceClues"
-import PoliceImg from '../game/general-ui/decoration-img/PoliceImg';
+import PoliceClues from "../general/clues/PoliceClues"
 
 export default class PoliceInformation extends Component {
     render() {
@@ -27,7 +26,7 @@ export default class PoliceInformation extends Component {
                     </button>
                     &emsp;
                     <button type="button" onClick={onNext}>
-                        Click to go to the next phase where we connect you with the two other players
+                        Click to be connected with the other two players
                     </button>
                 </p>
             </Centered>

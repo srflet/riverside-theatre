@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import PoliceClues from '../../../../intro/PoliceClues';
+import PoliceClues from '../../../../general/clues/PoliceClues';
 import DiscussionInstructions from '../../../personalised-instructions/pages/subpage-elements/DiscussionInstructions';
 import PresComStructText from '../../../personalised-instructions/pages/subpage-elements/PresComStructText';
 import EarlySubmission from './early-submission/EarlySubmission';

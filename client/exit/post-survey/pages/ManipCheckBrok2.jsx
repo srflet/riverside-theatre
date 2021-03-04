@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import Matrix from '../templates/Matrix';
-import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import MatrixQ from '../../../general/question-formats/MatrixQ';
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
+import PostBottonTip from '../ui/PostButtonTip';
 
-export default class MotivationBrok extends Component {
+export default class ManipCheckBrok2 extends Component {
     state = {
-        name: "MotivationBrok"
+        name: "ManipCheckBrok2"
     }
 
     render() {
         const { player, currentPage, previousPage, nextPage } = this.props;
 
         const questions = [
-            "I was motivated to “make deals” with others so that I could acquire new clues",
-            "I only shared clues with others when I could get valuable clues back from them",
-            "I wanted to take advantage of my position among the three players to maximize how many clues I could gather",
-            "I tried to “broker” deals with the other 2 parties so that I could benefit from trading information between them",
-            "I tried “playing one player off the other” so that I could get additional clues"
+            "Everyone was able to talk to the other two players freely",
+            "Not everyone was able to talk to everyone else directly",
+            "There was one person who acted as the “bridge” in connecting the other two players",
+            "I was only able to talk to one player, who was the “bridge” that indirectly connected me with another player",
+            "I was the “bridge” that connected the other two players"
         ];
         const responseScale = DisagreeAgree5;
 
@@ -25,7 +25,7 @@ export default class MotivationBrok extends Component {
         return (
             <div>
 
-                <Matrix
+                <MatrixQ
                     player={player}
                     playerVariable={this.state.name}
                     questions={questions}

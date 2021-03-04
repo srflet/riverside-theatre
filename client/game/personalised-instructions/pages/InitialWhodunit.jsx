@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import WhodunitQuestion from '../../../surveys/whodunit/WhodunitQuestion';
-import PoliceClues from '../../../intro/PoliceClues';
-import PersonalClues from '../../clues/PersonalClues';
+import WhodunitQuestion from '../../../general/question-formats/whodunit/WhodunitQuestion';
+import PoliceClues from '../../../general/clues/PoliceClues';
+import PersonalClues from '../../../general/clues/PersonalClues';
 
 export default class InitialWhodunit extends Component {
     state = { whodunit: "" }

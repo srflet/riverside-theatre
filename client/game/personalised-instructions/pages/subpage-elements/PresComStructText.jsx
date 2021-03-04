@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ComStructShape from '../../../communication-structure/ComStructShape';
 import PresComStructInstructions from './PresComStructInstructions';
 import PresComStructTip from './PresComStructTip';
 

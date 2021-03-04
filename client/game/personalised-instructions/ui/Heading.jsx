@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { returnPlayerInitials } from '../../general-ui/helper-functions/returnPlayerInitials';
-import { returnPlayerAvatar } from '../../general-ui/helper-functions/returnPlayerAvatar';
-import Timer from '../../general-ui/footer/footer-elements/Timer';
-import PlayerProfile from '../../general-ui/footer/footer-elements/PlayerProfile';
+import { returnPlayerInitials } from '../../../general/helper-functions/returnPlayerInitials';
+import { returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerAvatar';
+import Timer from '../../../general/footer/footer-elements/Timer';
+import PlayerProfile from '../../../general/footer/footer-elements/PlayerProfile';
 
 export default class Heading extends Component {
     render() {

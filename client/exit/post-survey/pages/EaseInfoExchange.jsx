@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import Matrix from '../templates/Matrix';
-import { DisagreeAgree5 } from '../templates/scales/DisagreeAgree5';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import MatrixQ from '../../../general/question-formats/MatrixQ';
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
+import PostBottonTip from '../ui/PostButtonTip';
 
-export default class MotivationToShare extends Component {
+export default class EaseInfoExchange extends Component {
     state = {
-        name: "MotivationToShare"
+        name: "EaseInfoExchange"
     }
 
     render() {
         const { player, currentPage, previousPage, nextPage } = this.props;
 
         const questions = [
-            "I did not want to give out my clues “easily” to certain players",
-            "To maximize my chance at the bonus, I did not want to share my unique clues with others “for free”",
-            "Unless I was able to get new clues from others, I did not want to share my unique clues with them because it would be a disadvantage to me",
-            "Please select ‘Somewhat Disagree’",
-            "Giving my unique clues to the other players without getting new clues back would be a mistake",
+            "It was difficult to get unique clues from other players",
+            "If I did not give others my unique clues, it was impossible to get anything from them",
+            "Getting new clues from others was only possible when I promised I would share my clues with them as well",
         ];
         const responseScale = DisagreeAgree5;
 
@@ -24,11 +22,8 @@ export default class MotivationToShare extends Component {
 
         return (
             <div>
-                <p><strong>Based on the incentive structure in the game...</strong></p>
 
-                <br />
-
-                <Matrix
+                <MatrixQ
                     player={player}
                     playerVariable={this.state.name}
                     questions={questions}

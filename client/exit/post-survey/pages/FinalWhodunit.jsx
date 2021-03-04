@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import WhodunitQuestion from '../whodunit/WhodunitQuestion';
-import PoliceClues from '../../intro/PoliceClues';
-import CluesCheck from '../../game/discussion/clues-check/CluesCheck';
+import WhodunitQuestion from '../../../general/question-formats/whodunit/WhodunitQuestion';
+import PoliceClues from '../../../general/clues/PoliceClues';
+import CluesCheck from '../../../game/discussion/clues-check/CluesCheck';
 
 export default class FinalWhodunit extends Component {
     state = {

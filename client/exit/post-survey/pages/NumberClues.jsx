@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostBottonTip from '../../exit/post-survey/ui/PostButtonTip';
+import PostBottonTip from '../ui/PostButtonTip';
 
 export default class NumberClues extends Component {
     state = {

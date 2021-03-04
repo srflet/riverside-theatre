@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 //Footer
-import Footer from '../general-ui/footer/Footer';
+import Footer from '../../general/footer/Footer';
 
 //Tabs
 import Content from './tabs/content/Content';

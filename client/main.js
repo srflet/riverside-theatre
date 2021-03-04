@@ -1,18 +1,18 @@
 import Empirica from "meteor/empirica:core";
 import { render } from "react-dom";
 
-/*-----------------------------
-- Importing React components: -
-------------------------------*/
+/*----------------------------
+- Importing React components -
+-----------------------------*/
 
 //About
-import About from "./game/general-ui/About"
+import About from "./about/About"
 
 //Consent
-import Consent from "./intro/consent/Consent";
+import Consent from "./consent/Consent";
 
-//PlayerId
-import PlayerId from "./intro/playerId/PlayerId";
+// New Player form
+import NewPlayer from "./new-player/NewPlayer";
 
 //Introduction:
 import GeneralIntroduction from "./intro/GeneralIntroduction";
@@ -20,9 +20,6 @@ import Initials from "./intro/Initials";
 import Background from "./intro/Background";
 import PoliceInformation from "./intro/PoliceInformation";
 import Quiz from "./intro/Quiz";
-
-//Breadcrumb (progress bar):
-import Breadcrumb from "./game/general-ui/BreadCrumb"
 
 //Game:
 import Round from "./game/Round";
@@ -32,6 +29,10 @@ import PostSurvey from './exit/post-survey/PostSurvey';
 import Thanks from "./exit/debrief/Thanks";
 import Sorry from './exit/debrief/Sorry';
 
+/*-----------------------------
+- Setting up the Empirica app -
+------------------------------*/
+
 // Set the About Component you want to use for the About dialog (optional).
 Empirica.about(About);
 
@@ -39,7 +40,7 @@ Empirica.about(About);
 Empirica.consent(Consent);
 
 // Set the component for getting the player id
-Empirica.newPlayer(PlayerId);
+Empirica.newPlayer(NewPlayer);
 
 // Introduction pages to show before they play the game (optional).
 // At this point they have been assigned a treatment. You can return
@@ -57,7 +58,7 @@ Empirica.introSteps((game, treatment) => {
 Empirica.round(Round);
 
 //Getting rid of the breadcrums (the progress bar):
-Empirica.breadcrumb(Breadcrumb);
+Empirica.breadcrumb(() => null);
 
 // End of Game pages.
 // The last step will be the last page shown to user and will be shown to the
@@ -69,6 +70,10 @@ Empirica.exitSteps((game, player) => {
 		? [PostSurvey, Thanks]
 		: [Sorry];
 });
+
+/*----------------
+- Render the app -
+-----------------*/
 
 // Start the app render tree.
 Meteor.startup(() => {

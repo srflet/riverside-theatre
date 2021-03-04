@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Centered } from "meteor/empirica:core";
 
-export default class PlayerId extends Component {
+export default class NewPlayer extends Component {
     state = { id: "" };
 
     handleUpdate = event => {
@@ -22,12 +22,12 @@ export default class PlayerId extends Component {
 
         return (
             <Centered>
-                <div className="new-player">
+                <div>
                     <form onSubmit={this.handleSubmit}>
                         <h1>Identification</h1>
 
                         <p>
-                            Please enter your student ID (e.g. the 8 digit number):
+                            Please enter your student university ID (multiple digits):
                         </p>
 
                         <input
@@ -37,10 +37,12 @@ export default class PlayerId extends Component {
                             id="id"
                             value={id}
                             onChange={this.handleUpdate}
-                            placeholder="e.g. 20130028"
+                            placeholder=""
                             required
                             autoComplete="off"
                         />
+
+                        <br />
 
                         <p className="button-holder">
                             <button type="submit">Submit</button>

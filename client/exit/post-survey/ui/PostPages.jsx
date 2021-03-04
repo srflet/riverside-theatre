@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
 //Importing pages
-import NumberClues from '../../../surveys/post-surveys/NumberClues';
-import ManipCheckBrok1 from '../../../surveys/post-surveys/ManipCheckBrok1';
-import ManipCheckBrok2 from '../../../surveys/post-surveys/ManipCheckBrok2';
-import ManipCheckComp from '../../../surveys/post-surveys/ManipCheckComp';
-import SuspicionDistrust from '../../../surveys/post-surveys/SuspicionDistrust';
-import MotivationToShare from '../../../surveys/post-surveys/MotivationToShare';
-import PreventInfo from '../../../surveys/post-surveys/PreventInfo';
-import EaseInfoExchange from '../../../surveys/post-surveys/EaseInfoExchange';
-import MotivationBrok from '../../../surveys/post-surveys/MotivationBrok';
-import FinalWhodunit from '../../../surveys/post-surveys/FinalWhodunit';
-import Demographics from '../../../surveys/post-surveys/Demographics';
+import NumberClues from '../pages/NumberClues';
+import ManipCheckBrok1 from '../pages/ManipCheckBrok1';
+import ManipCheckBrok2 from '../pages/ManipCheckBrok2';
+import ManipCheckComp from '../pages/ManipCheckComp';
+import SuspicionDistrust from '../pages/SuspicionDistrust';
+import MotivationToShare from '../pages/MotivationToShare';
+import PreventInfo from '../pages/PreventInfo';
+import EaseInfoExchange from '../pages/EaseInfoExchange';
+import MotivationBrok from '../pages/MotivationBrok';
+import FinalWhodunit from '../pages/FinalWhodunit';
+import Demographics from '../pages/Demographics';
 
 export default class PostPages extends Component {
     render() {

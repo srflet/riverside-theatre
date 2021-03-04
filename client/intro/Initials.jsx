@@ -68,6 +68,10 @@ export default class Initials extends Component {
                                 />
 
                                 <div className="button-holder">
+                                    <button type="button" onClick={onPrev} disabled={!hasPrev}>
+                                        Previous
+                                    </button>
+                                    &emsp;
                                     <button type="submit">
                                         Submit Screen Name
                                     </button>
@@ -81,12 +85,6 @@ export default class Initials extends Component {
                             <p>
                                 For the rest of this study you will be refered to as {player.get("initials")}. The other players will see your screen name and you will be able to see theirs in key parts of the study.
                             </p>
-
-                            <div className="game-instructions">
-                                <span>
-                                    Please make sure that you have <strong>sound activated</strong> on your computer as we will use light bell sounds to signal when certain phases of the study start and when you receive messages in the discussion phase of the study.
-                                </span>
-                            </div>
 
                             <p className="button-holder">
                                 <button type="button" onClick={onPrev} disabled={!hasPrev}>

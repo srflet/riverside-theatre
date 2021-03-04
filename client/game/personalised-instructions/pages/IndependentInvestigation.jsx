@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PersonalClues from '../../clues/PersonalClues';
-import InvestigationImg from '../../general-ui/decoration-img/InvestigationImg';
+import PersonalClues from '../../../general/clues/PersonalClues';
+import InvestigationImg from '../../../general/images/InvestigationImg';
 
 export default class IndependentInvestigation extends Component {
     render() {
