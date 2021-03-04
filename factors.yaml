@@ -1,0 +1,73 @@
+treatments:
+  - name: comp_brok
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - yPMSz3qPCGYcbTwbz
+      - w7TCBTYwCh8mYy96P
+  - name: comp_nonbrok
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - yPMSz3qPCGYcbTwbz
+      - 5o3CinDbfPpJsfzzp
+  - name: noncomp_brok
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - Ev5g9ihxzmwxuFwgp
+      - w7TCBTYwCh8mYy96P
+  - name: noncomp_nonbrok
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - Ev5g9ihxzmwxuFwgp
+      - 5o3CinDbfPpJsfzzp
+factorTypes:
+  - _id: bJzz8LjfhLG2nyCzT
+    name: playerCount
+    description: The Number of players participating in the given game.
+    required: true
+    type: Integer
+    min: 1
+  - _id: GdwaQrTbZWJfuJtoY
+    name: competition
+    description: competition
+    required: false
+    type: String
+  - _id: 5qXR6PYG3kQKvNBbx
+    name: brokerage
+    description: brokerage
+    required: false
+    type: String
+factors:
+  - _id: ewf9BQhnfSpMkafDJ
+    name: three
+    value: 3
+    factorTypeId: bJzz8LjfhLG2nyCzT
+  - _id: yPMSz3qPCGYcbTwbz
+    name: competition
+    value: comp
+    factorTypeId: GdwaQrTbZWJfuJtoY
+  - _id: Ev5g9ihxzmwxuFwgp
+    name: noncompetition
+    value: noncomp
+    factorTypeId: GdwaQrTbZWJfuJtoY
+  - _id: w7TCBTYwCh8mYy96P
+    name: broker
+    value: brok
+    factorTypeId: 5qXR6PYG3kQKvNBbx
+  - _id: 5o3CinDbfPpJsfzzp
+    name: nonbroker
+    value: nonbrok
+    factorTypeId: 5qXR6PYG3kQKvNBbx
+lobbyConfigs:
+  - name: test_lobby
+    timeoutType: individual
+    timeoutInSeconds: 300
+    timeoutStrategy: fail
+    extendCount: 1
+    gameLobbyIds: []
+    archivedAt: 2020-11-02T08:14:30.573Z
+  - name: myLobby
+    timeoutType: individual
+    timeoutInSeconds: 500
+    timeoutStrategy: fail
+    extendCount: 1
+    gameLobbyIds: []
