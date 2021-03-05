@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WhodunitQuestion from '../../../general/question-formats/whodunit/WhodunitQuestion';
+import WhodunitQuestion from '../../../general/whodunit/WhodunitQuestion';
 import PoliceClues from '../../../general/clues/PoliceClues';
 import PersonalClues from '../../../general/clues/PersonalClues';
 
@@ -64,15 +64,6 @@ export default class InitialWhodunit extends Component {
                     </div>
                 </div>
 
-                <p className="button-holder">
-                    <button type="button" onClick={previousPage}>
-                        Previous
-                    </button>
-                    &emsp;
-                    <button type="button" onClick={nextPage} disabled={player.get("initialWhodunit") === ""}>
-                        Next
-                    </button>
-                </p>
             </div>
         )
     }

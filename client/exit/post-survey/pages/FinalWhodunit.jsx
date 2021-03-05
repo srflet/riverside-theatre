@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import WhodunitQuestion from '../../../general/question-formats/whodunit/WhodunitQuestion';
+import WhodunitQuestion from '../../../general/whodunit/WhodunitQuestion';
 import PoliceClues from '../../../general/clues/PoliceClues';
 import CluesCheck from '../../../game/discussion/clues-check/CluesCheck';
 

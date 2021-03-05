@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { returnPlayerInitials } from '../../../../general/helper-functions/returnPlayerInitials';
-import { returnPlayerAvatar } from '../../../../general/helper-functions/returnPlayerAvatar';
+import { returnPlayerInitials, returnPlayerAvatar } from '../../../../general/helper-functions/returnPlayerInformation';
 import ComStructShape from '../../../../general/communication-structure/ComStructShape';
 
 export default class PresComStructInstructions extends Component {

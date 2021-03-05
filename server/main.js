@@ -90,6 +90,10 @@ Empirica.gameInit(game => {
 		// Set early submission:
 		player.set("isEarlySubmission", false);
 		player.set("earlySubmissionTime", 0);
+
+		// Add navigation pages:
+		player.set("personalisedDiscussionPage", 1);
+		player.set("exitPage", 1);
 	});
 
 	/*----------------------------------

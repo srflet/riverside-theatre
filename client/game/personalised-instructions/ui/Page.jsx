@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-//Importing the pages
+// Importing the pages
+import Start from '../pages/Start';
 import IndependentInvestigation from '../pages/IndependentInvestigation';
-import SummaryClues from '../pages/SummaryClues';
 import IntroDiscussion from '../pages/IntroDiscussion';
 import Incentives from '../pages/Incentives'
 import PresComStruct from '../pages/PresComStruct';
@@ -14,43 +14,47 @@ import DiscussionInstructionsPage from '../pages/DiscussionInstructionsPage';
 
 export default class Page extends Component {
     render() {
-        const { currentPage, round, player, game, previousPage, nextPage, scrollToTop, stage } = this.props;
+        const { currentPage, scrollToTop } = this.props;
 
-        if (currentPage === 0) {
+        if (currentPage === 1) {
             return (
-                <IndependentInvestigation player={player} round={round} game={game} />
-            )
-        } else if (currentPage === 1) {
-            return (
-                <InitialWhodunit player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} />
+                <Start {...this.props} />
             )
         } else if (currentPage === 2) {
             return (
-                <IntroDiscussion scrollToTop={scrollToTop} />
+                <IndependentInvestigation {...this.props} />
             )
         } else if (currentPage === 3) {
             return (
-                <Incentives player={player} game={game} />
+                <InitialWhodunit {...this.props} />
             )
         } else if (currentPage === 4) {
             return (
-                <TestIncentives player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
+                <IntroDiscussion scrollToTop={scrollToTop} />
             )
         } else if (currentPage === 5) {
             return (
-                <PresComStruct player={player} round={round} game={game} previousPage={previousPage} nextPage={nextPage} scrollToTop={scrollToTop} />
+                <Incentives {...this.props} />
             )
         } else if (currentPage === 6) {
             return (
-                <TestComStruct player={player} game={game} previousPage={previousPage} nextPage={nextPage} />
+                <TestIncentives {...this.props} />
             )
         } else if (currentPage === 7) {
             return (
-                <ClueHints player={player} round={round} game={game} scrollToTop={scrollToTop} />
+                <PresComStruct {...this.props} scrollToTop={scrollToTop} />
             )
         } else if (currentPage === 8) {
             return (
-                <DiscussionInstructionsPage player={player} round={round} game={game} previousPage={previousPage} stage={stage} />
+                <TestComStruct {...this.props} />
+            )
+        } else if (currentPage === 9) {
+            return (
+                <ClueHints {...this.props} scrollToTop={scrollToTop} />
+            )
+        } else if (currentPage === 10) {
+            return (
+                <DiscussionInstructionsPage {...this.props} />
             )
         }
     }

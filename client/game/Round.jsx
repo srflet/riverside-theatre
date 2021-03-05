@@ -18,8 +18,11 @@ export default class Round extends React.Component {
 				<div className="round">
 					<div className="content">
 						<div className="stages">
-							<PersonalisedInstructions round={round} player={player} stage={stage} game={game} />
-							<Discussion round={round} game={game} player={player} stage={stage} />
+							{
+								stage.name === "personalised_instructions"
+									? <PersonalisedInstructions {...this.props} />
+									: <Discussion {...this.props} />
+							}
 						</div>
 
 					</div>
