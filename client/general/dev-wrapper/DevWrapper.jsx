@@ -14,7 +14,7 @@ export default function DevWrapper({
             {isDev &&
                 <div style={{
                     display: "flex"
-                    , justifyContent: "end"
+                    , justifyContent: "flex-end"
                     , alignItems: "center"
                 }}>
                     <p style={{
