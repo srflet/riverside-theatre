@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Centered } from "meteor/empirica:core";
+import DevWrapper from "../general/dev-wrapper/DevWrapper";
 
 export default class Quiz extends React.Component {
 	state = { answer: "" };
@@ -35,55 +36,57 @@ export default class Quiz extends React.Component {
 		const { answer } = this.state;
 
 		return (
-			<Centered>
-				<div className="quiz">
-					<h2> Just to check your understanding... </h2>
-					<p>
-						What type of clues will be available to you?
+			<DevWrapper {...this.props}>
+				<Centered>
+					<div className="quiz">
+						<h2> Just to check your understanding... </h2>
+						<p>
+							What type of clues will be available to you?
 					</p>
-					<form onSubmit={this.handleSubmit}>
-						<input
-							type="radio"
-							name="comprehensionCheck1"
-							value="wrong1"
-							onChange={this.handleChange}
-							checked={answer === "wrong1"}
-							required
-						/>
-						<span>Clues from the police investigation that are available to all three players</span>
-						<br />
+						<form onSubmit={this.handleSubmit}>
+							<input
+								type="radio"
+								name="comprehensionCheck1"
+								value="wrong1"
+								onChange={this.handleChange}
+								checked={answer === "wrong1"}
+								required
+							/>
+							<span>Clues from the police investigation that are available to all three players</span>
+							<br />
 
-						<input
-							type="radio"
-							name="comprehensionCheck1"
-							value="wrong2"
-							onChange={this.handleChange}
-							checked={answer === "wrong2"}
-							required
-						/>
-						<span>Clues from your own independent investigations that are unique to yourself</span>
-						<br />
+							<input
+								type="radio"
+								name="comprehensionCheck1"
+								value="wrong2"
+								onChange={this.handleChange}
+								checked={answer === "wrong2"}
+								required
+							/>
+							<span>Clues from your own independent investigations that are unique to yourself</span>
+							<br />
 
-						<input
-							type="radio"
-							name="comprehensionCheck1"
-							value="right"
-							onChange={this.handleChange}
-							checked={answer === "right"}
-							required
-						/>
-						<span>Both</span>
-						<br />
+							<input
+								type="radio"
+								name="comprehensionCheck1"
+								value="right"
+								onChange={this.handleChange}
+								checked={answer === "right"}
+								required
+							/>
+							<span>Both</span>
+							<br />
 
-						<p className="button-holder">
-							<button type="button" onClick={onPrev} disabled={!hasPrev}>
-								Back to instructions
+							<p className="button-holder">
+								<button type="button" onClick={onPrev} disabled={!hasPrev}>
+									Back to instructions
              				 </button>
-							<button type="submit">Submit</button>
-						</p>
-					</form>
-				</div>
-			</Centered>
+								<button type="submit">Submit</button>
+							</p>
+						</form>
+					</div>
+				</Centered>
+			</DevWrapper>
 		);
 	}
 }

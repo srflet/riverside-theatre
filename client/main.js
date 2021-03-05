@@ -33,8 +33,11 @@ import Sorry from './exit/debrief/Sorry';
 - Setting up the Empirica app -
 ------------------------------*/
 
-// Set the About Component you want to use for the About dialog (optional).
-Empirica.about(About);
+// // Set the About Component you want to use for the About dialog (optional).
+// Empirica.about(About);
+
+// Get rid of the header
+Empirica.header(() => null);
 
 // Set the Consent Component you want to present players (optional).
 Empirica.consent(Consent);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Centered } from "meteor/empirica:core";
+import DevWrapper from '../general/dev-wrapper/DevWrapper';
 
 export default class Initials extends Component {
     //Setting the state of the initials
@@ -40,66 +41,68 @@ export default class Initials extends Component {
             "";
 
         return (
-            <Centered>
-                <div className="instructions">
-                    <h2> Screen Name </h2>
+            <DevWrapper {...this.props}>
+                <Centered>
+                    <div className="instructions">
+                        <h2> Screen Name </h2>
 
-                    {initials === "" ?
-                        <form onSubmit={this.handleSubmit}>
-                            <div>
-                                <p>
-                                    Before we proceed, please enter a screen name for yourself.
+                        {initials === "" ?
+                            <form onSubmit={this.handleSubmit}>
+                                <div>
+                                    <p>
+                                        Before we proceed, please enter a screen name for yourself.
                                 </p>
-                                <p>
-                                    <strong><u>Please enter your initials (first and last name) and the last two digits of your student number,</u></strong> we will use this as your screen name later to connect you with the other two players in the chatroom.
+                                    <p>
+                                        <strong><u>Please enter your initials (first and last name) and the last two digits of your student number,</u></strong> we will use this as your screen name later to connect you with the other two players in the chatroom.
                                 </p>
-                                <p>
-                                    For instance, if your name is Jane Doe and the last two digits of your student number are 75, please enter "JD75" as your screen name.
+                                    <p>
+                                        For instance, if your name is Jane Doe and the last two digits of your student number are 75, please enter "JD75" as your screen name.
                                 </p>
 
-                                <input
-                                    type="text"
-                                    placeholder="Enter your screen name..."
-                                    value={this.state.initials}
-                                    onChange={this.handleChange}
-                                    autoComplete="off"
-                                    required
-                                    style={{ width: "300px" }}
-                                />
+                                    <input
+                                        type="text"
+                                        placeholder="Enter your screen name..."
+                                        value={this.state.initials}
+                                        onChange={this.handleChange}
+                                        autoComplete="off"
+                                        required
+                                        style={{ width: "300px" }}
+                                    />
 
-                                <div className="button-holder">
-                                    <button type="button" onClick={onPrev} disabled={!hasPrev}>
-                                        Previous
+                                    <div className="button-holder">
+                                        <button type="button" onClick={onPrev} disabled={!hasPrev}>
+                                            Previous
                                     </button>
                                     &emsp;
                                     <button type="submit">
-                                        Submit Screen Name
+                                            Submit Screen Name
                                     </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form> :
-                        <div>
-                            <p>
-                                Thank you for submitting you screen name: {player.get("initials")}.
+                            </form> :
+                            <div>
+                                <p>
+                                    Thank you for submitting you screen name: {player.get("initials")}.
                             </p>
-                            <p>
-                                For the rest of this study you will be refered to as {player.get("initials")}. The other players will see your screen name and you will be able to see theirs in key parts of the study.
+                                <p>
+                                    For the rest of this study you will be refered to as {player.get("initials")}. The other players will see your screen name and you will be able to see theirs in key parts of the study.
                             </p>
 
-                            <p className="button-holder">
-                                <button type="button" onClick={onPrev} disabled={!hasPrev}>
-                                    Previous
+                                <p className="button-holder">
+                                    <button type="button" onClick={onPrev} disabled={!hasPrev}>
+                                        Previous
                                 </button>
                                 &emsp;
                                 <button type="button" onClick={onNext} disabled={!hasNext}>
-                                    Next
+                                        Next
                                 </button>
-                            </p>
-                        </div>
-                    }
+                                </p>
+                            </div>
+                        }
 
-                </div>
-            </Centered>
+                    </div>
+                </Centered>
+            </DevWrapper>
         )
     }
 }

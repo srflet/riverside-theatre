@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Centered } from "meteor/empirica:core";
+import DevWrapper from '../general/dev-wrapper/DevWrapper';
 
 export default class NewPlayer extends Component {
     state = { id: "" };
@@ -21,36 +22,38 @@ export default class NewPlayer extends Component {
         const { id } = this.state;
 
         return (
-            <Centered>
-                <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <h1>Identification</h1>
+            <DevWrapper {...this.props}>
+                <Centered>
+                    <div>
+                        <form onSubmit={this.handleSubmit}>
+                            <h1>Identification</h1>
 
-                        <p>
-                            Please enter your student university ID (multiple digits):
+                            <p>
+                                Please enter your student university ID (multiple digits):
                         </p>
 
-                        <input
-                            dir="auto"
-                            type="text"
-                            name="id"
-                            id="id"
-                            value={id}
-                            onChange={this.handleUpdate}
-                            placeholder=""
-                            required
-                            autoComplete="off"
-                        />
+                            <input
+                                dir="auto"
+                                type="text"
+                                name="id"
+                                id="id"
+                                value={id}
+                                onChange={this.handleUpdate}
+                                placeholder=""
+                                required
+                                autoComplete="off"
+                            />
 
-                        <br />
+                            <br />
 
-                        <p className="button-holder">
-                            <button type="submit">Submit</button>
-                        </p>
+                            <p className="button-holder">
+                                <button type="submit">Submit</button>
+                            </p>
 
-                    </form>
-                </div>
-            </Centered>
+                        </form>
+                    </div>
+                </Centered>
+            </DevWrapper>
         )
     }
 }
