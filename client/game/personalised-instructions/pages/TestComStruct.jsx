@@ -5,6 +5,29 @@ export default class TestComStruct extends Component {
         comStruct1: "",
     };
 
+    componentDidMount() {
+        this.props.scrollToTop();
+    }
+
+    previous = () => {
+        const { player, pageDbIndex } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage--;
+        player.set(pageDbIndex, currentPage);
+    }
+
+    next = () => {
+        const { player, pageDbIndex, max } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage++;
+
+        if (currentPage > max) {
+            player.stage.submit();
+        } else {
+            player.set(pageDbIndex, currentPage);
+        }
+    }
+
     handleChange = e => {
         const element = e.currentTarget;
         this.setState({ [element.name]: element.value });
@@ -13,30 +36,31 @@ export default class TestComStruct extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
+        const { player, game } = this.props;
+
         let comStruct1Condition =
-            (this.state.comStruct1 === "correct answer for nonbrok" && this.props.game.treatment.brokerage === "nonbrok") ||
-            (this.state.comStruct1 === "correct answer for player B or C if there is brok" && this.props.player.get("type") !== "A" && this.props.game.treatment.brokerage === "brok") ||
-            (this.state.comStruct1 === "correct answer for player A if there is brok" && this.props.player.get("type") === "A" && this.props.game.treatment.brokerage === "brok");
+            (this.state.comStruct1 === "correct answer for nonbrok" && game.treatment.brokerage === "nonbrok") ||
+            (this.state.comStruct1 === "correct answer for player B or C if there is brok" && player.get("type") !== "A" && game.treatment.brokerage === "brok") ||
+            (this.state.comStruct1 === "correct answer for player A if there is brok" && player.get("type") === "A" && game.treatment.brokerage === "brok");
 
         if (comStruct1Condition) {
-            let understanding3 = this.props.player.get("understanding3");
+            let understanding3 = player.get("understanding3");
             if (typeof understanding3 === "undefined") {
-                this.props.player.set("understanding3", 0);
+                player.set("understanding3", 0);
             }
-            this.props.nextPage();
+            this.next();
         } else {
             alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
-            let understanding3 = this.props.player.get("understanding3");
+            let understanding3 = player.get("understanding3");
             if (typeof understanding3 === "undefined") {
-                this.props.player.set("understanding3", 1);
+                player.set("understanding3", 1);
             } else if (understanding3 !== 0) {
-                this.props.player.set("understanding3", understanding3 + 1);
+                player.set("understanding3", understanding3 + 1);
             }
         }
     };
 
     render() {
-        const { player, game, previousPage, nextPage } = this.props;
         const { comStruct1 } = this.state;
 
         return (
@@ -81,7 +105,7 @@ export default class TestComStruct extends Component {
                     </div>
 
                     <p className="button-holder">
-                        <button type="button" onClick={previousPage}>
+                        <button type="button" onClick={this.previous}>
                             Previous
                         </button>
                         &emsp;

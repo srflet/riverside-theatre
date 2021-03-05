@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
-import { returnPlayerInitials, returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerInformation';
+import { returnOthersInitials, returnOthersAvatar } from '../../../general/helper-functions/returnPlayerInformation';
 
 export default class TestIncentives extends Component {
     state = {
         incentives1: ""
     };
+
+    componentDidMount() {
+        this.props.scrollToTop();
+    }
+
+    previous = () => {
+        const { player, pageDbIndex } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage--;
+        player.set(pageDbIndex, currentPage);
+    }
+
+    next = () => {
+        const { player, pageDbIndex, max } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage++;
+
+        if (currentPage > max) {
+            player.stage.submit();
+        } else {
+            player.set(pageDbIndex, currentPage);
+        }
+    }
 
     handleChange = e => {
         const element = e.currentTarget;
@@ -13,51 +36,36 @@ export default class TestIncentives extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        const { player, game } = this.props;
 
         let incentives1Condition =
-            (this.state.incentives1 === "correct answer for player A and competition" && this.props.player.get("type") === "A" && this.props.game.treatment.competition === "comp") ||
-            (this.state.incentives1 === "correct answer for player B and competition" && this.props.player.get("type") === "B" && this.props.game.treatment.competition === "comp") ||
-            (this.state.incentives1 === "correct answer for no competition or player C" && (this.props.player.get("type") === "C" || this.props.game.treatment.competition === "noncomp"));
+            (this.state.incentives1 === "correct answer for player A and competition" && player.get("type") === "A" && game.treatment.competition === "comp") ||
+            (this.state.incentives1 === "correct answer for player B and competition" && player.get("type") === "B" && game.treatment.competition === "comp") ||
+            (this.state.incentives1 === "correct answer for no competition or player C" && (player.get("type") === "C" || game.treatment.competition === "noncomp"));
 
         if (incentives1Condition) {
-            let understanding2 = this.props.player.get("understanding2");
+            let understanding2 = player.get("understanding2");
             if (typeof understanding2 === "undefined") {
-                this.props.player.set("understanding2", 0);
+                player.set("understanding2", 0);
             }
-            this.props.nextPage();
+            this.next();
         } else {
             alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
-            let understanding2 = this.props.player.get("understanding2");
+            let understanding2 = player.get("understanding2");
             if (typeof understanding2 === "undefined") {
-                this.props.player.set("understanding2", 1);
+                player.set("understanding2", 1);
             } else if (understanding2 !== 0) {
-                this.props.player.set("understanding2", understanding2 + 1);
+                player.set("understanding2", understanding2 + 1);
             }
         }
     };
 
     render() {
-        const { player, game, previousPage, nextPage } = this.props;
+        const { player, game } = this.props;
         const { incentives1 } = this.state;
 
-        const player1 =
-            player.get("type") === "A" ?
-                returnPlayerInitials(game, "B") :
-                (player.get("type") === "C" ? returnPlayerInitials(game, "A") : returnPlayerInitials(game, "C"));
-        const player2 =
-            player.get("type") === "B" ?
-                returnPlayerInitials(game, "A") :
-                (player.get("type") === "C" ? returnPlayerInitials(game, "B") : returnPlayerInitials(game, "C"));
-
-
-        const player1Avatar =
-            player.get("type") === "A" ?
-                returnPlayerAvatar(game, "B") :
-                (player.get("type") === "C" ? returnPlayerAvatar(game, "A") : returnPlayerAvatar(game, "C"));
-        const player2Avatar =
-            player.get("type") === "B" ?
-                returnPlayerAvatar(game, "A") :
-                (player.get("type") === "C" ? returnPlayerAvatar(game, "B") : returnPlayerAvatar(game, "C"));
+        const [player1Initials, player2Initials] = returnOthersInitials(game, player);
+        const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player);
 
         return (
             <div>
@@ -76,7 +84,7 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "correct answer for player A and competition"}
                             onChange={this.handleChange}
                         />
-                        <span>Player {player1} <img src={player1Avatar} style={mediumImage} /></span>
+                        <span>Player {player1Initials} <img src={player1Avatar} style={mediumImage} /></span>
 
                         <br />
 
@@ -87,7 +95,7 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "correct answer for player B and competition"}
                             onChange={this.handleChange}
                         />
-                        <span>Player {player2} <img src={player2Avatar} style={mediumImage} /></span>
+                        <span>Player {player2Initials} <img src={player2Avatar} style={mediumImage} /></span>
                         <br />
 
                         <input
@@ -111,12 +119,12 @@ export default class TestIncentives extends Component {
                     </div>
 
                     <p className="button-holder">
-                        <button type="button" onClick={previousPage}>
+                        <button type="button" onClick={this.previous}>
                             Previous
                         </button>
                         &emsp;
                         <button type="button" onClick={this.handleSubmit}>
-                            Submit Answers
+                            Submit Answer
                         </button>
                     </p>
                 </div>

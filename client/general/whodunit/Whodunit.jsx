@@ -40,7 +40,7 @@ export default class Whodunit extends Component {
             )
             : (
                 <div>
-                    <p><strong>Thank you for making your {whichVerdict} verdict, {verdict}, to Mr. Lee.</strong></p>
+                    <p><strong>Thank you for providing your {whichVerdict} verdict, {verdict}, to Mr. Lee.</strong></p>
                 </div>
             )
     }

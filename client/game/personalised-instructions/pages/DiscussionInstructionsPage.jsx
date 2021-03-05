@@ -3,8 +3,31 @@ import DiscussionInstructions from './subpage-elements/DiscussionInstructions';
 import Footer from '../../../general/footer/Footer';
 
 export default class DiscussionInstructionsPage extends Component {
+    componentDidMount() {
+        this.props.scrollToTop();
+    }
+
+    previous = () => {
+        const { player, pageDbIndex } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage--;
+        player.set(pageDbIndex, currentPage);
+    }
+
+    next = () => {
+        const { player, pageDbIndex, max } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage++;
+
+        if (currentPage > max) {
+            player.stage.submit();
+        } else {
+            player.set(pageDbIndex, currentPage);
+        }
+    }
+
     render() {
-        const { player, round, game, previousPage, stage } = this.props;
+        const { player, round, game, stage } = this.props;
 
         const buttonText = "Click to set ready for the discussion";
 
@@ -19,12 +42,12 @@ export default class DiscussionInstructionsPage extends Component {
                 <br />
 
                 <p className="button-holder">
-                    <button type="button" onClick={previousPage}>
+                    <button type="button" onClick={this.previous}>
                         Previous
                     </button>
                     &emsp;
-                    <button type="button" onClick={() => player.stage.submit()} disabled={this.props.player.stage.submitted}>
-                        {this.props.player.stage.submitted ? "You are ready!" : buttonText}
+                    <button type="button" onClick={this.next} disabled={player.stage.submitted}>
+                        {this.props.player.stage.submitted ? "Waiting for the others..." : buttonText}
                     </button>
                 </p>
 

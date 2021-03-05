@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import PersonalClues from '../../../general/clues/PersonalClues';
 import InvestigationImg from '../../../general/images/InvestigationImg';
+import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
 
 export default class IndependentInvestigation extends Component {
+    componentDidMount() {
+        this.props.scrollToTop();
+    }
+
     render() {
-        const { player, round, game } = this.props;
+        const { player, pageDbIndex, min, round, game } = this.props;
 
         return (
             <div>
@@ -19,9 +24,10 @@ export default class IndependentInvestigation extends Component {
                 <p>
                     <strong><u>Note that the other two players did their own investigations and have COMPLETELY different sets of clues.</u></strong>
                 </p>
-                <p>Please read through them carefully, but there is no need to write them down – they will be available later.</p>
+                <p>Please read through them carefully, but there is no need to write them down – they will be available later when needed.</p>
                 <PersonalClues player={player} round={round} game={game} />
                 <br />
+                <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
             </div>
         )
 

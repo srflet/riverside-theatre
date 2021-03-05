@@ -11,10 +11,13 @@ import TestIncentives from '../pages/TestIncentives';
 import TestComStruct from '../pages/TestComStruct';
 import ClueHints from '../pages/ClueHints';
 import DiscussionInstructionsPage from '../pages/DiscussionInstructionsPage';
+import PoliceInformation from '../pages/PoliceInformation';
+import SummaryClues from '../pages/SummaryClues';
 
 export default class Page extends Component {
     render() {
-        const { currentPage, scrollToTop } = this.props;
+        const { player, pageDbIndex } = this.props;
+        let currentPage = player.get(pageDbIndex);
 
         if (currentPage === 1) {
             return (
@@ -22,37 +25,45 @@ export default class Page extends Component {
             )
         } else if (currentPage === 2) {
             return (
-                <IndependentInvestigation {...this.props} />
+                <PoliceInformation {...this.props} />
             )
         } else if (currentPage === 3) {
             return (
-                <InitialWhodunit {...this.props} />
+                <IndependentInvestigation {...this.props} />
             )
         } else if (currentPage === 4) {
             return (
-                <IntroDiscussion scrollToTop={scrollToTop} />
+                <SummaryClues {...this.props} />
             )
         } else if (currentPage === 5) {
             return (
-                <Incentives {...this.props} />
+                <InitialWhodunit {...this.props} />
             )
         } else if (currentPage === 6) {
             return (
-                <TestIncentives {...this.props} />
+                <IntroDiscussion {...this.props} />
             )
         } else if (currentPage === 7) {
             return (
-                <PresComStruct {...this.props} scrollToTop={scrollToTop} />
+                <Incentives {...this.props} />
             )
         } else if (currentPage === 8) {
             return (
-                <TestComStruct {...this.props} />
+                <TestIncentives {...this.props} />
             )
         } else if (currentPage === 9) {
             return (
-                <ClueHints {...this.props} scrollToTop={scrollToTop} />
+                <PresComStruct {...this.props} />
             )
         } else if (currentPage === 10) {
+            return (
+                <TestComStruct {...this.props} />
+            )
+        } else if (currentPage === 11) {
+            return (
+                <ClueHints {...this.props} />
+            )
+        } else if (currentPage === 12) {
             return (
                 <DiscussionInstructionsPage {...this.props} />
             )

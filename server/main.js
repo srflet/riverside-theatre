@@ -3,8 +3,7 @@ import Empirica from "meteor/empirica:core";
 import "./bots.js";
 import "./callbacks.js";
 // Importing clues
-import { clues_full } from "./clues/clues_full";
-import { clues_blank } from "./clues/clues_blank.js";
+import { clues } from './clues/clues';
 // Importing avatar paths
 import { avatarPaths } from './avatars/avatarPaths';
 // Importing helper functions for randomness
@@ -18,9 +17,9 @@ import { choice, popChoice, shuffle } from './helper-functions/random';
 const isTest = true;
 
 // Set starting clues for the different positions
-const startingCluesA = [0, 1, 2];
-const startingCluesB = [3, 4, 5];
-const startingCluesC = [6, 7, 8];
+const cluesA = [0, 1, 2];
+const cluesB = [3, 4, 5];
+const cluesC = [6, 7, 8];
 
 // Running the gameInit
 Empirica.gameInit(game => {
@@ -56,28 +55,19 @@ Empirica.gameInit(game => {
 		player.set("type", playerTypes[i]);
 
 		// Giving individual clues to the players (No counterbalancing)
-		if (player.get("type") === "A") {
-			player.set("independent-clues", startingCluesA);
-		} else if (player.get("type") === "B") {
-			player.set("independent-clues", startingCluesB);
+		let type = player.get("type");
+		if (type === "A") {
+			player.set("myClues", cluesA);
+		} else if (type === "B") {
+			player.set("myClues", cluesB);
 		} else {
-			player.set("independent-clues", startingCluesC);
+			player.set("myClues", cluesC);
 		}
 
 		// Set whodunit order
 		let whodunitOrder = ["Mr. Smith", "Mr. Smith's son", "Mrs. Davis", "Mr. Anderson"];
 		whodunitOrder = shuffle(whodunitOrder);
 		player.set("whodunit-order", whodunitOrder);
-
-		// Set cluesCheck
-		let cluesChecked = {};
-		clues_full.clues.forEach(clue => {
-			cluesChecked[clue.id] = "";
-		});
-		player.get("independent-clues").forEach(clue => {
-			cluesChecked[clue] = "__HAS_CLUE__";
-		});
-		player.set("cluesChecked", cluesChecked);
 
 		// Set chat messages
 		player.set("chatAB", []);
@@ -101,11 +91,7 @@ Empirica.gameInit(game => {
 	const round = game.addRound({
 		data: {
 			messages: [],
-			clues_full: clues_full,
-			clues_blank: clues_blank,
-			startingCluesA: startingCluesA,
-			startingCluesB: startingCluesB,
-			startingCluesC: startingCluesC,
+			clues: clues,
 			discussionTime: "12",
 			earlySubTimeText: "5",
 			earlySubTimeNum: 300,

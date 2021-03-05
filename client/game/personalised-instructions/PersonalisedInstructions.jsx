@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 // Importing the ui
 import Page from './ui/Page';
 import Heading from './ui/Heading';
-import ChangePageButtons from '../../general/buttons/ChangePageButtons';
 
 export default class PersonalisedInstructions extends Component {
     state = {
         min: 1,
+        max: 12,
         pageDbIndex: "personalisedDiscussionPage"
     }
 
@@ -23,16 +23,14 @@ export default class PersonalisedInstructions extends Component {
 
     render() {
         const { player } = this.props;
-        const { pageDbIndex, min } = this.state;
+        const { pageDbIndex, min, max } = this.state;
         let currentPage = player.get(pageDbIndex);
 
         return (
             <div>
-                <Heading currentPage={currentPage} {...this.props} />
+                <Heading currentPage={currentPage} max={max} {...this.props} />
 
-                <Page currentPage={currentPage} scrollToTop={this.scrollToTop} {...this.props} />
-
-                <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
+                <Page pageDbIndex={pageDbIndex} min={min} max={max} scrollToTop={this.scrollToTop} {...this.props} />
             </div>
         )
     }

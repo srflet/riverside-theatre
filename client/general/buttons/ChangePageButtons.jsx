@@ -19,20 +19,34 @@ export default class ChangePageButtons extends Component {
         } else {
             player.set(pageDbIndex, currentPage);
         }
-
     }
 
     render() {
-        const { player, pageDbIndex, min, disabledCondition } = this.props;
+        const { player, pageDbIndex, min, disabledCondition, altText } = this.props;
+        const nextButtonText = altText ?? "Next"
 
         let currentPage = player.get(pageDbIndex);
 
         return (
-            <p className="button-holder">
-                <button onClick={this.previous} disabled={currentPage === min}>Previous</button>
+            <>
+                {disabledCondition &&
+                    <p style={disabledConditionMessage} className="justify-center">
+                        Please answer all the questions to continue
+                    </p>
+                }
+                <p className="button-holder">
+                    <button onClick={this.previous} disabled={currentPage === min}>Previous</button>
                 &emsp;
-                <button onClick={this.next} disabled={disabledCondition}>Next</button>
-            </p>
+                <button onClick={this.next} disabled={disabledCondition}>{nextButtonText}</button>
+                </p>
+            </>
         )
     }
+}
+
+// Styling
+const disabledConditionMessage = {
+    fontSize: "10pt"
+    , color: "red"
+    , marginTop: "20px"
 }
