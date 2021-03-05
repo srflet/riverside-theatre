@@ -18,7 +18,6 @@ import NewPlayer from "./new-player/NewPlayer";
 import GeneralIntroduction from "./intro/GeneralIntroduction";
 import Initials from "./intro/Initials";
 import Background from "./intro/Background";
-import PoliceInformation from "./intro/PoliceInformation";
 import Quiz from "./intro/Quiz";
 
 //Game:
@@ -53,7 +52,6 @@ Empirica.introSteps((game, treatment) => {
 	steps.push(Initials);
 	steps.push(Background);
 	steps.push(Quiz);
-	steps.push(PoliceInformation);
 	return steps;
 });
 

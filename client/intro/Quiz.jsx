@@ -81,7 +81,7 @@ export default class Quiz extends React.Component {
 								<button type="button" onClick={onPrev} disabled={!hasPrev}>
 									Back to instructions
              				 </button>
-								<button type="submit">Submit</button>
+								<button type="submit">Submit and be connected to the other two players</button>
 							</p>
 						</form>
 					</div>
