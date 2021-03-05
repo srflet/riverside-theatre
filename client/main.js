@@ -6,7 +6,7 @@ import { render } from "react-dom";
 -----------------------------*/
 
 //About
-import About from "./about/About"
+// import About from "./about/About"
 
 //Consent
 import Consent from "./consent/Consent";

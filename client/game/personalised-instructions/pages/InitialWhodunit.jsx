@@ -1,27 +1,11 @@
 import React, { Component } from 'react';
-import WhodunitQuestion from '../../../general/whodunit/WhodunitQuestion';
 import PoliceClues from '../../../general/clues/PoliceClues';
 import PersonalClues from '../../../general/clues/PersonalClues';
+import Whodunit from '../../../general/whodunit/Whodunit';
 
 export default class InitialWhodunit extends Component {
-    state = { whodunit: "" }
-
-    handleWhodunitChange = e => {
-        this.setState({ whodunit: e.currentTarget.value });
-    }
-
-    handleWhodunitSubmit = e => {
-        e.preventDefault();
-
-        if (this.state.whodunit === "") {
-            alert("You need to select an answer");
-        } else {
-            this.props.player.set("initialWhodunit", this.state.whodunit);
-        }
-    }
-
     render() {
-        const { player, previousPage, nextPage, round, game } = this.props;
+        const { player, round, game } = this.props;
 
         return (
             <div>
@@ -37,26 +21,9 @@ export default class InitialWhodunit extends Component {
                 <PersonalClues player={player} round={round} game={game} />
 
                 <h4>Giving your verdict</h4>
-                {/*If the player has already given their answer, show thank you message. Othwerwise, show the whodunnit quiz */}
-                {player.get("initialWhodunit") !== ""
-                    ? <div>
-                        <p><strong>Thank you for providing your initial verdict, {player.get("initialWhodunit")}, to Mr. Lee.</strong></p>
-                        <p>Please click 'Next' to continue.</p>
-                    </div>
-                    : <div>
-                        <p>Given the information above, Mr. Lee has asked you to provide your initial verdict as to which of the people described above you think was responsible for the collision and caused the death of his daughter?</p>
-                        <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
-                        <div className="button-holder">
-                            <button onClick={this.handleWhodunitSubmit} disabled={player.get("initialWhodunit") !== ""}>Give my answer</button>
-                        </div>
-                        <br />
-                        {/*                         <div className="game-instructions">
-                            <div>
-                                <strong>Note:</strong> You need to provide your initial verdict before you can go on to the next page. Careful, once you have provided your initial verdict you cannot change it.
-                            </div>
-                        </div> */}
-                    </div>
-                }
+
+                <p>Given the information above, Mr. Lee has asked you to provide your initial verdict as to which of the people described above you think was responsible for the collision and caused the death of his daughter?</p>
+                <Whodunit player={player} whichVerdict={"initial"} />
 
                 <div className="game-instructions">
                     <div>

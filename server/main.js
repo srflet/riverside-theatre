@@ -15,7 +15,7 @@ import { choice, popChoice, shuffle } from './helper-functions/random';
 -----------*/
 
 // Setting a variable for whether this is development/testing or not
-const isTest = false;
+const isTest = true;
 
 // Set starting clues for the different positions
 const startingCluesA = [0, 1, 2];
@@ -68,9 +68,6 @@ Empirica.gameInit(game => {
 		let whodunitOrder = ["Mr. Smith", "Mr. Smith's son", "Mrs. Davis", "Mr. Anderson"];
 		whodunitOrder = shuffle(whodunitOrder);
 		player.set("whodunit-order", whodunitOrder);
-
-		// Set initial whodunit
-		player.set("initialWhodunit", "");
 
 		// Set cluesCheck
 		let cluesChecked = {};

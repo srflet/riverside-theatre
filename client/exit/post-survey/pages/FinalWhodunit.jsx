@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WhodunitQuestion from '../../../general/whodunit/WhodunitQuestion';
 import PoliceClues from '../../../general/clues/PoliceClues';
 import CluesCheck from '../../../game/discussion/clues-check/CluesCheck';
 
@@ -43,7 +42,7 @@ export default class FinalWhodunit extends Component {
                     </div>
                     : <div>
                         <p>Please indicate your final verdict as to who you think was responsible for the collision and caused the death of Mr. Lee’s daughter:</p>
-                        <WhodunitQuestion player={player} handleChange={this.handleWhodunitChange} />
+
                         <div className="button-holder">
                             <button onClick={this.handleWhodunitSubmit} disabled={answers !== ""}>Give my answer</button>
                         </div>

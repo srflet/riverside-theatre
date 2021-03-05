@@ -26,7 +26,6 @@ export default class Round extends React.Component {
 										: <Discussion {...this.props} />
 								}
 							</div>
-
 						</div>
 					</div>
 				</Centered>
