@@ -4,7 +4,6 @@ export default class MatrixQ extends Component {
 
     // When a radio button is changed
     handleChange = e => {
-
         // Get the radio button
         let radio = e.currentTarget;
 
@@ -33,7 +32,7 @@ export default class MatrixQ extends Component {
         // Create a table where the header are the options of the scale, and the lines are
         // the questions with radio buttons for each option of the scale.
         return (
-            <div className="matrix">
+            <div>
                 {head &&
                     <>
                         <p>{head}</p>
@@ -41,33 +40,38 @@ export default class MatrixQ extends Component {
                     </>
                 }
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Questions</th>
-                            {responseScale.map((response, index) => <th key={index}>{response}</th>)}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {questions.map((question, index) => {
-                            return <tr key={index}>
-                                <td key={index}>{question}</td>
-                                {responseScale.map((response, index) => {
-                                    return <td className="matrix-input" key={index}>
-                                        <input
-                                            key={index}
-                                            type="radio"
-                                            name={question}
-                                            value={response}
-                                            checked={answers[question] === response}
-                                            onChange={this.handleChange}
-                                        />
-                                    </td>
-                                })}
+                <div className="matrix">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Questions</th>
+                                {responseScale.map((response, index) => <th key={index}>{response}</th>)}
                             </tr>
-                        })}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {questions.map((question, questionIndex) => {
+                                return (
+                                    <tr key={questionIndex}>
+                                        <td>{question}</td>
+                                        {responseScale.map((response, responseIndex) => {
+                                            return (
+                                                <td className="matrix-input" key={responseIndex}>
+                                                    <input
+                                                        type="radio"
+                                                        name={question}
+                                                        value={response}
+                                                        checked={answers[question] === response}
+                                                        onChange={this.handleChange}
+                                                    />
+                                                </td>
+                                            )
+                                        })}
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         )
     }

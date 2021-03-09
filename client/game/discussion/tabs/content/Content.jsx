@@ -26,28 +26,28 @@ export default class Content extends Component {
         } else if (activeTab === "instructions") {
             return (
                 <div className="tab-content">
-                    <h3 className="centred">Instructions Reminder</h3>
+                    <h3 className="justify-center">Instructions Reminder</h3>
                     <DiscussionInstructions player={player} round={round} game={game} />
                 </div>
             )
         } else if (activeTab === "police") {
             return (
                 <div className="tab-content">
-                    <h3 className="centred">Police Clues</h3>
+                    <h3 className="justify-center">Police Clues</h3>
                     <PoliceClues />
                 </div>
             )
         } else if (activeTab === "comStruct") {
             return (
                 <div className="tab-content">
-                    <h3 className="centred">Communication Structure</h3>
+                    <h3 className="justify-center">Communication Structure</h3>
                     <PresComStructText game={game} player={player} isDiscussion={true} />
                 </div>
             )
         } else if (activeTab === "earlySub") {
             return (
                 <div className="tab-content">
-                    <h3 className="centred">Early Submission</h3>
+                    <h3 className="justify-center">Early Submission</h3>
                     <EarlySubmission stage={stage} player={player} round={round} />
                 </div>
             )

@@ -12,7 +12,7 @@ export default class ComStructFull extends Component {
                     <ComStructPopulateClues game={game} round={round} player={player} position={"A"} />
                 </div>
 
-                <div className="centred">
+                <div className="justify-center">
                     <ComStructShape game={game} player={player} />
                 </div>
 

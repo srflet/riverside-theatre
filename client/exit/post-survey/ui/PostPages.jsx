@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-//Importing pages
+// Importing pages
 import NumberClues from '../pages/NumberClues';
 import ManipCheckBrok1 from '../pages/ManipCheckBrok1';
 import ManipCheckBrok2 from '../pages/ManipCheckBrok2';
@@ -15,51 +15,52 @@ import Demographics from '../pages/Demographics';
 
 export default class PostPages extends Component {
     render() {
-        const { currentPage, player, game, previousPage, nextPage, onSubmit } = this.props;
+        const { pageDbIndex, player } = this.props;
+        let currentPage = player.get(pageDbIndex);
 
-        if (currentPage === 0) {
+        if (currentPage === 1) {
             return (
-                <FinalWhodunit game={game} player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
-            )
-        } else if (currentPage === 1) {
-            return (
-                <NumberClues player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <FinalWhodunit {...this.props} />
             )
         } else if (currentPage === 2) {
             return (
-                <ManipCheckBrok1 player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <NumberClues {...this.props} />
             )
         } else if (currentPage === 3) {
             return (
-                <ManipCheckBrok2 player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <ManipCheckBrok1 {...this.props} />
             )
         } else if (currentPage === 4) {
             return (
-                <ManipCheckComp player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <ManipCheckBrok2 {...this.props} />
             )
         } else if (currentPage === 5) {
             return (
-                <SuspicionDistrust player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <ManipCheckComp {...this.props} />
             )
         } else if (currentPage === 6) {
             return (
-                <MotivationToShare player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <SuspicionDistrust {...this.props} />
             )
         } else if (currentPage === 7) {
             return (
-                <PreventInfo player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <MotivationToShare {...this.props} />
             )
         } else if (currentPage === 8) {
             return (
-                <EaseInfoExchange player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <PreventInfo {...this.props} />
             )
         } else if (currentPage === 9) {
             return (
-                <MotivationBrok player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} />
+                <EaseInfoExchange {...this.props} />
             )
         } else if (currentPage === 10) {
             return (
-                <Demographics player={player} currentPage={currentPage} previousPage={previousPage} nextPage={nextPage} onSubmit={onSubmit} />
+                <MotivationBrok {...this.props} />
+            )
+        } else if (currentPage === 11) {
+            return (
+                <Demographics {...this.props} />
             )
         }
     }

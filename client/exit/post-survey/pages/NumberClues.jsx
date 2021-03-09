@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostBottonTip from '../ui/PostButtonTip';
+import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
 export default class NumberClues extends Component {
     state = {
@@ -7,15 +7,19 @@ export default class NumberClues extends Component {
     }
 
     handleChange = e => {
-        let answers = this.props.player.get(this.state.name);
+        const { player } = this.props
+        const { name } = this.state
+        let answers = player.get(name) ?? {}
+
         answers[e.currentTarget.name] = e.currentTarget.value;
-        this.props.player.set(this.state.name, answers);
+
+        player.set(name, answers);
     }
 
     render() {
-        const { player, currentPage, previousPage, nextPage } = this.props;
+        const { player, pageDbIndex, min } = this.props;
 
-        const answers = player.get(this.state.name);
+        const answers = player.get(this.state.name) ?? {};
 
         return (
             <div>
@@ -48,16 +52,7 @@ export default class NumberClues extends Component {
 
                 <br />
 
-                <p className="button-holder">
-                    <button type="button" onClick={previousPage} disabled={currentPage === 0}>
-                        Previous
-                    </button>
-                    &emsp;
-                    <button type="button" onClick={nextPage} disabled={answers.got === "" || answers.used === ""}>
-                        Next
-                    </button>
-                </p>
-                <PostBottonTip />
+                <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} disabledCondition={Object.keys(answers).length !== 2} />
             </div>
         )
     }

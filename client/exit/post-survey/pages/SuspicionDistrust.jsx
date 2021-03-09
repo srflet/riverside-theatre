@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
 import MatrixQ from '../../../general/question-formats/MatrixQ';
 import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
-import PostBottonTip from '../ui/PostButtonTip';
+import { getConditionalsMulti } from '../../../general/question-formats/conditionals/getConditionals';
+
+import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
 export default class SuspicionDistrust extends Component {
     state = {
@@ -9,7 +12,7 @@ export default class SuspicionDistrust extends Component {
     }
 
     render() {
-        const { player, currentPage, previousPage, nextPage } = this.props;
+        const { player, pageDbIndex, min } = this.props;
 
         const questions = [
             "I am not sure the clues sent by some players were reliable",
@@ -22,33 +25,23 @@ export default class SuspicionDistrust extends Component {
         ];
         const responseScale = DisagreeAgree5;
 
-        let answers = player.get(this.state.name);
+        // Prepare conditional for the 'next' button
+        const disabledCondition = getConditionalsMulti(player, this.state.name, questions);
 
         return (
             <div>
-                <p><strong>Based on the incentive structure in the game...</strong></p>
-
-                <br />
 
                 <MatrixQ
                     player={player}
-                    playerVariable={this.state.name}
+                    dbIndex={this.state.name}
                     questions={questions}
                     responseScale={responseScale}
+                    head={"Please rate how much you agree with each statement"}
                 />
 
                 <br />
 
-                <p className="button-holder">
-                    <button type="button" onClick={previousPage} disabled={currentPage === 0}>
-                        Previous
-                    </button>
-                    &emsp;
-                    <button type="button" onClick={nextPage} disabled={Object.keys(answers).length !== questions.length}>
-                        Next
-                    </button>
-                </p>
-                <PostBottonTip />
+                <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} disabledCondition={disabledCondition} />
             </div>
         )
     }

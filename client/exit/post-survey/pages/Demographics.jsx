@@ -1,43 +1,61 @@
 import React, { Component } from 'react';
-import PostBottonTip from '../ui/PostButtonTip';
 
 export default class Demographics extends Component {
     state = {
         name: "Demographics"
     }
 
+    previous = () => {
+        const { player, pageDbIndex } = this.props;
+        let currentPage = player.get(pageDbIndex);
+        currentPage--;
+        player.set(pageDbIndex, currentPage);
+    }
+
     handleChangeGender = e => {
-        let demographics = this.props.player.get(this.state.name);
+        const { player } = this.props;
+
+        let demographics = player.get(this.state.name) ?? {}
         demographics.gender = e.currentTarget.value;
-        this.props.player.set(this.state.name, demographics);
+        player.set(this.state.name, demographics);
     }
 
     handleChangeEthnicity = e => {
-        let demographics = this.props.player.get(this.state.name);
+        const { player } = this.props;
+
+        let demographics = player.get(this.state.name) ?? {}
         demographics.ethnicity = e.currentTarget.value;
-        this.props.player.set(this.state.name, demographics);
+        player.set(this.state.name, demographics);
     }
 
     handleChangeAge = e => {
-        let demographics = this.props.player.get(this.state.name);
+        const { player } = this.props;
+
+        let demographics = player.get(this.state.name) ?? {}
         demographics.age = e.currentTarget.value;
-        this.props.player.set(this.state.name, demographics);
+        player.set(this.state.name, demographics);
     }
 
     handleChangeWork = e => {
-        let demographics = this.props.player.get(this.state.name);
+        const { player } = this.props;
+
+        let demographics = player.get(this.state.name) ?? {}
         demographics.work = e.currentTarget.value;
-        this.props.player.set(this.state.name, demographics);
+        player.set(this.state.name, demographics);
     }
 
     handleChangeComment = e => {
-        let demographics = this.props.player.get(this.state.name);
+        const { player } = this.props;
+
+        let demographics = player.get(this.state.name) ?? {}
         demographics.comment = e.currentTarget.value;
-        this.props.player.set(this.state.name, demographics);
+        player.set(this.state.name, demographics);
     }
 
     getAllDemographics = () => {
-        let demographics = this.props.player.get(this.state.name);
+        const { player } = this.props;
+
+        let demographics = player.get(this.state.name) ?? {}
         let isDisabled = true;
         if (
             demographics.gender !== "" &&
@@ -51,14 +69,14 @@ export default class Demographics extends Component {
     }
 
     render() {
-        const { player, currentPage, previousPage, nextPage, onSubmit } = this.props;
+        const { player, onSubmit } = this.props;
 
-        const answers = player.get(this.state.name);
+        const answers = player.get(this.state.name) ?? {}
 
         return (
             <div>
                 <p>Please indicate your gender</p>
-                <select name="gender" onChange={e => this.handleChangeGender(e)} value={answers.gender}>
+                <select name="gender" onChange={this.handleChangeGender} value={answers.gender}>
                     <option value="">Select your answer</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -68,7 +86,7 @@ export default class Demographics extends Component {
                 <br />
 
                 <p>Please indicate your ethnicity</p>
-                <select name="ethnicity" value={answers.ethnicity} onChange={e => this.handleChangeEthnicity(e)}>
+                <select name="ethnicity" value={answers.ethnicity} onChange={this.handleChangeEthnicity}>
                     <option value="">Select your answer</option>
                     <option value="White">White</option>
                     <option value="Hispanic or Latino">Mixed / Multiple ethnic groups</option>
@@ -87,7 +105,7 @@ export default class Demographics extends Component {
                     max="75"
                     size="20"
                     value={answers.age}
-                    onChange={e => this.handleChangeAge(e)}
+                    onChange={this.handleChangeAge}
                 />
                 <br />
                 <br />
@@ -101,7 +119,7 @@ export default class Demographics extends Component {
                     max="99"
                     size="20"
                     value={answers.work}
-                    onChange={e => this.handleChangeWork(e)}
+                    onChange={this.handleChangeWork}
                 />
                 <br />
                 <br />
@@ -110,13 +128,13 @@ export default class Demographics extends Component {
                 <textarea name="comment"
                     autoComplete="off"
                     value={answers.comment}
-                    onChange={e => this.handleChangeComment(e)}
+                    onChange={this.handleChangeComment}
                     style={{ width: "500px", height: "200px" }}></textarea>
                 <br />
                 <br />
 
                 <p className="button-holder">
-                    <button type="button" onClick={previousPage} disabled={currentPage === 0}>
+                    <button type="button" onClick={this.previous}>
                         Previous
                     </button>
                     &emsp;
@@ -124,7 +142,6 @@ export default class Demographics extends Component {
                         Finish this experiment and see who the guilty person is
                     </button>
                 </p>
-                <PostBottonTip />
             </div>
         )
     }

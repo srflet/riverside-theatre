@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostBottonTip from '../ui/PostButtonTip';
+import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
 export default class ManipCheckBrok1 extends Component {
     state = {
@@ -11,14 +11,14 @@ export default class ManipCheckBrok1 extends Component {
     }
 
     render() {
-        const { player, currentPage, previousPage, nextPage } = this.props;
+        const { player, pageDbIndex, min } = this.props;
 
-        const answers = player.get(this.state.name);
+        const answers = player.get(this.state.name) ?? ""
 
         return (
             <div>
                 <span>Please select the communication diagram that best describes your experience: </span>
-                <select name="communication structure" onChange={e => this.handleChange(e)} value={answers}>
+                <select name="communication structure" onChange={this.handleChange} value={answers}>
                     <option value="">Select your answer</option>
                     <option value="1">A</option>
                     <option value="2">B</option>
@@ -31,7 +31,7 @@ export default class ManipCheckBrok1 extends Component {
                 <div style={alignBrokerGraphs}>
                     <div style={margins}>
                         <p><strong>A.</strong> Everyone can talk to everyone</p>
-                        <div className="centred">
+                        <div className="justify-center">
                             <svg width="150" height="150">
                                 {/* Node Player A */}
                                 <circle cx="75" cy="25" r="5" fill="black" />
@@ -52,7 +52,7 @@ export default class ManipCheckBrok1 extends Component {
 
                     <div style={margins}>
                         <p><strong>B.</strong> Not everyone can talk to everyone else and I am the bridge that connects the two players</p>
-                        <div className="centred">
+                        <div className="justify-center">
                             <svg width="150" height="150">
                                 {/* Node Player A */}
                                 <circle cx="75" cy="25" r="5" fill="black" />
@@ -72,7 +72,7 @@ export default class ManipCheckBrok1 extends Component {
 
                     <div style={margins}>
                         <p><strong>C.</strong> Not everyone can talk to everyone else, and I could only talk directly with one player</p>
-                        <div className="centred">
+                        <div className="justify-center">
                             <svg width="150" height="150">
                                 {/* Node Player A */}
                                 <circle cx="75" cy="25" r="5" fill="black" />
@@ -90,16 +90,7 @@ export default class ManipCheckBrok1 extends Component {
                     </div>
                 </div>
 
-                <p className="button-holder">
-                    <button type="button" onClick={previousPage} disabled={currentPage === 0}>
-                        Previous
-                    </button>
-                    &emsp;
-                    <button type="button" onClick={nextPage} disabled={answers === ""}>
-                        Next
-                    </button>
-                </p>
-                <PostBottonTip />
+                <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} disabledCondition={answers === ""} />
             </div>
         )
     }
