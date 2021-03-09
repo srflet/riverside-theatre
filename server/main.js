@@ -64,6 +64,12 @@ Empirica.gameInit(game => {
 			player.set("myClues", cluesC);
 		}
 
+		// Prepare the clues the the player has answered
+		// Get the official fill of each clue that this player already know based on their type (A, B, C)
+		let cluesAnswered = {}
+		player.get("myClues").forEach(clueId => cluesAnswered[clueId] = clues[clueId].fill)
+		player.set("clues-answered", cluesAnswered)
+
 		// Set whodunit order
 		let whodunitOrder = ["Mr. Smith", "Mr. Smith's son", "Mrs. Davis", "Mr. Anderson"];
 		whodunitOrder = shuffle(whodunitOrder);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PoliceClues from '../../../general/clues/PoliceClues';
-import CluesCheck from '../../../game/discussion/clues-check/CluesCheck';
+import CluesCheck from '../../../general/clues/CluesCheck';
 
 export default class FinalWhodunit extends Component {
     state = {

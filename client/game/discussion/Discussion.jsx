@@ -11,9 +11,9 @@ import Header from './tabs/header/Header';
 import Chat from './chats/Chat';
 
 //Importing clues tracker
-import CluesCheck from './clues-check/CluesCheck';
-import CluesCheckGameTip from './clues-check/CluesCheckGameTip';
-import CluesCheckGameInstructions from './clues-check/CluesCheckGameInstructions';
+import CluesCheck from '../../general/clues/CluesCheck';
+import CluesCheckGameInstructions from '../../general/clues-check/CluesCheckGameInstructions';
+import CluesCheckGameTip from '../../general/clues-check/CluesCheckGameTip';
 import PresComStructTip from '../personalised-instructions/pages/subpage-elements/PresComStructTip';
 
 export default class Discussion extends Component {

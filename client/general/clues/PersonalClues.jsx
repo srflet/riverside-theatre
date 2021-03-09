@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { getPlayerClues } from '../helper-functions/getClues';
+import { getMyClues } from '../helper-functions/getClues';
 
 export default class PersonalClues extends Component {
     render() {
         const { round, player } = this.props;
-        const clues = getPlayerClues(round, player);
+        const clues = getMyClues(round, player);
 
         return (
             <div className="game-clues">

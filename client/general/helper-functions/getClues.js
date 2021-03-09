@@ -1,6 +1,6 @@
 import { deepCopy } from './deepCopy';
 
-export const getPlayerClues = (round, player) => {
+export const getMyClues = (round, player) => {
 
     let playerClues = player.get("myClues")
     let clues = deepCopy(round.get("clues")).filter(clue => playerClues.includes(clue.id))
@@ -8,7 +8,16 @@ export const getPlayerClues = (round, player) => {
     return clues;
 }
 
-export const getAllClues = (round, player) => {
+export const getPlayerClues = (round, game, type) => {
+
+    let player = game.players.filter(player => player.get("type") === type)[0]
+    let playerClues = player.get("myClues")
+    let clues = deepCopy(round.get("clues")).filter(clue => playerClues.includes(clue.id))
+
+    return clues;
+}
+
+export const getAllClues = (round) => {
 
     let clues = deepCopy(round.get("clues"))
 

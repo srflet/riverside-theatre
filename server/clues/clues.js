@@ -5,12 +5,14 @@ export const clues = [
         fill: "driving a car",
         text2: " (operating a specific type of vehicle)."
     },
+
     {
         id: 1,
         text1: "During police inspection, the guilty person was discovered to have ",
         fill: "140",
         text2: " mg of alcohol per 100ml of blood (80mg of alcohol per 100ml of blood is the legal limit)."
     },
+
     {
         id: 2,
         text1: "The guilty person admitted that he or she was NOT ",

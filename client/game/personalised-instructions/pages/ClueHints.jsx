@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import CluesCheck from '../../discussion/clues-check/CluesCheck';
-import CluesCheckGameInstructions from '../../discussion/clues-check/CluesCheckGameInstructions';
-import CluesCheckGameTip from '../../discussion/clues-check/CluesCheckGameTip';
+import CluesCheck from '../../../general/clues/CluesCheck';
+import CluesCheckGameInstructions from '../../../general/clues-check/CluesCheckGameInstructions';
+import CluesCheckGameTip from '../../../general/clues-check/CluesCheckGameTip';
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
 
 export default class ClueHints extends Component {
