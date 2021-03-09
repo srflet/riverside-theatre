@@ -15,5 +15,6 @@ const competitorStyle = {
     , color: "red"
     , border: "1px solid red"
     , borderRadius: "5px"
-    , padding: "0.5rem"
+    , padding: "0.4rem"
+    , fontSize: "10pt"
 }

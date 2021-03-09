@@ -16,6 +16,7 @@ export default function DevWrapper({
                     display: "flex"
                     , justifyContent: "flex-end"
                     , alignItems: "center"
+                    , margin: "5px"
                 }}>
                     <p style={{
                         fontSize: "1rem"
@@ -23,14 +24,10 @@ export default function DevWrapper({
                         , margin: "0"
                     }}>Dev buttons:</p>
                     {showReset &&
-                        <div>
-                            <button style={devButtons} onClick={onReset}>Reset Player</button>
-                        </div>
+                        <button style={devButtons} onClick={onReset}>Reset Player</button>
                     }
                     {showOpenAltPlayer &&
-                        <div>
-                            <button style={devButtons} onClick={onOpenAltPlayer}>New Player</button>
-                        </div>
+                        <button style={devButtons} onClick={onOpenAltPlayer}>New Player</button>
                     }
 
                 </div>

@@ -17,16 +17,12 @@ export default class Round extends React.Component {
 		return (
 			<DevWrapper {...this.props}>
 				<Centered>
-					<div className="round">
-						<div className="content">
-							<div className="stages">
-								{
-									stage.name === "personalised_instructions"
-										? <PersonalisedInstructions {...this.props} />
-										: <Discussion {...this.props} />
-								}
-							</div>
-						</div>
+					<div>
+						{
+							stage.name === "personalised_instructions"
+								? <PersonalisedInstructions {...this.props} />
+								: <Discussion {...this.props} />
+						}
 					</div>
 				</Centered>
 			</DevWrapper>

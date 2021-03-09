@@ -1,206 +1,3 @@
-* {
-  font-family: Calibri, Arial, sans-serif;
-}
-
-h2 {
-  font-size: 20pt;
-}
-
-h3 {
-  font-size: 18pt;
-}
-
-li {
-  margin-bottom: 5px;
-}
-
-.round {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 10px;
-
-  .content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-
-  .footer {
-    margin-top: 5rem;
-    flex-shrink: 0;
-  }
-
-  .timer {
-    text-align: center;
-
-    .seconds {
-      // Helvetica has tabular numbers (fixed width), which looks better
-      // for a timer, doesn't jump all over the place.
-      font-family: Helvetica, Arial, sans-serif;
-      color: green;
-      margin: 0;
-    }
-    &.lessThan10 {
-      .seconds {
-        color: orange;
-      }
-    }
-    &.lessThan5 {
-      .seconds {
-        color: red;
-      }
-    }
-  }
-
-  .task {
-    align-content: right;
-    padding: 4rem 4rem 0 4rem;
-
-    .task-response {
-      margin: 3rem 0 0;
-
-      form {
-        width: 40rem;
-
-        button[type="submit"] {
-          margin-top: 2rem;
-        }
-      }
-
-      .response-submitted {
-        background-color: #e8e8e8;
-        padding: 2rem;
-        border-radius: 0.4rem;
-
-        h5 {
-          margin: 0 0 0.5rem;
-          font-size: inherit;
-        }
-      }
-    }
-  }
-
-}
-
-button {
-  padding: 0.8rem 1.2rem;
-  border-radius: 0.3rem;
-  border: 1px solid lightgray;
-  background-color: #eee;
-
-  &:hover {
-    background-color: #ddd;
-  }
-}
-
-.quiz,
-.exit-survey {
-  button {
-    margin: 2rem 1rem 0 0;
-  }
-
-  label {
-    display: block;
-    margin: 2rem 0 1rem;
-  }
-
-  input[type="text"],
-  input[type="number"] {
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.3rem;
-    border: 1px solid lightgray;
-  }
-
-  input[type="radio"] {
-    margin-right: 0.5rem;
-  }
-
-  textarea {
-    padding: 0.3rem 0.5rem;
-    border-radius: 0.3rem;
-    border: 1px solid lightgray;
-  }
-}
-
-.exit-survey {
-  .form-line {
-    display: flex;
-
-    & > div {
-      margin-right: 30px;
-
-      textarea {
-        min-height: 90px;
-        width: 100%;
-      }
-    }
-
-    &.thirds {
-      & > div {
-        flex-grow: 0;
-        flex-shrink: 0;
-        flex-basis: 30%;
-
-        label {
-          min-height: 36px;
-        }
-      }
-    }
-  }
-}
-
-.finished {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* My button styling */
-
-.button-holder{
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-
-	button {
-    cursor: pointer;
-    padding: 0.8rem 1.2rem;
-    border-radius: 1rem;
-    border: 1px solid #394B59;
-    background-color: #394B59;
-    color: white;
-	}
-  
-  button:hover {
-    background-color: #5f839e;
-    color: white;
-  }
-
-  button:disabled {
-    background-color: #b1c3d0;
-    color: #394B59;
-  }
-
-}
-
-/* General style for labels */
-label {
-  display: block;
-  margin: 2rem 0 1rem;
-}
-
-/* General style for centring */
-.centred {
-  display: flex;
-  justify-content: center;
-}
 
 /* Styling the clues in the communication structure */
 .communicationClues {
@@ -275,175 +72,6 @@ label {
 
 }
 
-/* Tabs */
-.tab {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #394B59;
-  color: white;
-  font-size: 12pt;
-
-  padding: 0.8rem 1.2rem;
-  border: 1px solid white;
-  margin: 0;
-
-  width: 100%;
-
-  &:hover{
-    background-color: #5f839e;
-    cursor: pointer;
-  }
-}
-
-.v {
-  font-size: 12pt;
-}
-
-.header-tab-holder{
-  display: flex;
-  border: 1.5px solid #394B59;
-}
-
-/* tab content */
-.tab-content {
-  border: 1.5px solid #394B59;
-  border-top: none;
-  padding: 15px;
-}
-
-/* clues check headers */
-.clueCheck-headers{
-  display: flex;
-  margin: 0;
-
-  .clueCheck-header{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    width: 33.34%;
-    padding: 10px;
-    margin: 0;
-
-    text-align: center;
-    font-size: 14pt;
-
-    background-color: #394B59;
-    color: white;
-
-    border: 1.5px solid black;
-  }
-
-  .clueCheck-header-style {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    font-size: 14pt;
-  }
-
-  .clueCheck-competition {
-    display: flex;
-    align-items: center;
-    font-size: 12pt;
-    color: red;
-    background-color: white;
-    border: 1px solid red;
-    border-radius: 5px;
-    padding: 7px;
-    margin-top: 4px;
-  }
-}
-
-/* clues check table */
-.clueCheck-tables {
-  display: flex;
-  justify-content: center;
-
-  td {
-    font-size: 14pt;
-    padding: 10px;
-    border: none;
-  }
-
-  .clueCheck-table-holder {
-    border: 1.5px solid #394B59;
-    border-top: none;
-    width: 33.34%;
-    margin: 0;
-
-    table {
-      border-collapse: collapse;
-      margin: 0;
-    }
-  }
-
-  .clueCheck-clue {
-    text-align: left;
-  }
-
-  .clueCheck-checkbox {
-    text-align: center;
-  }
-
-  tr:hover {
-    background-color: #eaf0f5;
-  }
-
-  input[type=checkbox] {
-    /* 1.5 size Checkboxes */
-    -ms-transform: scale(1.5); /* IE */
-    -moz-transform: scale(1.5); /* FF */
-    -webkit-transform: scale(1.5); /* Safari and Chrome */
-    -o-transform: scale(1.5); /* Opera */
-    transform: scale(1.5);
-    padding: 10px;
-  }
-
-}
-
-/* Other */
-.competitionStyle {
-  color: #ff2c2c;
-}
-
-/* General survey styling */
-
-/* Whodunnit style */
-.whodunit-question {
-
-  input[type="radio"] {
-    margin: 0;
-  }
-}
-
-/* Matrice styling */
-.matrice {
-  display: flex;
-  justify-content: center;
-
-  table {
-    border-collapse: collapse;
-  }
-
-  td, th {
-    padding: 15px;
-  }
-
-  .matrix-input, th {
-    text-align: center;
-  }
-
-
-  tr:hover {
-    background-color: #eaf0f5;
-  }
-
-  input[type='radio'] { transform: scale(2); }
-}
-
 /* select */
 select {
   width: 300px;
@@ -507,9 +135,86 @@ select {
 -                               New Styling                                   -
 ----------------------------------------------------------------------------- */
 
+/* --------
+- General -
+--------- */
+
+* {
+  font-family: Calibri, Arial, sans-serif;
+}
+
+p, span, div {
+  font-size: 14pt;
+}
+
+h2 {
+  font-size: 20pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
 .justify-center {
   display: flex;
   justify-content: center;
+}
+
+/* --------
+- Buttons -
+--------- */
+
+/* My button styling */
+
+.button-holder{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+	button {
+    cursor: pointer;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid #394B59;
+    background-color: #394B59;
+    color: white;
+	}
+  
+  button:hover {
+    background-color: #5f839e;
+    color: white;
+  }
+
+  button:disabled {
+    background-color: #b1c3d0;
+    color: #394B59;
+  }
+}
+
+/* ------
+- Timer -
+------- */
+
+.timer {
+  text-align: center;
+
+  .seconds {
+    // Helvetica has tabular numbers (fixed width), which looks better
+    // for a timer, doesn't jump all over the place.
+    font-family: Helvetica, Arial, sans-serif;
+    color: green;
+    margin: 0;
+  }
+  &.lessThan10 {
+    .seconds {
+      color: orange;
+    }
+  }
+  &.lessThan5 {
+    .seconds {
+      color: red;
+    }
+  }
 }
 
 /* -------
@@ -528,6 +233,7 @@ select {
 
 .tables-holder {
   display: flex;
+  font-size: 12pt;
 }
 
 .table-of-clues {
@@ -557,4 +263,41 @@ select {
 
     height: 50px;
   }
+}
+
+/* ----------------
+- Discussion Tabs -
+----------------- */
+
+.header-tab-holder{
+  display: flex;
+  border: 1.5px solid #394B59;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 15pt;
+
+  background-color: #394B59;
+  color: white;
+
+  padding: 0.8rem 1.2rem;
+  border: 1px solid white;
+  margin: 0;
+
+  width: 100%;
+
+  &:hover{
+    background-color: #5f839e;
+    cursor: pointer;
+  }
+}
+
+.tab-content {
+  border: 1.5px solid #394B59;
+  border-top: none;
+  padding: 10px;
 }

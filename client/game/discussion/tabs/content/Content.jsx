@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
+import CluesTable from '../../../../general/clues/CluesTable';
 import PoliceClues from '../../../../general/clues/PoliceClues';
+import CluesCheckGameInstructions from '../../../../general/tips-n-messages/CluesCheckGameInstructions';
 import DiscussionInstructions from '../../../personalised-instructions/pages/subpage-elements/DiscussionInstructions';
 import PresComStructText from '../../../personalised-instructions/pages/subpage-elements/PresComStructText';
 import EarlySubmission from './early-submission/EarlySubmission';
@@ -9,15 +11,47 @@ export default class Content extends Component {
         const { tabsStatus, game, round, player, stage } = this.props;
 
         //Get the tab status that is true
-        const tabs = Object.keys(tabsStatus);
-        let trueStatus = [];
-        tabs.forEach(tab => {
-            if (tabsStatus[tab]) {
-                trueStatus.push(tab)
-            }
-        });
+        const activeTab = Object.keys(tabsStatus).filter(tab => {
+            return tabsStatus[tab] === true
+        })[0]
 
-        if (trueStatus.length === 0) {
+        if (activeTab === "cluesTable") {
+            return (
+                <div className="tab-content" >
+                    <CluesCheckGameInstructions />
+                    <br />
+                    <CluesTable {...this.props} />
+                </div>
+            )
+        } else if (activeTab === "instructions") {
+            return (
+                <div className="tab-content">
+                    <h3 className="centred">Instructions Reminder</h3>
+                    <DiscussionInstructions player={player} round={round} game={game} />
+                </div>
+            )
+        } else if (activeTab === "police") {
+            return (
+                <div className="tab-content">
+                    <h3 className="centred">Police Clues</h3>
+                    <PoliceClues />
+                </div>
+            )
+        } else if (activeTab === "comStruct") {
+            return (
+                <div className="tab-content">
+                    <h3 className="centred">Communication Structure</h3>
+                    <PresComStructText game={game} player={player} isDiscussion={true} />
+                </div>
+            )
+        } else if (activeTab === "earlySub") {
+            return (
+                <div className="tab-content">
+                    <h3 className="centred">Early Submission</h3>
+                    <EarlySubmission stage={stage} player={player} round={round} />
+                </div>
+            )
+        } else {
             return (
                 <div className="tab-content">
                     <p style={{
@@ -28,34 +62,6 @@ export default class Content extends Component {
                     }}>
                         Click a tab to revisit important game information
                     </p>
-                </div>
-            )
-        } else if (trueStatus[0] === "instructions") {
-            return (
-                <div className="tab-content">
-                    <h3 className="centred">Instructions Reminder</h3>
-                    <DiscussionInstructions player={player} round={round} game={game} />
-                </div>
-            )
-        } else if (trueStatus[0] === "police") {
-            return (
-                <div className="tab-content">
-                    <h3 className="centred">Police Clues</h3>
-                    <PoliceClues />
-                </div>
-            )
-        } else if (trueStatus[0] === "comStruct") {
-            return (
-                <div className="tab-content">
-                    <h3 className="centred">Communication Structure</h3>
-                    <PresComStructText game={game} player={player} isDiscussion={true} />
-                </div>
-            )
-        } else if (trueStatus[0] === "earlySub") {
-            return (
-                <div className="tab-content">
-                    <h3 className="centred">Early Submission</h3>
-                    <EarlySubmission stage={stage} player={player} round={round} />
                 </div>
             )
         }
