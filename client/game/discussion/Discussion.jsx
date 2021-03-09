@@ -11,10 +11,10 @@ import Header from './tabs/header/Header';
 import Chat from './chats/Chat';
 
 //Importing clues tracker
-import CluesCheck from '../../general/clues/CluesCheck';
-import CluesCheckGameInstructions from '../../general/clues-check/CluesCheckGameInstructions';
-import CluesCheckGameTip from '../../general/clues-check/CluesCheckGameTip';
+import CluesCheckGameInstructions from '../../general/tips-n-messages/CluesCheckGameInstructions';
+import CluesCheckGameTip from '../../general/tips-n-messages/CluesCheckGameTip';
 import PresComStructTip from '../personalised-instructions/pages/subpage-elements/PresComStructTip';
+import CluesTable from '../../general/clues/CluesTable';
 
 export default class Discussion extends Component {
     state = {
@@ -74,7 +74,7 @@ export default class Discussion extends Component {
                         <CluesCheckGameInstructions />
                         <br />
 
-                        <CluesCheck round={round} game={game} player={player} />
+                        <CluesTable {...this.props} />
                         <br />
 
                         <CluesCheckGameTip />

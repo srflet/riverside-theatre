@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PoliceClues from '../../../general/clues/PoliceClues';
-import CluesCheck from '../../../general/clues/CluesCheck';
+import CluesTable from '../../../general/clues/CluesTable';
 
 export default class FinalWhodunit extends Component {
     state = {
@@ -32,7 +32,7 @@ export default class FinalWhodunit extends Component {
                 <p>Below is all the information you have, including the police clues and all the unique clues you have collected.</p>
                 <PoliceClues />
                 <br />
-                <CluesCheck player={player} game={game} round={game.rounds[0]} />
+                <CluesTable {...this.props} />
                 <br />
                 {/*If the player has already given their answer, show thank you message. Otherwise, show the whodunnit quiz */}
                 {answers !== ""

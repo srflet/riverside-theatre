@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
-import CluesTable from '../../../general/clues/CluesTable';
 import { returnOthersInitials, returnOthersAvatar } from '../../../general/helper-functions/returnPlayerInformation';
 
 export default class Start extends Component {
@@ -23,8 +22,6 @@ export default class Start extends Component {
                     </div>
                 </div>
                 <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
-
-                <CluesTable {...this.props} />
             </div>
         )
     }

@@ -184,7 +184,7 @@ export default class Chat extends Component {
                             chatProperties.initials[chatProperties.playersInvolved[0]]}{chatProperties.initials[chatProperties.playersInvolved[1]]
                                 + " "
                         }
-                        <img src={avatarPath} style={miniAvatar} />
+                        <img src={avatarPath} className="avatar-small" />
                         &emsp;
                         {
                             game.treatment.competition === "comp" && chatNb === 1

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getPlayerClues } from '../helper-functions/getClues'
 import { returnPlayerInitials, returnPlayerAvatar } from '../helper-functions/returnPlayerInformation'
-import TextareaAutosize from 'react-textarea-autosize'
+import Competitor from '../tips-n-messages/Competitor'
 
 export default class CluesTable extends Component {
     render() {
@@ -14,7 +14,6 @@ export default class CluesTable extends Component {
         )
     }
 }
-
 
 class PlayerTable extends Component {
 
@@ -49,26 +48,25 @@ class PlayerTable extends Component {
                 </thead>
                 <tbody>
                     {clues.map((clue, index) => {
+                        // Get the answer for this clue id
                         const answer = cluesAnswered[clue.id] ?? ""
-                        const size = answer !== "" ? answer.length : 1
+                        // Calculate the number of rows based on the number of characters in the answer so that
+                        // the text area will grow automatically
+                        const size = answer !== "" ? Math.round((answer.length / 30) + 1) : 1
                         return (
                             <tr key={index}>
                                 <td>
-                                    <span>{clue.text1}</span>
-                                    {/* 
-                                                                        <input
-                                        type="text"
+                                    <p>{clue.text1}</p>
+                                    <textarea
                                         name={clue.id}
-                                        size={size}
+                                        width="100%"
+                                        rows={size}
                                         value={answer}
                                         disabled={type === position}
                                         autoComplete="off"
                                         onChange={this.handleChange}
                                     />
-                                    */}
-                                    <TextareaAutosize />
-
-                                    <span>{clue.text2}</span>
+                                    <p>{clue.text2}</p>
                                 </td>
                             </tr>
                         )
@@ -85,15 +83,10 @@ class PlayerProfile extends Component {
 
         return (
             <>
-                Unique clues from player {returnPlayerInitials(game, position)} <img style={miniAvatar} src={returnPlayerAvatar(game, position)} />
+                Unique clues from player {returnPlayerInitials(game, position)} <img className="avatar-small" src={returnPlayerAvatar(game, position)} />
+                <br />
+                <Competitor />
             </>
         )
     }
 }
-
-//Style variable:
-const miniAvatar = {
-    width: "2rem",
-    height: "2rem",
-    margin: "0px",
-};

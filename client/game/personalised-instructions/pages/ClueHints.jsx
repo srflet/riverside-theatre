@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CluesCheck from '../../../general/clues/CluesCheck';
-import CluesCheckGameInstructions from '../../../general/clues-check/CluesCheckGameInstructions';
-import CluesCheckGameTip from '../../../general/clues-check/CluesCheckGameTip';
+import CluesCheckGameInstructions from '../../../general/tips-n-messages/CluesCheckGameInstructions';
+import CluesCheckGameTip from '../../../general/tips-n-messages/CluesCheckGameTip';
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
+import CluesTable from '../../../general/clues/CluesTable';
 
 export default class ClueHints extends Component {
     componentDidMount() {
@@ -38,7 +38,7 @@ export default class ClueHints extends Component {
 
                 <br />
 
-                <CluesCheck round={round} game={game} player={player} />
+                <CluesTable {...this.props} />
 
                 <br />
 

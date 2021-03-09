@@ -39,7 +39,7 @@ export default class Message extends Component {
             <div style={messageContainer} className={isSender ? "sender-message" : "receiver-message"}>
                 <div style={headContainer}>
                     <div style={playerInfoHolder}>
-                        <img src={this.getSenderPlayer().get("avatar")} style={miniAvatar} />
+                        <img src={this.getSenderPlayer().get("avatar")} className="avatar-small" />
                         <div style={initialsStyle}>{this.getSenderPlayer().get("initials")}</div>
                     </div>
                     <div style={dateStyle}>{date}</div>
