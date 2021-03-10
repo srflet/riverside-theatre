@@ -12,6 +12,7 @@ import EaseInfoExchange from '../pages/EaseInfoExchange';
 import MotivationBrok from '../pages/MotivationBrok';
 import FinalWhodunit from '../pages/FinalWhodunit';
 import Demographics from '../pages/Demographics';
+import FinaliseClueTable from '../pages/FinaliseClueTable';
 
 export default class PostPages extends Component {
     render() {
@@ -20,45 +21,49 @@ export default class PostPages extends Component {
 
         if (currentPage === 1) {
             return (
-                <FinalWhodunit {...this.props} />
+                <FinaliseClueTable {...this.props} />
             )
         } else if (currentPage === 2) {
             return (
-                <NumberClues {...this.props} />
+                <FinalWhodunit {...this.props} />
             )
         } else if (currentPage === 3) {
             return (
-                <ManipCheckBrok1 {...this.props} />
+                <NumberClues {...this.props} />
             )
         } else if (currentPage === 4) {
             return (
-                <ManipCheckBrok2 {...this.props} />
+                <ManipCheckBrok1 {...this.props} />
             )
         } else if (currentPage === 5) {
             return (
-                <ManipCheckComp {...this.props} />
+                <ManipCheckBrok2 {...this.props} />
             )
         } else if (currentPage === 6) {
             return (
-                <SuspicionDistrust {...this.props} />
+                <ManipCheckComp {...this.props} />
             )
         } else if (currentPage === 7) {
             return (
-                <MotivationToShare {...this.props} />
+                <SuspicionDistrust {...this.props} />
             )
         } else if (currentPage === 8) {
             return (
-                <PreventInfo {...this.props} />
+                <MotivationToShare {...this.props} />
             )
         } else if (currentPage === 9) {
             return (
-                <EaseInfoExchange {...this.props} />
+                <PreventInfo {...this.props} />
             )
         } else if (currentPage === 10) {
             return (
-                <MotivationBrok {...this.props} />
+                <EaseInfoExchange {...this.props} />
             )
         } else if (currentPage === 11) {
+            return (
+                <MotivationBrok {...this.props} />
+            )
+        } else if (currentPage === 12) {
             return (
                 <Demographics {...this.props} />
             )

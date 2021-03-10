@@ -1,5 +1,5 @@
 import React from "react";
-import DevWrapper from '../general/dev-wrapper/DevWrapper'
+import DevWrapper from '../../general/dev-wrapper/DevWrapper'
 import { Meteor } from "meteor/meteor";
 
 export default class Sorry extends React.Component {

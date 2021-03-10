@@ -80,7 +80,8 @@ export default class Quiz extends React.Component {
 							<p className="button-holder">
 								<button type="button" onClick={onPrev} disabled={!hasPrev}>
 									Back to instructions
-             				 </button>
+             				 	</button>
+							  	&emsp;
 								<button type="submit">Submit and be connected to the other two players</button>
 							</p>
 						</form>
