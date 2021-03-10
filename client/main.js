@@ -67,9 +67,15 @@ Empirica.breadcrumb(() => null);
 // If you don't return anything, or do not define this function, a default
 // exit screen will be shown.
 Empirica.exitSteps((game, player) => {
-	return player.exitStatus === "finished"
-		? [PostSurvey, Thanks]
-		: [Sorry];
+	if (
+		!game ||
+		(player.exitStatus &&
+			player.exitStatus !== "finished" &&
+			player.exitReason !== "playerQuit")
+	) {
+		return [Sorry];
+	}
+	return [PostSurvey, Thanks];
 });
 
 /*----------------
