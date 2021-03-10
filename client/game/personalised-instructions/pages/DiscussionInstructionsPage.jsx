@@ -59,7 +59,7 @@ export default class DiscussionInstructionsPage extends Component {
                 </div>
 
                 <br />
-                <InformationLine game={game} player={player} stage={stage} />
+                <InformationLine {...this.props} />
             </div>
         )
     }

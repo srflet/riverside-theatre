@@ -7,7 +7,7 @@ class timer extends React.Component {
   fmtMSS = s => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s }
 
   render() {
-    const { remainingSeconds } = this.props;
+    const { remainingSeconds, round } = this.props;
 
     const classes = ["seconds"];
     if (remainingSeconds <= 5) {
@@ -17,7 +17,7 @@ class timer extends React.Component {
     }
 
     if (remainingSeconds === 120) {
-      alert("ONLY TWO MINUTES LEFT!")
+      round.set("alert", true)
     }
 
     return (

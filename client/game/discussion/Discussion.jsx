@@ -16,12 +16,12 @@ import PresComStructTip from '../personalised-instructions/pages/subpage-element
 
 export default class Discussion extends Component {
     render() {
-        const { game, player, stage } = this.props;
+        const { game } = this.props;
         const communication = JSON.parse(game.treatment.communication)
 
         return (
             <div>
-                <InformationLine game={game} player={player} stage={stage} />
+                <InformationLine {...this.props} />
                 <br />
                 <p>
                     On this page you will find tabs to revisit important game information, and at the bottom of the page, you will find chat boxes to send messages to the other players (according to the communication structure shown to you).
