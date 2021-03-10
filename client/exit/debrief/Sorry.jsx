@@ -39,7 +39,7 @@ export default class Sorry extends React.Component {
             <h4 className="text-4xl font-semibold mt-8 mb-6">Sorry!</h4>
             <p>Sorry, you were not able to play today! {msg}</p>
             <p>
-              <strong>Please contact the research at tomyan@umd.edu to see if there are more games available.</strong>{" "}
+              <strong>Please contact the researcher at tomyan@umd.edu to see if there are more games available.</strong>{" "}
             </p>
           </div>
         </div>
