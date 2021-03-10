@@ -1,46 +1,28 @@
 import React, { Component } from 'react';
-
-//Importing elements to populate the shape
-import ComStructCompetitionDetails from './ComStructCompetitionDetails';
+import { returnPlayerInitials, returnPlayerAvatar } from '../helper-functions/returnPlayerInformation'
 
 export default class ComStructShape extends Component {
     render() {
-        const { game, player } = this.props;
+        const { game, player } = this.props
 
-        const returnPlayerInitials = (type) => {
-            let initials = game.players.filter(player => {
-                return player.get("type") === type
-            }).map(player => {
-                return player.get("initials")
-            })
-
-            return initials;
-        }
-
-        const returnPlayerAvatar = (type) => {
-            let avatar = game.players.filter(player => {
-                return player.get("type") === type
-            }).map(player => {
-                return player.get("avatar")
-            })
-
-            return avatar;
-        }
-
+        const myType = player.get("type")
         const structureProperties = {
             playerA: {
-                initials: player.get("type") === "A" ? "YOU" : returnPlayerInitials("A"),
-                avatar: returnPlayerAvatar("A"),
+                initials: myType === "A" ? "YOU" : returnPlayerInitials(game, "A"),
+                avatar: returnPlayerAvatar(game, "A"),
             },
             playerB: {
-                initials: player.get("type") === "B" ? "YOU" : returnPlayerInitials("B"),
-                avatar: returnPlayerAvatar("B"),
+                initials: myType === "B" ? "YOU" : returnPlayerInitials(game, "B"),
+                avatar: returnPlayerAvatar(game, "B"),
             },
             playerC: {
-                initials: player.get("type") === "C" ? "YOU" : returnPlayerInitials("C"),
-                avatar: returnPlayerAvatar("C"),
+                initials: myType === "C" ? "YOU" : returnPlayerInitials(game, "C"),
+                avatar: returnPlayerAvatar(game, "C"),
             }
         };
+
+        const communication = JSON.parse(game.treatment.communication)
+        const competition = JSON.parse(game.treatment.competition)
 
         return (
             <div>
@@ -50,33 +32,49 @@ export default class ComStructShape extends Component {
                     <circle cx="150" cy="55" r="5" fill="black" />
                     <text x="150" y="45" fill="black" textAnchor="middle" style={{ fontSize: "12pt" }}>{structureProperties.playerA.initials}</text>
                     <image x="135" y="0" href={structureProperties.playerA.avatar} height="30" width="30" />
-
                     {/* Node Player B */}
                     <circle cx="50" cy="150" r="5" fill="black" />
                     <text x="20" y="155" fill="black" textAnchor="middle" style={{ fontSize: "12pt" }}>{structureProperties.playerB.initials}</text>
                     <image x="10" y="165" href={structureProperties.playerB.avatar} height="30" width="30" />
-
                     {/* Node Player C */}
                     <circle cx="250" cy="150" r="5" fill="black" />
                     <text x="280" y="155" fill="black" textAnchor="middle" style={{ fontSize: "12pt" }}>{structureProperties.playerC.initials}</text>
                     <image x="270" y="165" href={structureProperties.playerC.avatar} height="30" width="30" />
 
                     {/* Link A and B */}
-                    <line x1="150" y1="55" x2="50" y2="150" stroke="black" />
+                    {communication.includes("AcB") &&
+                        <line x1="150" y1="55" x2="50" y2="150" stroke="black" />
+                    }
+                    {/* Link A and C */}
+                    {communication.includes("AcC") &&
+                        <line x1="150" y1="55" x2="250" y2="150" stroke="black" />
+                    }
+                    {/* Link B and C */}
+                    {communication.includes("BcC") &&
+                        <line x1="50" y1="150" x2="250" y2="150" stroke="black" />
+                    }
 
                     {/* Competition between A and B */}
-                    {game.treatment.competition === "comp" && (player.get("type") === "A" || player.get("type") === "B")
-                        ? <ComStructCompetitionDetails />
-                        : ""}
-
-                    {/* Link A and C */}
-                    <line x1="150" y1="55" x2="250" y2="150" stroke="black" />
-
-                    {/* Link B and C */}
-                    {game.treatment.brokerage === "nonbrok" ?
-                        <line x1="50" y1="150" x2="250" y2="150" stroke="black" />
-                        :
-                        ""}
+                    {((myType === "A" || myType === "B") && competition.includes("AvB")) &&
+                        <>
+                            <polyline points="145,55 140,55 50,140 50,145" style={{ fill: "none", stroke: "red" }} />
+                            <text x="50" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
+                        </>
+                    }
+                    {/* Competition between A and C */}
+                    {((myType === "A" || myType === "C") && competition.includes("AvC")) &&
+                        <>
+                            <polyline points="155,55 160,55 250,140 250,145" style={{ fill: "none", stroke: "red" }} />
+                            <text x="250" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
+                        </>
+                    }
+                    {/* Competition between B and C */}
+                    {((myType === "B" || myType === "C") && competition.includes("BvC")) &&
+                        <>
+                            <polyline points="50,155 50,160 250,160 250,155" style={{ fill: "none", stroke: "red" }} />
+                            <text x="150" y="180" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
+                        </>
+                    }
 
                 </svg>
 

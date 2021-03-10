@@ -42,8 +42,10 @@ Empirica.gameInit(game => {
 	game.players.forEach((player, i) => {
 
 		// Getting condition information (makes it easier for data wrangling)
-		player.set("competition", game.treatment.competition)
-		player.set("brokerage", game.treatment.brokerage)
+		const competition = JSON.parse(game.treatment.competition)
+		const communication = JSON.parse(game.treatment.communication)
+		player.set("competition", competition)
+		player.set("communication", communication)
 
 		// Getting the avatar
 		let shape = popChoice(avatarShapes);
@@ -53,9 +55,9 @@ Empirica.gameInit(game => {
 
 		// Randomise which player type they are:
 		player.set("type", playerTypes[i]);
+		let type = player.get("type");
 
 		// Giving individual clues to the players (No counterbalancing)
-		let type = player.get("type");
 		if (type === "A") {
 			player.set("myClues", cluesA);
 		} else if (type === "B") {

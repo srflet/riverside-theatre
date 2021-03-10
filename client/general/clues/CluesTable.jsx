@@ -42,7 +42,7 @@ class PlayerTable extends Component {
                 <thead>
                     <tr>
                         <th>
-                            {currentPlayer ? "Your clues" : <PlayerProfile position={position} {...this.props} />}
+                            {currentPlayer ? "Your clues" : <PlayerProfile position={position} type={type} {...this.props} />}
                         </th>
                     </tr>
                 </thead>
@@ -79,13 +79,15 @@ class PlayerTable extends Component {
 
 class PlayerProfile extends Component {
     render() {
-        const { game, position } = this.props
+        const { game, type, position } = this.props
+        const competition = JSON.parse(game.treatment.competition)
+        const isCompetitor = competition.includes(type + "v" + position) || competition.includes(position + "v" + type)
 
         return (
             <>
                 Unique clues from player {returnPlayerInitials(game, position)} <img className="avatar-small" src={returnPlayerAvatar(game, position)} />
                 <br />
-                <Competitor />
+                {isCompetitor && <Competitor />}
             </>
         )
     }

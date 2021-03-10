@@ -1,62 +1,62 @@
 treatments:
-  - name: comp_brok
+  - name: AvB and Abroker
     factorIds:
       - ewf9BQhnfSpMkafDJ
-      - yPMSz3qPCGYcbTwbz
-      - w7TCBTYwCh8mYy96P
-  - name: comp_nonbrok
+      - ABuPCWKGtKwNQnpQD
+      - 5DXrbAqd64MWpDF4X
+  - name: AvB and allCom
     factorIds:
       - ewf9BQhnfSpMkafDJ
-      - yPMSz3qPCGYcbTwbz
-      - 5o3CinDbfPpJsfzzp
-  - name: noncomp_brok
+      - ABuPCWKGtKwNQnpQD
+      - 5TXhgjZ3SWFPAidyX
+  - name: nocomp and Abroker
+    factorIds:
+      - WhEBAJWL2Enqnoc52
+      - 5DXrbAqd64MWpDF4X
+      - ewf9BQhnfSpMkafDJ
+  - name: nocomp and allCom
     factorIds:
       - ewf9BQhnfSpMkafDJ
-      - Ev5g9ihxzmwxuFwgp
-      - w7TCBTYwCh8mYy96P
-  - name: noncomp_nonbrok
-    factorIds:
-      - ewf9BQhnfSpMkafDJ
-      - Ev5g9ihxzmwxuFwgp
-      - 5o3CinDbfPpJsfzzp
+      - WhEBAJWL2Enqnoc52
+      - 5TXhgjZ3SWFPAidyX
 factorTypes:
-  - _id: bJzz8LjfhLG2nyCzT
+  - _id: PCw5RWBz2yThcQEEM
     name: playerCount
-    description: The Number of players participating in the given game.
+    description: The number of players participating in the given game.
     required: true
     type: Integer
     min: 1
-  - _id: GdwaQrTbZWJfuJtoY
+  - _id: QE3QuJLRvtcsRrA28
     name: competition
-    description: competition
-    required: false
+    description: JSON array of who is competing with whom.
+    required: true
     type: String
-  - _id: 5qXR6PYG3kQKvNBbx
-    name: brokerage
-    description: brokerage
-    required: false
+  - _id: CyAgaFRai5LgckWJE
+    name: communication
+    description: JSON array of the communication links
+    required: true
     type: String
 factors:
   - _id: ewf9BQhnfSpMkafDJ
     name: three
     value: 3
-    factorTypeId: bJzz8LjfhLG2nyCzT
-  - _id: yPMSz3qPCGYcbTwbz
-    name: competition
-    value: comp
-    factorTypeId: GdwaQrTbZWJfuJtoY
-  - _id: Ev5g9ihxzmwxuFwgp
-    name: noncompetition
-    value: noncomp
-    factorTypeId: GdwaQrTbZWJfuJtoY
-  - _id: w7TCBTYwCh8mYy96P
-    name: broker
-    value: brok
-    factorTypeId: 5qXR6PYG3kQKvNBbx
-  - _id: 5o3CinDbfPpJsfzzp
-    name: nonbroker
-    value: nonbrok
-    factorTypeId: 5qXR6PYG3kQKvNBbx
+    factorTypeId: PCw5RWBz2yThcQEEM
+  - _id: WhEBAJWL2Enqnoc52
+    name: nocompetition
+    value: '[]'
+    factorTypeId: QE3QuJLRvtcsRrA28
+  - _id: ABuPCWKGtKwNQnpQD
+    name: AvB
+    value: '["AvB"]'
+    factorTypeId: QE3QuJLRvtcsRrA28
+  - _id: 5TXhgjZ3SWFPAidyX
+    name: all
+    value: '["AcB", "AcC", "BcC"]'
+    factorTypeId: CyAgaFRai5LgckWJE
+  - _id: 5DXrbAqd64MWpDF4X
+    name: Abroker
+    value: '["AcB", "AcC"]'
+    factorTypeId: CyAgaFRai5LgckWJE
 lobbyConfigs:
   - name: test_lobby
     timeoutType: individual

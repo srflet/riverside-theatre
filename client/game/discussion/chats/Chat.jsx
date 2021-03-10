@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Message from './Message';
 import { TimeSync } from "meteor/mizzao:timesync";
+import Competitor from '../../../general/tips-n-messages/Competitor';
 
 export default class Chat extends Component {
     constructor() {
@@ -187,9 +188,7 @@ export default class Chat extends Component {
                         <img src={avatarPath} className="avatar-small" />
                         &emsp;
                         {
-                            game.treatment.competition === "comp" && chatNb === 1
-                                ? <span className="header-competition"> Competitor</span>
-                                : ""
+                            <Competitor />
                         }
                     </span>
 

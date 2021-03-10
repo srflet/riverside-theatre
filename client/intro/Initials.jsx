@@ -65,6 +65,7 @@ export default class Initials extends Component {
                                         value={this.state.initials}
                                         onChange={this.handleChange}
                                         autoComplete="off"
+                                        autoFocus
                                         required
                                         style={{ width: "300px" }}
                                     />

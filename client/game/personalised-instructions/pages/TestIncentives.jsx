@@ -123,7 +123,7 @@ export default class TestIncentives extends Component {
                             Previous
                         </button>
                         &emsp;
-                        <button type="button" onClick={this.handleSubmit}>
+                        <button type="button" onClick={this.next}>
                             Submit Answer
                         </button>
                     </p>
