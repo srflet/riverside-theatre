@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 export default class Message extends Component {
 
@@ -22,18 +22,6 @@ export default class Message extends Component {
         //Get whether you are the send or not
         const player = this.props.player;
         const isSender = player._id === message.sender;
-
-        //Whether this is a competition treatment
-        const isCompetition = this.props.game.treatment.competition === "comp";
-
-        //Get whether the sender is a competitor
-        const isSenderCompeting = isCompetition && (this.getSenderPlayer().get("type") === "A" || this.getSenderPlayer().get("type") === "B");
-
-        //Get whether current player is a competitor
-        const isPlayerCompeting = isCompetition && (player.get("type") === "A" || player.get("type") === "B");
-
-        //Should mention competition?
-        const isCompetitionMessage = isSenderCompeting && isPlayerCompeting && !isSender;
 
         return (
             <div style={messageContainer} className={isSender ? "sender-message" : "receiver-message"}>
@@ -65,12 +53,6 @@ const headContainer = {
     justifyContent: "space-between",
     margin: "0px",
     borderBottom: "0.1px solid #9aa8b6"
-};
-
-const miniAvatar = {
-    width: "2rem",
-    height: "2rem",
-    margin: "1rem 0"
 };
 
 const playerInfoHolder = {

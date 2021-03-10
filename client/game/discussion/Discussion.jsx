@@ -16,6 +16,7 @@ import PresComStructTip from '../personalised-instructions/pages/subpage-element
 export default class Discussion extends Component {
     render() {
         const { round, game, player, stage } = this.props;
+        const communication = JSON.parse(game.treatment.communication)
 
         return (
             <div>
@@ -34,9 +35,13 @@ export default class Discussion extends Component {
                     <PresComStructTip />
 
                     <div style={chatHolder}>
-                        <Chat round={round} game={game} player={player} chatNb={1} />
-                        <Chat round={round} game={game} player={player} chatNb={2} />
-                        {game.treatment.brokerage !== "brok" ? <Chat round={round} game={game} player={player} chatNb={3} /> : ""}
+                        {
+                            communication.map((communicationPattern, index) => {
+                                return (
+                                    <Chat key={index} communicationPattern={communicationPattern} {...this.props} />
+                                )
+                            })
+                        }
                     </div>
 
                 </div>
@@ -44,16 +49,6 @@ export default class Discussion extends Component {
         )
     }
 }
-
-
-//Style variables
-const informationHolder = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginTop: "2rem",
-    flexWrap: "wrap",
-};
 
 const chatHolder = {
     display: "flex",

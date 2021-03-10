@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
-import Message from './Message';
 import { TimeSync } from "meteor/mizzao:timesync";
+import { returnPlayerInitials, returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerInformation'
+
+import Message from './Message';
+
 import Competitor from '../../../general/tips-n-messages/Competitor';
 
 export default class Chat extends Component {
@@ -18,14 +21,21 @@ export default class Chat extends Component {
 
     notificationSound = new Audio("sounds/notification.mp3")
 
+    scrollToBottom = () => {
+        this.heightRef.current.scrollTop = this.heightRef.current.scrollHeight;
+        this.setState({ nbOfMessages: this.getNbMessage() });
+    };
+
     componentDidMount() {
         this.scrollToBottom();
     }
 
     componentDidUpdate() {
-        if (this.state.nbOfMessages !== this.getNbMessage()) {
+        const { nbOfMessages, justSentMessage } = this.state;
 
-            if (!this.state.justSentMessage) {
+        if (nbOfMessages !== this.getNbMessage()) {
+
+            if (!justSentMessage) {
                 this.setState({ newMessages: true });
 
                 if (this.getIsInvolved()) {
@@ -39,16 +49,26 @@ export default class Chat extends Component {
         }
     }
 
-    scrollToBottom = () => {
-        this.heightRef.current.scrollTop = this.heightRef.current.scrollHeight;
-        this.setState({ nbOfMessages: this.getNbMessage() });
-    };
-
     getNbMessage = () => {
-        return this.props.round.get("messages").filter(message => {
-            return message.chat === this.props.chatNb;
+        const { round, communicationPattern } = this.props
+
+        return round.get("messages").filter(message => {
+            return message.chat === communicationPattern;
         }).length;
     };
+
+    sawMessages = () => {
+        this.setState({ newMessages: false });
+    }
+
+    getIsInvolved = () => {
+        const { player, communicationPattern } = this.props;
+
+        const myType = player.get("type")
+        const communicators = communicationPattern.split("c")
+
+        return communicators.includes(myType)
+    }
 
     changeText = (e) => {
         this.setState({ text: e.currentTarget.value });
@@ -75,136 +95,58 @@ export default class Chat extends Component {
         //Prevent default
         e.preventDefault();
 
+        const { player, communicationPattern, round } = this.props
+
         let newMessage = {
             text: this.state.text,
-            sender: this.props.player._id,
-            senderType: this.props.player.get("type"),
-            chat: this.props.chatNb,
+            sender: player._id,
+            senderType: player.get("type"),
+            chat: communicationPattern,
             createdAt: new Date(TimeSync.serverTime(null, 1000)),
             id: this.getNewMessageID()
         };
 
-        let currentMessages = this.props.round.get("messages");
-
+        let currentMessages = round.get("messages");
         let newMessages = [...currentMessages, newMessage];
-
-        this.props.round.set("messages", newMessages);
+        round.set("messages", newMessages);
 
         this.setState({ text: "" });
-
         this.setState({ justSentMessage: true });
 
     }
 
-    sawMessages = () => {
-        this.setState({ newMessages: false });
-    }
-
-    getIsInvolved = () => {
-
-        let chatNb = this.props.chatNb;
-        let players;
-        if (chatNb === 1) {
-            players = ["A", "B"];
-        } else if (chatNb === 2) {
-            players = ["A", "C"];
-        } else {
-            //if chatNb === 3
-            players = ["B", "C"];
-        }
-
-        return players.includes(this.props.player.get("type"));
-    }
-
     render() {
-        const { round, game, player, chatNb } = this.props;
+        const { round, game, player, communicationPattern } = this.props;
 
-        const returnPlayerInitials = (type) => {
-            let initials = game.players.filter(player => {
-                return player.get("type") === type
-            }).map(player => {
-                return player.get("initials")
-            })
+        const myType = player.get("type")
+        const communicators = communicationPattern.split("c")
+        const isInvolved = this.getIsInvolved()
+        const otherType = communicators.filter(communicator => { return communicator !== myType })[0]
 
-            return initials;
-        }
-
-        const returnPlayerAvatar = (type) => {
-            let avatar = game.players.filter(player => {
-                return player.get("type") === type
-            }).map(player => {
-                return player.get("avatar")
-            })
-
-            return avatar;
-        }
-
-        const determinePlayersInvolved = (chatNb) => {
-            let players;
-            if (chatNb === 1) {
-                players = ["A", "B"];
-            } else if (chatNb === 2) {
-                players = ["A", "C"];
-            } else {
-                //if chatNb === 3
-                players = ["B", "C"];
-            }
-
-            return players;
-        }
-
-        const chatProperties = {
-            playersInvolved: determinePlayersInvolved(chatNb),
-            initials: {
-                A: player.get("type") === "A" ? "" : returnPlayerInitials("A"),
-                B: player.get("type") === "B" ? "" : returnPlayerInitials("B"),
-                C: player.get("type") === "C" ? "" : returnPlayerInitials("C")
-            },
-            avatars: {
-                A: player.get("type") === "A" ? "" : returnPlayerAvatar("A"),
-                B: player.get("type") === "B" ? "" : returnPlayerAvatar("B"),
-                C: player.get("type") === "C" ? "" : returnPlayerAvatar("C")
-            }
-        }
-
-        chatProperties.isInvolved = chatProperties.playersInvolved.includes(player.get("type"));
-
-        let avatarPath = "";
-        if (chatProperties.avatars[chatProperties.playersInvolved[0]] !== "") {
-            avatarPath = chatProperties.avatars[chatProperties.playersInvolved[0]];
-        } else {
-            avatarPath = chatProperties.avatars[chatProperties.playersInvolved[1]];
-        }
+        const competitors = JSON.parse(game.treatment.competition)
+            .filter(competitionPattern => { return competitionPattern.replace("v", "c") === communicationPattern })
 
         return (
-            <div style={chatProperties.isInvolved ? { margin: "2.5px", width: "495px" } : { display: "none" }}>
-                <p style={chatHeaderHolder}>
+            <div style={isInvolved ? { margin: "2.5px", width: "495px" } : { display: "none" }}>
+
+                <div style={chatHeaderHolder}>
                     <span style={chatHeaderInfo}>
-                        Chat with
-                        {" " +
-                            chatProperties.initials[chatProperties.playersInvolved[0]]}{chatProperties.initials[chatProperties.playersInvolved[1]]
-                                + " "
-                        }
-                        <img src={avatarPath} className="avatar-small" />
-                        &emsp;
-                        {
-                            <Competitor />
-                        }
+                        {`Chat with ${returnPlayerInitials(game, otherType)} `}
+                        <img src={returnPlayerAvatar(game, otherType)} className="avatar-small" />
+                        {competitors.length !== 0 && <Competitor />}
                     </span>
 
-                    {
-                        this.state.newMessages
-                            ? <span className="header-notification">New Messages!</span>
-                            : ""
-                    }
-                </p>
+                    {this.state.newMessages && <span className="header-notification">New Messages!</span>}
+                </div>
+
                 <div style={chatBox} ref={this.heightRef}>
                     {round.get("messages").filter(message => {
-                        return message.chat === chatNb;
+                        return message.chat === communicationPattern;
                     }).map((message) => (
                         <Message key={message.id} message={[message]} player={player} game={game} />
                     ))}
                 </div>
+
                 <div style={inputHolder}>
                     <form onSubmit={this.submitMessage}>
                         <input
@@ -235,12 +177,6 @@ const chatBox = {
     overflowY: "scroll",
     borderWidth: "1.5px",
     borderStyle: "solid",
-};
-
-const miniAvatar = {
-    width: "2rem",
-    height: "2rem",
-    margin: "0px"
 };
 
 const chatHeaderHolder = {
