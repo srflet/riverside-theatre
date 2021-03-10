@@ -11,7 +11,7 @@ export default class CompetitionTip extends Component {
                 return (
                     <div className="game-competition">
                         <div>
-                            <strong>INCENTIVE:</strong> <span> You are competing to collect more information than player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} style={mediumImage} /></span>
+                            <strong>INCENTIVE:</strong> <span> You are competing to collect more information than player {returnPlayerInitials(game, "B")} <img src={returnPlayerAvatar(game, "B")} className="avatar-medium" /></span>
                         </div>
                     </div>
                 )
@@ -19,7 +19,7 @@ export default class CompetitionTip extends Component {
                 return (
                     <div className="game-competition">
                         <div>
-                            <strong>INCENTIVE:</strong> <span> You are competing to collect more information than player {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} style={mediumImage} /></span>
+                            <strong>INCENTIVE:</strong> <span> You are competing to collect more information than player {returnPlayerInitials(game, "A")} <img src={returnPlayerAvatar(game, "A")} className="avatar-medium" /></span>
                         </div>
                     </div>
                 )

@@ -9,7 +9,7 @@ export default class PlayerProfile extends React.Component {
       <div style={informationContainer}>
         <span><strong>Your Profile</strong></span>
         <div style={playerInformation}>
-          <img src={player.get("avatar")} style={mediumImage} />
+          <img src={player.get("avatar")} className="avatar-medium" />
           {player.get("initials")}
         </div>
 

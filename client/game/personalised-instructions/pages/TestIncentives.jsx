@@ -84,7 +84,7 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "correct answer for player A and competition"}
                             onChange={this.handleChange}
                         />
-                        <span>Player {player1Initials} <img src={player1Avatar} style={mediumImage} /></span>
+                        <span>Player {player1Initials} <img src={player1Avatar} className="avatar-medium" /></span>
 
                         <br />
 
@@ -95,7 +95,7 @@ export default class TestIncentives extends Component {
                             checked={incentives1 === "correct answer for player B and competition"}
                             onChange={this.handleChange}
                         />
-                        <span>Player {player2Initials} <img src={player2Avatar} style={mediumImage} /></span>
+                        <span>Player {player2Initials} <img src={player2Avatar} className="avatar-medium" /></span>
                         <br />
 
                         <input

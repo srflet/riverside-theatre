@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Timer from '../../../general/footer/footer-elements/Timer';
-import PlayerProfile from '../../../general/footer/footer-elements/PlayerProfile';
+import Timer from '../../../general/timer/Timer';
+import { MyProfile } from '../../../general/information-line/InformationLine'
 
 export default class Heading extends Component {
     render() {
@@ -9,7 +9,7 @@ export default class Heading extends Component {
         return (
             <div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: "5px" }}>
-                    <PlayerProfile player={player} />
+                    <MyProfile player={player} hideCheck={true} />
                     <Timer stage={stage} />
                     <div>
                         <p><strong>Page:</strong></p>

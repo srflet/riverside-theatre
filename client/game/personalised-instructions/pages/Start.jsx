@@ -18,7 +18,10 @@ export default class Start extends Component {
                 <br />
                 <div className="game-instructions">
                     <div style={{ textAlign: "center" }}>
-                        You will have <strong>15 minutes</strong> to read clues, make your own verdict, and read about discussion rules before entering a discussion with player {player1Initials} <img src={player1Avatar} style={mediumImage} />  and player {player2Initials} <img src={player2Avatar} style={mediumImage} />
+                        <span>You will have <strong>15 minutes</strong> to read clues, make your own verdict, and read about discussion rules before entering a discussion with player {player1Initials}</span>
+                        <img src={player1Avatar} className="avatar-medium" />
+                        <span>and player {player2Initials}</span>
+                        <img src={player2Avatar} className="avatar-medium" />
                     </div>
                 </div>
                 <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
@@ -26,10 +29,3 @@ export default class Start extends Component {
         )
     }
 }
-
-// Style variables
-const mediumImage = {
-    width: "2.5rem",
-    height: "2.5rem",
-    verticalAlign: "bottom"
-};

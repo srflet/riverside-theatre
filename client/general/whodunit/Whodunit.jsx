@@ -51,14 +51,15 @@ class WhodunitInput extends Component {
         const { handleChange, value } = this.props;
 
         return (
-            <div>
+            <div style={{ margin: "5px 0" }}>
                 <input
                     type="radio"
                     name="whodunit"
                     value={this.props.value}
                     onChange={handleChange}
+                    style={{ transform: "scale(1.5)" }}
                 />
-                <span> {value}</span>
+                <span style={{ margin: "0 10px" }}>{value}</span>
                 <br />
             </div>
         )

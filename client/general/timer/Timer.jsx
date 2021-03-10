@@ -9,7 +9,7 @@ class timer extends React.Component {
   render() {
     const { remainingSeconds } = this.props;
 
-    const classes = ["timer"];
+    const classes = ["seconds"];
     if (remainingSeconds <= 5) {
       classes.push("lessThan5");
     } else if (remainingSeconds <= 10) {
@@ -21,9 +21,13 @@ class timer extends React.Component {
     }
 
     return (
-      <div className={classes.join(" ")}>
-        <p><strong>Timer</strong></p>
-        <p className="seconds">{this.fmtMSS(remainingSeconds)}</p>
+      <div style={{
+        textAlign: "center"
+        , display: "flex"
+        , flexDirection: "column"
+      }}>
+        <span><strong>Timer</strong></span>
+        <span className={classes.join(" ")}>{this.fmtMSS(remainingSeconds)}</span>
       </div>
     );
   }

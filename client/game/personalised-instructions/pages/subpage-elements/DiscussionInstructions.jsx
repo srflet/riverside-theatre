@@ -27,7 +27,7 @@ export default class DiscussionInstructions extends Component {
         return (
             <div>
                 <p>
-                    During the discussion, <strong><u>you will have {round.get("discussionTime")} minutes</u></strong> to chat with the other two players, {player1Initials} <img src={player1Avatar} style={mediumImage} /> and {player2Initials} <img src={player2Avatar} style={mediumImage} />, to get as many clues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
+                    During the discussion, <strong><u>you will have {round.get("discussionTime")} minutes</u></strong> to chat with the other two players, {player1Initials} <img src={player1Avatar} className="avatar-medium" /> and {player2Initials} <img src={player2Avatar} className="avatar-medium" />, to get as many clues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
                 </p>
                 <p>
                     On the next page, you will see tabs that you can click on to revisit certain information. You can click on the same tab again to close it. Illustrated in this image here:

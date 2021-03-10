@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import InformationLine from '../../../general/information-line/InformationLine';
 import DiscussionInstructions from './subpage-elements/DiscussionInstructions';
-import Footer from '../../../general/footer/Footer';
 
 export default class DiscussionInstructionsPage extends Component {
     componentDidMount() {
@@ -58,9 +58,8 @@ export default class DiscussionInstructionsPage extends Component {
                     </div>
                 </div>
 
-                <div className="footer">
-                    <Footer game={game} player={player} stage={stage} />
-                </div>
+                <br />
+                <InformationLine game={game} player={player} stage={stage} />
             </div>
         )
     }

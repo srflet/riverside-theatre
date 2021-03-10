@@ -4,7 +4,7 @@ export default class PlayerStatus extends Component {
     render() {
         return (
             <div style={playerStatusContainer}>
-                <img src={this.props.player.get("avatar")} style={mediumImage} />
+                <img src={this.props.player.get("avatar")} className="avatar-medium" />
                 <span>{
                     this.props.player.stage.submitted
                         ? <img src="/img/validation/check.png" style={mediumImage} />

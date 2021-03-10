@@ -160,6 +160,12 @@ h3 {
   justify-content: center;
 }
 
+.justify-center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* --------
 - Buttons -
 --------- */
@@ -195,27 +201,24 @@ h3 {
 - Timer -
 ------- */
 
-.timer {
-  text-align: center;
-
+.seconds {
+  // Helvetica has tabular numbers (fixed width), which looks better
+  // for a timer, doesn't jump all over the place.
+  font-family: Helvetica, Arial, sans-serif;
+  color: green;
+  margin: 0;
+}
+&.lessThan10 {
   .seconds {
-    // Helvetica has tabular numbers (fixed width), which looks better
-    // for a timer, doesn't jump all over the place.
-    font-family: Helvetica, Arial, sans-serif;
-    color: green;
-    margin: 0;
-  }
-  &.lessThan10 {
-    .seconds {
-      color: orange;
-    }
-  }
-  &.lessThan5 {
-    .seconds {
-      color: red;
-    }
+    color: orange;
   }
 }
+&.lessThan5 {
+  .seconds {
+    color: red;
+  }
+}
+
 
 /* -------
 - Avatar -
@@ -224,6 +227,12 @@ h3 {
 .avatar-small {
   width: 2rem;
   height: 2rem;
+  margin: 0;
+}
+
+.avatar-medium {
+  width: 2.5rem;
+  height: 2.5rem;
   margin: 0;
 }
 
