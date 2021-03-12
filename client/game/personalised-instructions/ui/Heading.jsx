@@ -12,7 +12,7 @@ export default class Heading extends Component {
                     <MyProfile player={player} hideCheck={true} />
                     <Timer round={round} stage={stage} />
                     <div>
-                        <p><strong>Page:</strong></p>
+                        <p style={{ margin: "0" }}><strong>Page:</strong></p>
                         <p style={{ textAlign: "center" }}>{currentPage} / {max}</p>
                     </div>
                 </div>
