@@ -38,41 +38,36 @@ class PlayerTable extends Component {
         const currentPlayer = type === position
 
         return (
-            <table className="table-of-clues">
-                <thead>
-                    <tr>
-                        <th>
-                            {currentPlayer ? "Your clues" : <PlayerProfile position={position} type={type} {...this.props} />}
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {clues.map((clue, index) => {
-                        // Get the answer for this clue id
-                        const answer = cluesAnswered[clue.id] ?? ""
-                        // Calculate the number of rows based on the number of characters in the answer so that
-                        // the text area will grow automatically
-                        const size = answer !== "" ? Math.round((answer.length / 30) + 1) : 1
-                        return (
-                            <tr key={index}>
-                                <td>
-                                    <p>{clue.text1}</p>
-                                    <textarea
-                                        name={clue.id}
-                                        width="100%"
-                                        rows={size}
-                                        value={answer}
-                                        disabled={type === position}
-                                        autoComplete="off"
-                                        onChange={this.handleChange}
-                                    />
-                                    <p>{clue.text2}</p>
-                                </td>
-                            </tr>
-                        )
-                    })}
-                </tbody>
-            </table>
+            <div className="table-of-clues">
+                <div className="clues-header">
+                    {currentPlayer ? "Your clues" : <PlayerProfile position={position} type={type} {...this.props} />}
+                </div>
+
+
+                {clues.map((clue, index) => {
+                    // Get the answer for this clue id
+                    const answer = cluesAnswered[clue.id] ?? ""
+                    // Calculate the number of rows based on the number of characters in the answer so that
+                    // the text area will grow automatically
+                    const size = answer !== "" ? Math.round((answer.length / 50) + 1) : 1
+                    return (
+                        <div key={index} className="clues-row">
+                            <p className="justify-center">{clue.question}</p>
+                            <div className="justify-center">
+                                <textarea
+                                    name={clue.id}
+                                    width="100%"
+                                    rows={size}
+                                    value={answer}
+                                    disabled={currentPlayer}
+                                    autoComplete="off"
+                                    onChange={this.handleChange}
+                                />
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
         )
     }
 }

@@ -1,64 +1,66 @@
+// This is the new clue system
+
 export const clues = [
     {
         id: 0,
-        text1: "The guilty person was ",
-        fill: "driving a car",
-        text2: " (operating a specific type of vehicle)."
+        clue: "The guilty person was driving a car",
+        question: "What type of vehicle was the guilty person driving?",
+        response: "a car"
     },
 
     {
         id: 1,
-        text1: "During police inspection, the guilty person was discovered to have ",
-        fill: "140",
-        text2: " mg of alcohol per 100ml of blood (80mg of alcohol per 100ml of blood is the legal limit)."
+        clue: "During police inspection, the guilty person was discovered to have 140mg of alcohol per 100ml of blood",
+        question: "How many mg of alcohol per 100ml of blood did the guilty person have?",
+        response: "140"
     },
 
     {
         id: 2,
-        text1: "The guilty person admitted that he or she was NOT ",
-        fill: "attentive",
-        text2: " (info relevant to why the collision occurred) at the time of the collision."
+        clue: "The guilty person admitted NOT being attentive at the time of the collision",
+        question: "How attentive was the guilty person at the time of the collision?",
+        response: "not attentive"
     },
 
     {
         id: 3,
-        text1: "The guilty person is less than ",
-        fill: "30",
-        text2: " years old (age of the guilty person)."
+        clue: "The guilty person is less than 30 years old",
+        question: "The guilty person's age is below what age?",
+        response: "30"
     },
 
     {
         id: 4,
-        text1: "Due to  ",
-        fill: "inexperience",
-        text2: " (a personal reason as to why the collision occurred), the guilty person wasn’t able to avoid the collision."
+        clue: "Because of a lack of driving experience, the guilty person wasn't able to avoid the collision",
+        question: "Did the guilty person have much experience driving?",
+        response: "not much experience"
     },
 
     {
         id: 5,
-        text1: "The guilty person claims that approaching the intersection, he/she did not  ",
-        fill: "see others approaching the intersection",
-        text2: " (reason related to why the collision occurred)."
+        clue: "The guilty person reported not being able to see the others approaching the intersection",
+        question: "Was the guilty person able to see the others when approaching the intersection?",
+        response: "not able to see the others approaching"
     },
 
     {
         id: 6,
-        text1: "The guilty person is a ",
-        fill: "man",
-        text2: " (gender of the guilty person)."
+        clue: "The guilty person is a man",
+        question: "What is the guilty person's gender?",
+        response: "man"
     },
 
     {
         id: 7,
-        text1: "The guilty person's ",
-        fill: "father",
-        text2: " (a family member) is indirectly responsible for the accident."
+        clue: "The guilty person's father is indirectly responsible for the accident",
+        question: "Was a member of the guilty person's family indirectly responsible for the accident? If so, who?",
+        response: "father"
     },
 
     {
         id: 8,
-        text1: "The guilty person’s vehicle was travelling at the speed of ",
-        fill: "100",
-        text2: " mph."
+        clue: "The guilty person's vehicle was travelling at the speed of 100mph",
+        question: "At what speed was the guilty person's vehicle travelling?",
+        response: "100mph"
     },
 ];

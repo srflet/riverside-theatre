@@ -9,7 +9,7 @@ export default class PersonalClues extends Component {
         return (
             <div className="game-clues">
                 <ol>
-                    {clues.map(clue => <li key={clue.id}>{clue.text1 + clue.fill + clue.text2}</li>)}
+                    {clues.map(clue => <li key={clue.id}>{clue.clue}</li>)}
                 </ol>
             </div>
         )

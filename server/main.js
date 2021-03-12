@@ -69,7 +69,7 @@ Empirica.gameInit(game => {
 		// Prepare the clues the the player has answered
 		// Get the official fill of each clue that this player already know based on their type (A, B, C)
 		let cluesAnswered = {}
-		player.get("myClues").forEach(clueId => cluesAnswered[clueId] = clues[clueId].fill)
+		player.get("myClues").forEach(clueId => cluesAnswered[clueId] = clues[clueId].response)
 		player.set("clues-answered", cluesAnswered)
 
 		// Set whodunit order
