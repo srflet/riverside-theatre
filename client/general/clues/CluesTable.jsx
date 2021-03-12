@@ -5,11 +5,18 @@ import Competitor from '../tips-n-messages/Competitor'
 
 export default class CluesTable extends Component {
     render() {
+        const { player } = this.props
+        const type = player.get("type")
+
+        let positions = ["A", "B", "C"]
+        positions.splice(positions.indexOf(type), 1)
+        positions.unshift(type)
+
         return (
             <div className="tables-holder">
-                <PlayerTable position={"A"} {...this.props} />
-                <PlayerTable position={"B"} {...this.props} />
-                <PlayerTable position={"C"} {...this.props} />
+                {positions.map((position, index) => {
+                    return <PlayerTable key={index} position={position} {...this.props} />
+                })}
             </div>
         )
     }
