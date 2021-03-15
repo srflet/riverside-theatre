@@ -18,7 +18,7 @@ export const clues = [
     {
         id: 2,
         clue: "The guilty person admitted NOT being attentive at the time of the collision",
-        question: "How attentive was the guilty person at the time of the collision?",
+        question: "In what cognitive state was the guilty person at the time of the collision?",
         response: "not attentive"
     },
 
@@ -31,16 +31,16 @@ export const clues = [
 
     {
         id: 4,
-        clue: "Because of a lack of driving experience, the guilty person wasn't able to avoid the collision",
-        question: "Did the guilty person have much experience driving?",
-        response: "not much experience"
+        clue: "The guilty person wasn't able to avoid the collision due to having less than 2 years of driving experience",
+        question: "How many years of driving experience did the guilty person have?",
+        response: "less than 2 years"
     },
 
     {
         id: 5,
-        clue: "The guilty person reported not being able to see the others approaching the intersection",
-        question: "Was the guilty person able to see the others when approaching the intersection?",
-        response: "not able to see the others approaching"
+        clue: "Out of the four vehicles involved in the collision, the guilty admitted to the police only being able to see two of them",
+        question: "How many vehicles was the guilty person able to see at the time of the collision?",
+        response: "two"
     },
 
     {
