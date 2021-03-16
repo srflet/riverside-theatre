@@ -73,7 +73,12 @@ Empirica.gameInit(game => {
 		player.set("clues-answered", cluesAnswered)
 
 		// Set whodunit order
-		let whodunitOrder = ["Mr. Smith", "Mr. Smith's son", "Mrs. Davis", "Mr. Anderson"];
+		let whodunitOrder = [
+			{ text: "Mr. Smith", name: "Smith" },
+			{ text: "Mr. Smith's son", name: "son" },
+			{ text: "Mrs. Davis", name: "Davis" },
+			{ text: "Mr. Anderson", name: "Anderson" }
+		];
 		whodunitOrder = shuffle(whodunitOrder);
 		player.set("whodunit-order", whodunitOrder);
 

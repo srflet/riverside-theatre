@@ -64,6 +64,7 @@ h3 {
   button:disabled {
     background-color: #b1c3d0;
     color: #394B59;
+    cursor: initial;
   }
 }
 
@@ -336,4 +337,52 @@ h3 {
 
   padding: 20px;
   border-radius: 7px;
+}
+
+/* ----------------
+- Whodunit design -
+----------------- */
+
+// Take out the arrows of number input
+.whodunit-input {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  text-align: center;
+  width: 50px;
+}
+
+.whodunit-list-item {
+  display: flex;
+  margin-top: 10px;
+}
+
+.whodunit-total {
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.whodunit-red {
+background-color: lightcoral;
+}
+
+.whodunit-green {
+background-color: lightgreen;
+}
+
+.whodunit-instructions-1 {
+  font-weight: 700;
+}
+
+.whodunit-instructions-2 {
+  color: rgb(150, 150, 150);
+}
+
+.whodunit-thankyou {
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: lightgray;
+  width: 80%;
 }
