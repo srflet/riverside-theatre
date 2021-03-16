@@ -24,7 +24,7 @@ export default class ComNComp extends Component {
 
         return (
             <div className="com-n-comp">
-                <h3>Competition and Communication</h3>
+                <h3>Incentives</h3>
                 <p>
                     Now you should know that your firm is currently competing with Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />’s firm on another large contract in Chicago{conditionForCompWithPlayer2 && <> and competing with Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />’s firm on another large contract in Boston</>}. Your boss has informed you that if you outperform Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /> {conditionForCompWithPlayer2 && <>and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} in this game, your firm has a high chance of winning {conditionForCompWithPlayer2 ? "those contracts" : "this contract"}.
                 </p>
@@ -44,7 +44,7 @@ export default class ComNComp extends Component {
                     Below is a graphic representation of the competitive relationship between you and the other two players:
                 </p>
 
-                <div style={{ textAlign: "center" }}>
+                <div className="justify-center">
                     <ComStructShape {...this.props} />
                 </div>
 

@@ -54,17 +54,9 @@ export default class Page extends Component {
             )
         } else if (currentPage === 9) {
             return (
-                <PresComStruct {...this.props} />
-            )
-        } else if (currentPage === 10) {
-            return (
-                <TestComStruct {...this.props} />
-            )
-        } else if (currentPage === 11) {
-            return (
                 <ClueHints {...this.props} />
             )
-        } else if (currentPage === 12) {
+        } else if (currentPage === 10) {
             return (
                 <DiscussionInstructionsPage {...this.props} />
             )

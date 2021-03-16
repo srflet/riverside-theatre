@@ -7,7 +7,7 @@ import Heading from './ui/Heading';
 export default class PersonalisedInstructions extends Component {
     state = {
         min: 1,
-        max: 12,
+        max: 10,
         pageDbIndex: "personalisedDiscussionPage"
     }
 

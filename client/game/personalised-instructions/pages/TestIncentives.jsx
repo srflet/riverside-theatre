@@ -37,26 +37,39 @@ export default class TestIncentives extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const { player, game } = this.props;
+        const { incentives1 } = this.state;
+        const type = player.get("type")
 
-        let incentives1Condition =
-            (this.state.incentives1 === "correct answer for player A and competition" && player.get("type") === "A" && game.treatment.competition === "comp") ||
-            (this.state.incentives1 === "correct answer for player B and competition" && player.get("type") === "B" && game.treatment.competition === "comp") ||
-            (this.state.incentives1 === "correct answer for no competition or player C" && (player.get("type") === "C" || game.treatment.competition === "noncomp"));
+        const types = ["A", "B", "C"]
+        types.splice(types.indexOf(type), 1)
 
-        if (incentives1Condition) {
-            let understanding2 = player.get("understanding2");
-            if (typeof understanding2 === "undefined") {
-                player.set("understanding2", 0);
-            }
+        const competition = JSON.parse(game.treatment.competition)
+
+        const conditionForCompWithPlayer1 = competition.filter(condition => {
+            return condition.split("v").includes(type) && condition.split("v").includes(types[0])
+        }).length === 1
+
+        const conditionForCompWithPlayer2 = competition.filter(condition => {
+            return condition.split("v").includes(type) && condition.split("v").includes(types[1])
+        }).length === 1
+
+        const correctAnswer = conditionForCompWithPlayer1 && conditionForCompWithPlayer2 ? "both"
+            : conditionForCompWithPlayer1 ? "otherPlayer1"
+                : conditionForCompWithPlayer2 ? "otherPlayer2"
+                    : "none"
+
+
+        if (incentives1 === correctAnswer) {
+            let understanding = player.get("understanding-incentive") ?? 0;
+            player.set("understanding-incentive", understanding);
             this.next();
+        } else if (incentives1 === "") {
+            alert("Please select an answer")
         } else {
             alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
-            let understanding2 = player.get("understanding2");
-            if (typeof understanding2 === "undefined") {
-                player.set("understanding2", 1);
-            } else if (understanding2 !== 0) {
-                player.set("understanding2", understanding2 + 1);
-            }
+            let understanding = player.get("understanding-incentive") ?? 0;
+            understanding++
+            player.set("understanding-incentive", understanding);
         }
     };
 
@@ -77,45 +90,55 @@ export default class TestIncentives extends Component {
                     <br />
                     <div>
                         <p>In this game, I am in direct competition with:</p>
-                        <input
-                            type="radio"
-                            name="incentives1"
-                            value="correct answer for player A and competition"
-                            checked={incentives1 === "correct answer for player A and competition"}
-                            onChange={this.handleChange}
-                        />
-                        <span>Player {player1Initials} <img src={player1Avatar} className="avatar-medium" /></span>
 
-                        <br />
+                        <div className="radio-list">
+                            <input
+                                type="radio"
+                                name="incentives1"
+                                value="otherPlayer1"
+                                checked={incentives1 === "otherPlayer1"}
+                                onChange={this.handleChange}
+                            />
+                            <span>Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /></span>
+                            <br />
+                        </div>
 
-                        <input
-                            type="radio"
-                            name="incentives1"
-                            value="correct answer for player B and competition"
-                            checked={incentives1 === "correct answer for player B and competition"}
-                            onChange={this.handleChange}
-                        />
-                        <span>Player {player2Initials} <img src={player2Avatar} className="avatar-medium" /></span>
-                        <br />
+                        <div className="radio-list">
+                            <input
+                                type="radio"
+                                name="incentives1"
+                                value="otherPlayer2"
+                                checked={incentives1 === "otherPlayer2"}
+                                onChange={this.handleChange}
+                            />
+                            <span>Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></span>
+                            <br />
+                        </div>
 
-                        <input
-                            type="radio"
-                            name="incentives1"
-                            value="incorrect answer"
-                            checked={incentives1 === "incorrect answer"}
-                            onChange={this.handleChange}
-                        />
-                        <span>Both</span>
-                        <br />
+                        <div className="radio-list">
+                            <input
+                                type="radio"
+                                name="incentives1"
+                                value="both"
+                                checked={incentives1 === "both"}
+                                onChange={this.handleChange}
+                            />
+                            <span>Both</span>
+                            <br />
+                        </div>
 
-                        <input
-                            type="radio"
-                            name="incentives1"
-                            value="correct answer for no competition or player C"
-                            checked={incentives1 === "correct answer for no competition or player C"}
-                            onChange={this.handleChange}
-                        />
-                        <span>No one: there is no competition</span>
+                        <div className="radio-list">
+                            <input
+                                type="radio"
+                                name="incentives1"
+                                value="none"
+                                checked={incentives1 === "none"}
+                                onChange={this.handleChange}
+                            />
+                            <span>No one</span>
+                            <br />
+                        </div>
+
                     </div>
 
                     <p className="button-holder">
@@ -123,7 +146,7 @@ export default class TestIncentives extends Component {
                             Previous
                         </button>
                         &emsp;
-                        <button type="button" onClick={this.next}>
+                        <button type="button" onClick={this.handleSubmit}>
                             Submit Answer
                         </button>
                     </p>
@@ -132,11 +155,3 @@ export default class TestIncentives extends Component {
         )
     }
 }
-
-//Style variables
-const mediumImage = {
-    width: "2.5rem",
-    height: "2.5rem",
-    margin: "0",
-    verticalAlign: "top"
-};

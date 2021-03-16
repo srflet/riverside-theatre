@@ -3,7 +3,7 @@ import { returnPlayerInitials, returnPlayerAvatar } from '../helper-functions/re
 
 export default class ComStructShape extends Component {
     render() {
-        const { game, player } = this.props
+        const { game, player, showCompetition = true } = this.props
 
         const myType = player.get("type")
         const structureProperties = {
@@ -54,27 +54,7 @@ export default class ComStructShape extends Component {
                         <line x1="50" y1="150" x2="250" y2="150" stroke="black" />
                     }
 
-                    {/* Competition between A and B */}
-                    {((myType === "A" || myType === "B") && competition.includes("AvB")) &&
-                        <>
-                            <polyline points="145,55 140,55 50,140 50,145" style={{ fill: "none", stroke: "red" }} />
-                            <text x="50" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
-                        </>
-                    }
-                    {/* Competition between A and C */}
-                    {((myType === "A" || myType === "C") && competition.includes("AvC")) &&
-                        <>
-                            <polyline points="155,55 160,55 250,140 250,145" style={{ fill: "none", stroke: "red" }} />
-                            <text x="250" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
-                        </>
-                    }
-                    {/* Competition between B and C */}
-                    {((myType === "B" || myType === "C") && competition.includes("BvC")) &&
-                        <>
-                            <polyline points="50,155 50,160 250,160 250,155" style={{ fill: "none", stroke: "red" }} />
-                            <text x="150" y="180" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
-                        </>
-                    }
+                    {showCompetition && <CompetitionLinks myType={myType} competition={competition} />}
 
                 </svg>
 
@@ -82,3 +62,37 @@ export default class ComStructShape extends Component {
         )
     }
 }
+
+
+class CompetitionLinks extends Component {
+    render() {
+        const { myType, competition } = this.props
+
+        return (
+            <>
+                {/* Competition between A and B */}
+                {((myType === "A" || myType === "B") && competition.includes("AvB")) &&
+                    <>
+                        <polyline points="145,55 140,55 50,140 50,145" style={{ fill: "none", stroke: "red" }} />
+                        <text x="50" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
+                    </>
+                }
+                {/* Competition between A and C */}
+                {((myType === "A" || myType === "C") && competition.includes("AvC")) &&
+                    <>
+                        <polyline points="155,55 160,55 250,140 250,145" style={{ fill: "none", stroke: "red" }} />
+                        <text x="250" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
+                    </>
+                }
+                {/* Competition between B and C */}
+                {((myType === "B" || myType === "C") && competition.includes("BvC")) &&
+                    <>
+                        <polyline points="50,155 50,160 250,160 250,155" style={{ fill: "none", stroke: "red" }} />
+                        <text x="150" y="180" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
+                    </>
+                }
+            </>
+        )
+    }
+}
+

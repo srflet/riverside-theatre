@@ -23,12 +23,13 @@ export default class Quiz extends React.Component {
 
 			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are available to all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
 
-			let understanding1 = player.get("understanding1") ?? 0;
-			player.set("understanding1", understanding1 + 1);
+			let understanding = player.get("understanding-intro") ?? 0;
+			understanding++
+			player.set("understanding-intro", understanding);
 
 		} else {
-			let understanding1 = player.get("understanding1") ?? 0;
-			player.set("understanding1", understanding1);
+			let understanding = player.get("understanding-intro") ?? 0;
+			player.set("understanding-intro", understanding);
 
 			this.props.onNext();
 		}
