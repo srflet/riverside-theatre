@@ -14,25 +14,28 @@ export default class Quiz extends React.Component {
 	handleSubmit = event => {
 		event.preventDefault();
 
-		if (this.state.answer !== "right") {
+		const { player } = this.props
+		const { answer } = this.state
+
+		if (answer === "") {
+			alert("Please select an answer!")
+		} else if (answer !== "right") {
+
 			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are available to all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
-			let understanding1 = this.props.player.get("understanding1");
-			if (typeof understanding1 === "undefined") {
-				this.props.player.set("understanding1", 1);
-			} else {
-				this.props.player.set("understanding1", understanding1 + 1);
-			}
+
+			let understanding1 = player.get("understanding1") ?? 0;
+			player.set("understanding1", understanding1 + 1);
+
 		} else {
-			let understanding1 = this.props.player.get("understanding1");
-			if (typeof understanding1 === "undefined") {
-				this.props.player.set("understanding1", 0);
-			}
+			let understanding1 = player.get("understanding1") ?? 0;
+			player.set("understanding1", understanding1);
+
 			this.props.onNext();
 		}
 	};
 
 	render() {
-		const { hasPrev, hasNext, onNext, onPrev } = this.props;
+		const { hasPrev, onPrev } = this.props;
 		const { answer } = this.state;
 
 		return (
@@ -40,42 +43,48 @@ export default class Quiz extends React.Component {
 				<Centered>
 					<div className="quiz">
 						<h2> Just to check your understanding... </h2>
-						<p>
-							What type of clues will be available to you?
-					</p>
+						<p>What type of clues will be available to you?</p>
+
 						<form onSubmit={this.handleSubmit}>
-							<input
-								type="radio"
-								name="comprehensionCheck1"
-								value="wrong1"
-								onChange={this.handleChange}
-								checked={answer === "wrong1"}
-								required
-							/>
-							<span>Clues from the police investigation that are available to all three players</span>
-							<br />
 
-							<input
-								type="radio"
-								name="comprehensionCheck1"
-								value="wrong2"
-								onChange={this.handleChange}
-								checked={answer === "wrong2"}
-								required
-							/>
-							<span>Clues from your own independent investigations that are unique to yourself</span>
-							<br />
+							<div style={{ margin: "5px 0" }}>
+								<input
+									type="radio"
+									name="comprehensionCheck1"
+									value="wrong1"
+									onChange={this.handleChange}
+									checked={answer === "wrong1"}
+									style={{ transform: "scale(1.5)" }}
+								/>
+								<span style={{ margin: "0 10px" }}>Clues from the police investigation that are available to all three players</span>
+								<br />
+							</div>
 
-							<input
-								type="radio"
-								name="comprehensionCheck1"
-								value="right"
-								onChange={this.handleChange}
-								checked={answer === "right"}
-								required
-							/>
-							<span>Both</span>
-							<br />
+							<div style={{ margin: "5px 0" }}>
+								<input
+									type="radio"
+									name="comprehensionCheck1"
+									value="wrong2"
+									onChange={this.handleChange}
+									checked={answer === "wrong2"}
+									style={{ transform: "scale(1.5)" }}
+								/>
+								<span style={{ margin: "0 10px" }}>Clues from your own independent investigations that are unique to yourself</span>
+								<br />
+							</div>
+
+							<div style={{ margin: "5px 0" }}>
+								<input
+									type="radio"
+									name="comprehensionCheck1"
+									value="right"
+									onChange={this.handleChange}
+									checked={answer === "right"}
+									style={{ transform: "scale(1.5)" }}
+								/>
+								<span style={{ margin: "0 10px" }}>Both</span>
+								<br />
+							</div>
 
 							<p className="button-holder">
 								<button type="button" onClick={onPrev} disabled={!hasPrev}>
@@ -84,6 +93,7 @@ export default class Quiz extends React.Component {
 							  	&emsp;
 								<button type="submit">Submit and be connected to the other two players</button>
 							</p>
+
 						</form>
 					</div>
 				</Centered>
