@@ -10,9 +10,9 @@ export const clues = [
 
     {
         id: 1,
-        clue: "During police inspection, the guilty person was discovered to have 140mg of alcohol per 100ml of blood",
-        question: "How many mg of alcohol per 100ml of blood did the guilty person have?",
-        response: "140"
+        clue: "During police inspection, the guilty person was discovered to have 0.15% level of blood alcohol content (0.08% is the legal “allowance” hence this is almost double the legal allowance)",
+        question: "What % level of blood alcohol content did the guilty person have?",
+        response: "0.15%"
     },
 
     {
@@ -59,8 +59,8 @@ export const clues = [
 
     {
         id: 8,
-        clue: "The guilty person's vehicle was travelling at the speed of 100mph",
+        clue: "The guilty person's vehicle was travelling at the speed of 100 mph",
         question: "At what speed was the guilty person's vehicle travelling?",
-        response: "100mph"
+        response: "100 mph"
     },
 ];
