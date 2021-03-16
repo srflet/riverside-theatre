@@ -50,7 +50,6 @@ class PlayerTable extends Component {
                     {currentPlayer ? "Your clues" : <PlayerProfile position={position} type={type} {...this.props} />}
                 </div>
 
-
                 {clues.map((clue, index) => {
                     // Get the answer for this clue id
                     const answer = cluesAnswered[clue.id] ?? ""

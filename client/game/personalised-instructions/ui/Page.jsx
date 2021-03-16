@@ -13,6 +13,7 @@ import ClueHints from '../pages/ClueHints';
 import DiscussionInstructionsPage from '../pages/DiscussionInstructionsPage';
 import PoliceInformation from '../pages/PoliceInformation';
 import SummaryClues from '../pages/SummaryClues';
+import ComNComp from '../pages/ComNComp';
 
 export default class Page extends Component {
     render() {
@@ -45,7 +46,7 @@ export default class Page extends Component {
             )
         } else if (currentPage === 7) {
             return (
-                <Incentives {...this.props} />
+                <ComNComp {...this.props} />
             )
         } else if (currentPage === 8) {
             return (

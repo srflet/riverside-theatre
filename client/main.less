@@ -1,9 +1,32 @@
+/* --------
+- General -
+--------- */
 
-/* Styling the clues in the communication structure */
-.communicationClues {
+* {
+  font-family: Calibri, Arial, sans-serif;
+}
+
+p, span, div {
+  font-size: 14pt;
+}
+
+h2 {
+  font-size: 20pt;
+}
+
+h3 {
+  font-size: 18pt;
+}
+
+.justify-center {
   display: flex;
   justify-content: center;
-  font-size: 1.2rem;
+}
+
+.justify-center-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Image styling */
@@ -13,7 +36,200 @@
   margin-right: auto;
 }
 
-/* Styling presentation of information for the discussion */
+/* --------
+- Buttons -
+--------- */
+
+/* My button styling */
+
+.button-holder{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+	button {
+    cursor: pointer;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid #394B59;
+    background-color: #394B59;
+    color: white;
+	}
+  
+  button:hover {
+    background-color: #5f839e;
+    color: white;
+  }
+
+  button:disabled {
+    background-color: #b1c3d0;
+    color: #394B59;
+  }
+}
+
+/* -----------
+- Radio List -
+------------ */
+
+.radio-list {
+  margin: 5px 0 5px 10px;
+
+  span {
+    margin: 0 10px;
+  }
+
+  input[type=radio] {
+    transform: scale(1.5)
+  }
+}
+
+/* ------
+- Timer -
+------- */
+
+.seconds {
+  // Helvetica has tabular numbers (fixed width), which looks better
+  // for a timer, doesn't jump all over the place.
+  font-family: Helvetica, Arial, sans-serif;
+  color: green;
+  margin: 0;
+}
+&.lessThan10 {
+  .seconds {
+    color: orange;
+  }
+}
+&.lessThan5 {
+  .seconds {
+    color: red;
+  }
+}
+
+
+/* -------
+- Avatar -
+-------- */
+
+.avatar-small {
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
+}
+
+.avatar-medium {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+}
+
+.avatar-medium-textaligned {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  vertical-align: text-top
+}
+
+/* --------------------------
+- Com and Comp page styling -
+--------------------------- */
+
+.com-n-comp {
+  p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+}
+
+/* ------------
+- Clues Table -
+------------- */
+
+.tables-holder {
+  display: flex;
+}
+
+.table-of-clues {
+  border-collapse: collapse;
+  width: 33.33%;
+}
+
+.clues-header {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 1.5px solid black;
+  background-color: #394B59;
+  color: white;
+  
+  height: 75px;
+
+  font-size: 12pt;
+
+}
+
+
+.clues-row {
+  padding: 1.5rem;
+  border: 1px solid #394B59;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  height: 150px;
+
+  * {
+    width: 100%;
+    font-size: 12pt;
+  }
+  
+  p {
+    margin: 0 0 10px 0;
+  }
+}
+
+/* ----------------
+- Discussion Tabs -
+----------------- */
+
+.header-tab-holder{
+  display: flex;
+  border: 1.5px solid #394B59;
+}
+
+.tab {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 15pt;
+
+  background-color: #394B59;
+  color: white;
+
+  padding: 0.8rem 1.2rem;
+  border: 1px solid white;
+  margin: 0;
+
+  width: 100%;
+
+  &:hover{
+    background-color: #5f839e;
+    cursor: pointer;
+  }
+}
+
+.tab-content {
+  border: 1.5px solid #394B59;
+  border-top: none;
+  padding: 10px;
+}
+
+/* -------------
+- Chat styling -
+-------------- */
 
 /* Chat styling */
 .messageSubmit {
@@ -72,12 +288,10 @@
 
 }
 
-/* select */
-select {
-  width: 300px;
-}
 
-/* Game design boxes */
+/* ------------------
+- Game design boxes -
+------------------- */
 
 /* Game tip*/
 .game-tip {
@@ -122,226 +336,4 @@ select {
 
   padding: 20px;
   border-radius: 7px;
-}
-
-/*Fixing spacing in incentives */
-.incentives {
-  p {
-    margin: 15px 0px;
-  }
-}
-
-/* ----------------------------------------------------------------------------
--                               New Styling                                   -
------------------------------------------------------------------------------ */
-
-/* --------
-- General -
---------- */
-
-* {
-  font-family: Calibri, Arial, sans-serif;
-}
-
-p, span, div {
-  font-size: 14pt;
-}
-
-h2 {
-  font-size: 20pt;
-}
-
-h3 {
-  font-size: 18pt;
-}
-
-.justify-center {
-  display: flex;
-  justify-content: center;
-}
-
-.justify-center-middle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* --------
-- Buttons -
---------- */
-
-/* My button styling */
-
-.button-holder{
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-
-	button {
-    cursor: pointer;
-    padding: 0.8rem 1.2rem;
-    border-radius: 1rem;
-    border: 1px solid #394B59;
-    background-color: #394B59;
-    color: white;
-	}
-  
-  button:hover {
-    background-color: #5f839e;
-    color: white;
-  }
-
-  button:disabled {
-    background-color: #b1c3d0;
-    color: #394B59;
-  }
-}
-
-/* ------
-- Timer -
-------- */
-
-.seconds {
-  // Helvetica has tabular numbers (fixed width), which looks better
-  // for a timer, doesn't jump all over the place.
-  font-family: Helvetica, Arial, sans-serif;
-  color: green;
-  margin: 0;
-}
-&.lessThan10 {
-  .seconds {
-    color: orange;
-  }
-}
-&.lessThan5 {
-  .seconds {
-    color: red;
-  }
-}
-
-
-/* -------
-- Avatar -
--------- */
-
-.avatar-small {
-  width: 2rem;
-  height: 2rem;
-  margin: 0;
-}
-
-.avatar-medium {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0;
-}
-
-/* ------------
-- Clues Table -
-------------- */
-
-.tables-holder {
-  display: flex;
-}
-
-.table-of-clues {
-  border-collapse: collapse;
-  width: 33.33%;
-  display: flex;
-  flex-direction: column;
-}
-
-.clues-header {
-  padding: 0.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border: 1.5px solid black;
-  background-color: #394B59;
-  color: white;
-  
-  height: 75px;
-
-  font-size: 12pt;
-
-}
-
-.clues-row {
-  padding: 1.5rem;
-  border: 1px solid #394B59;
-  flex-basis: 150px;
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  * {
-    width: 100%;
-    font-size: 12pt;
-  }
-  
-
-  p {
-    margin: 0 0 10px 0;
-  }
-}
-  
-
-  // th, td {
-  //   padding: 0.5rem;
-  // }
-
-  // td {
-  //   border: 1.5px solid #394B59;
-  //   flex-grow: 1;
-  // }
-
-  // th {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-
-  //   border: 1.5px solid black;
-  //   background-color: #394B59;
-  //   color: white;
-
-  //   height: 50px;
-  // }
-
-/* ----------------
-- Discussion Tabs -
------------------ */
-
-.header-tab-holder{
-  display: flex;
-  border: 1.5px solid #394B59;
-}
-
-.tab {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  font-size: 15pt;
-
-  background-color: #394B59;
-  color: white;
-
-  padding: 0.8rem 1.2rem;
-  border: 1px solid white;
-  margin: 0;
-
-  width: 100%;
-
-  &:hover{
-    background-color: #5f839e;
-    cursor: pointer;
-  }
-}
-
-.tab-content {
-  border: 1.5px solid #394B59;
-  border-top: none;
-  padding: 10px;
 }

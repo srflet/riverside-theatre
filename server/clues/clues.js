@@ -25,8 +25,8 @@ export const clues = [
     {
         id: 3,
         clue: "The guilty person is less than 30 years old",
-        question: "The guilty person's age is below what age?",
-        response: "30"
+        question: "What is the guilty person's age?",
+        response: "Less than 30"
     },
 
     {

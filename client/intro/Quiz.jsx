@@ -47,42 +47,39 @@ export default class Quiz extends React.Component {
 
 						<form onSubmit={this.handleSubmit}>
 
-							<div style={{ margin: "5px 0" }}>
+							<div className="radio-list">
 								<input
 									type="radio"
 									name="comprehensionCheck1"
 									value="wrong1"
 									onChange={this.handleChange}
 									checked={answer === "wrong1"}
-									style={{ transform: "scale(1.5)" }}
 								/>
-								<span style={{ margin: "0 10px" }}>Clues from the police investigation that are available to all three players</span>
+								<span>Clues from the police investigation that are available to all three players</span>
 								<br />
 							</div>
 
-							<div style={{ margin: "5px 0" }}>
+							<div className="radio-list">
 								<input
 									type="radio"
 									name="comprehensionCheck1"
 									value="wrong2"
 									onChange={this.handleChange}
 									checked={answer === "wrong2"}
-									style={{ transform: "scale(1.5)" }}
 								/>
-								<span style={{ margin: "0 10px" }}>Clues from your own independent investigations that are unique to yourself</span>
+								<span>Clues from your own independent investigations that are unique to yourself</span>
 								<br />
 							</div>
 
-							<div style={{ margin: "5px 0" }}>
+							<div className="radio-list">
 								<input
 									type="radio"
 									name="comprehensionCheck1"
 									value="right"
 									onChange={this.handleChange}
 									checked={answer === "right"}
-									style={{ transform: "scale(1.5)" }}
 								/>
-								<span style={{ margin: "0 10px" }}>Both</span>
+								<span>Both</span>
 								<br />
 							</div>
 

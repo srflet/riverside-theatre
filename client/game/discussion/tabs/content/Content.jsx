@@ -23,25 +23,11 @@ export default class Content extends Component {
                     <CluesTable {...this.props} />
                 </div>
             )
-        } else if (activeTab === "instructions") {
-            return (
-                <div className="tab-content">
-                    <h3 className="justify-center">Instructions Reminder</h3>
-                    <DiscussionInstructions player={player} round={round} game={game} />
-                </div>
-            )
         } else if (activeTab === "police") {
             return (
                 <div className="tab-content">
                     <h3 className="justify-center">Police Clues</h3>
                     <PoliceClues />
-                </div>
-            )
-        } else if (activeTab === "comStruct") {
-            return (
-                <div className="tab-content">
-                    <h3 className="justify-center">Communication Structure</h3>
-                    <PresComStructText game={game} player={player} isDiscussion={true} />
                 </div>
             )
         } else if (activeTab === "earlySub") {

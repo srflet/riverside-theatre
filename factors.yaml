@@ -19,10 +19,20 @@ treatments:
       - ewf9BQhnfSpMkafDJ
       - WhEBAJWL2Enqnoc52
       - 5TXhgjZ3SWFPAidyX
+  - name: Comm Close and Comp Brok
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - ji8HtEJiwebYudc7i
+      - 5TXhgjZ3SWFPAidyX
+  - name: Comm Close and Comp Close
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - qYPPf4tKuvSGunhmw
+      - 5TXhgjZ3SWFPAidyX
 factorTypes:
-  - _id: PCw5RWBz2yThcQEEM
+  - _id: KzwN9sqPtkqPGY3mm
     name: playerCount
-    description: The number of players participating in the given game.
+    description: The Number of players participating in the given game.
     required: true
     type: Integer
     min: 1
@@ -40,7 +50,7 @@ factors:
   - _id: ewf9BQhnfSpMkafDJ
     name: three
     value: 3
-    factorTypeId: PCw5RWBz2yThcQEEM
+    factorTypeId: KzwN9sqPtkqPGY3mm
   - _id: WhEBAJWL2Enqnoc52
     name: nocompetition
     value: '[]'
@@ -57,14 +67,15 @@ factors:
     name: Abroker
     value: '["AcB", "AcC"]'
     factorTypeId: CyAgaFRai5LgckWJE
+  - _id: qYPPf4tKuvSGunhmw
+    name: AvBvC
+    value: '["AvB", "AvC", "BvC"]'
+    factorTypeId: QE3QuJLRvtcsRrA28
+  - _id: ji8HtEJiwebYudc7i
+    name: AvB_and_AvC
+    value: '["AvB", "AvC"]'
+    factorTypeId: QE3QuJLRvtcsRrA28
 lobbyConfigs:
-  - name: test_lobby
-    timeoutType: individual
-    timeoutInSeconds: 300
-    timeoutStrategy: fail
-    extendCount: 1
-    gameLobbyIds: []
-    archivedAt: 2020-11-02T08:14:30.573Z
   - name: myLobby
     timeoutType: individual
     timeoutInSeconds: 500

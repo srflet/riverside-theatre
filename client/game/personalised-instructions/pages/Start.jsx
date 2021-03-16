@@ -19,9 +19,9 @@ export default class Start extends Component {
                 <div className="game-instructions">
                     <div style={{ textAlign: "center" }}>
                         <span>You will have <strong>15 minutes</strong> to read clues, make your own verdict, and read about discussion rules before entering a discussion with player {player1Initials}</span>
-                        <img src={player1Avatar} className="avatar-medium" />
+                        <img src={player1Avatar} className="avatar-medium-textaligned" />
                         <span>and player {player2Initials}</span>
-                        <img src={player2Avatar} className="avatar-medium" />
+                        <img src={player2Avatar} className="avatar-medium-textaligned" />
                     </div>
                 </div>
                 <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
