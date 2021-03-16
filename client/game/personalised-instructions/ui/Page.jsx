@@ -4,11 +4,8 @@ import React, { Component } from 'react';
 import Start from '../pages/Start';
 import IndependentInvestigation from '../pages/IndependentInvestigation';
 import IntroDiscussion from '../pages/IntroDiscussion';
-import Incentives from '../pages/Incentives'
-import PresComStruct from '../pages/PresComStruct';
 import InitialWhodunit from '../pages/InitialWhodunit';
 import TestIncentives from '../pages/TestIncentives';
-import TestComStruct from '../pages/TestComStruct';
 import ClueHints from '../pages/ClueHints';
 import DiscussionInstructionsPage from '../pages/DiscussionInstructionsPage';
 import PoliceInformation from '../pages/PoliceInformation';

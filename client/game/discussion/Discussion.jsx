@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
-
-// Importing tabs
-import Tabs from './tabs/Tabs';
-
-// Import information line
 import InformationLine from '../../general/information-line/InformationLine';
-
-// Importing elements for chat
+import Tabs from './tabs/Tabs';
 import Chat from './chats/Chat';
-
-// Importing clues tracker
-import CluesCheckGameTip from '../../general/tips-n-messages/CluesCheckGameTip';
-import PresComStructTip from '../personalised-instructions/pages/subpage-elements/PresComStructTip';
-
 
 export default class Discussion extends Component {
     render() {
@@ -23,15 +12,20 @@ export default class Discussion extends Component {
             <div>
                 <InformationLine {...this.props} />
                 <br />
+
                 <p>
                     On this page you will find tabs to revisit important game information, and at the bottom of the page, you will find chat boxes to send messages to the other players (according to the communication structure shown to you).
                 </p>
+
                 <Tabs {...this.props} />
                 <br />
+
                 <div>
-                    <CluesCheckGameTip />
-                    <br />
-                    <PresComStructTip />
+                    <div className="game-tip">
+                        <span>
+                            <strong><u>Game tip:</u></strong> Look at your position on the communication diagram, and think about how you might use your position to gain information. <strong>For example, try not to just ask for clues, but also consider “trading” clues with others.</strong>
+                        </span>
+                    </div>
 
                     <div style={chatHolder}>
                         {

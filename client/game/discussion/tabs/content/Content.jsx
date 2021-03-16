@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
 import CluesTable from '../../../../general/clues/CluesTable';
 import PoliceClues from '../../../../general/clues/PoliceClues';
-import CluesCheckGameInstructions from '../../../../general/tips-n-messages/CluesCheckGameInstructions';
-import DiscussionInstructions from '../../../personalised-instructions/pages/subpage-elements/DiscussionInstructions';
-import PresComStructText from '../../../personalised-instructions/pages/subpage-elements/PresComStructText';
+import CluesTableGameInstructions from '../../../../general/tips-n-messages/CluesTableGameInstructions';
 import EarlySubmission from './early-submission/EarlySubmission';
 
 export default class Content extends Component {
     render() {
-        const { tabsStatus, game, round, player, stage } = this.props;
+        const { tabsStatus, round, player, stage } = this.props;
 
         //Get the tab status that is true
         const activeTab = Object.keys(tabsStatus).filter(tab => {
@@ -18,7 +16,7 @@ export default class Content extends Component {
         if (activeTab === "cluesTable") {
             return (
                 <div className="tab-content" >
-                    <CluesCheckGameInstructions />
+                    <CluesTableGameInstructions />
                     <br />
                     <CluesTable {...this.props} />
                 </div>

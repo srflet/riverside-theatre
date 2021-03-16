@@ -1,5 +1,5 @@
 import { StageTimeWrapper } from "meteor/empirica:core";
-import React, { Fragment } from "react";
+import React from "react";
 
 class timer extends React.Component {
 
