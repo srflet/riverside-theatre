@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class CluesTableGameInstructions extends Component {
     render() {
         return (
-            <div className="game-instructions">
+            <div className="game-tip">
                 <div>
                     <p><strong>Reminder:</strong> In order to have the best shot at solving the game you need to collect as many clues as possible from the other players.</p>
                     <p>

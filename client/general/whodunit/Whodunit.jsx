@@ -49,7 +49,7 @@ export default class Whodunit extends Component {
             <div>
                 <div>
                     <p className="whodunit-instructions-1">
-                        There are four potential suspects for the collision, but only one of them is responsibile for the collision. For each suspect, please inform Mr Lee of how probable you think it is that they are responsible for the collision. Split a 100% between these four suspect by writing the probability of them being responsible for the collison in the box next to their name.
+                        The boss at your firm has asked you to provide your {whichVerdict} verdict. There are four potential suspects for the collision, but only one of them is responsibile for the collision. For each suspect, please indicate how probable you think it is that they are responsible for the collision. Split 100% between these four suspect by writing the probability of them being responsible for the collison in the box next to their name.
                     </p>
                     <p className="whodunit-instructions-2">
                         For example, if you think they are all equally as likely to have caused the collision, then write 25 next to each of their names. However, if you think one suspect is more likely to be responsible than another, this would decrease the likelihood of the others being responsible (i.e., increase one number and decrease some or all of the others). If you think it is impossible for a suspect to be responsible for the collision you would allocate them a 0. Hence, the total must be 100.
@@ -68,7 +68,7 @@ export default class Whodunit extends Component {
                 </div>
 
                 {this.getVerdict()
-                    ? <div className="justify-center"><p className="whodunit-thankyou">Thank you for providing your {whichVerdict} verdict to Mr Lee.</p></div>
+                    ? <div className="justify-center"><p className="whodunit-thankyou">Thank you for providing your {whichVerdict} verdict.</p></div>
                     : <>
                         <div className="justify-center">
                             <p className={howManyPer !== 100 ? "whodunit-total whodunit-red" : "whodunit-total whodunit-green"}>

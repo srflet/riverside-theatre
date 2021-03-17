@@ -14,8 +14,6 @@ export default class InitialWhodunit extends Component {
             <div>
                 <h3>Initial Verdict</h3>
 
-                <p>Given the information above, Mr. Lee has asked you to provide your initial verdict as to which of the people described above you think was responsible for the collision and caused the death of his daughter?</p>
-
                 <Whodunit player={player} whichVerdict={"initial"} />
 
                 <div className="game-instructions">

@@ -20,24 +20,16 @@ export default class Discussion extends Component {
                 <Tabs {...this.props} />
                 <br />
 
-                <div>
-                    <div className="game-tip">
-                        <span>
-                            <strong><u>Game tip:</u></strong> Look at your position on the communication diagram, and think about how you might use your position to gain information. <strong>For example, try not to just ask for clues, but also consider “trading” clues with others.</strong>
-                        </span>
-                    </div>
-
-                    <div style={chatHolder}>
-                        {
-                            communication.map((communicationPattern, index) => {
-                                return (
-                                    <Chat key={index} communicationPattern={communicationPattern} {...this.props} />
-                                )
-                            })
-                        }
-                    </div>
-
+                <div style={chatHolder}>
+                    {
+                        communication.map((communicationPattern, index) => {
+                            return (
+                                <Chat key={index} communicationPattern={communicationPattern} {...this.props} />
+                            )
+                        })
+                    }
                 </div>
+
             </div >
         )
     }
@@ -46,7 +38,7 @@ export default class Discussion extends Component {
 const chatHolder = {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     marginTop: "2rem",
     flexWrap: "wrap",
 };
