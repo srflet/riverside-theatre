@@ -47,7 +47,7 @@ export default class Consent extends React.Component {
 						 	 </p>
 
 							<p>
-								If we write a report or article about this research project, your identity will be protected to the maximum extent possible. Your information may be shared with representatives of the University of Maryland, College Park or governmental authorities if you or someone else is in danger or if we are required to do so by law.
+								If we write a report or article about this research project, your identity will be protected to the maximum extent possible. Your information may be shared with representatives of the University College London, University of Maryland, College Park or governmental authorities if you or someone else is in danger or if we are required to do so by law.
 						  	</p>
 
 							<h3>Compensation</h3>
