@@ -19,7 +19,7 @@ export default class Background extends Component {
                             Please imagine you are a Private Investigator or a PI (e.g. Sherlock Holmes if you will) of a new private investigation firm in New York City. Your firm has been hired by a local businessman Mr. Lee to identify the perpetrator of a terrible automobile collision that resulted in the death of his only daughter. You represent your firm in handling Mr. Lee's case.
          			    </p>
                         <p>
-                            The police department has spent 8 weeks on the case but was unable to draw conclusions. But Mr. Lee has good reasons to believe it was not just an accident, but that one person was responsible for the whole collision. Mr. Lee has made it clear that he will spare no expense in identifying the person who is responsible for his daughter’s death.
+                            The police department has spent 8 weeks on the case but was unable to draw conclusions. However, Mr. Lee has good reasons to believe it was not just an accident, but that one person was responsible for the whole collision. Mr. Lee has made it clear that he will spare no expense in identifying the person who is responsible for his daughter’s death.
                         </p>
                         <p>
                             He has hired you and two other private investigators from two other PI agencies to crack the case.
