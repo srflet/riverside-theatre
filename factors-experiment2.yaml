@@ -1,10 +1,10 @@
 treatments:
-  - name: Comm Close and Comp Brok
+  - name: competition Brokerage
     factorIds:
       - ewf9BQhnfSpMkafDJ
       - ji8HtEJiwebYudc7i
       - 5TXhgjZ3SWFPAidyX
-  - name: Comm Close and Comp Close
+  - name: Competition Closure
     factorIds:
       - ewf9BQhnfSpMkafDJ
       - qYPPf4tKuvSGunhmw
