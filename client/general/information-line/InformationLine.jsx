@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import Timer from '../timer/Timer'
 
+// Information line sometimes show at the top or bottom of a page telling the player:
+// - What their profile is and whether they have submitted the stage
+// - Whether the other players have submitted the stage
+// - The timer
 export default class InformationLine extends Component {
     render() {
         const { game, round, stage, player } = this.props
@@ -10,8 +14,11 @@ export default class InformationLine extends Component {
                 display: "flex"
                 , justifyContent: "space-between"
             }}>
+
+                {/* Player's profile */}
                 <MyProfile player={player} />
 
+                {/* Whether the other player's have submitted the stage */}
                 <div style={{
                     textAlign: "center"
                     , display: "flex"
@@ -29,12 +36,14 @@ export default class InformationLine extends Component {
                     </div>
                 </div>
 
+                {/* The timer */}
                 <Timer round={round} stage={stage} />
             </div>
         )
     }
 }
 
+// Whether the player passed down in the props has submitted the stage (check) or not (cross)
 class Check extends Component {
     render() {
         const { player } = this.props
@@ -51,7 +60,7 @@ class Check extends Component {
     }
 }
 
-
+// Current player's profile with initials, avatar, and whether they have submitted the stage
 export class MyProfile extends Component {
     render() {
         const { player, hideCheck } = this.props
@@ -73,6 +82,7 @@ export class MyProfile extends Component {
     }
 }
 
+// Other players' profile with avatar and whether they have submitted the stage
 class PlayerProfile extends Component {
     render() {
         const { player } = this.props
@@ -85,7 +95,6 @@ class PlayerProfile extends Component {
         )
     }
 }
-
 
 // Style variables
 const mediumImage = {

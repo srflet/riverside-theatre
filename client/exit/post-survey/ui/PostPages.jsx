@@ -14,6 +14,9 @@ import FinalWhodunit from '../pages/FinalWhodunit';
 import Demographics from '../pages/Demographics';
 import FinaliseClueTable from '../pages/FinaliseClueTable';
 
+// Based on the currentPage number (that the player can change with navigating buttons),
+// show that page and passed down all the props.
+
 export default class PostPages extends Component {
     render() {
         const { pageDbIndex, player } = this.props;

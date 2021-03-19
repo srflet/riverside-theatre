@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import InformationLine from '../../../general/information-line/InformationLine';
+
+// Functions to get information from the other players
 import { returnOthersInitials, returnOthersAvatar } from '../../../general/helper-functions/returnPlayerInformation';
 
 export default class DiscussionInstructionsPage extends Component {
+    // Scroll to the top when this component starts
     componentDidMount() {
         this.props.scrollToTop();
     }
 
+    // Go to the previous page
     previous = () => {
         const { player, pageDbIndex } = this.props;
         let currentPage = player.get(pageDbIndex);
@@ -14,6 +18,7 @@ export default class DiscussionInstructionsPage extends Component {
         player.set(pageDbIndex, currentPage);
     }
 
+    // Finish the stage
     next = () => {
         const { player, pageDbIndex, max } = this.props;
         let currentPage = player.get(pageDbIndex);
@@ -28,9 +33,14 @@ export default class DiscussionInstructionsPage extends Component {
 
     render() {
         const { player, round, game } = this.props;
+
+        // Text for the 'next' button (it is set here because it is use both on the button and in the little instructions box)
         const buttonText = "Click to set ready for the discussion";
+
+        // How long the discussion will last, set in the round
         const discussionTime = round.get("discussionTime")
 
+        // Get player 1 (A or B) and player 2 (B or C) initials and avatars
         const [player1Initials, player2Initials] = returnOthersInitials(game, player);
         const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player);
 
@@ -71,6 +81,7 @@ export default class DiscussionInstructionsPage extends Component {
                     </button>
                 </p>
 
+                {/* Show this message once the player has submitted, this is to explain to them why they are waiting for the others */}
                 {player.stage.submitted &&
                     <>
                         <br />

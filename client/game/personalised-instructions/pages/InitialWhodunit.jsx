@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import Whodunit from '../../../general/whodunit/Whodunit';
+
+// These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
+// whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
 
+// ASK PARTICIPANTS FOR THEIR INITIAL VERDICT
+
 export default class InitialWhodunit extends Component {
+    // Scroll to the top when this component starts
     componentDidMount() {
         this.props.scrollToTop();
     }

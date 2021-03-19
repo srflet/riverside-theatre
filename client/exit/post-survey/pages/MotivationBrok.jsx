@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
-import MatrixQ from '../../../general/question-formats/MatrixQ';
-import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5';
-import { getConditionalsMulti } from '../../../general/question-formats/conditionals/getConditionals';
+// Get all the elements to build the matrix
+import MatrixQ from '../../../general/question-formats/MatrixQ'; // Samuel's default matrix component
+import { DisagreeAgree5 } from '../../../general/question-formats/scales/DisagreeAgree5'; // 5-point Likert scale of agreement
+import { getConditionalsMulti } from '../../../general/question-formats/conditionals/getConditionals'; // Checking that the player has answered all the questions
 
+// These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
+// whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
 export default class MotivationBrok extends Component {
@@ -11,9 +14,15 @@ export default class MotivationBrok extends Component {
         name: "MotivationBrok"
     }
 
+    // Scroll to the top when this component starts
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     render() {
         const { player, pageDbIndex, min } = this.props;
 
+        // Prepare the questions for this matrix
         const questions = [
             "I was motivated to “make deals” with others so that I could acquire new clues",
             "I only shared clues with others when I could get valuable clues back from them",

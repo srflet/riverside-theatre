@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// Little message in red on white about whether that player is a competitor
 export default class Competitor extends Component {
     render() {
         return (

@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+
+// Allows you to sync time with the server
 import { TimeSync } from "meteor/mizzao:timesync";
+
+// Functions to get information from the other players
 import { returnPlayerInitials, returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerInformation'
 
+// Get component for a message
 import Message from './Message';
 
+// Get component for notification that the other player is a competitor
 import Competitor from '../../../general/tips-n-messages/Competitor';
 
 export default class Chat extends Component {
+
+    // Construct a state with:
+    // - current text being written in chat
+    // - number of messages in this chat
+    // - whether a new message has been received and this should be notified
+    // - whether the user has just sent a message
     constructor() {
         super();
         this.state = {
@@ -16,39 +28,58 @@ export default class Chat extends Component {
             justSentMessage: false,
         };
 
+        // Create a ref to the chat, so that you can scroll it to the bottom when new messages arrive
         this.heightRef = React.createRef();
     }
 
+    // Prepare a notification sound for new messages
     notificationSound = new Audio("sounds/notification.mp3")
 
+    // Function that will scroll to the bottom of the chat
     scrollToBottom = () => {
-        this.heightRef.current.scrollTop = this.heightRef.current.scrollHeight;
-        this.setState({ nbOfMessages: this.getNbMessage() });
+        this.heightRef.current.scrollTop = this.heightRef.current.scrollHeight; // make the scroll top the current scroll height (i.e., make it go to the bottom)
     };
 
-    componentDidMount() {
-        this.scrollToBottom();
+    // Function to update the number of messages in the state
+    updateNbMessage = () => {
+        this.setState({ nbOfMessages: this.getNbMessage() })
     }
 
+    // When the chat is created, call scroll to bottom and update number of messages
+    componentDidMount() {
+        this.scrollToBottom()
+        this.updateNbMessage()
+    }
+
+    // When the chat is update because something changes to its states and props...
     componentDidUpdate() {
         const { nbOfMessages, justSentMessage } = this.state;
 
+        // If the current number of message isn't equal to the actual number of messages (i.e., there are new messages)
         if (nbOfMessages !== this.getNbMessage()) {
 
+            // If the player hasn't just sent a message...
             if (!justSentMessage) {
+                // It means they got a new messages
                 this.setState({ newMessages: true });
 
+                // If they are involve in this chat, play the notification for the new message
                 if (this.getIsInvolved()) {
                     this.notificationSound.play();
                 }
-
             }
+
+            // Set that they no longer just sent a new message
             this.setState({ justSentMessage: false });
 
-            this.scrollToBottom();
+            // Call scroll to bottom and update number of messages
+            this.scrollToBottom()
+            this.updateNbMessage()
         }
     }
 
+    // Function that gets the number of messages in this chat
+    // Every message un the round that has the communication pattern of this chat (e.g., "AcB")
     getNbMessage = () => {
         const { round, communicationPattern } = this.props
 
@@ -57,24 +88,31 @@ export default class Chat extends Component {
         }).length;
     };
 
+    // Function that resets the new messages (to take the notification away when users interact with the chat)
     sawMessages = () => {
         this.setState({ newMessages: false });
     }
 
+    // Check whether this player is in this chat and whether they can see it, hear it, interact with it
     getIsInvolved = () => {
         const { player, communicationPattern } = this.props;
 
+        // get player type
         const myType = player.get("type")
+        // get array of player types in this communication pattern (e.g., "AcB" => ["A", "B"]) 
         const communicators = communicationPattern.split("c")
 
         return communicators.includes(myType)
     }
 
+    // Update the text of the text input in this chat
     changeText = (e) => {
         this.setState({ text: e.currentTarget.value });
     };
 
+    // Get a new message id for a new message
     getNewMessageID = () => {
+
         //Get highest message id
         let highestId = 0;
         this.props.round.get("messages").forEach((message) => {
@@ -87,16 +125,17 @@ export default class Chat extends Component {
 
         //Increment it to make the new id
         highestId++
-
         return highestId;
     }
 
+    // Submit a new message
     submitMessage = (e) => {
         //Prevent default
         e.preventDefault();
 
         const { player, communicationPattern, round } = this.props
 
+        // Populate the message object with who, what, when, which chat, and which id
         let newMessage = {
             text: this.state.text,
             sender: player._id,
@@ -106,26 +145,36 @@ export default class Chat extends Component {
             id: this.getNewMessageID()
         };
 
+        // Copy the messages with this new message added and set it to the round
         let currentMessages = round.get("messages");
         let newMessages = [...currentMessages, newMessage];
         round.set("messages", newMessages);
 
+        // Reset the text
         this.setState({ text: "" });
-        this.setState({ justSentMessage: true });
 
+        // Note that this player just sent a message
+        this.setState({ justSentMessage: true });
     }
 
     render() {
         const { round, game, player, communicationPattern } = this.props;
 
-        const myType = player.get("type")
-        const communicators = communicationPattern.split("c")
+        // Get whether the player is involved in this chat
         const isInvolved = this.getIsInvolved()
+
+        // get player type
+        const myType = player.get("type")
+        // get array of player types in this communication pattern (e.g., "AcB" => ["A", "B"]) 
+        const communicators = communicationPattern.split("c")
+        // Get the type of the other player in the communication pattern
         const otherType = communicators.filter(communicator => { return communicator !== myType })[0]
 
+        // Check whether there is a competition patter that mirrors this communication pattern (e.g., "AcB" and "AvB" )
         const competitors = JSON.parse(game.treatment.competition)
             .filter(competitionPattern => { return competitionPattern.replace("v", "c") === communicationPattern })
 
+        // Only render the chat if the player is involved
         return (
             <div style={isInvolved ? { margin: "2.5px", width: "495px" } : { display: "none" }}>
 
@@ -164,12 +213,10 @@ export default class Chat extends Component {
                 </div>
             </div>
         )
-
     }
 }
 
-
-//Style variables
+// Style variables
 const chatBox = {
     padding: "30px",
     height: "400px",
@@ -196,7 +243,7 @@ const chatHeaderInfo = {
 };
 
 const inputHolder = {
-    width: "100%x"
+    width: "100%"
 };
 
 const messageInput = {

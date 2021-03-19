@@ -3,6 +3,8 @@ import InformationLine from '../../general/information-line/InformationLine';
 import Tabs from './tabs/Tabs';
 import Chat from './chats/Chat';
 
+// HOLDS ALL THE ELEMENTS OF THE DISCUSSION
+
 export default class Discussion extends Component {
     render() {
         const { game } = this.props;
@@ -20,6 +22,7 @@ export default class Discussion extends Component {
                 <Tabs {...this.props} />
                 <br />
 
+                {/* For each communication patter create a chat */}
                 <div style={chatHolder}>
                     {
                         communication.map((communicationPattern, index) => {

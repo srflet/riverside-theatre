@@ -5,9 +5,6 @@ import { render } from "react-dom";
 - Importing React components -
 -----------------------------*/
 
-//About
-// import About from "./about/About"
-
 //Consent
 import Consent from "./consent/Consent";
 
@@ -32,10 +29,7 @@ import Sorry from './exit/debrief/Sorry';
 - Setting up the Empirica app -
 ------------------------------*/
 
-// // Set the About Component you want to use for the About dialog (optional).
-// Empirica.about(About);
-
-// Get rid of the header
+// Get rid of the header, it will be replaced by the dev wrapper than only shows on dev mode
 Empirica.header(() => null);
 
 // Set the Consent Component you want to present players (optional).
@@ -58,7 +52,7 @@ Empirica.introSteps((game, treatment) => {
 // The Round component containing the game UI logic.
 Empirica.round(Round);
 
-//Getting rid of the breadcrums (the progress bar):
+// Getting rid of the breadcrums (the progress bar):
 Empirica.breadcrumb(() => null);
 
 // End of Game pages.
@@ -66,6 +60,7 @@ Empirica.breadcrumb(() => null);
 // user if they come back to the website.
 // If you don't return anything, or do not define this function, a default
 // exit screen will be shown.
+// If there is a problem or the player exits because of issues such as game cancellation, show them a sorry page.
 Empirica.exitSteps((game, player) => {
 	if (
 		!game ||

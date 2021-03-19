@@ -1,10 +1,20 @@
 import React, { Component } from 'react'
-import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
+
+// Show the clue table again and ask participants to fill it in
 import CluesTable from '../../../general/clues/CluesTable'
+
+// These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
+// whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
+import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
 
 export default class FinaliseClueTable extends Component {
     state = {
         name: "FinaliseClueTable",
+    }
+
+    // Scroll to the top when this component starts
+    componentDidMount() {
+        window.scrollTo(0, 0);
     }
 
     render() {

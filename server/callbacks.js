@@ -16,6 +16,8 @@ Empirica.onStageStart((game, round, stage) => { });
 // onStageEnd is triggered after each stage.
 // It receives the same options as onRoundEnd, and the stage that just ended.
 Empirica.onStageEnd((game, round, stage) => {
+
+  // For each player record all the messages
   if (stage.name == "discussion")
     game.players.forEach(player => {
       let messagesAB = round.get("messages").filter(message => message.chat === 1)

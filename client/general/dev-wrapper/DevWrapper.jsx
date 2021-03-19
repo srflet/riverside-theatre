@@ -1,5 +1,7 @@
 import React from 'react'
 
+// Dev wrapper based on code from Empirica. This will only show in development mode (but not in production).
+// Two buttons will appear at the top of the app and allow you to reset a player or create a new player
 export default function DevWrapper({
     children,
     showOpenAltPlayer,

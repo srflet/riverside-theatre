@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// Tip about how to use the clue table
 export default class CluesTableGameInstructions extends Component {
     render() {
         return (

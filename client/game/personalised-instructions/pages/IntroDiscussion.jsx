@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
 import ComStructShape from '../../../general/communication-structure/ComStructShape'
 
+// These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
+// whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
+import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
+
+// EXPLAIN THE DISCUSSION TO THE PARTICIPANTS
+
 export default class IntroDiscussion extends Component {
+    // Scroll to the top when this component starts
     componentDidMount() {
         this.props.scrollToTop();
     }
@@ -10,8 +16,10 @@ export default class IntroDiscussion extends Component {
     render() {
         const { player, pageDbIndex, min, game } = this.props;
 
+        // Get whether all the participants can communicate with each other or if only some of them can.
         const communication = JSON.parse(game.treatment.communication)
         const isAll = communication.length === 3
+        // Get the number of chants that the player has access to
         const type = player.get("type")
         const nbChats = communication.filter(communicationPattern => {
             return communicationPattern.split("c").includes(type)
@@ -33,6 +41,7 @@ export default class IntroDiscussion extends Component {
                     </strong>
                 </p>
 
+                {/* Do not show competition in the communication structure shape at this stage */}
                 <div className="justify-center">
                     <ComStructShape showCompetition={false} {...this.props} />
                 </div>

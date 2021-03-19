@@ -1,5 +1,7 @@
 import React from "react";
 
+// The debriefing page
+
 export default class Thanks extends React.Component {
 	static stepName = "Thanks";
 	render() {
@@ -15,7 +17,7 @@ export default class Thanks extends React.Component {
 					</div>
 					<br />
 					<p>
-						At the end of the term, we will examine the scoreboard for all the participants and we will email the winners. Top 25 will win £10 Amazon Gift Card, and Top 10 wins £20 Amazon Gift Card.
+						When we finish collecting data for the study, we will examine the scoreboard for all the participants and we will email the winners. Top 25 will win $10 Amazon Gift Card, and Top 10 wins $20 Amazon Gift Card.
 					</p>
 					<p>
 						Best of luck to you.

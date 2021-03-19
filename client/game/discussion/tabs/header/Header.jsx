@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Tab from './Tab';
 
+// A header of the tabs with all the tabs
 export default class Header extends Component {
     render() {
         const { tabsStatus, updateStatus } = this.props;

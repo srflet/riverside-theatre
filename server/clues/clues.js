@@ -1,4 +1,8 @@
-// This is the new clue system
+// This is the new clue system, where each clue has:
+// - an id
+// - the clue in full text
+// - the question asked in the clue table for this clue
+// - a prefilled response for clue table for the player that has this clue initially
 
 export const clues = [
     {

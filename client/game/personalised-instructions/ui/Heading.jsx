@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Timer from '../../../general/timer/Timer';
 import { MyProfile } from '../../../general/information-line/InformationLine'
 
+// Show the participants profile (name and avatar)
+// Show the timer
+// Show which page they are at / max
+
 export default class Heading extends Component {
     render() {
         const { currentPage, max, player, round, stage } = this.props;

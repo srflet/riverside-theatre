@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Centered } from "meteor/empirica:core";
-import DoNotCross from '../general/images/DoNotCross';
 import DevWrapper from '../general/dev-wrapper/DevWrapper';
 
+import DoNotCross from '../general/images/DoNotCross'; // image
+
+// Background for the case
 export default class Background extends Component {
     render() {
-        //Empirica based properties for introductions
-        const { hasPrev, hasNext, onNext, onPrev, game } = this.props;
+        const { hasPrev, hasNext, onNext, onPrev } = this.props;
 
         return (
             <DevWrapper {...this.props}>

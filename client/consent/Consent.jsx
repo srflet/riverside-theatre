@@ -5,6 +5,7 @@ import DevWrapper from "../general/dev-wrapper/DevWrapper";
 
 export default class Consent extends React.Component {
 	render() {
+		// Only return the consent form with the posibility of continuing if people log in with a computer and one of these browsers
 		return !isMobile && (isChrome || isSafari || isFirefox) ?
 			(
 				<DevWrapper {...this.props}>
@@ -118,7 +119,7 @@ export default class Consent extends React.Component {
 	}
 }
 
-
+// Component that shows the technical note to players explaining that they must be on a computer and be using one of these browsers
 class TechnicalNote extends React.Component {
 	render() {
 		return (

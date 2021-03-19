@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { Centered } from "meteor/empirica:core";
-import IntroMurderMystery from '../general/images/IntroMurderMystery';
-import { deviceDetect } from 'react-device-detect';
 import DevWrapper from '../general/dev-wrapper/DevWrapper';
 
+import { deviceDetect } from 'react-device-detect'; // pluging to detect device information
+
+import IntroMurderMystery from '../general/images/IntroMurderMystery'; // image
+
+// General introduction to the game
 export default class GeneralIntroduction extends Component {
     render() {
-        //Empirica based properties for introductions
-        const { hasPrev, hasNext, onNext, onPrev, game, player } = this.props;
+        const { hasNext, onNext, player } = this.props;
 
+        // If not already collected, collect information on user device in case we
+        // find a bug that affects only mac or pc users, etc.
         if (typeof player.get("deviceInfo") === "undefined") {
             player.set("deviceInfo", deviceDetect());
         }

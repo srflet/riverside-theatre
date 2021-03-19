@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
-import { returnOthersInitials, returnOthersAvatar } from '../../../general/helper-functions/returnPlayerInformation';
+
+// Functions to get information from the other players
+import { returnOthersInitials, returnOthersAvatar, competitionWithOthers } from '../../../general/helper-functions/returnPlayerInformation'
+
+// TEST WHETHER THEY UNDERSTOOD THE COMPETITION INCENTIVES
 
 export default class TestIncentives extends Component {
     state = {
         incentives1: ""
     };
 
+    // Scroll to the top when this component starts
     componentDidMount() {
         this.props.scrollToTop();
     }
 
+    // Navigate to the previous page
     previous = () => {
         const { player, pageDbIndex } = this.props;
         let currentPage = player.get(pageDbIndex);
@@ -17,6 +23,7 @@ export default class TestIncentives extends Component {
         player.set(pageDbIndex, currentPage);
     }
 
+    // Navigate to the next page
     next = () => {
         const { player, pageDbIndex, max } = this.props;
         let currentPage = player.get(pageDbIndex);
@@ -29,6 +36,7 @@ export default class TestIncentives extends Component {
         }
     }
 
+    // Update the current response selected
     handleChange = e => {
         const element = e.currentTarget;
         this.setState({ [element.name]: element.value });
@@ -37,37 +45,34 @@ export default class TestIncentives extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const { player, game } = this.props;
-        const { incentives1 } = this.state;
-        const type = player.get("type")
+        const { incentives1 } = this.state; // Get currently selected response
 
-        const types = ["A", "B", "C"]
-        types.splice(types.indexOf(type), 1)
+        // Get whether this player is competitin with player 1 (A or B) and player 2 (B or C)
+        const [conditionForCompWithPlayer1, conditionForCompWithPlayer2] = competitionWithOthers(game, player)
 
-        const competition = JSON.parse(game.treatment.competition)
-
-        const conditionForCompWithPlayer1 = competition.filter(condition => {
-            return condition.split("v").includes(type) && condition.split("v").includes(types[0])
-        }).length === 1
-
-        const conditionForCompWithPlayer2 = competition.filter(condition => {
-            return condition.split("v").includes(type) && condition.split("v").includes(types[1])
-        }).length === 1
-
+        // Based on the competition conditions, determine what is the correct answer for this player
         const correctAnswer = conditionForCompWithPlayer1 && conditionForCompWithPlayer2 ? "both"
             : conditionForCompWithPlayer1 ? "otherPlayer1"
                 : conditionForCompWithPlayer2 ? "otherPlayer2"
                     : "none"
 
-
+        // Check whether the currently selected response corresponds to the correct answer
         if (incentives1 === correctAnswer) {
+            // Get how many times they have tried this question (if not assigned, assign to 0)
             let understanding = player.get("understanding-incentive") ?? 0;
+            // And set it to the player without modification
             player.set("understanding-incentive", understanding);
+            // Navigate to the next page
             this.next();
         } else if (incentives1 === "") {
+            // If they didn't select an answer, launch an alert
             alert("Please select an answer")
         } else {
+            // If the answer is incorrect, alert them
             alert("Incorrect: You need to answer the recap question correctly before you can continue. Please try again.");
+            // Get how many times they have tried this question (if not assigned, assign to 0)
             let understanding = player.get("understanding-incentive") ?? 0;
+            // Increment this and set it to the player
             understanding++
             player.set("understanding-incentive", understanding);
         }
@@ -77,6 +82,7 @@ export default class TestIncentives extends Component {
         const { player, game } = this.props;
         const { incentives1 } = this.state;
 
+        // Get player 1 (A or B) and player 2 (B or C) initials and avatars
         const [player1Initials, player2Initials] = returnOthersInitials(game, player);
         const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player);
 

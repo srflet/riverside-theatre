@@ -3,42 +3,44 @@ import { Centered } from "meteor/empirica:core";
 import DevWrapper from '../general/dev-wrapper/DevWrapper';
 
 export default class Initials extends Component {
-    //Setting the state of the initials
+    // Setting the state of the initials
     state = {
         initials: "",
     };
 
-    //Updating the state of the initials when text input changes
+    // Updating the state of the initials when text input changes
+    // if initials are below 4
     handleChange = e => {
-        if (e.currentTarget.value.trim().toUpperCase().length <= 4) {
-            this.setState({ initials: e.currentTarget.value.trim().toUpperCase() });
+        const value = e.currentTarget.value.trim().toUpperCase()
+        if (value.length <= 4) {
+            this.setState({ initials: value });
         }
-
     };
 
-    //When the user submits their initials...
+    // When the user submits their initials...
     handleSubmit = e => {
-        //Prevent default behaviour
+        // Prevent default behaviour
         e.preventDefault();
 
-        //Check that this is 3 letters without numbers in them...
-        if (this.state.initials.length !== 4) {
-            //...If not, alert the user that this is wrong and they need to try again
+        // Get the entered initials
+        const { initials } = this.state
+
+        // Check that this is 4 characters...
+        if (initials.length !== 4) {
+            // ...If not, alert the user that this is wrong and they need to try again
             alert("Error: Your screen name should be four characters (two initials and the last two digits of your student number)");
         } else {
-            //...If correct, set the players initials and end this stage for them
-            this.props.player.set("initials", this.state.initials);
+            // ...If correct, set the players initials and end this stage for them
+            this.props.player.set("initials", initials);
         }
     };
 
-    //Rendering
     render() {
-        //Empirica based properties for introductions
-        const { hasPrev, hasNext, onNext, onPrev, game, player } = this.props;
+        const { hasPrev, hasNext, onNext, onPrev, player } = this.props;
 
-        let initials = typeof player.get("initials") !== "undefined" ?
-            player.get("initials") :
-            "";
+        // Get the player's initials, if they have no initials, ask them for initials. 
+        // If they have initials, show the thank you message with the initials
+        let initials = player.get("initials") ?? "";
 
         return (
             <DevWrapper {...this.props}>

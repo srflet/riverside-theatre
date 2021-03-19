@@ -12,6 +12,9 @@ import PoliceInformation from '../pages/PoliceInformation';
 import SummaryClues from '../pages/SummaryClues';
 import ComNComp from '../pages/ComNComp';
 
+// Based on the currentPage number (that the player can change with navigating buttons),
+// show that page and passed down all the props.
+
 export default class Page extends Component {
     render() {
         const { player, pageDbIndex } = this.props;

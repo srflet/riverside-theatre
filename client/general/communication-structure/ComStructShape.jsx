@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+
+// Functions to get information from the other players
 import { returnPlayerInitials, returnPlayerAvatar } from '../helper-functions/returnPlayerInformation'
 
 export default class ComStructShape extends Component {
     render() {
         const { game, player, showCompetition = true } = this.props
+        // By default you want to show competition
 
+        // Get the player type and prepare what the structure will look like depending on the player's type
         const myType = player.get("type")
         const structureProperties = {
             playerA: {
@@ -21,9 +25,12 @@ export default class ComStructShape extends Component {
             }
         };
 
+        // Get the communication and competition arrays
         const communication = JSON.parse(game.treatment.communication)
         const competition = JSON.parse(game.treatment.competition)
 
+        // Create an SVG with 3 notes and edges between them
+        // If there is competition add red lines with the word "competition"
         return (
             <div>
                 <svg width="300" height="200">
@@ -63,7 +70,7 @@ export default class ComStructShape extends Component {
     }
 }
 
-
+// Component that makes the competition links
 class CompetitionLinks extends Component {
     render() {
         const { myType, competition } = this.props

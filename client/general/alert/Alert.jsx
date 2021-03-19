@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+// Custom alert message that shows up in the middle and hides the rest of the page.
+// Tells participants that they are almost out of time.
+// This is prettier and more relable than browser alerts that participatns might not see and will block the components from updating
 export default class Alert extends Component {
     closeAlert = e => {
         const { round } = this.props;

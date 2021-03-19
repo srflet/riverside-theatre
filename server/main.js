@@ -13,7 +13,7 @@ import { choice, popChoice, shuffle } from './helper-functions/random';
 - gameInit: -
 -----------*/
 
-// Setting a variable for whether this is development/testing or not
+// Setting a variable for whether this is development/testing or not (determines the time set to the stages)
 const isTest = true;
 
 // Set starting clues for the different positions
@@ -72,7 +72,7 @@ Empirica.gameInit(game => {
 		player.get("myClues").forEach(clueId => cluesAnswered[clueId] = clues[clueId].response)
 		player.set("clues-answered", cluesAnswered)
 
-		// Set whodunit order
+		// Set whodunit order (randomise order of the whodunit question)
 		let whodunitOrder = [
 			{ text: "Mr. Smith", name: "Smith" },
 			{ text: "Mr. Smith's son", name: "son" },
@@ -100,7 +100,8 @@ Empirica.gameInit(game => {
 	- Setting up the round and stages: -
 	----------------------------------*/
 
-	// Setting up the round.
+	// Setting up the round
+	// Set the clues, but also the timing for the discussion and early submission (text, and when players can start early submitting)
 	const round = game.addRound({
 		data: {
 			messages: [],

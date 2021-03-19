@@ -2,6 +2,9 @@ import React from "react";
 import DevWrapper from '../../general/dev-wrapper/DevWrapper'
 import { Meteor } from "meteor/meteor";
 
+// This is a special sorry component based on code by the Empirica team. It will show a different message based on the reason why
+// the player exited the game. I added the email address for the contacts.
+
 export default class Sorry extends React.Component {
   static stepName = "Sorry";
 

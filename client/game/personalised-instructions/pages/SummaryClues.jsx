@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import PoliceClues from '../../../general/clues/PoliceClues';
 import PersonalClues from '../../../general/clues/PersonalClues';
 import SummaryInvestigation from '../../../general/images/SummaryInvestigation';
+
+// These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
+// whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
 
+// SHOW PARTICIPANT ALL THE CLUES THEY HAVE ACCESS TO
+
 export default class SummaryClues extends Component {
+    // Scroll to the top when this component starts
     componentDidMount() {
         this.props.scrollToTop();
     }

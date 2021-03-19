@@ -1,37 +1,46 @@
 import React from "react";
-
 import { Centered } from "meteor/empirica:core";
 import DevWrapper from "../general/dev-wrapper/DevWrapper";
+
+// QUIZ TO SEE IF PLAYERS UNDERSTAND THE BASICS OF THE GAME
 
 export default class Quiz extends React.Component {
 	state = { answer: "" };
 
+	// Update the selected answer
 	handleChange = e => {
 		const radio = e.currentTarget;
 		this.setState({ answer: radio.value });
 	};
 
+	// Submit answer
 	handleSubmit = event => {
 		event.preventDefault();
 
-		const { player } = this.props
+		const { player, onNext } = this.props
 		const { answer } = this.state
 
+		// If there is no answer, alert the player
 		if (answer === "") {
 			alert("Please select an answer!")
 		} else if (answer !== "right") {
 
+			// Otherwise, if the answer is incorrect, alert the player
 			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are available to all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
 
+			// Get how many times they have tried this question (if not assigned, assign to 0)
 			let understanding = player.get("understanding-intro") ?? 0;
+			// Increment this and set it to the player
 			understanding++
 			player.set("understanding-intro", understanding);
 
 		} else {
+			// Get how many times they have tried this question (if not assigned, assign to 0)
 			let understanding = player.get("understanding-intro") ?? 0;
+			// And set it to the player without modification
 			player.set("understanding-intro", understanding);
-
-			this.props.onNext();
+			// Navigate to the next page
+			onNext();
 		}
 	};
 

@@ -1,18 +1,21 @@
 import React, { Component } from 'react'
+
+// All the elements to show in the tabs
+import CluesTableGameInstructions from '../../../../general/tips-n-messages/CluesTableGameInstructions';
 import CluesTable from '../../../../general/clues/CluesTable';
 import PoliceClues from '../../../../general/clues/PoliceClues';
-import CluesTableGameInstructions from '../../../../general/tips-n-messages/CluesTableGameInstructions';
 import EarlySubmission from './early-submission/EarlySubmission';
 
 export default class Content extends Component {
     render() {
         const { tabsStatus, round, player, stage } = this.props;
 
-        //Get the tab status that is true
+        // Get the tab status that is true
         const activeTab = Object.keys(tabsStatus).filter(tab => {
             return tabsStatus[tab] === true
         })[0]
 
+        // Based on what tab is true populate the contents with the appropriate contents
         if (activeTab === "cluesTable") {
             return (
                 <div className="tab-content" >
@@ -36,6 +39,7 @@ export default class Content extends Component {
                 </div>
             )
         } else {
+            // If no tab is important, show this message
             return (
                 <div className="tab-content">
                     <p style={{

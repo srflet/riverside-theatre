@@ -1,17 +1,24 @@
 import { StageTimeWrapper } from "meteor/empirica:core";
 import React from "react";
 
+// Component based on the timer that serves as the early submission (players can submit the discussion stage early)
 class timer extends React.Component {
 
+    // If players click on early submission, set it to true, record at what time they did so, and submit
     handleEarlySubmission = () => {
-        this.props.player.set("isEarlySubmission", true);
-        this.props.player.set("earlySubmissionTime", this.props.remainingSeconds);
-        this.props.player.stage.submit();
+        const { player, remainingSeconds } = this.props
+
+        player.set("isEarlySubmission", true);
+        player.set("earlySubmissionTime", remainingSeconds);
+        player.stage.submit();
     }
 
     render() {
         const { remainingSeconds, player, round } = this.props;
+        // Has the player submitted early
+        const isEarlySubmission = player.get("isEarlySubmission")
 
+        // If this is not yet the time to early submit
         if (remainingSeconds > round.get("earlySubTimeNum")) {
             return (
                 <div>
@@ -19,6 +26,7 @@ class timer extends React.Component {
                 </div>
             )
         } else {
+            // If it is the time to early submit, show all the instructions and provide the button to submit early
             return (
                 <div>
                     <p>
@@ -40,8 +48,8 @@ class timer extends React.Component {
                     </p>
 
                     <p className="button-holder">
-                        <button type="button" onClick={this.handleEarlySubmission} disabled={player.get("isEarlySubmission")}>
-                            {player.get("isEarlySubmission") ? "You have provided early submission!" : "Provide early submission"}
+                        <button type="button" onClick={this.handleEarlySubmission} disabled={isEarlySubmission}>
+                            {isEarlySubmission ? "You have provided early submission!" : "Provide early submission"}
                         </button>
                     </p>
                 </div>
@@ -50,4 +58,5 @@ class timer extends React.Component {
     }
 }
 
+// Export this as early submission with the stage time wrapper that makes it a timer
 export default (EarlySubmission = StageTimeWrapper(timer));

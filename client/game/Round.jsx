@@ -18,7 +18,10 @@ export default class Round extends React.Component {
 		return (
 			<DevWrapper {...this.props}>
 				<Centered>
+					{/* If in a stage the timer goes under 2min, it sets the round "alert" to true, which shows a custom alert */}
 					{round.get("alert") && <Alert round={round} />}
+
+					{/* Show the stage based on the stage name */}
 					<div>
 						{
 							stage.name === "personalised_instructions"

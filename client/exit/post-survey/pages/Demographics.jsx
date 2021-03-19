@@ -5,6 +5,7 @@ export default class Demographics extends Component {
         name: "Demographics"
     }
 
+    // Change page back
     previous = () => {
         const { player, pageDbIndex } = this.props;
         let currentPage = player.get(pageDbIndex);
@@ -12,6 +13,7 @@ export default class Demographics extends Component {
         player.set(pageDbIndex, currentPage);
     }
 
+    // Change the player's gender response when they change their input
     handleChangeGender = e => {
         const { player } = this.props;
 
@@ -20,6 +22,7 @@ export default class Demographics extends Component {
         player.set(this.state.name, demographics);
     }
 
+    // Change the player's ethinicity response when they change their input
     handleChangeEthnicity = e => {
         const { player } = this.props;
 
@@ -28,6 +31,7 @@ export default class Demographics extends Component {
         player.set(this.state.name, demographics);
     }
 
+    // Change the player's age response when they change their input
     handleChangeAge = e => {
         const { player } = this.props;
 
@@ -36,6 +40,7 @@ export default class Demographics extends Component {
         player.set(this.state.name, demographics);
     }
 
+    // Change the player's work experience response when they change their input
     handleChangeWork = e => {
         const { player } = this.props;
 
@@ -44,6 +49,7 @@ export default class Demographics extends Component {
         player.set(this.state.name, demographics);
     }
 
+    // Change the player's comment when they change their input
     handleChangeComment = e => {
         const { player } = this.props;
 
@@ -52,6 +58,7 @@ export default class Demographics extends Component {
         player.set(this.state.name, demographics);
     }
 
+    // Check that the player has answered all the demographic questions that they have to answer
     getAllDemographics = () => {
         const { player } = this.props;
 
@@ -69,8 +76,10 @@ export default class Demographics extends Component {
     }
 
     render() {
+        // Need the onSubmit because this is the last survey, players must be able to end this survey.
         const { player, onSubmit } = this.props;
 
+        // Get the players answers for this survey, if they don't have any, set an empty object
         const answers = player.get(this.state.name) ?? {}
 
         return (
@@ -89,9 +98,9 @@ export default class Demographics extends Component {
                 <select name="ethnicity" value={answers.ethnicity} onChange={this.handleChangeEthnicity}>
                     <option value="">Select your answer</option>
                     <option value="White">White</option>
-                    <option value="Hispanic or Latino">Mixed / Multiple ethnic groups</option>
-                    <option value="Black or African American">Asian / Asian British</option>
-                    <option value="Asian/Pacific Islander">Black / African / Caribbean / Black British</option>
+                    <option value="Hispanic or Latino">Hispanic or Latino</option>
+                    <option value="Black or African American">Black or African American</option>
+                    <option value="Asian/Pacific Islander">Asian/Pacific Islander</option>
                     <option value="Other">Other</option>
                 </select>
                 <br />
