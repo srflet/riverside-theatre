@@ -94,17 +94,21 @@ class WhodunitInput extends Component {
 
         return (
             <li className="whodunit-list-item">
-                <input
-                    type="number"
-                    max="100"
-                    name={name}
-                    value={verdict[name] ?? value}
-                    onChange={handleChange}
-                    className="whodunit-input"
-                    disabled={getVerdict() ?? false}
-                />
-                &emsp;
-                {text}
+                <div>
+                    {text}
+                </div>
+                <div>
+                    <input
+                        type="number"
+                        max="100"
+                        name={name}
+                        value={verdict[name] ?? value}
+                        onChange={handleChange}
+                        className="whodunit-input"
+                        disabled={getVerdict() ?? false}
+                    />
+                %
+                </div>
             </li>
         )
     }
