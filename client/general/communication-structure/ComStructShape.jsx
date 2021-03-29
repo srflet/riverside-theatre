@@ -78,21 +78,21 @@ class CompetitionLinks extends Component {
         return (
             <>
                 {/* Competition between A and B */}
-                {((myType === "A" || myType === "B") && competition.includes("AvB")) &&
+                {competition.includes("AvB") &&
                     <>
                         <polyline points="145,55 140,55 50,140 50,145" style={{ fill: "none", stroke: "red" }} />
                         <text x="50" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
                     </>
                 }
                 {/* Competition between A and C */}
-                {((myType === "A" || myType === "C") && competition.includes("AvC")) &&
+                {competition.includes("AvC") &&
                     <>
                         <polyline points="155,55 160,55 250,140 250,145" style={{ fill: "none", stroke: "red" }} />
                         <text x="250" y="85" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>
                     </>
                 }
                 {/* Competition between B and C */}
-                {((myType === "B" || myType === "C") && competition.includes("BvC")) &&
+                {competition.includes("BvC") &&
                     <>
                         <polyline points="50,155 50,160 250,160 250,155" style={{ fill: "none", stroke: "red" }} />
                         <text x="150" y="180" fill="red" textAnchor="middle" style={{ fontSize: "12pt" }}>Competition</text>

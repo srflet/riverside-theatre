@@ -90,3 +90,21 @@ export const competitionWithOthers = (game, player) => {
     // Return them in an array to be destructured
     return ([conditionForCompWithPlayer1, conditionForCompWithPlayer2])
 }
+
+// Return whether the other two players are competing between them
+export const areOthersCompeting = (game, player) => {
+    // Get player type
+    const type = player.get("type")
+
+    // Get types of players other than this player
+    let types = ["A", "B", "C"]
+    types.splice(types.indexOf(type), 1)
+
+    // test if the there is a competition pattern with the other two players (e.g., "BvC")
+    const othersCompeting = JSON.parse(game.treatment.competition).filter(condition => {
+        return condition.split("v").includes(types[0]) && condition.split("v").includes(types[1])
+    }).length === 1
+
+    // Return them in an array to be destructured
+    return (othersCompeting)
+}
