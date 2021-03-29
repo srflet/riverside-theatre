@@ -24,9 +24,9 @@ export default class PreventInfo extends Component {
 
         // Prepare the questions for this matrix
         const questions = [
-            "I tried to prevent specific other players from being able to get more clues",
-            "I deliberately tried to make sure specific players could not get information from others",
+            "I tried to make sure specific players could not get information from others",
             "I tried to prevent one player from sharing clues with the other player",
+            "I tried to ensure some clues do not get to certain players"
         ];
         const responseScale = DisagreeAgree5;
 
@@ -35,7 +35,6 @@ export default class PreventInfo extends Component {
 
         return (
             <div>
-                <p><strong>Based on the incentive structure in the game...</strong></p>
 
                 <MatrixQ
                     player={player}

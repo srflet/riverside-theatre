@@ -14,7 +14,7 @@ import { choice, popChoice, shuffle } from './helper-functions/random';
 -----------*/
 
 // Setting a variable for whether this is development/testing or not (determines the time set to the stages)
-const isTest = true;
+const isTest = false;
 
 // Set starting clues for the different positions
 const cluesA = [0, 1, 2];

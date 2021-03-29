@@ -9,9 +9,14 @@ import { getConditionalsMulti } from '../../../general/question-formats/conditio
 // whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
-export default class EaseInfoExchange extends Component {
+export default class Dealmaking extends Component {
     state = {
-        name: "EaseInfoExchange"
+        name: "dealmaking"
+    }
+
+    // Scroll to the top when this component starts
+    componentDidMount() {
+        window.scrollTo(0, 0);
     }
 
     render() {
@@ -19,9 +24,9 @@ export default class EaseInfoExchange extends Component {
 
         // Prepare the questions for this matrix
         const questions = [
-            "It was difficult to get unique clues from other players",
-            "If I did not give others my unique clues, it was impossible to get anything from them",
-            "Getting new clues from others was only possible when I promised I would share my clues with them as well",
+            'I tried to "make deals" so I could get clues from others',
+            'I tried to create reciprocity such that I could exchange clues with another player',
+            'I tried to propose "trades" or "swaps" so I could acquire clues from others'
         ];
         const responseScale = DisagreeAgree5;
 

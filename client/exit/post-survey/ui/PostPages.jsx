@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 
 // Importing pages
 import NumberClues from '../pages/NumberClues';
-import ManipCheckBrok1 from '../pages/ManipCheckBrok1';
-import ManipCheckBrok2 from '../pages/ManipCheckBrok2';
-import ManipCheckComp from '../pages/ManipCheckComp';
 import SuspicionDistrust from '../pages/SuspicionDistrust';
-import MotivationToShare from '../pages/MotivationToShare';
 import PreventInfo from '../pages/PreventInfo';
-import EaseInfoExchange from '../pages/EaseInfoExchange';
-import MotivationBrok from '../pages/MotivationBrok';
 import FinalWhodunit from '../pages/FinalWhodunit';
 import Demographics from '../pages/Demographics';
 import FinaliseClueTable from '../pages/FinaliseClueTable';
+import Facilitation from '../pages/Facilitation';
+import Competition1 from '../pages/Competition1';
+import Competition2 from '../pages/Competition2';
+import CoalitionBuilding from '../pages/CoalitionBuilding';
+import Instigation from '../pages/Instigation';
+import Dealmaking from '../pages/Dealmaking';
 
 // Based on the currentPage number (that the player can change with navigating buttons),
 // show that page and passed down all the props.
@@ -36,23 +36,23 @@ export default class PostPages extends Component {
             )
         } else if (currentPage === 4) {
             return (
-                <ManipCheckBrok1 {...this.props} />
+                <Competition1 {...this.props} />
             )
         } else if (currentPage === 5) {
             return (
-                <ManipCheckBrok2 {...this.props} />
+                <Competition2 {...this.props} />
             )
         } else if (currentPage === 6) {
             return (
-                <ManipCheckComp {...this.props} />
+                <SuspicionDistrust {...this.props} />
             )
         } else if (currentPage === 7) {
             return (
-                <SuspicionDistrust {...this.props} />
+                <CoalitionBuilding {...this.props} />
             )
         } else if (currentPage === 8) {
             return (
-                <MotivationToShare {...this.props} />
+                <Instigation {...this.props} />
             )
         } else if (currentPage === 9) {
             return (
@@ -60,11 +60,11 @@ export default class PostPages extends Component {
             )
         } else if (currentPage === 10) {
             return (
-                <EaseInfoExchange {...this.props} />
+                <Dealmaking {...this.props} />
             )
         } else if (currentPage === 11) {
             return (
-                <MotivationBrok {...this.props} />
+                <Facilitation {...this.props} />
             )
         } else if (currentPage === 12) {
             return (

@@ -9,9 +9,9 @@ import { getConditionalsMulti } from '../../../general/question-formats/conditio
 // whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
-export default class MotivationToShare extends Component {
+export default class Instigation extends Component {
     state = {
-        name: "MotivationToShare"
+        name: "instigation"
     }
 
     // Scroll to the top when this component starts
@@ -24,11 +24,10 @@ export default class MotivationToShare extends Component {
 
         // Prepare the questions for this matrix
         const questions = [
-            "I did not want to give out my clues “easily” to certain players",
-            "To maximize my chance at the bonus, I did not want to share my unique clues with others “for free”",
-            "Unless I was able to get new clues from others, I did not want to share my unique clues with them because it would be a disadvantage to me",
-            "Please select ‘Somewhat Disagree’",
-            "Giving my unique clues to the other players without getting new clues back would be a mistake",
+            'I tried to encourage a player to behave competitively toward another player',
+            'I tried to make one player suspicious or hostile towards another player',
+            'I tried to pit one player against another',
+            'I tried to "player one player off another"'
         ];
         const responseScale = DisagreeAgree5;
 

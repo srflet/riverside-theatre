@@ -27,10 +27,7 @@ export default class SuspicionDistrust extends Component {
             "I am not sure the clues sent by some players were reliable",
             "I did not trust the information sent by some players",
             "I believe some players might have sent me false information",
-            "It is not in some player’s best interests to send me accurate information",
-            "None of the players had any incentive to not share information with me",
-            "None of the players would have been motivated to deliberately share wrong information with me",
-            "None of the players would have the incentive to refuse any information I asked for"
+            "It is not in some player’s best interests to send me accurate information"
         ];
         const responseScale = DisagreeAgree5;
 

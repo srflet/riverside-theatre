@@ -5,8 +5,8 @@ import React, { Component } from 'react'
 // This is prettier and more relable than browser alerts that participatns might not see and will block the components from updating
 export default class Alert extends Component {
     closeAlert = e => {
-        const { round } = this.props;
-        round.set("alert", false)
+        const { player } = this.props;
+        player.round.set("alert", false)
     }
 
     render() {

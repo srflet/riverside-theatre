@@ -9,9 +9,9 @@ import { getConditionalsMulti } from '../../../general/question-formats/conditio
 // whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
-export default class ManipCheckBrok2 extends Component {
+export default class CoalitionBuilding extends Component {
     state = {
-        name: "ManipCheckBrok2"
+        name: "coalition"
     }
 
     // Scroll to the top when this component starts
@@ -24,11 +24,9 @@ export default class ManipCheckBrok2 extends Component {
 
         // Prepare the questions for this matrix
         const questions = [
-            "Everyone was able to talk to the other two players freely",
-            "Not everyone was able to talk to everyone else directly",
-            "There was one person who acted as the “bridge” in connecting the other two players",
-            "I was only able to talk to one player, who was the “bridge” that indirectly connected me with another player",
-            "I was the “bridge” that connected the other two players"
+            "I tried to make an alliance with one player to compete against the other",
+            "I tried to obtain support from a player to defeat the other player",
+            'I tried to forge a "pact" with a certain player so we can defeat another player'
         ];
         const responseScale = DisagreeAgree5;
 

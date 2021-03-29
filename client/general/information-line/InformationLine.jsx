@@ -7,7 +7,7 @@ import Timer from '../timer/Timer'
 // - The timer
 export default class InformationLine extends Component {
     render() {
-        const { game, round, stage, player } = this.props
+        const { game, stage, player } = this.props
 
         return (
             <div style={{
@@ -37,7 +37,7 @@ export default class InformationLine extends Component {
                 </div>
 
                 {/* The timer */}
-                <Timer round={round} stage={stage} />
+                <Timer player={player} stage={stage} />
             </div>
         )
     }

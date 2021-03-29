@@ -9,9 +9,9 @@ import { getConditionalsMulti } from '../../../general/question-formats/conditio
 // whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
-export default class ManipCheckComp extends Component {
+export default class Facilitation extends Component {
     state = {
-        name: "ManipCheckComp"
+        name: "facilitation"
     }
 
     // Scroll to the top when this component starts
@@ -24,10 +24,9 @@ export default class ManipCheckComp extends Component {
 
         // Prepare the questions for this matrix
         const questions = [
-            "My chance at winning an Amazon gift card hinged on whether I performed better than a specific other player in the game",
-            "I was in direct competition with another player in the game",
-            "I had to outperform a specific other player to be able to get more points",
-            "There was no competition at all among players",
+            'I tried to connect the other two players to facilitate the flow of information',
+            'I tried to play as the "go-between" among the players so we could all get the clues we want',
+            'I tried to be the "bridge" between the other two players so that everyone could benefit'
         ];
         const responseScale = DisagreeAgree5;
 

@@ -13,13 +13,13 @@ import Discussion from "./discussion/Discussion";
 export default class Round extends React.Component {
 
 	render() {
-		const { round, stage } = this.props;
+		const { round, stage, player } = this.props;
 
 		return (
 			<DevWrapper {...this.props}>
 				<Centered>
 					{/* If in a stage the timer goes under 2min, it sets the round "alert" to true, which shows a custom alert */}
-					{round.get("alert") && <Alert round={round} />}
+					{player.round.get("alert") && <Alert player={player} />}
 
 					{/* Show the stage based on the stage name */}
 					<div>

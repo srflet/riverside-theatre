@@ -9,9 +9,9 @@ import { getConditionalsMulti } from '../../../general/question-formats/conditio
 // whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 
-export default class MotivationBrok extends Component {
+export default class Competition2 extends Component {
     state = {
-        name: "MotivationBrok"
+        name: "competition2"
     }
 
     // Scroll to the top when this component starts
@@ -24,11 +24,10 @@ export default class MotivationBrok extends Component {
 
         // Prepare the questions for this matrix
         const questions = [
-            "I was motivated to “make deals” with others so that I could acquire new clues",
-            "I only shared clues with others when I could get valuable clues back from them",
-            "I wanted to take advantage of my position among the three players to maximize how many clues I could gather",
-            "I tried to “broker” deals with the other 2 parties so that I could benefit from trading information between them",
-            "I tried “playing one player off the other” so that I could get additional clues"
+            "Everyone was competing with each other",
+            "All three players were competing against each other",
+            "Not everyone was competing with everyone else",
+            "Some players only competed against one other player"
         ];
         const responseScale = DisagreeAgree5;
 
