@@ -10,6 +10,7 @@ import {
 // These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
 // whether the player answered all the questions (otherwise the next button will be disabled and there will be a red warning text)
 import ChangePageButtons from '../../../general/buttons/ChangePageButtons'
+import CompetitionIncentive from '../../../general/tips-n-messages/CompetitionIncentive';
 
 // EXPLAIN THE COMPETITION RULES TO THE PLAYERS
 
@@ -32,14 +33,21 @@ export default class ComNComp extends Component {
             <div className="com-n-comp">
                 <h3>Incentives</h3>
                 <p>
-                    Now you should know that your firm is currently competing with Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />’s firm on another large contract in Chicago{conditionForCompWithPlayer2 && <> and competing with Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />’s firm on another large contract in Boston</>}. Your boss has informed you that if you outperform Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /> {conditionForCompWithPlayer2 && <>and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} in this game, your firm has a high chance of winning {conditionForCompWithPlayer2 ? "those contracts" : "this contract"}.
+                    Now you should know that your firm is currently competing with Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />’s firm on another large contract in Chicago{conditionForCompWithPlayer2 && <> and competing with Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />’s firm on another large contract in Boston</>}.
                 </p>
                 <p>
-                    In order to win the new contract, your boss has told you that in the following discussion between the three players, you need to OUTPERFORM Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} BY COLLECTING MORE CLUES THAN THEM. In other words, you will need to try and get as many clues as possible from the other two players, and at the same time, ensuring that Player  {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} {conditionForCompWithPlayer2 ? "do" : "does"} not collect more clues than you.
+                    Your boss has informed you that if you outperform Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /> {conditionForCompWithPlayer2 && <>and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} in this game, your firm has a high chance of winning {conditionForCompWithPlayer2 ? "those contracts" : "this contract"}.
+                </p>
+                <p>
+                    Your boss has told you that in the following discussion between the three players, <strong> you need to outperform Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} by collecting more clues than them.</strong>
+                </p>
+                <p>
+                    In other words, you will need to try and get as many clues as possible from the other two players, and at the same time, ensuring that Player  {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} {conditionForCompWithPlayer2 ? "do" : "does"} not collect more clues than you.
                 </p>
                 {othersCompeting
-                    ? <p> Keep in mind that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm are also competing with each other on a large contract in Washington D.C., hence they also have competitive incentives to outperform each other.</p>
-                    : <p> Keep in mind that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm are not competing against each other on any contracts in the country.</p>}
+                    ? <p> Be aware that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm are also competing with each other on a large contract in Washington D.C., hence they also have competitive incentives to outperform each other.</p>
+                    : <p> Be aware that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm are not competing against each other on any contracts in the country.</p>
+                }
                 <p>
                     Keep in mind that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} {conditionForCompWithPlayer2 ? "are" : "is"} also aware of their {conditionForCompWithPlayer2 ? "firms’" : "firm’s"} competition towards you.
                 </p>
@@ -53,7 +61,7 @@ export default class ComNComp extends Component {
                 <div className="game-instructions">
                     <div>
                         <p>
-                            To reflect this competition, at the end of the game, for every clue that you collect more than  Player  {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>}, you will be awarded 3 points. For instance, if you collect 3 more pieces of information than Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />, you will be awarded 9 points{conditionForCompWithPlayer2 && <>; and if you collect 2 more pieces of information than Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />, you will be awarded 6 points</>}. In this hypothetical outcome, you will have a total of {conditionForCompWithPlayer2 ? "15" : "9"} points.
+                            To reflect this competition, at the end of the game, <strong>for every clue that you collect more than  Player  {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>}, you will be awarded 3 points.</strong> For instance, if you collect 3 more pieces of information than Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />, you will be awarded 9 points{conditionForCompWithPlayer2 && <>; and if you collect 2 more pieces of information than Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />, you will be awarded 6 points</>}. In this hypothetical outcome, you will have a total of {conditionForCompWithPlayer2 ? "15" : "9"} points.
                         </p>
                         <p>
                             In addition, if you correctly identify the guilty person, you will be awarded 5 points.
@@ -63,6 +71,9 @@ export default class ComNComp extends Component {
                         </p>
                     </div>
                 </div>
+                <br />
+
+                <CompetitionIncentive {...this.props} />
 
                 <br />
                 <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />

@@ -9,7 +9,8 @@ export default class Tabs extends Component {
     // Which tab is open or not, with the cluesTable open by default
     state = {
         tabsStatus: {
-            cluesTable: true,
+            competitionStructure: true,
+            cluesTable: false,
             police: false,
             earlySub: false
         }

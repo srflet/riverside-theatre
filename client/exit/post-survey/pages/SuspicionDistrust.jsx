@@ -42,7 +42,7 @@ export default class SuspicionDistrust extends Component {
                     dbIndex={this.state.name}
                     questions={questions}
                     responseScale={responseScale}
-                    head={"Please rate how much you agree with each statement"}
+                    head={"Please indicate the extent to which you agree with the following statements:"}
                 />
 
                 <br />

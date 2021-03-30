@@ -54,6 +54,21 @@ export default class Whodunit extends Component {
         return sumOfVerdicts
     }
 
+    // Function to check that there are no negative values
+    noNegative = () => {
+        // Get the current probabilities set in the state
+        const whodunit = this.state;
+
+        // Go through each key to get the verdict given, and then filter to find negative values
+        const isNoNegative = Object.keys(whodunit).map(key => {
+            return whodunit[key]
+        }).filter(value => {
+            return Number(value) < 0
+        }).length === 0
+
+        return isNoNegative
+    }
+
     render() {
         const { player, whichVerdict } = this.props;
         const howManyPer = this.howManyPer()
@@ -89,13 +104,13 @@ export default class Whodunit extends Component {
                     ? <div className="justify-center"><p className="whodunit-thankyou">Thank you for providing your {whichVerdict} verdict.</p></div>
                     : <>
                         <div className="justify-center">
-                            <p className={howManyPer !== 100 ? "whodunit-total whodunit-red" : "whodunit-total whodunit-green"}>
-                                You have allocated {howManyPer}% {howManyPer !== 100 && "- Your allocations between the suspects should be equal to 100%"}!
+                            <p className={howManyPer !== 100 || !this.noNegative() ? "whodunit-total whodunit-red" : "whodunit-total whodunit-green"}>
+                                You have allocated {howManyPer}% {(howManyPer !== 100 || !this.noNegative()) && "- Your allocations between the suspects should be equal to 100% with no negative values"}!
                             </p>
                         </div>
 
                         <p className="button-holder">
-                            <button onClick={this.handleSubmit} disabled={howManyPer !== 100}>Give my verdict</button>
+                            <button onClick={this.handleSubmit} disabled={howManyPer !== 100 || !this.noNegative()}>Give my verdict</button>
                         </p>
                     </>
                 }
@@ -122,6 +137,7 @@ class WhodunitInput extends Component {
                 <div>
                     <input
                         type="number"
+                        min="0"
                         max="100"
                         name={name}
                         value={verdict[name] ?? value}

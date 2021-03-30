@@ -112,7 +112,6 @@ li {
   }
 }
 
-
 /* -------
 - Avatar -
 -------- */
@@ -222,9 +221,10 @@ li {
 
   width: 100%;
 
+  cursor: pointer;
+
   &:hover{
     background-color: #5f839e;
-    cursor: pointer;
   }
 }
 
@@ -248,10 +248,17 @@ li {
 	background-color: #394B59;
 	color: white;
 	margin: 0px;
+  cursor: pointer;
   
   &:hover {
     background-color: #5f839e;
     color: white;
+  }
+
+  &:disabled {
+    background-color: #b1c3d0;
+    color: #394B59;
+    cursor: initial;
   }
 
 }
@@ -347,6 +354,11 @@ li {
   width: 50px;
 
   margin-right: 3px;
+}
+
+.whodunit-input::-webkit-outer-spin-button,
+.whodunit-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 .whodunit-list-item {

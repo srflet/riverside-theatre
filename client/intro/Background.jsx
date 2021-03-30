@@ -34,6 +34,7 @@ export default class Background extends Component {
                             <li><strong>Clues from your own independent investigation that are UNIQUE to you</strong></li>
                         </ol>
                     </div>
+                    <br />
 
                     <p className="button-holder">
                         <button type="button" onClick={onPrev} disabled={!hasPrev}>

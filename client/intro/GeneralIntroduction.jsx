@@ -36,7 +36,15 @@ export default class GeneralIntroduction extends Component {
                         <div className="game-instructions">
                             <span>
                                 Please make sure that you have <strong>sound activated</strong> on your computer as we will use light bell sounds to signal when certain phases of the study start and when you receive messages in the discussion phase of the study.
-                        </span>
+                            </span>
+                        </div>
+
+                        <br />
+
+                        <div className="game-instructions">
+                            <span>
+                                If you encounter a problem or a blank page for more than a few seconds, please feel free to refresh the page.
+                            </span>
                         </div>
                     </div>
 

@@ -67,6 +67,7 @@ export default class Demographics extends Component {
         if (
             demographics.gender !== "" &&
             demographics.ethnicity !== "" &&
+            demographics.work !== "" &&
             demographics.age > 17
         ) {
             isDisabled = false;

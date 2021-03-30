@@ -208,7 +208,7 @@ export default class Chat extends Component {
                             autoComplete="off"
                             onClick={this.sawMessages}
                         />
-                        <input type="submit" value="Send" className="messageSubmit" />
+                        <input type="submit" value="Send" className="messageSubmit" disabled={this.state.text === ""} />
                     </form>
                 </div>
             </div>

@@ -34,7 +34,7 @@ export default class NewPlayer extends Component {
                             <h1>Identification</h1>
 
                             <p>
-                                Please enter your student university ID (multiple digits):
+                                Please enter your student University of Maryland UID (multiple digits):
                         </p>
 
                             <input

@@ -33,7 +33,7 @@ export default class Thanks extends React.Component {
 				<br />
 				<div className="game-instructions">
 					<div>
-						Please return to your seminar Zoom meeting for a debrief.
+						Please return to your Zoom session.
 					</div>
 				</div>
 			</div >

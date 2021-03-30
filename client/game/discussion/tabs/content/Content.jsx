@@ -5,6 +5,8 @@ import CluesTableGameInstructions from '../../../../general/tips-n-messages/Clue
 import CluesTable from '../../../../general/clues/CluesTable';
 import PoliceClues from '../../../../general/clues/PoliceClues';
 import EarlySubmission from './early-submission/EarlySubmission';
+import ComStructShape from '../../../../general/communication-structure/ComStructShape';
+import CompetitionIncentive from '../../../../general/tips-n-messages/CompetitionIncentive';
 
 export default class Content extends Component {
     render() {
@@ -16,7 +18,16 @@ export default class Content extends Component {
         })[0]
 
         // Based on what tab is true populate the contents with the appropriate contents
-        if (activeTab === "cluesTable") {
+        if (activeTab === "competitionStructure") {
+            return (
+                <div className="tab-content" >
+                    <h3 className="justify-center">Competition Structure</h3>
+                    <div className="justify-center"><ComStructShape {...this.props} showCompetition={true} /></div>
+                    <br />
+                    <CompetitionIncentive {...this.props} />
+                </div>
+            )
+        } else if (activeTab === "cluesTable") {
             return (
                 <div className="tab-content" >
                     <CluesTableGameInstructions />
