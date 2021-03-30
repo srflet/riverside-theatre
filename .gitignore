@@ -12,3 +12,5 @@ start.bat
 deploy.bat
 test.R
 deploySettings.json
+deploy.json
+*.bat
