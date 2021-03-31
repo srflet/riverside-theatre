@@ -9,8 +9,13 @@ treatments:
       - ewf9BQhnfSpMkafDJ
       - qYPPf4tKuvSGunhmw
       - 5TXhgjZ3SWFPAidyX
+  - name: control
+    factorIds:
+      - ewf9BQhnfSpMkafDJ
+      - WhEBAJWL2Enqnoc52
+      - 5TXhgjZ3SWFPAidyX
 factorTypes:
-  - _id: KzwN9sqPtkqPGY3mm
+  - _id: K8hRXzdCkxfvWPgCQ
     name: playerCount
     description: The Number of players participating in the given game.
     required: true
@@ -30,7 +35,7 @@ factors:
   - _id: ewf9BQhnfSpMkafDJ
     name: three
     value: 3
-    factorTypeId: KzwN9sqPtkqPGY3mm
+    factorTypeId: K8hRXzdCkxfvWPgCQ
   - _id: WhEBAJWL2Enqnoc52
     name: nocompetition
     value: '[]'

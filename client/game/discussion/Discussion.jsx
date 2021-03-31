@@ -24,10 +24,10 @@ export default class Discussion extends Component {
 
                 <div className="game-tip">
                     <p>
-                        <strong><u>Game Tip:</u></strong> Look at the competitive relationships between the players, and think about how you might use these relationships to gain information. <strong>For example, try not to just ask for clues, but also consider "trading" clues with others.</strong>
+                        <strong><u>Game Tip:</u></strong> Look at the relationships between the players, and think about how you might use these relationships to gain information. <strong>For example, try not to just ask for clues, but also consider "trading" clues with others.</strong>
                     </p>
                     <p style={{ margin: "0px" }}>
-                        Have a look at the "Clues Table" tab to see what sort of information the other players might have and think about how you might obtain that information.
+                        <strong>Have a look at the "Clues Table" tab to see what sort of information the other players might have</strong> and think about how you might obtain that information.
                     </p>
                 </div>
 

@@ -8,7 +8,7 @@ export default class Header extends Component {
 
         return (
             <div className="header-tab-holder">
-                <Tab status={tabsStatus.competitionStructure} name={"competitionStructure"} text={"Competition Structure"} updateStatus={updateStatus} />
+                <Tab status={tabsStatus.competitionStructure} name={"competitionStructure"} text={"Player Relations"} updateStatus={updateStatus} />
                 <Tab status={tabsStatus.cluesTable} name={"cluesTable"} text={"Clues Table"} updateStatus={updateStatus} />
                 <Tab status={tabsStatus.police} name={"police"} text={"Police Clues"} updateStatus={updateStatus} />
                 <Tab status={tabsStatus.earlySub} name={"earlySub"} text={"Early submission"} updateStatus={updateStatus} />

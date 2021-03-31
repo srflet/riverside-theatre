@@ -35,6 +35,7 @@ export default class Competition1 extends Component {
                     <option value="competitionClosure">A</option>
                     <option value="competitionBrokerage">B</option>
                     <option value="competitionAB">C</option>
+                    <option value="noCompetition">D</option>
                 </select>
 
                 <br />
@@ -44,21 +45,42 @@ export default class Competition1 extends Component {
                     <div style={shape}>
                         <p><strong>A.</strong></p>
                         <div className="justify-center">
-                            <Shape {...this.props} competition={["AvB", "AvC", "BvC"]} />
+                            <div>
+                                <Shape {...this.props} competition={["AvB", "AvC", "BvC"]} />
+                                <p style={descriptionText}>Everyone was competing with everyone else</p>
+                            </div>
                         </div>
                     </div>
 
                     <div style={shape}>
                         <p><strong>B.</strong></p>
                         <div className="justify-center">
-                            <Shape {...this.props} competition={["AvB", "AvC"]} />
+                            <div>
+                                <Shape {...this.props} competition={["AvB", "AvC"]} />
+                                <p style={descriptionText}>There was one player who was competing against two other players</p>
+                            </div>
                         </div>
                     </div>
 
                     <div style={shape}>
                         <p><strong>C.</strong></p>
                         <div className="justify-center">
-                            <Shape {...this.props} competition={["AvB"]} />
+                            <div>
+                                <Shape {...this.props} competition={["AvB"]} />
+                                <p style={descriptionText}>There was one player who was competing against one other player</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div style={shape}>
+                        <p><strong>D.</strong></p>
+                        <div className="justify-center">
+                            <div>
+                                <Shape {...this.props} competition={[]} />
+                                <p style={descriptionText}>There were no competitive relationships between the players</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -166,12 +188,18 @@ class CompetitionLinks extends Component {
 //Style variables
 const alignBrokerGraphs = {
     display: "flex",
-    justifyContent: "space-around"
+    justifyContent: "center",
+    flexWrap: "wrap"
 }
 
 const shape = {
     border: "1px solid black"
     , borderRadius: "1rem"
-    , padding: "5px"
+    , padding: "1rem"
     , margin: "20px"
+}
+
+const descriptionText = {
+    textAlign: "center",
+    width: "300px"
 }

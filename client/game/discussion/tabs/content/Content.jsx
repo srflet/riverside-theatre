@@ -21,7 +21,7 @@ export default class Content extends Component {
         if (activeTab === "competitionStructure") {
             return (
                 <div className="tab-content" >
-                    <h3 className="justify-center">Competition Structure</h3>
+                    <h3 className="justify-center">Player Relations</h3>
                     <div className="justify-center"><ComStructShape {...this.props} showCompetition={true} /></div>
                     <br />
                     <CompetitionIncentive {...this.props} />

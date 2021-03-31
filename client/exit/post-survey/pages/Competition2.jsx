@@ -26,8 +26,9 @@ export default class Competition2 extends Component {
         const questions = [
             "Everyone was competing with each other",
             "All three players were competing against each other",
-            "Not everyone was competing with everyone else",
-            "Some players only competed against one other player"
+            "There was some competition, but not everyone was competing against everyone else",
+            "There was some competition, but only one player had two competitors",
+            "There was no competition at all between players"
         ];
         const responseScale = DisagreeAgree5;
 

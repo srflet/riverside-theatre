@@ -59,7 +59,7 @@ export default class DiscussionInstructionsPage extends Component {
                 <img src="img/discussion-instructions/tabs-instructions.png" alt="" width="100%" className="img-center" />
                 <ul>
                     <li>
-                        You can click on the “Competition Structure” tab (open by default) to revisit the competitive relationship between the players.
+                        You can click on the “Player Relations” tab (open by default) to revisit the relationships between the players.
                     </li>
                     <li>
                         You can click on the “Clues Table” tab to get hints about what clues the other players have, enter your answers when you obtain a clue from another player, and revisit the clues you obtained in your personal investigation.

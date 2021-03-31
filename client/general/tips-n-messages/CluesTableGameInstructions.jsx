@@ -12,7 +12,7 @@ export default class CluesTableGameInstructions extends Component {
                         These are formatted as questions with textboxes in which you can give your answers.
                     </p>
                     <p>
-                        For example, the player that has the question about the guilty person's gender would have the answer to that question (or if you are that player, you have the answer already written in and grayed out).
+                        For example, the player who has the question about the guilty person's gender would have the answer to that question (or if you are that player, you have the answer already written in and grayed out).
                     </p>
                     <p>
                         <strong>As you obtain clues from the other players, you can start filling in the related textboxes.</strong> This allows you to keep track of the clues you have collected AND it allows the experimenter to keep track of the clues you have collected for the points calculation.
