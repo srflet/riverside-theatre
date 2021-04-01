@@ -101,6 +101,18 @@ export default class TestIncentives extends Component {
                             <input
                                 type="radio"
                                 name="incentives1"
+                                value="none"
+                                checked={incentives1 === "none"}
+                                onChange={this.handleChange}
+                            />
+                            <span>No one</span>
+                            <br />
+                        </div>
+
+                        <div className="radio-list">
+                            <input
+                                type="radio"
+                                name="incentives1"
                                 value="otherPlayer1"
                                 checked={incentives1 === "otherPlayer1"}
                                 onChange={this.handleChange}
@@ -130,18 +142,6 @@ export default class TestIncentives extends Component {
                                 onChange={this.handleChange}
                             />
                             <span>Both</span>
-                            <br />
-                        </div>
-
-                        <div className="radio-list">
-                            <input
-                                type="radio"
-                                name="incentives1"
-                                value="none"
-                                checked={incentives1 === "none"}
-                                onChange={this.handleChange}
-                            />
-                            <span>No one</span>
                             <br />
                         </div>
 

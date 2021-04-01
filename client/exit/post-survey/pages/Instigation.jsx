@@ -27,7 +27,7 @@ export default class Instigation extends Component {
             'I tried to encourage a player to behave competitively toward another player',
             'I tried to make one player suspicious or hostile towards another player',
             'I tried to pit one player against another',
-            'I tried to "player one player off another"'
+            'I tried to "play one player off another"'
         ];
         const responseScale = DisagreeAgree5;
 

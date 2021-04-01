@@ -29,7 +29,7 @@ export default class Competition1 extends Component {
         // Check whether participants can select the correct communication graph
         return (
             <div>
-                <span>Please select the diagram that best describes the competitive relationships among the three players: </span>
+                <span>Please select the diagram that best describes the relationships among the three players: </span>
                 <select name="communication structure" onChange={this.handleChange} value={answers}>
                     <option value="">Select your answer</option>
                     <option value="competitionClosure">A</option>

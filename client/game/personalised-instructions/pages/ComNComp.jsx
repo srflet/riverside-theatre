@@ -51,10 +51,10 @@ export default class ComNComp extends Component {
                     <div className="game-instructions">
                         <div>
                             <p>
-                                If you correctly identify the guilty person, you will earn 10 points.
+                                <strong>For every unique clue you collect from others, you will be awarded 2 points.</strong> For instance, if you collect a total of 3 unique clues from the other two players, you will be awarded 6 points. Keep in mind there are 6 total clues you can collect; therefore, you can get a maximum of 12 points.
                             </p>
                             <p style={{ marginBottom: "0px" }}>
-                                In addition, for every unique clue you collect from others, you will be awarded 2 points. For instance, if you collect a total of 3 unique clues from the other two players, you will be awarded 6 points.
+                                In addition, if you correctly identify the guilty person, you will earn 5 points.
                             </p>
                         </div>
                     </div>
