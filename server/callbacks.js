@@ -20,9 +20,9 @@ Empirica.onStageEnd((game, round, stage) => {
   // For each player record all the messages
   if (stage.name == "discussion")
     game.players.forEach(player => {
-      let messagesAB = round.get("messages").filter(message => message.chat === 1)
-      let messagesAC = round.get("messages").filter(message => message.chat === 2)
-      let messagesBC = round.get("messages").filter(message => message.chat === 3)
+      let messagesAB = round.get("messages").filter(message => message.chat === "AcB")
+      let messagesAC = round.get("messages").filter(message => message.chat === "AcC")
+      let messagesBC = round.get("messages").filter(message => message.chat === "BcC")
 
       player.set("chatAB", messagesAB)
       player.set("chatAC", messagesAC)
