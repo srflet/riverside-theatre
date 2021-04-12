@@ -100,8 +100,8 @@ export default class ComNComp extends Component {
                                 In addition, if you correctly identify the guilty person, you will be awarded 5 points.
                         </p>
                             <p style={{ marginBottom: "0px" }}>
-                                At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card. If you score top 10 in the game, you will receive a $20 Amazon Gift Card.
-                        </p>
+                                <strong>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card. If you score top 10 in the game, you will receive a $20 Amazon Gift Card.</strong>
+                            </p>
                         </div>
                     </div>
                     <br />

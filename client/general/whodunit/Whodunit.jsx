@@ -77,7 +77,7 @@ export default class Whodunit extends Component {
             <div>
                 <div>
                     <p className="whodunit-instructions-1">
-                        The boss at your firm has asked you to provide your {whichVerdict} verdict. There are four potential suspects for the collision, but only one of them is responsibile for the collision. For each suspect, please indicate how probable you think it is that they are responsible for the collision. Split 100% between these four suspects by writing the probability of them being responsible for the collison in the box next to their name.
+                        The boss at your firm has asked you to provide your {whichVerdict} verdict. There are four potential suspects for the collision, but only one of them is responsible for the collision. For each suspect, please indicate how probable you think it is that they are responsible for the collision. Split 100% between these four suspects by writing the probability of them being responsible for the collison in the box next to their name.
                     </p>
                     {whichVerdict == "initial" && <p>If you need to revisit the clues on the last page, you can click on the 'previous' button.</p>}
                     <p className="whodunit-instructions-2">

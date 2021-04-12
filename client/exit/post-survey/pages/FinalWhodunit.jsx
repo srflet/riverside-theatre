@@ -12,6 +12,7 @@ import ChangePageButtons from '../../../general/buttons/ChangePageButtons';
 export default class FinalWhodunit extends Component {
     state = {
         name: "finalWhodunit",
+        chosen: ""
     }
 
     // Scroll to the top when this component starts
@@ -19,8 +20,17 @@ export default class FinalWhodunit extends Component {
         window.scrollTo(0, 0);
     }
 
+    // Function to submit chosen categorical whodunit
+    submitChosen = e => {
+        const { player } = this.props
+        const { chosen } = this.state
+        player.set("categoricalWhodunit", chosen)
+    }
+
     render() {
-        const { player, pageDbIndex, min } = this.props;
+        const { player, pageDbIndex, min } = this.props
+        const { chosen } = this.state
+        const categoricalWhodunit = player.get("categoricalWhodunit") ?? ""
 
         return (
             <div>
@@ -33,16 +43,45 @@ export default class FinalWhodunit extends Component {
                 <CluesTable {...this.props} />
 
                 <h4> Giving my final verdict </h4>
+
+                <div className="game-instructions">
+                    Careful, once you have given your verdict, you cannot change it!
+                </div>
+                <br />
+
                 <Whodunit player={player} whichVerdict={"final"} />
 
-                {!player.get("finalWhodunit") &&
-                    <div className="game-instructions">
-                        You to provide your final verdict as to who caused the collision. Careful, once you have given your verdict, you cannot change it!
-                    </div>
+                <p style={{ margin: "20px 0px" }}>
+                    <strong>
+                        If you had to choose one guilty person for Mr Lee, which one would you choose (i.e., who is most probable to be responsible for the collision)?
+                    </strong>
+                </p>
+                {player.get("whodunit-order").map((person, index) => {
+                    return (
+                        <div key={index} className="radio-list">
+                            <input
+                                type="radio"
+                                value={person.name}
+                                checked={categoricalWhodunit === person.name || chosen === person.name}
+                                onChange={e => this.setState({ chosen: e.currentTarget.value })}
+                                disabled={categoricalWhodunit !== ""}
+                            />
+                            <span>{person.text}</span>
+                            <br />
+                        </div>
+                    )
+                })}
+
+                {categoricalWhodunit === ""
+                    ? <p className="button-holder" style={{ marginTop: "10px" }}>
+                        <button disabled={chosen === ""} onClick={this.submitChosen}>Choose one guilty person</button>
+                    </p>
+                    : <div className="justify-center" style={{ marginTop: "10px" }}><p className="whodunit-thankyou">Thank you for choosing one most probable guilty person.</p></div>
                 }
 
+
                 <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} disabledCondition={!player.get("finalWhodunit")} />
-            </div>
+            </div >
         )
     }
 }

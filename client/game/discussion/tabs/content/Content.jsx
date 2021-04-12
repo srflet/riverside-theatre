@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 // All the elements to show in the tabs
-import CluesTableGameInstructions from '../../../../general/tips-n-messages/CluesTableGameInstructions';
+import { CluesTableGameInstructions1, CluesTableGameInstructions2 } from '../../../../general/tips-n-messages/CluesTableGameInstructions';
 import CluesTable from '../../../../general/clues/CluesTable';
 import PoliceClues from '../../../../general/clues/PoliceClues';
 import EarlySubmission from './early-submission/EarlySubmission';
@@ -30,9 +30,15 @@ export default class Content extends Component {
         } else if (activeTab === "cluesTable") {
             return (
                 <div className="tab-content" >
-                    <CluesTableGameInstructions />
+                    <CluesTableGameInstructions1 />
+
                     <br />
+
                     <CluesTable {...this.props} />
+
+                    <br />
+
+                    <CluesTableGameInstructions2 />
                 </div>
             )
         } else if (activeTab === "police") {

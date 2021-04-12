@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Present the clues table and its instructions to the participant
-import CluesTableGameInstructions from '../../../general/tips-n-messages/CluesTableGameInstructions';
+import { CluesTableGameInstructions1, CluesTableGameInstructions2 } from '../../../general/tips-n-messages/CluesTableGameInstructions';
 import CluesTable from '../../../general/clues/CluesTable';
 
 // These are buttons that automatically deal with the changing of the page, and whether or not it should be disabled based on 
@@ -21,11 +21,15 @@ export default class ClueHints extends Component {
             <div>
                 <h3>Hints and keeping track of Clues</h3>
 
-                <CluesTableGameInstructions />
+                <CluesTableGameInstructions1 />
 
                 <br />
 
                 <CluesTable {...this.props} />
+
+                <br />
+
+                <CluesTableGameInstructions2 />
 
                 <br />
 
