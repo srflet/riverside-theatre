@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import InformationLine from '../../../general/information-line/InformationLine';
 
 // Functions to get information from the other players
-import { returnOthersInitials, returnOthersAvatar } from '../../../general/helper-functions/returnPlayerInformation';
+import { returnTeammateInitials, returnOthersAvatar, competitionWithOthers, returnOtherTeams} from '../../../general/helper-functions/returnPlayerInformation';
+import CompetitionIncentive from '../../../general/tips-n-messages/CompetitionIncentive';
 
 export default class DiscussionInstructionsPage extends Component {
     // Scroll to the top when this component starts
@@ -34,6 +35,12 @@ export default class DiscussionInstructionsPage extends Component {
     render() {
         const { player, round, game } = this.props;
 
+       
+        const team = player.get("team")
+        const communication = JSON.parse(game.treatment.communication)
+        const numChats = communication.filter(communicationPattern => {
+            return communicationPattern.split("c").includes(team[0])
+        }).length
         // Text for the 'next' button (it is set here because it is use both on the button and in the little instructions box)
         const buttonText = "Click to set ready for the discussion";
 
@@ -41,39 +48,44 @@ export default class DiscussionInstructionsPage extends Component {
         const discussionTime = round.get("discussionTime")
 
         // Get player 1 (A or B) and player 2 (B or C) initials and avatars
-        const [player1Initials, player2Initials] = returnOthersInitials(game, player);
-        const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player);
+        const [team1Avatar, team2Avatar] = returnOthersAvatar(game, player);
+        const isRepresentitive = player.get("role") === "Liason"
+        const teammateName = returnTeammateInitials(game, team, player)
+        const [conditionForCompWithTeam1, conditionForCompWithTeam2] = competitionWithOthers(game, player)
+        const [otherTeam1, otherTeam2] = returnOtherTeams(game, player)
+        const bothCompete = conditionForCompWithTeam1 && conditionForCompWithTeam2
+        const noCompetition = !conditionForCompWithTeam1 && !conditionForCompWithTeam2
+
+
 
         return (
             <div>
                 <h3>Instructions about the Discussion</h3>
 
-                <p><strong>In the next phase, you will be discussing the case with the other two players.</strong></p>
+                <p><strong>In the next phase, your team will be discussing with the other two teams. Below we present how you will be communicating with your teammate, and the other teams. </strong></p>
+                
+                <div className="game-instructions">
+                    <p>
+                        Keep in mind you have a teammate <strong><u>{teammateName}</u></strong> <img src={player.get("avatar")} className="avatar-medium-textaligned" />. During the discussion, you will have a chat box with them so that your team can communicate internally. 
+                    </p>
 
-                <p>
-                    During the discussion, <strong><u>you will have {discussionTime} minutes</u></strong> to chat with the other two players, {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /> and {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />, to get as many clues as you can. After this discussion, we will kindly ask you to complete a short questionnaire and provide your final verdict.
-                </p>
-                <p>
-                    On the next page, you will see tabs that you can click on to revisit certain information. You can click on the same tab again to close it. Illustrated in this image here:
-                </p>
-                <img src="img/discussion-instructions/tabs-instructions.png" alt="" width="100%" className="img-center" />
-                <ul>
-                    <li>
-                        You can click on the “Player Relations” tab (open by default) to revisit the relationships between the players.
-                    </li>
-                    <li>
-                        You can click on the “Clues Table” tab to get hints about what clues the other players have, enter your answers when you obtain a clue from another player, and revisit the clues you obtained in your personal investigation.
-                    </li>
-                    <li>
-                        You can click on the “Police Clues” tab to revisit the clues shared by all three players.
-                    </li>
-                    <li>
-                        You can click on the “Early submission” tab to provide an early submission once {round.get("earlySubTimeText")} minutes remain passed and you do no want to discuss for the full {discussionTime} minutes.
-                    </li>
-                </ul>
-
+                    <p>
+                        <strong><u>The Managing Director has selected {isRepresentitive ? "you" : `your teammate ${teammateName}`} {isRepresentitive ? "": <img src={player.get("avatar")} className="avatar-medium-textaligned" />  } {isRepresentitive ? "" : "has"} to represent your team, Team {player.get("team")} <img src={player.get("avatar")} className="avatar-medium-textaligned" /> in the discussion phase.</u></strong>
+                        {isRepresentitive && ` Hence, you will have ${numChats} more chat boxes to communicate with ${team === "Red" ? "the other two teams." : " Team Red."} `}
+                    </p>
+                    {!isRepresentitive && 
+                    <p>
+                        Hence, {teammateName} <img src={player.get("avatar")} className="avatar-medium-textaligned" />  will communicate with the other teams on the team’s behalf. Because they have more than one chat to manage, please work with them patiently to gather information from the other teams.
+                    </p>
+                    }
+                </div>
+                
                 <br />
-
+                
+                <p>
+                In the next 3 minutes, you will first be connected to your teammate, {teammateName} <img src={player.get("avatar")} className="avatar-medium-textaligned" />, where you can introduce yourself and familiarize yourself with the information you want to acquire from other teams.  
+                </p>
+                
                 <p className="button-holder">
                     <button type="button" onClick={this.previous}>
                         Previous
@@ -103,3 +115,14 @@ export default class DiscussionInstructionsPage extends Component {
         )
     }
 }
+
+
+const competitorStyle = {
+    backgroundColor: "white"
+    , color: "red"
+    , border: "1px solid red"
+    , borderRadius: "5px"
+    , padding: "1.5rem"
+    , textAlign: "center"
+}
+

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // Functions to get information from the other players
 import {
-    returnOthersInitials, returnOthersAvatar,
+    returnOtherTeams, returnOthersAvatar,
     competitionWithOthers
 } from '../helper-functions/returnPlayerInformation'
 
@@ -11,19 +11,19 @@ export default class CompetitionIncentive extends Component {
     render() {
         const { player, game } = this.props;
 
-        // Get whether this player is competitin with player 1 (A or B) and player 2 (B or C), as well as their initials and avatars
-        const [conditionForCompWithPlayer1, conditionForCompWithPlayer2] = competitionWithOthers(game, player)
-        const [player1Initials, player2Initials] = returnOthersInitials(game, player)
-        const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player)
+        const [conditionForCompWithTeam1, conditionForCompWithTeam2] = competitionWithOthers(game, player)
+        const [otherTeam1, otherTeam2] = returnOtherTeams(game, player)
+        const [team1Avatar, team2Avatar] = returnOthersAvatar(game, player)
 
         // If there is no competition
-        const isNoCompetition = !conditionForCompWithPlayer1 && !conditionForCompWithPlayer2
+        const isNoCompetition = !conditionForCompWithTeam1 && !conditionForCompWithTeam2
+        const bothCompete = conditionForCompWithTeam1 && conditionForCompWithTeam2
 
         return isNoCompetition
             ? (
                 <div style={competitorStyle}>
                     <span>
-                        <strong>INCENTIVE:</strong> You are trying to collect as many unique clues as you can to correctly identify the guilty person
+                        <strong>INCENTIVE:</strong> You are trying to collect as much unique information as you can to come up with an innovative proposal
                     </span>
 
                 </div>
@@ -31,7 +31,7 @@ export default class CompetitionIncentive extends Component {
             : (
                 <div style={competitorStyle}>
                     <span>
-                        <strong>INCENTIVE:</strong> You are competing to collect more information than {conditionForCompWithPlayer1 && <>Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /></>}{conditionForCompWithPlayer1 && conditionForCompWithPlayer2 && " and "}{conditionForCompWithPlayer2 && <>Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>}
+                        <strong>INCENTIVE:</strong> You are competing to collect more information than Team {conditionForCompWithTeam1 ? otherTeam1: otherTeam2}{conditionForCompWithTeam1 ? <img src={team1Avatar} className="avatar-medium-textaligned" />: <img src={team2Avatar} className="avatar-medium-textaligned" />}{bothCompete && <> and Team {otherTeam2} <img src={team2Avatar} className="avatar-medium-textaligned" /></>}
                     </span>
                 </div>
             )

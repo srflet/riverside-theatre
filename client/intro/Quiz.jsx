@@ -26,7 +26,7 @@ export default class Quiz extends React.Component {
 		} else if (answer !== "right") {
 
 			// Otherwise, if the answer is incorrect, alert the player
-			alert("Incorrect: The correct answer is that you will have clues from the police investigation that are available to all three players AND clues from your own independent investigation that are unique to yourself. Please answer again.");
+			alert("Incorrect: The correct answer is that you will have shared information that is available to all three teams AND unique information that is unique to your team. Please answer again.");
 
 			// Get how many times they have tried this question (if not assigned, assign to 0)
 			let understanding = player.get("understanding-intro") ?? 0;
@@ -52,8 +52,8 @@ export default class Quiz extends React.Component {
 			<DevWrapper {...this.props}>
 				<Centered>
 					<div className="quiz">
-						<h2> Just to check your understanding... </h2>
-						<p>What type of clues will be available to you?</p>
+						<h2> Just to make sure we are on the same page… </h2>
+						<p>What type of clues will be available to your team?</p>
 
 						<form onSubmit={this.handleSubmit}>
 
@@ -65,7 +65,7 @@ export default class Quiz extends React.Component {
 									onChange={this.handleChange}
 									checked={answer === "wrong1"}
 								/>
-								<span>Clues from the police investigation that are available to all three players</span>
+								<span>Public, shared information that all three teams in this study can access</span>
 								<br />
 							</div>
 
@@ -77,7 +77,7 @@ export default class Quiz extends React.Component {
 									onChange={this.handleChange}
 									checked={answer === "wrong2"}
 								/>
-								<span>Clues from your own independent investigations that are unique to yourself</span>
+								<span>Private, unique information that are unique to my team </span>
 								<br />
 							</div>
 
@@ -98,7 +98,7 @@ export default class Quiz extends React.Component {
 									Back to instructions
              				 	</button>
 							  	&emsp;
-								<button type="submit">Submit and be connected to the other two players</button>
+								<button type="submit">Submit to continue</button>
 							</p>
 
 						</form>

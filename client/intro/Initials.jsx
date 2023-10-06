@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Centered } from "meteor/empirica:core";
 import DevWrapper from '../general/dev-wrapper/DevWrapper';
+import ChangePageButtons from '../general/buttons/ChangePageButtons';
 
 export default class Initials extends Component {
     // Setting the state of the initials
@@ -11,8 +12,8 @@ export default class Initials extends Component {
     // Updating the state of the initials when text input changes
     // if initials are below 4
     handleChange = e => {
-        const value = e.currentTarget.value.trim().toUpperCase()
-        if (value.length <= 4) {
+        const value = e.currentTarget.value
+        if (value.length <= 20) {
             this.setState({ initials: value });
         }
     };
@@ -26,9 +27,9 @@ export default class Initials extends Component {
         const { initials } = this.state
 
         // Check that this is 4 characters...
-        if (initials.length !== 4) {
+        if (isNaN(initials.slice(-2))) {
             // ...If not, alert the user that this is wrong and they need to try again
-            alert("Error: Your screen name should be four characters (two initials and the last two digits of your student number)");
+            alert("Error: Your screen name should include 2 digits at the end");
         } else {
             // ...If correct, set the players initials and end this stage for them
             this.props.player.set("initials", initials);
@@ -36,7 +37,7 @@ export default class Initials extends Component {
     };
 
     render() {
-        const { hasPrev, hasNext, onNext, onPrev, player } = this.props;
+        const { hasPrev, hasNext, onNext, onPrev, player, pageDbIndex, min } = this.props;
 
         // Get the player's initials, if they have no initials, ask them for initials. 
         // If they have initials, show the thank you message with the initials
@@ -52,14 +53,12 @@ export default class Initials extends Component {
                             <form onSubmit={this.handleSubmit}>
                                 <div>
                                     <p>
-                                        Before we proceed, please enter a screen name for yourself.
-                                </p>
+                                        To begin our exercise, please enter your <strong>first name with a two-digit number of your choice</strong>; we will use this as your screen name later to connect you with your teammate, and the other two teams.
+                                    </p>
+
                                     <p>
-                                        <strong><u>Please enter your initials (first and last name) and the last two digits of your student number,</u></strong> we will use this as your screen name later to connect you with the other two players in the chatroom.
-                                </p>
-                                    <p>
-                                        For instance, if your name is Jane Doe and the last two digits of your student number are 75, please enter "JD75" as your screen name.
-                                </p>
+                                        For instance, if your first name is Tom and you choose the number 45, then please enter “Tom45” as your screen name.
+                                    </p>
 
                                     <input
                                         type="text"
@@ -86,21 +85,29 @@ export default class Initials extends Component {
                             <div>
                                 <p>
                                     Thank you for submitting you screen name: {player.get("initials")}.
-                            </p>
+                                </p>
                                 <p>
                                     For the rest of this study you will be refered to as {player.get("initials")}. The other players will see your screen name and you will be able to see theirs in key parts of the study.
-                            </p>
+                                </p>
+
+                                <div className="game-instructions">
+                                    <p>
+                                        Please make sure that you have <strong>sound activated</strong> on your computer as we will use light bell sounds to signal when certain phases of the study start and when you receive messages in the discussion phase of the study.
+                                    </p>
+                                    
+                                    <p>
+                                        If you encounter a problem or a blank page for more than a few seconds, <strong>please feel free to refresh the page.</strong>
+                                    </p>
+
+                                    <p> 
+                                        Please press the submit button to continue. <strong>You will enter a lobby and wait a maximum of 3 minutes while we connect you with other players.</strong>
+                                    </p>
+                                </div>
 
                                 <p className="button-holder">
-                                    <button type="button" onClick={onPrev} disabled={!hasPrev}>
-                                        Previous
-                                </button>
-                                &emsp;
-                                <button type="button" onClick={onNext} disabled={!hasNext}>
-                                        Next
-                                </button>
+                                    <button type="submit" onClick={onNext}>Submit and join the lobby</button>
                                 </p>
-                            </div>
+                         </div>
                         }
 
                     </div>

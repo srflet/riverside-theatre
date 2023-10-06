@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Functions to get information from the other players
-import { returnOthersInitials, returnOthersAvatar, competitionWithOthers } from '../../../general/helper-functions/returnPlayerInformation'
+import { returnOtherTeams, returnOthersAvatar, competitionWithOthers } from '../../../general/helper-functions/returnPlayerInformation'
 
 // TEST WHETHER THEY UNDERSTOOD THE COMPETITION INCENTIVES
 
@@ -48,12 +48,13 @@ export default class TestIncentives extends Component {
         const { incentives1 } = this.state; // Get currently selected response
 
         // Get whether this player is competitin with player 1 (A or B) and player 2 (B or C)
-        const [conditionForCompWithPlayer1, conditionForCompWithPlayer2] = competitionWithOthers(game, player)
+        //const [conditionForCompWithPlayer1, conditionForCompWithPlayer2] = competitionWithOthers(game, player)
+        const [conditionForCompWithTeam1, conditionForCompWithTeam2] = competitionWithOthers(game, player)
 
         // Based on the competition conditions, determine what is the correct answer for this player
-        const correctAnswer = conditionForCompWithPlayer1 && conditionForCompWithPlayer2 ? "both"
-            : conditionForCompWithPlayer1 ? "otherPlayer1"
-                : conditionForCompWithPlayer2 ? "otherPlayer2"
+        const correctAnswer = conditionForCompWithTeam1 && conditionForCompWithTeam2 ? "both"
+            : conditionForCompWithTeam1 ? "otherTeam1"
+                : conditionForCompWithTeam2 ? "otherTeam2"
                     : "none"
 
         // Check whether the currently selected response corresponds to the correct answer
@@ -83,8 +84,11 @@ export default class TestIncentives extends Component {
         const { incentives1 } = this.state;
 
         // Get player 1 (A or B) and player 2 (B or C) initials and avatars
-        const [player1Initials, player2Initials] = returnOthersInitials(game, player);
-        const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player);
+        //const [player1Initials, player2Initials] = returnOthersInitials(game, player);
+        const [otherTeam1, otherTeam2] = returnOtherTeams(game, player);
+
+        //const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player);
+        const [team1Avatar, team2Avatar] = returnOthersAvatar(game, player);
 
         return (
             <div>
@@ -95,7 +99,7 @@ export default class TestIncentives extends Component {
                     </p>
                     <br />
                     <div>
-                        <p>In this game, I am in direct competition with:</p>
+                        <p>In this game, my team is in direct competition with:</p>
 
                         <div className="radio-list">
                             <input
@@ -113,11 +117,11 @@ export default class TestIncentives extends Component {
                             <input
                                 type="radio"
                                 name="incentives1"
-                                value="otherPlayer1"
-                                checked={incentives1 === "otherPlayer1"}
+                                value="otherTeam1"
+                                checked={incentives1 === "otherTeam1"}
                                 onChange={this.handleChange}
                             />
-                            <span>Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /></span>
+                            <span>Team {otherTeam1} <img src={team1Avatar} className="avatar-medium-textaligned" /></span>
                             <br />
                         </div>
 
@@ -125,11 +129,11 @@ export default class TestIncentives extends Component {
                             <input
                                 type="radio"
                                 name="incentives1"
-                                value="otherPlayer2"
-                                checked={incentives1 === "otherPlayer2"}
+                                value="otherTeam2"
+                                checked={incentives1 === "otherTeam2"}
                                 onChange={this.handleChange}
                             />
-                            <span>Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></span>
+                            <span>Team {otherTeam2} <img src={team2Avatar} className="avatar-medium-textaligned" /></span>
                             <br />
                         </div>
 

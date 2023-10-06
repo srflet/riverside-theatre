@@ -42,6 +42,7 @@ li {
   margin: 5px 0;
 }
 
+
 /* --------
 - Buttons -
 --------- */
@@ -50,6 +51,32 @@ li {
 .button-holder{
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
+
+	button {
+    cursor: pointer;
+    padding: 0.8rem 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid #394B59;
+    background-color: #394B59;
+    color: white;
+	}
+  
+  button:hover {
+    background-color: #5f839e;
+    color: white;
+  }
+
+  button:disabled {
+    background-color: #b1c3d0;
+    color: #394B59;
+    cursor: initial;
+  }
+}
+
+// Buttons in this holder will look like this
+.save-button-holder{
+  display: flex;
   margin-top: 2rem;
 
 	button {
@@ -184,7 +211,7 @@ li {
   flex-direction: column;
   justify-content: center;
 
-  height: 150px;
+  height: 200px;
 
   * {
     width: 100%;
@@ -232,6 +259,14 @@ li {
   border: 1.5px solid #394B59;
   border-top: none;
   padding: 10px;
+}
+
+/* -------------
+- Collab styling -
+-------------- */
+
+.collab-n-chat {
+  display: flex;
 }
 
 /* -------------
@@ -306,9 +341,9 @@ li {
 
 /* Game instructions */
 .game-instructions {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  //display: flex;
+  //justify-content: center;
+  // align-items: center;
 
   background-color: #f5e3d4;
   border: 1px solid #371c06;
@@ -319,7 +354,7 @@ li {
 }
 
 /* Game clues */
-.game-clues {
+.game-information {
   padding: 20px;
   border-radius: 7px;
 
@@ -329,9 +364,9 @@ li {
 
 /*Game competition */
 .game-competition {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
 
   color: red;
   background-color: white;
@@ -340,6 +375,32 @@ li {
   padding: 20px;
   border-radius: 7px;
 }
+
+/* ----------------
+- Pledge design -
+----------------- */
+
+/*Game competition */
+
+.pledge-holder {
+  display: flex;
+  flex-direction: row;
+  & label {
+    line-height: 26px;
+    margin-bottom: 10px;
+  }
+  & input {
+      height: 26px;
+      margin-left: 10px;
+    }
+}
+
+
+
+
+
+
+
 
 /* ----------------
 - Whodunit design -

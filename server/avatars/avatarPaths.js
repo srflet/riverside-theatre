@@ -6,18 +6,18 @@ const avatarPath = true ? "rgb" : "pastel";
 // The paths
 export const avatarPaths = {
     first: {
-        color1: `/img/avatars/${avatarPath}/shape1_color1.png`,
-        color2: `/img/avatars/${avatarPath}/shape1_color2.png`,
-        color3: `/img/avatars/${avatarPath}/shape1_color3.png`
+        red: `/img/avatars/${avatarPath}/shape1_red.png`,
+        blue: `/img/avatars/${avatarPath}/shape1_blue.png`,
+        green: `/img/avatars/${avatarPath}/shape1_green.png`
     },
     second: {
-        color1: `/img/avatars/${avatarPath}/shape2_color1.png`,
-        color2: `/img/avatars/${avatarPath}/shape2_color2.png`,
-        color3: `/img/avatars/${avatarPath}/shape2_color3.png`
+        red: `/img/avatars/${avatarPath}/shape2_red.png`,
+        blue: `/img/avatars/${avatarPath}/shape2_blue.png`,
+        green: `/img/avatars/${avatarPath}/shape2_green.png`
     },
     third: {
-        color1: `/img/avatars/${avatarPath}/shape3_color1.png`,
-        color2: `/img/avatars/${avatarPath}/shape3_color2.png`,
-        color3: `/img/avatars/${avatarPath}/shape3_color3.png`
+        red: `/img/avatars/${avatarPath}/shape3_red.png`,
+        blue: `/img/avatars/${avatarPath}/shape3_blue.png`,
+        green: `/img/avatars/${avatarPath}/shape3_green.png`
     }
 };

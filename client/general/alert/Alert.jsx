@@ -10,10 +10,13 @@ export default class Alert extends Component {
     }
 
     render() {
+        const { stage, player } = this.props
+        let alertType = player.get("alertType")
         return (
             <div style={shadedPage}>
                 <div style={alert}>
-                    <p><strong>There are only two minutes left!</strong></p>
+                    {alertType === "2 mins" ? <p><strong>There are only two minutes left!</strong></p> : <p><strong>There are only 30 seconds left!</strong></p>}
+                    {stage.name === "collaborate" &&  <p><strong><u>Make sure to save your work!</u></strong></p>}
                     <p className="button-holder"><button onClick={this.closeAlert}>Ok</button></p>
                 </div>
             </div >

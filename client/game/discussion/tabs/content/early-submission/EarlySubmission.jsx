@@ -44,7 +44,7 @@ class timer extends React.Component {
                     <br />
 
                     <p>
-                        However, note that you will only be moved on to the next stage <strong><u>if all three player have provided early submission</u></strong>. In the meantime, you will still be able to send messages, receive messages, and check clues. Players who have provided early submission will be indicated by a tick instead of a cross next to their avatar at the top of the screen.
+                        However, note that you will only be moved on to the next stage <strong><u>if all six player have provided early submission</u></strong>. In the meantime, you will still be able to send messages, receive messages, and check clues. Players who have provided early submission will be indicated by a tick instead of a cross next to their avatar at the top of the screen.
                     </p>
 
                     <p className="button-holder">

@@ -3,7 +3,7 @@ import ComStructShape from '../../../general/communication-structure/ComStructSh
 
 // Functions to get information from the other players
 import {
-    returnOthersInitials, returnOthersAvatar,
+    returnOtherTeams, returnOthersAvatar,
     competitionWithOthers, areOthersCompeting
 } from '../../../general/helper-functions/returnPlayerInformation'
 
@@ -24,44 +24,48 @@ export default class ComNComp extends Component {
         const { player, pageDbIndex, min, game } = this.props;
 
         // Get whether this player is competitin with player 1 (A or B) and player 2 (B or C), as well as their initials and avatars
-        const [conditionForCompWithPlayer1, conditionForCompWithPlayer2] = competitionWithOthers(game, player)
-        const othersCompeting = areOthersCompeting(game, player)
-        const [player1Initials, player2Initials] = returnOthersInitials(game, player)
-        const [player1Avatar, player2Avatar] = returnOthersAvatar(game, player)
+        const [conditionForCompWithTeam1, conditionForCompWithTeam2] = competitionWithOthers(game, player)
+        const [otherTeam1, otherTeam2] = returnOtherTeams(game, player)
+        const [team1Avatar, team2Avatar] = returnOthersAvatar(game, player)
+
+        const myTeam = player.get("team")
 
         // If there is no competition
-        const isNoCompetition = !conditionForCompWithPlayer1 && !conditionForCompWithPlayer2
+        const isNoCompetition = !conditionForCompWithTeam1 && !conditionForCompWithTeam2
+        const bothCompete = conditionForCompWithTeam1 && conditionForCompWithTeam2
+        
+        
 
         return isNoCompetition
             ? (
                 <div className="com-n-comp">
                     <h3>Incentives</h3 >
                     <p>
-                        Now, you should know that your firm is a relatively new firm that is working hard to establish a good reputation in the business.
+                        Now you should know that your team, Team {myTeam} <img src={player.get("avatar")} className="avatar-medium-textaligned" />, is a relatively new team in the theater, and it is currently working very hard to establish its reputation in the whole company, and particularly to build credibility with the Managing Director.
                     </p>
                     <p>
-                        Your boss has informed you that if you do well on this high-profile case with Mr. Lee, it will be a big boost to the firm’s reputation.
+                        To do that, the General Manger has made it clear that your team needs to take into account the other teams' unique perspective and information such that your proposal can have lasting changes to the whole theatre.
                     </p>
                     <p>
-                        In order to correctly identify the guilty person, <strong><u>you need to collect as many clues from others as possible</u></strong> in the upcoming discussion with the other players.
+                        Hence, in the following discussion phase, remember that <strong><u>your team needs to acquire as many pieces of information from the other two teams as possible.</u></strong>
                     </p>
-                    <p>
-                        Only by maximizing the number of unique clues you collect from others, you will have the best chance of solving this game.
-                    </p>
+
+                    <br />
                     <div className="game-instructions">
                         <div>
                             <p>
-                                <strong>For every unique clue you collect from others, you will be awarded 2 points.</strong> For instance, if you collect a total of 3 unique clues from the other two players, you will be awarded 6 points. Keep in mind there are 6 total clues you can collect; therefore, you can get a maximum of 12 points.
-                            </p>
-                            <p style={{ marginBottom: "0px" }}>
-                                In addition, if you correctly identify the guilty person, you will earn 5 points.
+                                To reflect this, <strong> for every piece of information your team acquires in the discussion, your team will be awarded 2 points</strong>  Additionally, your team’s business plan will be scored by two research experts on a scale of 1-7 and that score will be added to your final point tally.
                             </p>
                         </div>
                     </div>
 
                     <br />
+                
+                    <p>
+                    Remember that to have the best chance at an innovative proposal, your team will need to gather as much information from the other two teams as possible. 
+                    </p>
 
-                    <CompetitionIncentive {...this.props} />
+                    <br />
 
                     <br />
                     <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
@@ -71,45 +75,53 @@ export default class ComNComp extends Component {
                 <div className="com-n-comp">
                     <h3>Incentives</h3 >
                     <p>
-                        Now you should know that your firm is currently competing with Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm on another large contract in Chicago{conditionForCompWithPlayer2 && <> and competing with Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm on another large contract in Boston</>}.
+                    Now you should know that your <strong><u>team, Team {myTeam} <img src={player.get("avatar")} className="avatar-medium-textaligned" />, has a competitive relationship with Team {conditionForCompWithTeam1 ? otherTeam1: otherTeam2}{bothCompete && <> and Team {otherTeam2}</>}.</u></strong>
                     </p>
                     <p>
-                        Your boss has informed you that if you outperform Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" /> {conditionForCompWithPlayer2 && <>and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} in this game, your firm has a high chance of winning {conditionForCompWithPlayer2 ? "those contracts" : "this contract"}.
-                    </p>
-                    <p>
-                        Your boss has told you that in the following discussion between the three players, <strong> you need to outperform Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>} by collecting more clues than them.</strong>
+                        In the past, the Managing Director has organized similar special projects, and your team has had very intense competition with Team{conditionForCompWithTeam1 ? otherTeam1: otherTeam2}{bothCompete && <> and Team {otherTeam2} respectively</>}. Hence, in this special project, your team is very motivated to outperform them.
                     </p>
                     {
-                        othersCompeting
-                            ? <p> Be aware that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm are also competing with each other on a large contract in Washington D.C., hence they also have competitive incentives to outperform each other.</p>
-                            : <p> Be aware that Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />'s firm and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />'s firm are not competing against each other on any contracts in the country.</p>
+                        myTeam !== "Red"
+                            ? <p> You should also know that Team Red <img src={team1Avatar} className="avatar-medium-textaligned" /> also has a similar competitive relationship with {otherTeam2} <img src={team2Avatar} className="avatar-medium-textaligned" /></p>
+                            : <p></p>
                     }
+
                     <p>
-                        Below is a graphic representation of the competitive relationship between you and the other two players:
+                    These competitive relationships are illustrated below:
                     </p>
                     <div className="justify-center">
                         <ComStructShape showCompetition={true} {...this.props} />
                     </div>
-                    <br />
+
                     <div className="game-instructions">
                         <div>
                             <p>
-                                To reflect this competition, at the end of the game, <strong>for every clue that you collect more than  Player  {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />{conditionForCompWithPlayer2 && <> and Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" /></>}, you will be awarded 3 points.</strong> For instance, if you collect 3 more pieces of information than Player {player1Initials} <img src={player1Avatar} className="avatar-medium-textaligned" />, you will be awarded 9 points{conditionForCompWithPlayer2 && <>; and if you collect 2 more pieces of information than Player {player2Initials} <img src={player2Avatar} className="avatar-medium-textaligned" />, you will be awarded 6 points</>}. In this hypothetical outcome, you will have a total of {conditionForCompWithPlayer2 ? "15" : "9"} points.
-                        </p>
+                                To reflect this, <strong><u>for every piece of information your team acquired more than Team {conditionForCompWithTeam1 ? otherTeam1: otherTeam2}{bothCompete && <> and Team {otherTeam2}</>}, your team will be awarded 3 points.</u></strong> 
+                            </p>
                             <p>
-                                In addition, if you correctly identify the guilty person, you will be awarded 5 points.
-                        </p>
+                                For instance, if your team acquired 5 pieces of information whereas Team {conditionForCompWithTeam1 ? otherTeam1: otherTeam2} acquired 3 pieces {bothCompete && <> and Team {otherTeam2} acquired 2 pieces</>}, then your team will be awarded a total of {bothCompete ? "15" : "6"} points.
+                            </p>
+                            <p>
+                                Additionally, your team’s business proposal will be scored by two research experts on a scale of 1-7 and that score will be added to your final point tally. 
+                            </p>
                             <p style={{ marginBottom: "0px" }}>
-                                <strong>At the end of the study, if your final score places top 25 in the game, you will receive a $10 Amazon Gift Card. If you score top 10 in the game, you will receive a $20 Amazon Gift Card.</strong>
+                                At the end of the study, <strong><u>the top 3 scoring teams will be awarded $150 to be split between the two team members whereas the rest of the top 10 will be awarded $50. </u></strong>
                             </p>
                         </div>
                     </div>
                     <br />
 
-                    <CompetitionIncentive {...this.props} />
+                    
 
                     <br />
+
+                    <div className="game-tip">
+                        <p>
+                        <strong><u>Game tip:</u></strong> Remember that to have the best chance at an innovative proposal, your team will need to gather as much information from the other two teams as possible. 
+                        </p>
+                    </div>
                     <ChangePageButtons player={player} pageDbIndex={pageDbIndex} min={min} />
+                    
                 </div >
             )
     }

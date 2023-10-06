@@ -7,7 +7,7 @@ class timer extends React.Component {
   fmtMSS = s => { return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + s }
 
   render() {
-    const { remainingSeconds, player } = this.props;
+    const { remainingSeconds, player, stage } = this.props;
 
     const classes = ["seconds"];
     if (remainingSeconds <= 5) {
@@ -18,7 +18,14 @@ class timer extends React.Component {
 
     if (remainingSeconds === 120) {
       player.round.set("alert", true)
+    } 
+    
+    if (remainingSeconds === 30 && stage.name === "collaborate") {
+      player.round.set("alert", true)
+      player.set("alertType", "30 secs")
+      
     }
+
 
     return (
       <div style={{

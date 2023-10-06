@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { TimeSync } from "meteor/mizzao:timesync";
 
 // Functions to get information from the other players
-import { returnPlayerInitials, returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerInformation'
+import { returnPlayerInitials, returnPlayerAvatar } from '../../../general/helper-functions/returnPlayerInformation';
 
 // Get component for a message
 import Message from './Message';
@@ -95,14 +95,36 @@ export default class Chat extends Component {
 
     // Check whether this player is in this chat and whether they can see it, hear it, interact with it
     getIsInvolved = () => {
-        const { player, communicationPattern } = this.props;
+        const { player, communicationPattern, type, team } = this.props;
 
-        // get player type
-        const myType = player.get("type")
-        // get array of player types in this communication pattern (e.g., "AcB" => ["A", "B"]) 
+        // get player team
+
+        const myTeam = player.get("team")
+        let tag = null
+        if (myTeam === "Red") {
+            tag = "R"
+        } else if (myTeam === "Blue") {
+            tag = "B"
+        } else {
+            tag = "G"
+        }
+
+        const myRole = player.get("role")
+        // get array of player teams in this communication pattern (e.g., "AcB" => ["A", "B"]) 
         const communicators = communicationPattern.split("c")
+        
+        // return (communicators.includes(myTeam) & myRole === "Liason")
 
-        return communicators.includes(myType)
+        return (communicators.includes(tag))
+
+    }
+
+    getCanWrite = () => {
+        const { player } = this.props;
+
+        const myRole = player.get("role")
+
+        return (myRole === "Liason")
     }
 
     // Update the text of the text input in this chat
@@ -139,7 +161,7 @@ export default class Chat extends Component {
         let newMessage = {
             text: this.state.text,
             sender: player._id,
-            senderType: player.get("type"),
+            senderType: player.get("team"),
             chat: communicationPattern,
             createdAt: new Date(TimeSync.serverTime(null, 1000)),
             id: this.getNewMessageID()
@@ -162,13 +184,22 @@ export default class Chat extends Component {
 
         // Get whether the player is involved in this chat
         const isInvolved = this.getIsInvolved()
+        const isLiason = this.getCanWrite()
 
-        // get player type
-        const myType = player.get("type")
-        // get array of player types in this communication pattern (e.g., "AcB" => ["A", "B"]) 
+        // get player team
+        const myTeam = player.get("team")
+        // get array of player team in this communication pattern (e.g., "AcB" => ["A", "B"]) 
         const communicators = communicationPattern.split("c")
-        // Get the type of the other player in the communication pattern
-        const otherType = communicators.filter(communicator => { return communicator !== myType })[0]
+        // Get the team of the other player in the communication pattern
+        let otherTeam = communicators.filter(communicator => { return communicator !== myTeam[0] })[0]
+        if (otherTeam === "R") {
+            otherTeam = "Red"
+        } else if (otherTeam === "B") {
+            otherTeam = "Blue"
+        } else {
+            otherTeam = "Green"
+        }
+
 
         // Check whether there is a competition patter that mirrors this communication pattern (e.g., "AcB" and "AvB" )
         const competitors = JSON.parse(game.treatment.competition)
@@ -180,8 +211,8 @@ export default class Chat extends Component {
 
                 <div style={chatHeaderHolder}>
                     <span style={chatHeaderInfo}>
-                        {`Chat with ${returnPlayerInitials(game, otherType)} `}
-                        <img src={returnPlayerAvatar(game, otherType)} className="avatar-small" />
+                        {`Chat with Team ${otherTeam}`}
+                        <img src={returnPlayerAvatar(game, otherTeam)} className="avatar-small" />
                         {competitors.length !== 0 && <Competitor />}
                     </span>
 
@@ -196,6 +227,7 @@ export default class Chat extends Component {
                     ))}
                 </div>
 
+                {isLiason ? 
                 <div style={inputHolder}>
                     <form onSubmit={this.submitMessage}>
                         <input
@@ -211,6 +243,11 @@ export default class Chat extends Component {
                         <input type="submit" value="Send" className="messageSubmit" disabled={this.state.text === ""} />
                     </form>
                 </div>
+                :
+                <div style={chatWarning}>
+                    <p>Your teammate is representing your team in this chat. You can observe the conversation and discuss with your teammate.</p>
+                </div>
+                }
             </div>
         )
     }
@@ -250,5 +287,12 @@ const messageInput = {
     width: "85%",
     margin: "0px",
     height: "50px",
+};
+
+const chatWarning = {
+    width: "100%",
+    backgroundColor: "#f5e3d4",
+    border: "solid",
+    color: "#251406",
 };
 

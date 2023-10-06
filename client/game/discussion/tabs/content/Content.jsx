@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 
 // All the elements to show in the tabs
 import { CluesTableGameInstructions1, CluesTableGameInstructions2 } from '../../../../general/tips-n-messages/CluesTableGameInstructions';
-import CluesTable from '../../../../general/clues/CluesTable';
-import PoliceClues from '../../../../general/clues/PoliceClues';
+import CluesTable from '../../../../general/information/CluesTable';
+import GeneralInformation from '../../../../general/information/GeneralInformation';
 import EarlySubmission from './early-submission/EarlySubmission';
 import ComStructShape from '../../../../general/communication-structure/ComStructShape';
 import CompetitionIncentive from '../../../../general/tips-n-messages/CompetitionIncentive';
 
 export default class Content extends Component {
     render() {
-        const { tabsStatus, round, player, stage } = this.props;
+        const { tabsStatus, collabStatus, round, player, stage } = this.props;
 
         // Get the tab status that is true
         const activeTab = Object.keys(tabsStatus).filter(tab => {
@@ -21,7 +21,6 @@ export default class Content extends Component {
         if (activeTab === "competitionStructure") {
             return (
                 <div className="tab-content" >
-                    <h3 className="justify-center">Player Relations</h3>
                     <div className="justify-center"><ComStructShape {...this.props} showCompetition={true} /></div>
                     <br />
                     <CompetitionIncentive {...this.props} />
@@ -30,28 +29,29 @@ export default class Content extends Component {
         } else if (activeTab === "cluesTable") {
             return (
                 <div className="tab-content" >
-                    <CluesTableGameInstructions1 />
+                    {stage.name === "discussion" && 
+                        <div className="game-tip">
+                        <p>
+                        When your team acquires a new piece of information from another team, you should fill in the blank slot. This allows you to keep track of the information you collected AND it allows us to calculate your final scores!
+                        </p>
+                    </div>
+                    }
 
                     <br />
-
+                    
                     <CluesTable {...this.props} />
 
-                    <br />
-
-                    <CluesTableGameInstructions2 />
                 </div>
             )
-        } else if (activeTab === "police") {
+        } else if (activeTab === "sharedInfo") {
             return (
                 <div className="tab-content">
-                    <h3 className="justify-center">Police Clues</h3>
-                    <PoliceClues />
+                    <GeneralInformation />
                 </div>
             )
         } else if (activeTab === "earlySub") {
             return (
                 <div className="tab-content">
-                    <h3 className="justify-center">Early Submission</h3>
                     <EarlySubmission stage={stage} player={player} round={round} />
                 </div>
             )

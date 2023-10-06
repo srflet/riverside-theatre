@@ -14,7 +14,7 @@ export default class PersonalisedInstructions extends Component {
     // You would get it with player.get(pageDbIndex)
     state = {
         min: 1,
-        max: 10,
+        max: 12,
         pageDbIndex: "personalisedDiscussionPage"
     }
 

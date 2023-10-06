@@ -1,0 +1,10 @@
+#firepad-container {
+    width: 900px;
+    height: 600px;
+    border: solid;
+    border-color: #000000;
+    background: #394B59;
+    color: #fff;
+    padding: 7px 20px;
+}
+

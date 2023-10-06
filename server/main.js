@@ -3,11 +3,11 @@ import Empirica from "meteor/empirica:core";
 import "./bots.js";
 import "./callbacks.js";
 // Importing clues
-import { clues } from './clues/clues';
 // Importing avatar paths
 import { avatarPaths } from './avatars/avatarPaths';
 // Importing helper functions for randomness
 import { choice, popChoice, shuffle } from './helper-functions/random';
+import { clues } from "./clues/clues.js";
 
 /*-----------
 - gameInit: -
@@ -16,10 +16,9 @@ import { choice, popChoice, shuffle } from './helper-functions/random';
 // Setting a variable for whether this is development/testing or not (determines the time set to the stages)
 const isTest = false;
 
-// Set starting clues for the different positions
-const cluesA = [0, 1, 2];
-const cluesB = [3, 4, 5];
-const cluesC = [6, 7, 8];
+const cluesRed = [0, 1, 2, 3];
+const cluesBlue = [4, 5, 6, 7];
+const cluesGreen = [8, 9, 10, 11];
 
 // Running the gameInit
 Empirica.gameInit(game => {
@@ -29,14 +28,17 @@ Empirica.gameInit(game => {
 	-------------------------*/
 
 	// Prepare the player types
-	let playerTypes = ["A", "B", "C"];
+	let playerTeams = ["Red", "Blue", "Green"];
+	let playerRoles = ["Liason", "Member"];
+	let playerTypes = playerTeams.flatMap(team => playerRoles.map(role => team + "_" + role));
+
 
 	// Shuffle the player types
-	playerTypes = shuffle(playerTypes);
+	// playerTypes = shuffle(playerTypes);
 
 	// Prepare elements for players to randomly draw an avatar:
 	const avatarShapes = ["first", "second", "third"];
-	const avatarColors = ["color1", "color2", "color3"];
+	const avatarColors = ["red", "blue", "green"];
 
 	// Setting up the players
 	game.players.forEach((player, i) => {
@@ -48,44 +50,45 @@ Empirica.gameInit(game => {
 		player.set("communication", communication)
 
 		// Getting the avatar
-		let shape = popChoice(avatarShapes);
-		let color = popChoice(avatarColors);
+
+		// Randomise which player type, team and role they are:
+		player.set("type", playerTypes[i]);
+		player.set("team", playerTypes[i].split("_")[0])
+		player.set("role", playerTypes[i].split("_")[1])
+		let team = player.get("team");
+
+		let avatarIdx = NaN
+		// Giving individual clues to the players (No counterbalancing)
+		if (team === "Red") {
+			avatarIdx = 0;
+			player.set("myClues", cluesRed);
+		} else if (team === "Blue") {
+			avatarIdx = 1;
+			player.set("myClues", cluesBlue);
+		} else {
+			avatarIdx = 2;
+			player.set("myClues", cluesGreen);
+		}
+
+		// Getting the avatar
+		let shape = avatarShapes[avatarIdx];
+		let color = avatarColors[avatarIdx];
 		let avatar = avatarPaths[shape][color];
 		player.set("avatar", avatar);
 
-		// Randomise which player type they are:
-		player.set("type", playerTypes[i]);
-		let type = player.get("type");
-
-		// Giving individual clues to the players (No counterbalancing)
-		if (type === "A") {
-			player.set("myClues", cluesA);
-		} else if (type === "B") {
-			player.set("myClues", cluesB);
-		} else {
-			player.set("myClues", cluesC);
-		}
-
-		// Prepare the clues the the player has answered
-		// Get the official fill of each clue that this player already know based on their type (A, B, C)
 		let cluesAnswered = {}
 		player.get("myClues").forEach(clueId => cluesAnswered[clueId] = clues[clueId].response)
 		player.set("clues-answered", cluesAnswered)
 
-		// Set whodunit order (randomise order of the whodunit question)
-		let whodunitOrder = [
-			{ text: "Mr. Smith", name: "Smith" },
-			{ text: "Mr. Smith's son", name: "son" },
-			{ text: "Mrs. Davis", name: "Davis" },
-			{ text: "Mr. Anderson", name: "Anderson" }
-		];
-		whodunitOrder = shuffle(whodunitOrder);
-		player.set("whodunit-order", whodunitOrder);
-
 		// Set chat messages
-		player.set("chatAB", []);
-		player.set("chatAC", []);
-		player.set("chatBC", []);
+		player.set("chatRB", []);
+		player.set("chatRG", []);
+		player.set("chatBG", []);
+
+		// Set team chat messages
+		player.set("chatRed", []);
+		player.set("chatBlue", []);
+		player.set("chatGreen", []);
 
 		// Set early submission:
 		player.set("isEarlySubmission", false);
@@ -94,6 +97,9 @@ Empirica.gameInit(game => {
 		// Add navigation pages:
 		player.set("personalisedDiscussionPage", 1);
 		player.set("exitPage", 1);
+
+		// Set alert type 
+		player.set("alertType", "2 mins")
 	});
 
 	/*----------------------------------
@@ -108,19 +114,31 @@ Empirica.gameInit(game => {
 			clues: clues,
 			discussionTime: "12",
 			earlySubTimeText: "5",
-			earlySubTimeNum: 300,
+			earlySubTimeNum: 900,
 		}
 	});
 
 	round.addStage({
 		name: "personalised_instructions",
-		displayName: "Instructions",
+		displayName:"Instructions",
 		durationInSeconds: isTest ? 999999999999 : 900,
 	});
 
 	round.addStage({
+		name: "team_connect",
+		displayName: "Teammate Connect",
+		durationInSeconds: isTest ? 90: 180,
+	})
+
+	round.addStage({
 		name: "discussion",
 		displayName: "Discussion",
-		durationInSeconds: isTest ? 999999999999 : 720,
+		durationInSeconds: isTest ? 501 : 840,
+	});
+
+	round.addStage({
+		name: "collaborate",
+		displayName: "Collaborate",
+		durationInSeconds: isTest ? 135 : 840,
 	});
 });

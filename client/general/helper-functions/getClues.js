@@ -12,10 +12,10 @@ export const getMyClues = (round, player) => {
 }
 
 // Get the clues for a certain type/position
-export const getPlayerClues = (round, game, type) => {
+export const getPlayerClues = (round, game, team) => {
 
     // Get this player from the list of players in the game based on its type
-    let player = game.players.filter(player => player.get("type") === type)[0]
+    let player = game.players.filter(player => player.get("team") === team)[0]
     // Get the clue ids assigned to this player (done based on type in the server/main.js)
     let playerClues = player.get("myClues")
     // Deep copy the clues from the round and return the clues that have the ids that correspond to that player

@@ -6,24 +6,27 @@ import { render } from "react-dom";
 -----------------------------*/
 
 //Consent
-import Consent from "./consent/Consent";
+//import Consent from "./consent/Consent";
 
 // New Player form
 import NewPlayer from "./new-player/NewPlayer";
 
 //Introduction:
 import GeneralIntroduction from "./intro/GeneralIntroduction";
+import Welcome from "./intro/Welcome";
 import Initials from "./intro/Initials";
 import Background from "./intro/Background";
 import Quiz from "./intro/Quiz";
+import SharedInfo from "./intro/SharedInfo";
 
 //Game:
 import Round from "./game/Round";
 
 //Exit
-import PostSurvey from './exit/post-survey/PostSurvey';
 import Thanks from "./exit/debrief/Thanks";
+import ExitSurvey from "./exit/debrief/ExitSurvey";
 import Sorry from './exit/debrief/Sorry';
+import PostSurvey from './exit/debrief/post-survey/PostSurvey';
 
 /*-----------------------------
 - Setting up the Empirica app -
@@ -32,22 +35,32 @@ import Sorry from './exit/debrief/Sorry';
 // Get rid of the header, it will be replaced by the dev wrapper than only shows on dev mode
 Empirica.header(() => null);
 
-// Set the Consent Component you want to present players (optional).
-Empirica.consent(Consent);
+const isDev = false
+
+if (!isDev) {
+	// Set the Consent Component you want to present players (optional).
+	//Empirica.consent(Consent);
+
+	// Introduction pages to show before they play the game (optional).
+	// At this point they have been assigned a treatment. You can return
+	// different instruction steps depending on the assigned treatment.
+	Empirica.introSteps((game, treatment) => {
+		const steps = [Welcome];
+		steps.push(Initials);
+		// steps.push(Background);
+		// steps.push(Quiz);
+		// steps.push(SharedInfo);
+		return steps;
+		
+	})
+
+}
 
 // Set the component for getting the player id
 Empirica.newPlayer(NewPlayer);
 
-// Introduction pages to show before they play the game (optional).
-// At this point they have been assigned a treatment. You can return
-// different instruction steps depending on the assigned treatment.
-Empirica.introSteps((game, treatment) => {
-	const steps = [GeneralIntroduction];
-	steps.push(Initials);
-	steps.push(Background);
-	steps.push(Quiz);
-	return steps;
-});
+
+
 
 // The Round component containing the game UI logic.
 Empirica.round(Round);
@@ -70,7 +83,7 @@ Empirica.exitSteps((game, player) => {
 	) {
 		return [Sorry];
 	}
-	return [PostSurvey, Thanks];
+	return [PostSurvey, ExitSurvey];
 });
 
 /*----------------

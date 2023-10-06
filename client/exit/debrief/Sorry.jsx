@@ -13,10 +13,13 @@ export default class Sorry extends React.Component {
     let msg;
     switch (player.exitStatus) {
       case "gameFull":
-        msg = "All games you are eligible for have filled up too fast...";
+        msg = "All games you are eligible for have been filled. We will pay you $0.10 for you time.";
         break;
       case "gameLobbyTimedOut":
-        msg = "There were NOT enough players for the game to start...";
+        msg = "There were NOT enough players for the game to start. We will pay you $0.40 for your time.";
+        break;
+      case "playerLobbyTimedOut":
+        msg = "There were NOT enough players for the game to start. We will pay you $0.40 for your time.";
         break;
       case "playerEndedLobbyWait":
         msg =
@@ -41,8 +44,10 @@ export default class Sorry extends React.Component {
           <div>
             <h4 className="text-4xl font-semibold mt-8 mb-6">Sorry!</h4>
             <p>Sorry, you were not able to play today! {msg}</p>
+            <p><strong>
+                Please return your participation on Prolific (this will have no adverse effect on your Prolific status).</strong></p>
             <p>
-              <strong>Please contact the researcher at tomyan@umd.edu to see if there are more games available.</strong>{" "}
+                Please contact the researcher if you believe there was a problem.
             </p>
           </div>
         </div>

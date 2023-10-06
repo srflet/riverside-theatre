@@ -9,10 +9,16 @@ export default class Tabs extends Component {
     // Which tab is open or not, with the cluesTable open by default
     state = {
         tabsStatus: {
-            competitionStructure: true,
-            cluesTable: false,
-            police: false,
+            cluesTable: true,
+            competitionStructure: false,
+            sharedInfo: false,
             earlySub: false
+        },
+
+        collabStatus: {
+            cluesTable: true,
+            sharedInfo: false,
+
         }
     }
 
@@ -20,8 +26,18 @@ export default class Tabs extends Component {
     updateStatus = name => {
 
         // Get every possible tab
-        let tabsStatus = this.state.tabsStatus;
+        const { stage } = this.props
+
+        let tabsStatus = null
+        if (stage.name === "discussion") {
+            tabsStatus = this.state.tabsStatus;
+        } else {
+            tabsStatus = this.state.collabStatus;
+        }
+
         let tabs = Object.keys(tabsStatus);
+        console.log(stage.name)
+        console.log(tabs)
 
         // For each tab, set the one clicked to the opposite of what it was
         // Open if closed, closed if open
@@ -40,12 +56,21 @@ export default class Tabs extends Component {
 
     render() {
         // Provide the statuses down to the elements of the tabs
-        const { tabsStatus } = this.state;
-
-        return (
+        const { tabsStatus, collabStatus} = this.state;
+        const { stage } = this.props
+        
+        
+        return stage.name === "discussion" 
+        ? (
             <div>
-                <Header tabsStatus={tabsStatus} updateStatus={this.updateStatus} />
+                <Header tabsStatus={tabsStatus} updateStatus={this.updateStatus} stage={stage}/>
                 <Content tabsStatus={tabsStatus} {...this.props} />
+            </div>
+        )
+        : (
+            <div>
+                <Header tabsStatus={collabStatus} updateStatus={this.updateStatus} stage={stage}/>
+                <Content tabsStatus={collabStatus} {...this.props} />
             </div>
         )
     }

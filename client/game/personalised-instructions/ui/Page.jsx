@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 
 // Importing the pages
-import Start from '../pages/Start';
-import IndependentInvestigation from '../pages/IndependentInvestigation';
+import GeneralIntroduction from '../../../intro/GeneralIntroduction';
+import Initials from '../../../intro/Initials';
+import Background from '../../../intro/Background';
+import Quiz from '../pages/Quiz';
+import SharedInfo from '../../../intro/SharedInfo';
+import TeamInformation from '../pages/TeamInformation';
 import IntroDiscussion from '../pages/IntroDiscussion';
-import InitialWhodunit from '../pages/InitialWhodunit';
 import TestIncentives from '../pages/TestIncentives';
-import ClueHints from '../pages/ClueHints';
 import DiscussionInstructionsPage from '../pages/DiscussionInstructionsPage';
-import PoliceInformation from '../pages/PoliceInformation';
-import SummaryClues from '../pages/SummaryClues';
-import ComNComp from '../pages/ComNComp';
-
+import UniqueInformation from '../pages/UniqueInformation';
+import SummaryInfo from '../pages/SummaryInfo';
+import IncentivesManipulation from '../pages/IncentivesManipulation';
+import BrokerageManipulation from '../pages/BrokerageManipulation';
+import TestCommunication from '../pages/TestCommunication';
 // Based on the currentPage number (that the player can change with navigating buttons),
 // show that page and passed down all the props.
 
@@ -20,46 +23,55 @@ export default class Page extends Component {
         const { player, pageDbIndex } = this.props;
         let currentPage = player.get(pageDbIndex);
 
-        if (currentPage === 1) {
+         if (currentPage === 1) {
             return (
-                <Start {...this.props} />
+                <GeneralIntroduction {...this.props} />
             )
         } else if (currentPage === 2) {
             return (
-                <PoliceInformation {...this.props} />
+                <Background {...this.props} />
             )
         } else if (currentPage === 3) {
             return (
-                <IndependentInvestigation {...this.props} />
+                <Quiz {...this.props} />
             )
         } else if (currentPage === 4) {
             return (
-                <SummaryClues {...this.props} />
+                <SharedInfo {...this.props} />
             )
         } else if (currentPage === 5) {
             return (
-                <InitialWhodunit {...this.props} />
+                <TeamInformation {...this.props} />
             )
         } else if (currentPage === 6) {
             return (
-                <IntroDiscussion {...this.props} />
+                <SummaryInfo {...this.props} />
             )
         } else if (currentPage === 7) {
             return (
-                <ComNComp {...this.props} />
+                <IntroDiscussion {...this.props} />
             )
         } else if (currentPage === 8) {
             return (
-                <TestIncentives {...this.props} />
+                <BrokerageManipulation {...this.props} />
             )
         } else if (currentPage === 9) {
             return (
-                <ClueHints {...this.props} />
+                <TestCommunication {...this.props} />
             )
         } else if (currentPage === 10) {
+            return (
+                <IncentivesManipulation {...this.props} />
+            )
+        } else if (currentPage === 11) {
+            return (
+                <TestIncentives {...this.props} />
+            )
+        } else if (currentPage === 12) {
             return (
                 <DiscussionInstructionsPage {...this.props} />
             )
         }
+
     }
 }
